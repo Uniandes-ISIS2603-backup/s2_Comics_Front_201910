@@ -3,5 +3,5 @@
  */
 export const environment = {
   production: true,
-  apiURL: 'http://localhost:8080/sXXX_ZZZ-api/api'
+  apiURL: 'http://localhost:8080/s2_comics-api/api'
 };

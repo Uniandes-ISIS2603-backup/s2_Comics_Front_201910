@@ -1,5 +1,5 @@
 /**
-* This class represents a user of sXXX_ZZZ-Front.
+* This class represents a user of s2_comics-Front.
 * It contains all the information relevant to the user.
 */
 export class User {
