@@ -11,6 +11,7 @@ export interface Vendedor {
     /**
     * The editorial's name
     */
+    
     name: string;
 
     foto:string;
