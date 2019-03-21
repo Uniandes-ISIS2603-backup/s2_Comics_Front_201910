@@ -56,4 +56,58 @@ export class Comprador extends ColeccionistaModule
     {
         return this.nombre;
     }
+
+    /**
+     * Cambia el correo de un comprador
+     * @param correo El correo que será renovado
+     */
+    public setCorreoElectronico(correo:string):void
+    {
+        this.correoElectronico = correo;
+    }
+
+    /**
+     * Cambia el nombre de un comprador
+     * @param nombre El nombre nuevo del comprador
+     */
+    public setNombre(nombre:string):void
+    {
+        this.nombre = nombre;
+    }
+
+    /**
+     * Cambia el id de un comprador
+     * @param id el id nuevo de un comprador
+     */
+    public setId(id:number):void
+    {
+        this.id = id;
+    }
+
+    /**
+     * Cambia la foto de un comprador.
+     * @param foto la nueva foto del comprador
+     */
+    public setFoto(foto:string):void
+    {
+        this.foto = foto;
+    }
+
+    /**
+     * Cambia lo intereses de un comprador.
+     * @param intereses Lo intereses nuevos del comprador.
+     */
+    public setIntereses(intereses:string):void
+    {
+        this.intereses = intereses;
+    }
+
+    /**
+     * Cambia el alias de un comprador.
+     * @param alias el alias nuevo de un comprador.
+     */
+    public setAlias(alias:string):void
+    {
+        this.alias = alias;
+    }
 }

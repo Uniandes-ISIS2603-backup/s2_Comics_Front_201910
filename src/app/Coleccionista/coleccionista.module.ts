@@ -1,3 +1,6 @@
+/**
+ * Clase abstracta que representa un coleccionista
+ */
 export abstract class ColeccionistaModule
 {
     /**
