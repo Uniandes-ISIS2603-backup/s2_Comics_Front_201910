@@ -7,10 +7,13 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CompradorService } from './comprador.service';
+import { OrdenPedidoModuleModule } from '../OrdenPedido/orden-pedido-module/orden-pedido-module.module';
 
 @NgModule({
-    declarations: [CompradorListComponent,
-    CompradorDetail],
+    declarations: [
+        CompradorListComponent,
+        CompradorDetail,
+        OrdenPedidoModuleModule],
     imports: [ 
         BrowserModule, 
         AppRoutingModule,
