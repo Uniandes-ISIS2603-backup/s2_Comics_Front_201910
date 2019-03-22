@@ -1,5 +1,8 @@
 import {ColeccionistaModule} from '../Coleccionista/coleccionista.module'
 
+/**
+ * Clase que representa el comprador.
+ */
 export class Comprador extends ColeccionistaModule
 {
     /**
