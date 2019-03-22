@@ -20,6 +20,7 @@ import { CompradorService } from './comprador.service';
     providers: [CompradorService],
     bootstrap: [CompradorListComponent]
 })
+
 export class CompradorModule 
 {
     OnInit()
