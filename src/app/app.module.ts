@@ -13,7 +13,7 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-
+import { VendedorModule } from './vendedor/vendedor.module';
 
 
 
@@ -27,6 +27,7 @@ import {AuthModule} from './auth/auth.module';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        VendedorModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,

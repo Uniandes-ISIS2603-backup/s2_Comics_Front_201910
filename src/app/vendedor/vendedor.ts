@@ -2,19 +2,18 @@
 * This class represents an editorial of the BookStore. 
 * It contains all the information relevant to the editorial.
 */
-export interface Vendedor {
+import {ColeccionistaModule} from '../Coleccionista/coleccionista.module'
+export class Vendedor extends ColeccionistaModule{
     /**
     * The editorial's id
     */
-    id: number;
+  
 
     /**
     * The editorial's name
     */
     
-    name: string;
-
-    foto:string;
+   
   
 
 }
