@@ -2,8 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Comprador } from "./comprador";
-import { environment } from "src/environments/environment";
-import { ObjectOrientedRenderer3 } from "@angular/core/src/render3/interfaces/renderer";
+import { environment } from "../../environments/environment";
 import { CompradorDetail } from "./comprador-detail";
 
 
