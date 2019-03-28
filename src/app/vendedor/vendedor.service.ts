@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Vendedor } from './vendedor';
 import { Observable } from 'rxjs';
-import { VendedorDetail} from './vendedor-detail';
+
 const API_URL = "../../assets/";
 const vendedores = 'vendedores.json';
 
@@ -22,10 +22,6 @@ export class VendedorService {
   
     getVendedores() : Observable<Vendedor[]> {
         return this.http.get<Vendedor[]>(API_URL + vendedores);
-    }
-    
-    getVendedorDetail(vendedorId):Observable<VendedorDetail>{
-        return this.http.get<VendedorDetail>(API_URL+vendedores+'/'+vendedorId);
     }
     
 }

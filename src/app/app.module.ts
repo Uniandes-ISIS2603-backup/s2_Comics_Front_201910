@@ -14,7 +14,7 @@ import {CommonModule} from '@angular/common';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-import { VendedorModule } from './vendedor/vendedor.module';
+
 
 @NgModule({
     declarations: [
@@ -24,7 +24,6 @@ import { VendedorModule } from './vendedor/vendedor.module';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        VendedorModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,

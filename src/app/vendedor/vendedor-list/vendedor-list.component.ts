@@ -6,8 +6,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Vendedor } from '../vendedor';
 import { VendedorService } from '../vendedor.service';
-import { ActivatedRoute } from '@angular/router';
- import{VendedorDetail}from '../vendedor-detail';
+
 /**
  * The component for the list of editorials in the BookStore
  */
@@ -21,14 +20,12 @@ export class VendedorListComponent implements OnInit {
      * Constructor for the component
      * @param editorialService The author's services provider
      */
-    constructor(private vendedorService: VendedorService, private route: ActivatedRoute) { }
+    constructor(private vendedorService: VendedorService) { }
     
     /**
      * The list of editorials which belong to the BookStore
      */
     vendedores: Vendedor[];
-
-
 
     /**
      * Asks the service to update the list of editorials
