@@ -9,7 +9,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
-
+import {ComicDeseoModule} from './ComicDeseo/comicDeseo.module';
+import {CommonModule} from '@angular/common';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
@@ -30,7 +31,9 @@ import {AuthModule} from './auth/auth.module';
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
+        ComicDeseoModule,
         FormsModule,
+        CommonModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
