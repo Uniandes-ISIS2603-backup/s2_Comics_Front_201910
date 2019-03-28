@@ -13,14 +13,12 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-import { OrdenPedidoComponentComponent } from './OrdenPedido/orden-pedido-module/orden-pedido-component/orden-pedido-component.component';
-import {CompradorModule} from './Comprador/comprador.module'
+import { CompradorModule } from './Comprador/comprador.module';
+import { OrdenPedidoModuleModule } from './OrdenPedido/orden-pedido-module/orden-pedido-module.module';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        OrdenPedidoComponentComponent,
-        CompradorModule
+        AppComponent
     ],
     imports: [
         BrowserModule,
@@ -37,7 +35,9 @@ import {CompradorModule} from './Comprador/comprador.module'
         }),
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
-        NgbModule
+        NgbModule,
+        CompradorModule,
+        OrdenPedidoModuleModule
     ],
     bootstrap: [AppComponent],
     providers: [
