@@ -1,4 +1,4 @@
-<div class="container-fluid">
+ <!--<div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <div class="form-inline">
@@ -41,5 +41,15 @@
                 <a routerLink="/home"> s2_comics-Front</a>
             </p>
         </div>
-    </footer>         
-</div>
+    </footer>
+</div> -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a id="vendedoresTag" class="nav-link" routerLink="/vendedores/list">Vendedores</a>
+    </li>
+    <li class="nav-item">
+        <a id="calificacionesTag" class="nav-link" routerLink="/authors/list">Calificaciones</a>
+    </li>
+  
+</ul>
+<router-outlet></router-outlet>

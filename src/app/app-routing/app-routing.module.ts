@@ -6,8 +6,11 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
-const routes: Routes = [
+import { VendedorListComponent } from '../vendedor/vendedor-list/vendedor-list.component';
+import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-detail.component';
 
+const routes: Routes = [
+/*
      {
         path: 'auth',
         children: [
@@ -40,7 +43,16 @@ const routes: Routes = [
     {
         path: '**',
         redirectTo: 'home',
+    }*/
+     {path: 'vendedores',
+    children:[{
+      path:'list',
+      component: VendedorListComponent
+    },{
+      path:':id',
+      component: VendedorDetailComponent
     }
+    ]}
 ];
 
 @NgModule({
