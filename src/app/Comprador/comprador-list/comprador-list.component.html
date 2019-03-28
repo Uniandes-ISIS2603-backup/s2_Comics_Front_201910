@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-4">
+        <div class="col">
             <br>
             <div class="row justify-content-center align-self-center">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
@@ -13,16 +13,22 @@
                     <tr>
                         <th scope="col">id</th>
                         <th>nombre</th>
+                        <th>avatar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let comprador of compradores">
-                        <td>{{comprador.id}}</td>
+                    <tr *ngFor="let comprador of compradores" (click)="onSelected(comprador.id)">
+                        <td style="cursor: pointer;">{{comprador.id}}</td>
                         <td>{{comprador.nombre}}</td>
-
+                        <td><img src={{comprador.foto}} alt=""></td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="col-8">
+            <div *ngIf="selectedComprador">
+                <app-comprador-detail [compradorDetail]="selectedComprador"></app-comprador-detail>
+            </div>
         </div>
     </div>
 </div>
