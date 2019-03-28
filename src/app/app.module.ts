@@ -14,13 +14,11 @@ import {CommonModule} from '@angular/common';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-//import { OrdenPedidoModule } from './OrdenPedido/orden-pedido-module';
 
 
 @NgModule({
     declarations: [
         AppComponent,
-     //   OrdenPedidoModule
     ],
     imports: [
         BrowserModule,
