@@ -5,6 +5,8 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { CompradorListComponent } from '../Comprador/comprador-list/comprador-list.component';
+import { CompradorDetailComponent } from '../Comprador/comprador-detail/comprador-detail.component';
 
 const routes: Routes = [
 
@@ -30,6 +32,19 @@ const routes: Routes = [
                         only: ['GUEST']
                     }
                 }
+            }
+        ]
+    },
+    {
+        path: 'comprador',
+        children: [
+            {
+                path: 'list',
+                component: CompradorListComponent
+            },
+            {
+                path: 'id',
+                component: CompradorDetailComponent
             }
         ]
     },
