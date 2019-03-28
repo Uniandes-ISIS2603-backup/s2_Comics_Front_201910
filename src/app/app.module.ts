@@ -14,6 +14,7 @@ import {CommonModule} from '@angular/common';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import {OrdenPedidoModule} from './OrdenPedido/ordenPedido.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {AuthModule} from './auth/auth.module';
         ComicDeseoModule,
         FormsModule,
         CommonModule,
+        OrdenPedidoModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
