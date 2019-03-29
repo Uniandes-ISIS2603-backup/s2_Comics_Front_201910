@@ -39,7 +39,7 @@ const routes: Routes = [
         path: 'comprador',
         children: [
             {
-                path: 'list',
+                path: '',
                 component: CompradorListComponent
             },
             {

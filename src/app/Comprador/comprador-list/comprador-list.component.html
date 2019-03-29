@@ -8,7 +8,7 @@
             </div>
             <br>
             <br>
-            <table class="table">
+            <table class="table table-hover">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">id</th>
@@ -27,7 +27,7 @@
         </div>
         <div class="col-8">
             <div *ngIf="selectedComprador">
-                <app-comprador-detail [compradorDetail]="selectedComprador"></app-comprador-detail>
+                <app-comprador-detail></app-comprador-detail>
             </div>
         </div>
     </div>

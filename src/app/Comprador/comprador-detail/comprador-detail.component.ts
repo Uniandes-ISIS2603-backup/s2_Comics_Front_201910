@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { CompradorService } from "../comprador.service";
 import { CompradorDetail } from "../comprador-detail";
@@ -30,7 +30,7 @@ export class CompradorDetailComponent implements OnInit
     /**
      * El comprador.
      */
-    compradorDetail:CompradorDetail;
+    @Input() compradorDetail:CompradorDetail;
 
     /**
      * El  id del comprador que viene de la ruta de acceso.
@@ -55,7 +55,11 @@ export class CompradorDetailComponent implements OnInit
      */
     ngOnInit()
     {
-        this.compradorDetail = new CompradorDetail();
-        this.getCompradorDetail();
+        this.id = +this.route.snapshot.paramMap.get('id');
+        if(this.id)
+        {
+            this.compradorDetail = new CompradorDetail();
+            this.getCompradorDetail();
+        }
     }
 }

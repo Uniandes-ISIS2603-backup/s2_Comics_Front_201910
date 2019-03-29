@@ -7,8 +7,8 @@ import { CompradorDetail } from "./comprador-detail";
 
 
 //const API_URL = environment.apiURL;
-const compradores = '/compradores.json';
-const API_URL = '../../assets/';
+const compradores = '/comprador';
+const API_URL = environment.apiURL;
 
 /**
  * El servicio proveedor para todos los compradores relacionados.
