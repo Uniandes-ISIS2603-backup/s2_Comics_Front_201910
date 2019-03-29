@@ -2,18 +2,12 @@
     <div class="row">
         <div class="col">
             <br>
-            <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear un comprador</button>
-            </div>
-            <br>
-            <br>
             <table class="table table-hover">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">id</th>
-                        <th>nombre</th>
-                        <th>avatar</th>
+                        <th scope="col">Id</th>
+                        <th>Nombre</th>
+                        <th>Avatar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,7 +21,7 @@
         </div>
         <div class="col-8">
             <div *ngIf="selectedComprador">
-                <app-comprador-detail></app-comprador-detail>
+                <app-comprador-detail [compradorDetail]="selectedComprador"></app-comprador-detail>
             </div>
         </div>
     </div>
