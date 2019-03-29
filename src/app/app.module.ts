@@ -16,6 +16,7 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import { CompradorModule } from './Comprador/comprador.module';
 import { OrdenPedidoModuleModule } from './OrdenPedido/orden-pedido-module/orden-pedido-module.module';
+import { VendedorModule } from './vendedor/vendedor.module';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { OrdenPedidoModuleModule } from './OrdenPedido/orden-pedido-module/orden
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        VendedorModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
