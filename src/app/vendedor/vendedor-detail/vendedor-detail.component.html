@@ -10,7 +10,8 @@
 			</thead>
                         <tbody>
                             <tr>
-                                <td>Calificaciones</td>
+                               <td style="cursor: pointer;">
+                        <dd class="figure-caption"(click)=" calificacionListComponent.isCollapsed = !calificacionListComponent.isCollapsed" >Calificaciones</dd></td>
                             </tr>
                             <tr>
                                 <td>1</td>
@@ -41,12 +42,14 @@
                             </tr><tr>
                                <td>Correo electrónico: </td><td>{{vendedorDetail.correoElectronico}}</td>
                             </tr><tr>
-                               <td>Intereses: </td><td>{{vendedorDetail.intereses}}</td>
+                                   <td>Intereses: </td><td>{{vendedorDetail.intereses}}</td>
                             </tr>
                             
                             
                         </tbody>
            </table>
-        </div>
+            <app-vendedor-calificaciones></app-vendedor-calificaciones>
+
+            </div>
     </div>
 </div>
