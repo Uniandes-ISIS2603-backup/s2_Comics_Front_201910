@@ -11,18 +11,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let comprador of compradores" (click)="onSelected(comprador.id)">
-                        <td style="cursor: pointer;">{{comprador.id}}</td>
+                    <tr *ngFor="let comprador of compradores">
+                        <td style="cursor: pointer;">
+                            <dd class="figure-caption" routerLink="/comprador/{{comprador.id}}">{{comprador.id}}</dd>
+                        </td>
                         <td>{{comprador.nombre}}</td>
                         <td><img src={{comprador.foto}} alt=""></td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div class="col-8">
-            <div *ngIf="selectedComprador">
-                <app-comprador-detail [compradorDetail]="selectedComprador"></app-comprador-detail>
-            </div>
         </div>
     </div>
 </div>

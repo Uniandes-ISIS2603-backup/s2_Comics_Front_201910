@@ -30,7 +30,7 @@ export class CompradorDetailComponent implements OnInit
     /**
      * El comprador.
      */
-    @Input() compradorDetail:CompradorDetail;
+    compradorDetail:CompradorDetail;
 
     /**
      * El  id del comprador que viene de la ruta de acceso.

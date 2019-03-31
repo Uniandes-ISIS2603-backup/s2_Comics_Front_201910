@@ -14,7 +14,7 @@ import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-de
 import { CalificacionListComponent } from '../calificacion/calificacion-list/calificacion-list.component';
 const routes: Routes = [
 
-    /* {
+     {
         path: 'auth',
         children: [
             {
@@ -60,10 +60,11 @@ const routes: Routes = [
         path: '**',
         redirectTo: 'home',
     }
-     ,*/{path: 'vendedores',
-    children:[{
-      path:'list',
-      component: VendedorListComponent
+    ,{
+        path: 'vendedores',
+        children:[{
+            path:'list',
+            component: VendedorListComponent
     },{
       path:':id',
       component: VendedorDetailComponent

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { CompradorService } from '../comprador.service';
 import { Comprador } from '../comprador';
-import { CompradorDetail } from '../comprador-detail';
 
 @Component({
     selector: 'app-comprador',
@@ -24,15 +23,6 @@ export class CompradorListComponent implements OnInit
      * La lista de los compradores que pertenece a la tienda de comics
      */
     compradores:Comprador[];
-    compradorId:number;
-    selectedComprador:Comprador;
-
-    onSelected(compradorId:number):void
-    {
-        this.compradorId = compradorId;
-        this.selectedComprador = new CompradorDetail();
-        this.getCompradorDetail();
-    }
 
     /**
      * Pide al servicio actualizar la lista de compradores.
@@ -42,18 +32,6 @@ export class CompradorListComponent implements OnInit
         this.compradorService.getCompradores()
             .subscribe(compradores => {
                 this.compradores = compradores;
-            });
-    }
-
-    /**
-     * 
-     */
-    getCompradorDetail():void
-    {
-        this.compradorService.getCompradorDetail(this.compradorId)
-        .subscribe(selectedComprador=>
-            {
-                this.selectedComprador = selectedComprador;
             });
     }
 
