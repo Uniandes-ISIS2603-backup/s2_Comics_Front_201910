@@ -47,7 +47,7 @@ const routes: Routes = [
                 component: CompradorListComponent
             },
             {
-                path: 'id',
+                path: ':id',
                 component: CompradorDetailComponent
             }
         ]
