@@ -17,10 +17,12 @@ import {AuthModule} from './auth/auth.module';
 import { CompradorModule } from './Comprador/comprador.module';
 import { OrdenPedidoModuleModule } from './OrdenPedido/orden-pedido-module/orden-pedido-module.module';
 import { VendedorModule } from './vendedor/vendedor.module';
+import { FormularioComponent } from './Coleccionista/FormularioComponente/formulario.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        FormularioComponent
     ],
     imports: [
         BrowserModule,

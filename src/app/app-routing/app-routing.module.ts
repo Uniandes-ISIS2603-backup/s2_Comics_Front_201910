@@ -12,6 +12,7 @@ import { VendedorListComponent } from '../vendedor/vendedor-list/vendedor-list.c
 import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-detail.component';
 
 import { CalificacionListComponent } from '../calificacion/calificacion-list/calificacion-list.component';
+import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 const routes: Routes = [
 
      {
@@ -38,6 +39,10 @@ const routes: Routes = [
                 }
             }
         ]
+    },
+    {
+        path: 'form',
+        component: FormularioComponent
     },
     {
         path: 'comprador',

@@ -5,6 +5,15 @@ import {ColeccionistaModule} from '../Coleccionista/coleccionista.module'
  */
 export class Comprador extends ColeccionistaModule
 {
+    /*constructor(public id: number,
+        public alias: string,
+        public intereses: string,
+        public correoElectronico: string,
+        public foto: string,
+        public nombre: string)
+    {
+        super();
+    }*/
     /**
      * Representa el id del comprador
      * @return un número con el id del comprador
