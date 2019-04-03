@@ -8,6 +8,7 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 
 const routes: Routes = [
 
+    
      {
         path: 'auth',
         children: [
@@ -41,6 +42,7 @@ const routes: Routes = [
         path: '**',
         redirectTo: 'home',
     }
+  
 ];
 
 @NgModule({
