@@ -1,13 +1,12 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Vendedor } from './vendedor';
 import { Observable } from 'rxjs';
-import { VendedorDetail} from './vendedor-detail';
-import {Calificacion} from './calificacion';
-const API_URL = "http://localhost:8080/s2_comics-api/api";
-const vendedores = '/vendedores';
-const calificaciones='/calificaciones';
+
+const API_URL = "../../assets/";
+const vendedores = 'vendedores.json';
+
 /**
 * The service provider for everything related to vendedores
 */
@@ -23,15 +22,6 @@ export class VendedorService {
   
     getVendedores() : Observable<Vendedor[]> {
         return this.http.get<Vendedor[]>(API_URL + vendedores);
-    }
-    
-    getVendedorDetail(vendedorId):Observable<VendedorDetail>{
-   
-        return this.http.get<VendedorDetail>(API_URL + vendedores+'/'+vendedorId);
-    }
-    getCalificaciones(vendedorId):Observable<Calificacion[]>{
-   
-        return this.http.get<Calificacion[]>(API_URL + vendedores+'/'+vendedorId + calificaciones);
     }
     
 }
