@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { OrdenPedido} from './ordenPedido';
 import {Observable} from 'rxjs';
 
-const API_URL = "../../assests";
+const API_URL = "../../assets/";
 const ordenesPedido= 'ordenesPedido.json'
 
 @Injectable()

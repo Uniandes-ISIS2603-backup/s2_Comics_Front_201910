@@ -1,0 +1,24 @@
+[{
+    "nombre": "SuperMan",
+      "id":1
+},{
+    "nombre": "Doom",
+      "id":2    
+  },
+      {
+    "nombre": "SpiderMan",
+      "id":3
+},{
+    "nombre": "Avengers",
+      "id":4
+},{
+    "nombre": "WonderWoman",
+      "id":5
+},{
+    "nombre": "X-Men",
+      "id":6
+}
+,{
+    "nombre": "X-Men",
+      "id":6
+}]

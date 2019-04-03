@@ -1,14 +1,13 @@
-export class OrdenPedido{
-     
+export class OrdenPedido {
+
     /**
-     * fecha de agregado del comic a la lista de deseos
-     */
-   // fechaAgregado:Date;
-     
-     nombre:String;
-     
-     id:Number;
-    
-    
-    
+    * The OrdenPedido's name
+    */
+   nombre: string;
+    /**
+    * The ordenPedido's id
+    */
+    id: number;
+
+   
 }

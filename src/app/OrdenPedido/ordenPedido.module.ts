@@ -25,7 +25,6 @@ import { OrdenPedidoListComponent } from './orden-pedido-list/orden-pedido-list.
      OrdenPedidoListComponent],
     exports:[OrdenPedidoListComponent],
     providers: [OrdenPedidoService],
-    bootstrap: [OrdenPedidoListComponent]
-})
+   })
 
 export class OrdenPedidoModule { }
