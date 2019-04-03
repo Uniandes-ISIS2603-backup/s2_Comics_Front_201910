@@ -3,15 +3,33 @@
       <table class="table table-striped">
           <thead class="thead-dark">
               <tr>
-                  <th>OrdenPedido Name</th> 
                   <th>OrdenPedido id</th>
+                  <th> estado</th>
+                  <th> comprador</th>
+                  <th> vendedor</th>
+                  <th> comic</th>
+                  <th> trueque</th>
+                  <th> numeroCompras</th>
+                  <th> fechaEstimadaEntrega</th>
+                  <th> tarjetaCredito</th>
+                  <th> comentario</th>
+
               </tr>
               
           </thead>
           <tbody>
               <tr *ngFor = "let ordenPedido of ordenesPedido">
-                  <td>{{ordenPedido.nombre}}</td>
                   <td>{{ordenPedido.id}}</td>
+                  <td>{{ordenPedido.estado}}</td>
+                  <td>{{ordenPedido.comprador}}</td>
+                  <td>{{ordenPedido.vendedor}}</td>
+                  <td>{{ordenPedido.comic}}</td>
+                  <td>{{ordenPedido.trueque}}</td>
+                  <td>{{ordenPedido.numeroCompras}}</td>
+                  <td>{{ordenPedido.fechaEstimadaEntrega}}</td>
+                  <td>{{ordenPedido.tarjetaCredito}}</td>
+                  <td>{{ordenPedido.comentario}}</td>
+                  
               </tr>
           </tbody>
           
