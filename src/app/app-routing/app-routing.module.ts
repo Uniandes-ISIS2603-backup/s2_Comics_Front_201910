@@ -60,16 +60,7 @@ const routes: Routes = [
                 component: CompradorDetailComponent
             }
         ]
-    },
-    {
-        path: 'home',
-        component: AuthLoginComponent
-    },
-    {
-        path: '**',
-        redirectTo: 'home',
-    }
-    ,{
+    } ,{
         path: 'vendedores',
         children:[{
             path:'list',
@@ -81,7 +72,16 @@ const routes: Routes = [
       
     }
      
-     ]}
+     ]},
+    {
+        path: 'home',
+        component: AuthLoginComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'home',
+    }
+  
     
 ];
 
