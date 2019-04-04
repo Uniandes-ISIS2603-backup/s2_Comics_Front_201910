@@ -21,6 +21,9 @@ export class VendedorCalificacionesComponent implements OnInit {
     getCalificaciones(): void {
         this.vendedorService.getCalificaciones(this.vendedorId).subscribe(vendedorCalificaciones => this.vendedorCalificaciones = vendedorCalificaciones);
     }
+    updateCalificaciones(calificaciones:Calificacion[]): void {
+        this.vendedorCalificaciones = calificaciones;
+    }
     ngOnInit(){
          this.vendedorId = +this.route.snapshot.paramMap.get('id');
         this.getCalificaciones();
