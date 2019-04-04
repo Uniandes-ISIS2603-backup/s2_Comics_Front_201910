@@ -5,7 +5,7 @@
  */
 
 
-import { Calificacion } from "../calificacion/calificacion";
+import { Calificacion } from "./calificacion";
 
 import { Vendedor } from "./vendedor";
 

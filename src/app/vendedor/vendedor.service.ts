@@ -34,4 +34,8 @@ export class VendedorService {
         return this.http.get<Calificacion[]>(API_URL + vendedores+'/'+vendedorId + calificaciones);
     }
     
+    createCalificacion(vendedorId,calificacion){
+        return this.http.post<Calificacion>(API_URL + vendedores+'/'+vendedorId + calificaciones,calificacion);
+    }
+    
 }

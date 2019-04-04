@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { VendedorService } from '../vendedor.service';
 import { VendedorDetail } from '../vendedor-detail';
 import {VendedorCalificacionesComponent} from '../Vendedor-Calificaciones/vendedor-calificaciones.component';
+import {VendedorAddCalificacionComponent} from '../vendedor-add-calificacion/vendedor-add-calificacion.component';
 import { Vendedor } from '../vendedor';
 @Component({
   selector: 'app-vendedor-detail',
@@ -29,8 +30,19 @@ vendedorId: number;
             });
     }
     @ViewChild(VendedorCalificacionesComponent) calificacionListComponent: VendedorCalificacionesComponent;
-    
+    @ViewChild(VendedorAddCalificacionComponent) calificacionAddComponent: VendedorAddCalificacionComponent;
      
+    
+       toggleCreateCalificacion(): void {
+      
+        this.calificacionAddComponent.isCollapsed = !this.calificacionAddComponent.isCollapsed;
+    }
+     updateReviews(): void {
+        this.getVendedorDetail();
+        this.calificacionListComponent.updateCalificaciones(this.vendedorDetail.calificaciones);
+        this.calificacionListComponent.isCollapsed = false;
+        this.calificacionAddComponent.isCollapsed = true;
+    }
   ngOnInit() {
      this.vendedorId = +this.route.snapshot.paramMap.get('id');
     

@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
     selector: 'list-vendedor',
     templateUrl: './vendedor-list.component.html', 
+      styleUrls: ['./vendedor-list.component.css']
 })
 export class VendedorListComponent implements OnInit {
 

@@ -11,8 +11,12 @@ import { CompradorDetailComponent } from '../Comprador/comprador-detail/comprado
 import { VendedorListComponent } from '../vendedor/vendedor-list/vendedor-list.component';
 import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-detail.component';
 
-import { CalificacionListComponent } from '../calificacion/calificacion-list/calificacion-list.component';
+
+
+
+
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
+
 const routes: Routes = [
 
      {
@@ -56,16 +60,7 @@ const routes: Routes = [
                 component: CompradorDetailComponent
             }
         ]
-    },
-    {
-        path: 'home',
-        component: AuthLoginComponent
-    },
-    {
-        path: '**',
-        redirectTo: 'home',
-    }
-    ,{
+    } ,{
         path: 'vendedores',
         children:[{
             path:'list',
@@ -75,10 +70,18 @@ const routes: Routes = [
       component: VendedorDetailComponent
         
       
-    },  {path: ':id/calificaciones',
-              component: CalificacionListComponent}
+    }
      
-     ]}
+     ]},
+    {
+        path: 'home',
+        component: AuthLoginComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'home',
+    }
+  
     
 ];
 

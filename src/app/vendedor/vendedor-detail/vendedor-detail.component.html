@@ -59,6 +59,14 @@
 
                         </tbody>
            </table>
+            <app-vendedor-add-calificacion></app-vendedor-add-calificacion>
+                   <div class="col-md-3">
+                            <p>
+                                <button type="button" class="btn" [ngClass]="{ 'btn-primary': calificacionAddComponent.isCollapsed,'btn-outline-primary':!calificacionAddComponent.isCollapsed}" (click)="toggleCreateCalificacion()">
+                                        Calificar
+                            </button>
+                        </p>
+                    </div>
             <app-vendedor-calificaciones></app-vendedor-calificaciones>
 
             </div>
