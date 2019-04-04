@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 import { Vendedor } from '../vendedor';
 import { VendedorService } from '../vendedor.service';
 import { ActivatedRoute } from '@angular/router';
- import{VendedorDetail}from '../vendedor-detail';
 /**
  * The component for the list of editorials in the BookStore
  */
