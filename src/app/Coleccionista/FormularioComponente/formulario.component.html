@@ -7,11 +7,11 @@
                     <div class="row">
                         <div class="col">
                             <label for="">Primer Nombre</label>
-                            <input type="text" class="form-control" placeholder="Primer Nombre">
+                            <input type="text" class="form-control" placeholder="Primer Nombre" size="100px">
                         </div>
                         <div class="col">
-                            <label for="">Segundo Nombre</label>
-                            <input type="text" class="form-control" placeholder="Segundo Nombre">
+                            <label for="">Apellido</label>
+                            <input type="text" class="form-control" placeholder="Apellido">
                         </div>
                     </div>
                 </div>
@@ -31,8 +31,23 @@
                         else.</small>
                 </div>
                 <div class="form-group" style="text-align: center;">
+                    <label for="" >Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Enter Password">
+                </div>
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" class="custom-control-input" id="defaultInline1">
+                    <label class="custom-control-label" for="defaultInline1">Comprador</label>
+                </div>
+                <div class="custom-control custom-checkbox custom-control-inline">
+                    <input type="checkbox" class="custom-control-input" id="defaultInline2">
+                    <label class="custom-control-label" for="defaultInline2">Vendedor</label>
+                  </div>
+                <div class="form-group" style="text-align: center;">
                     <label for="">Subir foto</label>
                     <input type="file" class="form-control-file" style="text-align: center;">
+                </div>
+                <div class="form-group" style="text-align:center;" id="botonEnviar">
+                    <button type="button" class="btn btn-dark" (click) ="getConsole()">Enviar</button>
                 </div>
             </form>
         </div>
