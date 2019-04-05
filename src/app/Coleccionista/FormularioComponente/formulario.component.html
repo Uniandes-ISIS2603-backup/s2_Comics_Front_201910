@@ -2,27 +2,52 @@
 <div class="conten-fluid">
     <div class="row">
         <div class="mx-auto">
-            <form>
+            <form [formGroup] = "registrationForm" (ngSubmit)="onRegistrationFormSubmit()">
                 <div class="form-group" style="text-align: center;">
                     <div class="row">
-                        <div class="col" [formGroup] = "registrationForm" (ngSubmit)="onRegistrationFormSubmit()">
+                        <div class="col">
                             <label for="">Primer Nombre</label>
                             <input type="text" class="form-control" placeholder="Primer Nombre" size="100px" formControlName="firstName">
                             <div *ngIf="registrationForm.get('firstName').errors  && isSubmitted">
                                 <div *ngIf="registrationForm.get('firstName').hasError('required')">  
-                                    <span style="color: red;">Please Enter First Name.</span>  
+                                    <span style="color: red;">Por favor llene el campo</span>  
+                                </div>
+                                <div *ngIf="registrationForm.get('firstName').hasError('minlength')">
+                                    <span style="color:red;">Por favor ingrese un nombre con al menos 3 caracteres</span>
+                                </div>
+                                <div *ngIf="registrationForm.get('firstName').hasError('maxlength')">
+                                    <span style="color:red;">Por favor ingrese un nombre con máximo 30 caracteres</span>
+                                </div>
+                                <div *ngIf="registrationForm.get('firstName').hasError('pattern')">
+                                    <span style="color:red;">Ingrese un nombre válido</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col">
                             <label for="">Apellido</label>
-                            <input type="text" class="form-control" placeholder="Apellido">
+                            <input type="text" class="form-control" placeholder="Apellido" formControlName = "lastName">
+                            <div *ngIf="registrationForm.get('lastName').errors && isSubmitted">
+                                <div *ngIf="registrationForm.get('lastName').hasError('required')">
+                                    <span style="color:red;">Por favor llene el campo</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group" style="text-align: center;">
                     <label for="">Alias</label>
-                    <input type="text" placeholder="Alias" class="form-control">
+                    <input type="text" placeholder="Alias" class="form-control" formControlName="alias">
+                    <div *ngIf="registrationForm.get('alias').errors && isSubmitted">
+                        <div *ngIf="registrationForm.get('alias').hasError('required')">
+                            <span style="color:red;">Por favor llene este campo</span>
+                        </div>
+                        <div *ngIf="registrationForm.get('alias').hasError('minlength')">
+                            <span style="color:red;">Por favor ingrese un alias con al menos 5 caracteres</span>
+                        </div>
+                        <div *ngIf="registrationForm.get('alias').hasError('maxlength')">
+                            <span style="color:red;">Por favor ingrese un alias con máximo 30 caracteres</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="form group" style="text-align: center; position: relative;">
                     <label for="">Intereses</label>
@@ -31,13 +56,31 @@
                 <div class="form-group" style="text-align: center;">
                     <label for="exampleInputEmail1">Email Address</label>
                     <input type="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp"
-                        placeholder="Enter email">
+                        placeholder="Enter email" formControlName="email">
+                        <div *ngIf="registrationForm.get('email').errors && isSubmitted">
+                            <div *ngIf="registrationForm.get('email').hasError('pattern')">
+                                <span style="color:red;">Ingrese un email válido</span>
+                            </div>
+                            <div *ngIf="registrationForm.get('email').hasError('required')">
+                                <span style="color:red;">Por favor llene el campo</span>
+                            </div>
+                        </div>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
                 <div class="form-group" style="text-align: center;">
                     <label for="" >Contraseña</label>
-                    <input type="password" class="form-control" placeholder="Enter Password" id="pass">
+                    <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
+                    <div *ngIf="registrationForm.get('password').errors && isSubmitted">
+                        <div *ngIf="registrationForm.get('password').hasError('pattern')">
+                            <span style="color:red;">Ingrese una contraseña válida</span>
+                            <br>
+                            <span style="color:rgb(102, 102, 102);">Entre 4 y 8 caracteres, debe tener al menos un número y una mayúscula</span>
+                        </div>
+                        <div *ngIf="registrationForm.get('password').hasError('required')">
+                            <span style="color:red;">Por favor llene el campo</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="custom-control custom-checkbox custom-control-inline">
                     <input type="checkbox" class="custom-control-input" id="defaultInline1">
