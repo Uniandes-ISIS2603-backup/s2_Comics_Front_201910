@@ -1,18 +1,16 @@
-<div class="container-fluid">
-	<div class="col-md-6">
-		<table class="table table-hover">
-			<thead class="thead-dark">
-				<tr>
-					<th colspan="2">Vendedores</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let vendedor of vendedores">
-					<td>{{vendedor.name}}</td>
-					<td>
-						<img src={{vendedor.foto}} class="img-fluid" alt="Responsive image" width="50" height="50">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+	<div class="content-fluid">
+            <div class="row">
+            <div routerLink="/vendedores/{{vendedor.id}}" class="card cartaCuerpo" style="width: 18rem; margin-left: 30px;margin-top: 30px; border-radius: 20px;" *ngFor="let vendedor of vendedores"  >
+
+  <img class="card-img-top" src="{{vendedor.foto}}" alt="Card image cap">
+  <div class="card-body ">
+    <h5 class="card-title">{{vendedor.nombre}}</h5>
+    <p class="card-text">{{vendedor.intereses}}</p>
+    
+  </div>
+            </div>
+</div>
+	
     </div>
+   

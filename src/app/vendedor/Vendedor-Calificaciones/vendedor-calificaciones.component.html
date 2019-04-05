@@ -1,0 +1,17 @@
+
+
+
+<div id="collapseExample" [ngbCollapse]="isCollapsed">
+<table class="table table-striped">
+    <thead class="thead thead-dark">
+    <th>Calificaciones</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let calificacion of vendedorCalificaciones">
+            <td><span id="vendedor-calificacado"><b>Puntuacion: </b></span><span>: </span><span id="calificacion-comentario">{{calificacion.puntuacion}}</span></td>
+             <td><span id="vendedor-calificacado"><b>Comentarios: </b></span><span>: </span><span id="calificacion-comentario">{{calificacion.comentarios}}</span></td>
+        </tr>
+        
+    </tbody>
+</table>
+</div>

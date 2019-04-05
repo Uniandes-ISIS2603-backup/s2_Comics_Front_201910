@@ -1,20 +1,20 @@
 [{
   "id": 1,
-  "name": "Lara Muñoz Marin",
+  "nombre": "Lara Muñoz Marin",
   "foto":"https://cdn1.vectorstock.com/i/1000x1000/25/70/user-icon-woman-profile-human-avatar-vector-10552570.jpg"
 }, {
   "id": 2,
-  "name": "Andrés Castillo Martin",
+  "nombre": "Andrés Castillo Martin",
   "foto":"https://cdn2.vectorstock.com/i/1000x1000/25/31/user-icon-businessman-profile-man-avatar-vector-10552531.jpg"
 },
 {
   "id": 3,
-  "name": "Leyre Ortiz Montero",
+  "nombre": "Leyre Ortiz Montero",
   "foto":"https://cdn1.vectorstock.com/i/1000x1000/25/70/user-icon-woman-profile-human-avatar-vector-10552570.jpg"
 },
 {
   "id": 4,
-  "name": "Jorge Alonso Cortes",
+  "nombre": "Jorge Alonso Cortes",
   "foto":"https://cdn2.vectorstock.com/i/1000x1000/25/31/user-icon-businessman-profile-man-avatar-vector-10552531.jpg"
 
 }]

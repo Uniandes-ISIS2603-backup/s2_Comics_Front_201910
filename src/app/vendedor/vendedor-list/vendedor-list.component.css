@@ -1,0 +1,21 @@
+.cartaCuerpo
+{
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.cartaCuerpo:hover
+{
+    border-radius: 20px;
+    background: grey;
+}
+
+.cartaCuerpo:hover > a.card-link
+{
+    color:white;
+}
+
+a.card-link
+{
+    transition: 0.2s ease-in-out;
+} 

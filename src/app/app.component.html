@@ -1,8 +1,8 @@
-<div class="container-fluid">
+ <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" routerLink="/home">
             <div class="form-inline">
-                <h2 class="mainTitle">s2_comics-Front</h2>
+                <h2 class="mainTitle">Comics Melos</h2>
             </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -11,19 +11,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav mr-auto mt-0">
-                
+                <li class="nav-item" routerLink="/comprador">
+                    <button class="btn btn-light">Compradores</button>
+                </li>
+                <li class="nav-item" routerLink="/form" style="text-align:center; margin-left: 20px;">
+                    <button class="btn btn-dark">Sign Up</button>
+                </li>
             </div>
             <div class="navbar-nav ml-auto flex-column">
                 <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                     <div class="form-inline">
-                        <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/sign-up"><span class="fa fa-user"></span>
-                                Sign Up</a></li>
-                        <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a></li>
+                      
                     </div>
                 </div>
                 <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
                     <div class="form-inline">
-                        <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
+                        <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span></a></li>
                     </div>
                 </div>
             </div>
@@ -35,12 +38,13 @@
         <br>
         <br>
     </div>
-    <footer class="footer bg-light" id="footer">
-        <div class="container">
-            <p class="navbar-text text-center">
-                <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text"></span>
-                <a routerLink="/home"> s2_comics-Front</a>
-            </p>
-        </div>
-    </footer>
-</div>
+</div> 
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a id="vendedoresTag" class="nav-link" routerLink="/vendedores/list">Vendedores</a>
+    </li>
+   
+  
+</ul>
+<router-outlet></router-outlet>
+
