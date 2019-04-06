@@ -1,9 +1,9 @@
-import {ColeccionistaModule} from '../Coleccionista/coleccionista.module'
+import {Coleccionista} from '../Coleccionista/coleccionista'
 
 /**
  * Clase que representa el comprador.
  */
-export class Comprador extends ColeccionistaModule
+export class Comprador extends Coleccionista
 {
     /*constructor(public id: number,
         public alias: string,

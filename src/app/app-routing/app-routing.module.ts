@@ -60,19 +60,20 @@ const routes: Routes = [
                 component: CompradorDetailComponent
             }
         ]
-    } ,{
+    }, {
         path: 'vendedores',
-        children:[{
-            path:'list',
+        children: [{
+            path: 'list',
             component: VendedorListComponent
-    },{
-      path:':id',
-      component: VendedorDetailComponent
-        
-      
-    }
-     
-     ]},
+        }, {
+            path: ':id',
+            component: VendedorDetailComponent
+
+
+        }
+
+        ]
+    },
     {
         path: 'home',
         component: AuthLoginComponent
@@ -81,8 +82,8 @@ const routes: Routes = [
         path: '**',
         redirectTo: 'home',
     }
-  
-    
+
+
 ];
 
 @NgModule({
