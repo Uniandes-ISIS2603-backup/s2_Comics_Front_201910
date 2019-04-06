@@ -32,4 +32,9 @@ export abstract class ColeccionistaModule
      * El nombre de un coleccionista
      */
     nombre:string;
+
+    /**
+     * 
+     */
+    password:string;
 }

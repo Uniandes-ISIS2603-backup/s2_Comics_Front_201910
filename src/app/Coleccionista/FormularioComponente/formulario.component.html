@@ -2,7 +2,7 @@
 <div class="conten-fluid">
     <div class="row">
         <div class="mx-auto">
-            <form [formGroup] = "registrationForm" (ngSubmit)="onRegistrationFormSubmit()">
+            <form [formGroup] = "registrationForm" (ngSubmit)="onRegistrationFormSubmit()" #f="ngForm" novalidate>
                 <div class="form-group" style="text-align: center;">
                     <div class="row">
                         <div class="col">
@@ -75,7 +75,7 @@
                         <div *ngIf="registrationForm.get('password').hasError('pattern')">
                             <span style="color:red;">Ingrese una contraseña válida</span>
                             <br>
-                            <span style="color:rgb(102, 102, 102);">Entre 4 y 8 caracteres, debe tener al menos un número y una mayúscula</span>
+                            <span style="color:rgb(102, 102, 102);">Entre 4 y 10 caracteres, debe tener al menos un número y una mayúscula</span>
                         </div>
                         <div *ngIf="registrationForm.get('password').hasError('required')">
                             <span style="color:red;">Por favor llene el campo</span>

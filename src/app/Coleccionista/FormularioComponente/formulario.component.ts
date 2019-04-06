@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { listener } from "@angular/core/src/render3/instructions";
 import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms";
+import { ColeccionistaModule } from "../coleccionista.module";
 
 
 @Component({
@@ -15,7 +16,12 @@ export class FormularioComponent implements OnInit
     registrationForm : FormGroup;
     isSubmitted: boolean = false;
 
-    constructor(private formBuilder: FormBuilder)
+    /**
+     * 
+     */
+    coleccionista: ColeccionistaModule;
+
+    constructor(protected formBuilder: FormBuilder)
     {
         this.registrationForm = this.formBuilder.group({
             firstName : new FormControl('',[
@@ -38,17 +44,20 @@ export class FormularioComponent implements OnInit
             ]),
             password: new FormControl('',[
                 Validators.required,
-                Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$/)
+                Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,10}$/)
             ])
         });
     }
 
-    onRegistrationFormSubmit():void
+    onRegistrationFormSubmit()
     {  
         this.isSubmitted = true;  
         if(this.registrationForm.valid)
-        {        
-          console.log("User Registration Form Submit", this.registrationForm.value);  
+        {      
+            this.coleccionista.nombre =  this.registrationForm.value.firstName.toString() + " " + this.registrationForm.value.lastName.toString();
+            this.coleccionista.correoElectronico = this.registrationForm.value.email;
+            console.log("El correo: " + this.coleccionista.correoElectronico);
+          //console.log("User Registration Form Submit", this.registrationForm.value.firstName);  
         }
     }
 
