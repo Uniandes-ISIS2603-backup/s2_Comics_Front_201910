@@ -120,9 +120,8 @@ export class FormularioComponent implements OnInit
                     flg = true;
                 }
             });  
-            return flg;      
+        return flg;      
     }
-
     /**
      * 
      */
@@ -132,31 +131,6 @@ export class FormularioComponent implements OnInit
         
         if(this.registrationForm.valid)
         {      
-            // if(c1 && !c2)
-            // {
-            //     
-            //     console.log(this.comprador.id);
-            //     this.compradorService.createComprador(this.comprador).subscribe(()=>{
-            //         this.registrationForm.reset();
-            //         this.update.emit('');
-            //         this.toastrService.success("El comprador fue creado exitosamente", 'comprador añadido');
-            //     }, err =>
-            //     {
-            //         this.toastrService.error(err, 'Error');
-            //     });
-            // }
-            // else if(c2 && !c1)
-            // {
-            //     this.coleccionista = Object.assign({}, this.registrationForm.value);
-
-            //     console.log(this.coleccionista);
-            // }
-            // else if(c1 && c2)
-            // {
-            //     this.coleccionista = Object.assign({}, this.registrationForm.value);
-
-            //     console.log(this.coleccionista);
-            // }
             this.comprador = Object.assign({}, this.registrationForm.value);
             this.vendedor = Object.assign({}, this.registrationForm.value);
 

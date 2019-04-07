@@ -9,7 +9,7 @@
                             <label for="">Nombre Completo</label>
                             <input type="text" class="form-control" placeholder="Nombre Completo" size="100px"
                                 formControlName="nombre">
-                            <div *ngIf="registrationForm.get('nombre').errors  && isSubmitted">
+                            <div *ngIf="(registrationForm.get('nombre').errors  && isSubmitted) || (registrationForm.get('nombre').errors && registrationForm.get('nombre').touched)">
                                 <div *ngIf="registrationForm.get('nombre').hasError('required')">
                                     <span style="color: red;">Por favor llene el campo</span>
                                 </div>
@@ -30,7 +30,7 @@
                 <div class="form-group" style="text-align: center;">
                     <label for="">Alias</label>
                     <input type="text" placeholder="Alias" class="form-control" formControlName="alias">
-                    <div *ngIf="registrationForm.get('alias').errors && isSubmitted">
+                    <div *ngIf="(registrationForm.get('alias').errors && isSubmitted) ||(registrationForm.get('alias').errors && registrationForm.get('alias').touched)">
                         <div *ngIf="registrationForm.get('alias').hasError('required')">
                             <span style="color:red;">Por favor llene este campo</span>
                         </div>
@@ -50,7 +50,7 @@
                     <label for="exampleInputEmail1">Email Address</label>
                     <input type="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp"
                         placeholder="Enter email" formControlName="correoElectronico">
-                    <div *ngIf="registrationForm.get('correoElectronico').errors && isSubmitted">
+                    <div *ngIf="(registrationForm.get('correoElectronico').errors && isSubmitted) || (registrationForm.get('correoElectronico').errors && registrationForm.get('correoElectronico').touched)">
                         <div *ngIf="registrationForm.get('correoElectronico').hasError('pattern')">
                             <span style="color:red;">Ingrese un email válido</span>
                         </div>
@@ -64,7 +64,7 @@
                 <div class="form-group" style="text-align: center;">
                     <label for="">Contraseña</label>
                     <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
-                    <div *ngIf="registrationForm.get('password').errors && isSubmitted">
+                    <div *ngIf="(registrationForm.get('password').errors && isSubmitted) || (registrationForm.get('password').errors && registrationForm.get('password').touched)">
                         <div *ngIf="registrationForm.get('password').hasError('pattern')">
                             <span style="color:red;">Ingrese una contraseña válida</span>
                             <br>
@@ -83,7 +83,7 @@
                         <input type="checkbox" class="custom-control-input" id="defaultInline{{i}}" [formControl] = "control" (change) = "getSelectedRoleValue()">
                         <label class="custom-control-label" for="defaultInline{{i}}">{{values[i]}}</label>
                     </div>
-                    <div *ngIf="valuesError && isSubmitted">
+                    <div *ngIf="(valuesError && isSubmitted) || (valuesError && checkValuesChecked())">
                         <span style="color:red;">Seleccione al menos una opcion</span>
                     </div>
                 </div>
@@ -95,13 +95,12 @@
                 <div class="row" style="text-align: center;">
                     <div class="form-group col" style="text-align:center;" id="botonEnviar">
                         <button type="button" class="btn btn-success"
-                            (click)="onRegistrationFormSubmit()" routerLink="/comprador">Enviar</button>
+                            (click)="onRegistrationFormSubmit()">Enviar</button>
                     </div>
                     <div class="form-group col" style="text-align:center;" id="botonCancelar">
                         <button type="button" class="btn btn-danger" routerLink="/home">Cancelar</button>
                     </div>
                 </div>
-
             </form>
         </div>
     </div>
