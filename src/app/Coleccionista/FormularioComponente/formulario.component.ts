@@ -1,11 +1,12 @@
 import { Component, OnInit, Output } from "@angular/core";
-import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from "@angular/forms";
 import { Coleccionista} from "../coleccionista";
 import { CompradorService } from "../../Comprador/comprador.service";
 import { ToastrService } from "ngx-toastr";
 import { EventEmitter } from "events";
 import { Comprador } from "../../Comprador/comprador";
 import { Vendedor } from "../../vendedor/vendedor";
+import { VendedorService } from "../../vendedor/vendedor.service";
 
 
 @Component({
@@ -18,7 +19,11 @@ export class FormularioComponent implements OnInit
 {
     registrationForm : FormGroup;
     isSubmitted: boolean = false;
+    checkboxGroup: FormGroup;
 
+    values: Array<String> = ["Comprador", "Vendedor"];
+    selectedRole = [];
+    valuesError: Boolean = true;
     /**
      * 
      */
@@ -27,8 +32,11 @@ export class FormularioComponent implements OnInit
     comprador:Comprador;
     vendedor: Vendedor;
 
+    @Output() update = new EventEmitter();
+
     constructor(private formBuilder: FormBuilder,
         private compradorService:CompradorService,
+        private vendedorService: VendedorService,
         private toastrService: ToastrService)
     {
         this.comprador = new Comprador();
@@ -57,49 +65,125 @@ export class FormularioComponent implements OnInit
             intereses: new FormControl(),
             foto : new FormControl()
         });
+
+        this.checkboxGroup = this.formBuilder.group({
+            myValues: this.addValuesControls()
+        });
     }
 
-    @Output() updateCompradores = new EventEmitter();
+    /**
+     * 
+     */
+    addValuesControls()
+    {
+        const arr = this.values.map(element =>
+            {
+                return this.formBuilder.control(false);
+            });
+        return this.formBuilder.array(arr);
+    }
 
+    /**
+     * 
+     */
+    get valuesArray()
+    {
+        return <FormArray>this.checkboxGroup.get('myValues');
+    }
+
+    /**
+     * 
+     */
+    getSelectedRoleValue()
+    {
+        this.selectedRole = [];
+        this.valuesArray.controls.forEach((control, i) =>
+        {
+            if(control.value)
+            {
+                this.selectedRole.push(this.values[i]);
+            }
+        });
+        this.valuesError = this.selectedRole.length > 0 ? false : true;
+    }
+
+    /**
+     * 
+     */
+    checkValuesChecked()
+    {
+        let flg = false;
+        this.valuesArray.controls.forEach(control =>
+            {
+                if(control.touched)
+                {
+                    flg = true;
+                }
+            });  
+            return flg;      
+    }
+
+    /**
+     * 
+     */
     onRegistrationFormSubmit()
     {  
-        var elem1 = <HTMLInputElement>document.getElementById('defaultInline1');
-        var c1 = elem1.checked;
-        var elem2 = <HTMLInputElement>document.getElementById('defaultInline2');
-        var c2 = elem2.checked;
         this.isSubmitted = true;  
-        if (!c1 && !c2)
-        {
-            var error = <HTMLInputElement>document.getElementById('error');
-            error.innerHTML = '<span style="color:red;">Debe seleccionar al menos un campo</span>';
-        }
-
+        
         if(this.registrationForm.valid)
         {      
-            if(c1 && !c2)
-            {
-                this.comprador = Object.assign({}, this.registrationForm.value);
-                console.log(this.comprador.id);
-                this.compradorService.createComprador(this.comprador).subscribe(()=>{
-                    this.registrationForm.reset();
-                    this.updateCompradores.emit('');
-                    this.toastrService.success("El comprador fue creado exitosamente", 'comprador añadido');
-                }, err =>
-                {
-                    this.toastrService.error(err, 'Error');
-                });
-            }
-            else if(c2 && !c1)
-            {
-                this.coleccionista = Object.assign({}, this.registrationForm.value);
+            // if(c1 && !c2)
+            // {
+            //     
+            //     console.log(this.comprador.id);
+            //     this.compradorService.createComprador(this.comprador).subscribe(()=>{
+            //         this.registrationForm.reset();
+            //         this.update.emit('');
+            //         this.toastrService.success("El comprador fue creado exitosamente", 'comprador añadido');
+            //     }, err =>
+            //     {
+            //         this.toastrService.error(err, 'Error');
+            //     });
+            // }
+            // else if(c2 && !c1)
+            // {
+            //     this.coleccionista = Object.assign({}, this.registrationForm.value);
 
-                console.log(this.coleccionista);
-            }
-            else if(c1 && c2)
-            {
-                this.coleccionista = Object.assign({}, this.registrationForm.value);
+            //     console.log(this.coleccionista);
+            // }
+            // else if(c1 && c2)
+            // {
+            //     this.coleccionista = Object.assign({}, this.registrationForm.value);
 
-                console.log(this.coleccionista);
+            //     console.log(this.coleccionista);
+            // }
+            this.comprador = Object.assign({}, this.registrationForm.value);
+            this.vendedor = Object.assign({}, this.registrationForm.value);
+
+            for (var i = 0; i < this.selectedRole.length; i++) {
+                if (this.selectedRole[i] == "Comprador") {
+                    this.compradorService.createComprador(this.comprador).subscribe(()=>
+                    {
+                        this.registrationForm.reset();
+                        this.update.emit('');
+                        this.toastrService.success("El comprador fue creado exitosamente", 'comprador añadido');
+                    }, err =>
+                    {
+                        this.toastrService.error(err, 'Error');
+                    });
+                }
+                else if (this.selectedRole[i] == "Vendedor") {
+                    this.vendedorService.createVendedor(this.vendedor).subscribe(()=>
+                    {
+                        this.registrationForm.reset();
+                        this.update.emit('');
+                        this.toastrService.success("El vendedor fue creado exitosamente", 'vendedor añadido');
+                    },
+                    err =>
+                    {
+                        this.toastrService.error(err, "Error");
+                    });
+                }
             }
         }
     }

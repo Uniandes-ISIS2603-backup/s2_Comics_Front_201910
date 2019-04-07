@@ -76,19 +76,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group" style="text-align: center;">
+                <div class="form-group" style="text-align: center;" [formGroup] = "checkboxGroup">
                     <label for="">Rol de usuario</label>
                     <br>
-                    <div class="custom-control custom-checkbox custom-control-inline">
-                        <input type="checkbox" class="custom-control-input" id="defaultInline1">
-                        <label class="custom-control-label" for="defaultInline1">Comprador</label>
+                    <div class="custom-control custom-checkbox custom-control-inline" *ngFor="let control of valuesArray.controls; let i= index;">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline{{i}}" [formControl] = "control" (change) = "getSelectedRoleValue()">
+                        <label class="custom-control-label" for="defaultInline{{i}}">{{values[i]}}</label>
                     </div>
-                    <div class="custom-control custom-checkbox custom-control-inline">
-                        <input type="checkbox" class="custom-control-input" id="defaultInline2">
-                        <label class="custom-control-label" for="defaultInline2">Vendedor</label>
-                    </div>
-                    <br>
-                    <div id="error">
+                    <div *ngIf="valuesError && isSubmitted">
+                        <span style="color:red;">Seleccione al menos una opcion</span>
                     </div>
                 </div>
 
@@ -99,7 +95,7 @@
                 <div class="row" style="text-align: center;">
                     <div class="form-group col" style="text-align:center;" id="botonEnviar">
                         <button type="button" class="btn btn-success"
-                            (click)="onRegistrationFormSubmit()">Enviar</button>
+                            (click)="onRegistrationFormSubmit()" routerLink="/comprador">Enviar</button>
                     </div>
                     <div class="form-group col" style="text-align:center;" id="botonCancelar">
                         <button type="button" class="btn btn-danger" routerLink="/home">Cancelar</button>

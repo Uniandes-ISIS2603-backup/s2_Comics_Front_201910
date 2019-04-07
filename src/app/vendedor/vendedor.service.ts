@@ -37,5 +37,10 @@ export class VendedorService {
     createCalificacion(vendedorId,calificacion){
         return this.http.post<Calificacion>(API_URL + vendedores+'/'+vendedorId + calificaciones,calificacion);
     }
+
+    createVendedor(vendedor):Observable<Vendedor>
+    {
+        return this.http.post<Vendedor>(API_URL + vendedores, vendedor);
+    }
     
 }
