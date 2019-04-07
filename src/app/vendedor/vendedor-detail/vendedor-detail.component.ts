@@ -37,7 +37,7 @@ vendedorId: number;
       
         this.calificacionAddComponent.isCollapsed = !this.calificacionAddComponent.isCollapsed;
     }
-     updateReviews(): void {
+     updateCalificaciones(): void {
         this.getVendedorDetail();
         this.calificacionListComponent.updateCalificaciones(this.vendedorDetail.calificaciones);
         this.calificacionListComponent.isCollapsed = false;

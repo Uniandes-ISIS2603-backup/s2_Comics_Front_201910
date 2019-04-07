@@ -15,6 +15,6 @@ export class Calificacion {
 
     comentarios :string;
   
-
+    usuario:string;
 }
 
