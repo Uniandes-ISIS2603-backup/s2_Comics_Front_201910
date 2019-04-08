@@ -1,7 +1,7 @@
 /**
  * Clase abstracta que representa un coleccionista
  */
-export abstract class ColeccionistaModule
+export abstract class Coleccionista
 {
     /**
      * El id de un coleccionista
@@ -32,4 +32,9 @@ export abstract class ColeccionistaModule
      * El nombre de un coleccionista
      */
     nombre:string;
+
+    /**
+     * 
+     */
+    password:string;
 }

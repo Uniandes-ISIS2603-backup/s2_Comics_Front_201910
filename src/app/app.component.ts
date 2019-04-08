@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
         this.authService.start();
     }
 
-       /**
+    /**
      * @ignore
      */
     constructor(private authService: AuthService) { }
@@ -34,8 +34,3 @@ export class AppComponent implements OnInit {
     }
 
 }
-
-
-
-
-

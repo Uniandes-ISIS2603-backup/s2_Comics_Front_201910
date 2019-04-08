@@ -10,6 +10,7 @@ import { Comprador } from '../comprador';
 
 export class CompradorListComponent implements OnInit
 {
+    static count:number = 0;
     /**
      * Constructor del componente
      * @param compradorService El servicio proveedor de comprador
@@ -32,6 +33,7 @@ export class CompradorListComponent implements OnInit
         this.compradorService.getCompradores()
             .subscribe(compradores => {
                 this.compradores = compradores;
+                CompradorListComponent.count = this.compradores.length;
             });
     }
 
