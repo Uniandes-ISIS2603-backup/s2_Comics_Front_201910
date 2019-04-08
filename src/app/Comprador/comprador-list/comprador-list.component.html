@@ -1,0 +1,43 @@
+<!--<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <br>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th>Nombre</th>
+                        <th>Avatar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let comprador of compradores">
+                        <td style="cursor: pointer;">
+                            <dd class="figure-caption" routerLink="/comprador/{{comprador.id}}">{{comprador.id}}</dd>
+                        </td>
+                        <td>{{comprador.nombre}}</td>
+                        <td><img src={{comprador.foto}} alt=""></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>-->
+<div class="content-fluid">
+    <div class="row">
+        <div class="card text-center" style="width: 18rem; margin-left: 30px;margin-top: 30px; border-radius: 20px;"
+            *ngFor="let comprador of compradores">
+            <img class="card-img-top" src="{{comprador.foto}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{comprador.nombre}}</h5>
+                <p class="card-text">{{comprador.intereses}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{comprador.correoElectronico}}</li>
+                <li class="list-group-item">{{comprador.alias}}</li>
+            </ul>
+            <div class="card-body cartaCuerpo" routerLink="/comprador/{{comprador.id}}">
+                <a routerLink="/comprador/{{comprador.id}}" class="card-link">Ver más...</a>
+            </div>
+        </div>
+    </div>

@@ -6,13 +6,14 @@ import { Component, OnInit } from '@angular/core';
 
 import { Vendedor } from '../vendedor';
 import { VendedorService } from '../vendedor.service';
-
+import { ActivatedRoute } from '@angular/router';
 /**
  * The component for the list of editorials in the BookStore
  */
 @Component({
     selector: 'list-vendedor',
     templateUrl: './vendedor-list.component.html', 
+      styleUrls: ['./vendedor-list.component.css']
 })
 export class VendedorListComponent implements OnInit {
 

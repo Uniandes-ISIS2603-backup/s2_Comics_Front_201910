@@ -2,7 +2,9 @@
 * This class represents an editorial of the BookStore. 
 * It contains all the information relevant to the editorial.
 */
-export interface Vendedor {
+import {Coleccionista} from '../Coleccionista/coleccionista'
+export class Vendedor extends Coleccionista
+{
     /**
     * The editorial's id
     */
