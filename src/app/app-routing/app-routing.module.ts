@@ -5,6 +5,7 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import {OrdenPedidoListComponent} from '../OrdenPedido/orden-pedido-list/orden-pedido-list.component';
 
 const routes: Routes = [
 
@@ -39,6 +40,10 @@ const routes: Routes = [
         component: AuthLoginComponent
     },
     {
+        path: 'orden',
+        component: OrdenPedidoListComponent,
+    },
+    {
         path: '**',
         redirectTo: 'home',
     }
@@ -56,3 +61,5 @@ const routes: Routes = [
 export class AppRoutingModule {
 
 }
+
+
