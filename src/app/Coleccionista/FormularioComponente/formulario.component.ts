@@ -1,12 +1,12 @@
 import { Component, OnInit, Output } from "@angular/core";
 import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from "@angular/forms";
-import { Coleccionista} from "../coleccionista";
 import { CompradorService } from "../../Comprador/comprador.service";
 import { ToastrService } from "ngx-toastr";
 import { EventEmitter } from "events";
 import { Comprador } from "../../Comprador/comprador";
 import { Vendedor } from "../../vendedor/vendedor";
 import { VendedorService } from "../../vendedor/vendedor.service";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -17,27 +17,63 @@ import { VendedorService } from "../../vendedor/vendedor.service";
 
 export class FormularioComponent implements OnInit
 {
-    registrationForm : FormGroup;
-    isSubmitted: boolean = false;
-    checkboxGroup: FormGroup;
-
-    values: Array<String> = ["Comprador", "Vendedor"];
-    selectedRole = [];
-    valuesError: Boolean = true;
     /**
      * 
      */
-    coleccionista: Coleccionista;
+    registrationForm : FormGroup;
 
+    /**
+     * 
+     */
+    isSubmitted: boolean = false;
+
+    /**
+     * 
+     */
+    checkboxGroup: FormGroup;
+
+    /**
+     * 
+     */
+    values: Array<String> = ["Comprador", "Vendedor"];
+
+    /**
+     * 
+     */
+    selectedRole = [];
+
+    /**
+     * 
+     */
+    valuesError: Boolean = true;
+
+    /**
+     * 
+     */
     comprador:Comprador;
+
+    /**
+     * 
+     */
     vendedor: Vendedor;
 
+    /**
+     * 
+     */
     @Output() update = new EventEmitter();
 
+    /**
+     * 
+     * @param formBuilder 
+     * @param compradorService 
+     * @param vendedorService 
+     * @param toastrService 
+     */
     constructor(private formBuilder: FormBuilder,
         private compradorService:CompradorService,
         private vendedorService: VendedorService,
-        private toastrService: ToastrService)
+        private toastrService: ToastrService,
+        private router:Router)
     {
         this.comprador = new Comprador();
         this.vendedor = new Vendedor();
@@ -159,11 +195,16 @@ export class FormularioComponent implements OnInit
                     });
                 }
             }
+            this.router.navigate(['/home']);
         }
     }
 
+    /**
+     * 
+     */
     ngOnInit()
     {
         this.comprador = new Comprador();
+        this.vendedor = new Vendedor();
     }
 }

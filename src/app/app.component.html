@@ -1,48 +1,63 @@
  <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" routerLink="/home">
-            <div class="form-inline">
-                <h2 class="mainTitle">Comics Melos</h2>
-            </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav mr-auto mt-0">
-                <li class="nav-item" routerLink="/vendedores/list">
-                    <button class="btn btn-light">
-                        Vendedores
-                    </button>
-                </li>
-                <li class="nav-item" routerLink="/comprador" style="text-align:center; margin-left: 10px;">
-                    <button class="btn btn-light">Compradores</button>
-                </li>
-                <li class="nav-item" routerLink="/form" style="text-align:center; margin-left: 20px;">
-                    <button class="btn btn-dark">Sign Up</button>
-                </li>
-            </div>
-            <div class="navbar-nav ml-auto flex-column">
-                <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
-                    <div class="form-inline">
-                      
-                    </div>
-                </div>
-                <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
-                    <div class="form-inline">
-                        <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span></a></li>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <a class="navbar-brand" routerLink="/home">
+             <div class="form-inline">
+                 <h2 class="mainTitle">Comics Melos</h2>
+             </div>
+         </a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <div class="navbar-nav mr-auto mt-0">
+                 <li class="nav-item" routerLink="/vendedores/list">
+                     <button class="btn btn-light">
+                         Vendedores
+                     </button>
+                 </li>
+                 <li class="nav-item" routerLink="/comprador" style="text-align:center; margin-left: 10px;">
+                     <button class="btn btn-light">Compradores</button>
+                 </li>
+             </div>
+             <div style="text-align: right;">
+                 <div class="btn-group">
+                     <button type="button" class="btn btn-info">Log In</button>
+                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         <span class="sr-only">Toggle Dropdown</span>
+                     </button>
+                     <div class="dropdown-menu">
+                         <app-login></app-login>
+                     </div>
+                 </div>
 
-    <div>
-        <router-outlet></router-outlet>
-        <br>
-        <br>
-    </div>
-</div> 
-<router-outlet></router-outlet>
+                 <div class="btn-group" routerLink="/form" style="text-align:center; margin-left: 20px;">
+                     <button class="btn btn-outline-info">Sign Up</button>
+                 </div>
+             </div>
 
+
+             <div class="navbar-nav ml-auto flex-column">
+                 <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
+                     <div class="form-inline">
+
+                     </div>
+                 </div>
+                 <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
+                     <div class="form-inline">
+                         <li><a id="logout-navbar-item" (click)="logout()" href="#"><span
+                                     class="fa fa-sign-out"></span></a></li>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </nav>
+
+     <div>
+         <router-outlet></router-outlet>
+         <br>
+         <br>
+     </div>
+ </div>
+ <router-outlet></router-outlet>
