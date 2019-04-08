@@ -60,10 +60,11 @@ export class LogInComponent implements OnInit {
                                 this.vendedor = user;
                                 if(this.vendedor.password == password)
                                 {
-                                    this.router.navigate(['vendedores/' + this.vendedor.id]);
+                                    this.router.navigate(['/vendedores/' + this.vendedor.id]);
                                     this.logInForm.reset();
                                 }
-                                else{
+                                else
+                                {
                                     console.log("Error");
                                     
                                 }
