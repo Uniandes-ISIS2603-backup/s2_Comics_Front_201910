@@ -24,6 +24,11 @@ export class VendedorService {
     getVendedores() : Observable<Vendedor[]> {
         return this.http.get<Vendedor[]>(API_URL + vendedores);
     }
+
+    getVendedorByAlias(alias):Observable<VendedorDetail>
+    {
+        return this.http.get<VendedorDetail>(API_URL + vendedores + '/' + alias);
+    }
     
     getVendedorDetail(vendedorId):Observable<VendedorDetail>{
    
