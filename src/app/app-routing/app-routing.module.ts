@@ -41,7 +41,12 @@ const routes: Routes = [
     },
     {
         path: 'orden',
+        children:[{path:'list',
         component: OrdenPedidoListComponent,
+       
+        
+        }]
+        
     },
     {
         path: '**',
