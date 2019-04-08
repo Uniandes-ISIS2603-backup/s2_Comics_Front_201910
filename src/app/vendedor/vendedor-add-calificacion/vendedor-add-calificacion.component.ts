@@ -6,11 +6,11 @@
     
 import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { NgForm } from '@angular/forms';
+import { NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Calificacion } from '../calificacion';
 import { VendedorService } from '../vendedor.service';
-import { Vendedor } from '../vendedor';
+import { VendedorDetail } from '../vendedor-detail';
 @Component({
     selector: 'app-vendedor-add-calificacion',
     templateUrl: './vendedor-add-calificacion.component.html',
@@ -25,7 +25,7 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
 
     ) { }
     
-     @Input() vendedor: Vendedor;
+     @Input() vendedor: VendedorDetail;
 
      vendedorId:number;
     /**
@@ -38,7 +38,10 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
     @Output() updateCalificaciones = new EventEmitter();
     
      postCalificacion(calificacionForm: NgForm): Calificacion {
-        
+         
+         if (this.calificacion.puntuacion!=null){
+           
+         
         this.vendedorService.createCalificacion(this.vendedorId,this.calificacion)
             .subscribe(() => {
                 calificacionForm.resetForm();
@@ -47,15 +50,31 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
             }, err => {
                 this.toastrService.error(err, 'Error');
             });
+         }
         return this.calificacion;
     }
     ngOnInit(){
           this.vendedorId = +this.route.snapshot.paramMap.get('id');
           this.calificacion=new Calificacion();
+         this.vendedorService.getVendedorDetail(this.vendedorId).subscribe(vendedor=>{this.vendedor=vendedor;});
     }
     ngOnChanges() {
         this.ngOnInit();
     }
+    starList: boolean[] = [true,true,true,true,true];       // create a list which contains status of 5 stars
+
+
+setStar(data:any){
+      this.calificacion.puntuacion=data+1;                               
+      for(var i=0;i<=4;i++){  
+        if(i<=data){  
+          this.starList[i]=false;  
+        }  
+        else{  
+          this.starList[i]=true;  
+        }  
+     }  
+ }  
 }
 
 
