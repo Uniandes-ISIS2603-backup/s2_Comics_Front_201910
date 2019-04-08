@@ -34,11 +34,5 @@ describe('AppComponent', () => {
         expect(app.title).toEqual(component.title);
     }));
 
-    it('Should render titles in the navbar', async(()=>
-    {
-        fixture.detectChanges();
-        const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('').textContent).toContain('');
-    }))
 });
 

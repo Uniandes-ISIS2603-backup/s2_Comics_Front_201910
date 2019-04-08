@@ -4,34 +4,34 @@ import { Component, OnInit } from '@angular/core';
 
 
 
-import { Vendedor } from '../vendedor';
-import { VendedorService } from '../vendedor.service';
+import { Calificacion} from '../calificacion';
+import { CalificacionService } from '../calificacion.service';
 
 /**
  * The component for the list of editorials in the BookStore
  */
 @Component({
-    selector: 'list-vendedor',
-    templateUrl: './vendedor-list.component.html', 
+    selector: 'list-calificacion',
+    templateUrl: './calificacion-list.component.html', 
 })
-export class VendedorListComponent implements OnInit {
+export class CalificacionListComponent implements OnInit {
 
     /**
      * Constructor for the component
      * @param editorialService The author's services provider
      */
-    constructor(private vendedorService: VendedorService) { }
+    constructor(private calificacionService: CalificacionService) { }
     
     /**
      * The list of editorials which belong to the BookStore
      */
-    vendedores: Vendedor[];
+    calificaciones: Calificacion[];
 
     /**
      * Asks the service to update the list of editorials
      */
-    getVendedores(): void {
-        this.vendedorService.getVendedores().subscribe(vendedores => this.vendedores = vendedores);
+    getCalificaciones(): void {
+        this.calificacionService.getCalificaciones().subscribe(calificaciones => this.calificaciones = calificaciones);
     }
 
     /**
@@ -39,6 +39,6 @@ export class VendedorListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
-        this.getVendedores();
+        this.getCalificaciones();
     }
 }

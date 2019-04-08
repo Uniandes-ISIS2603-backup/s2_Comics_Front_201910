@@ -2,7 +2,7 @@
 * This class represents an editorial of the BookStore. 
 * It contains all the information relevant to the editorial.
 */
-export class Calificacion {
+export interface Calificacion {
     /**
     * The editorial's id
     */
@@ -15,6 +15,6 @@ export class Calificacion {
 
     comentarios :string;
   
-    usuario:string;
+
 }
 

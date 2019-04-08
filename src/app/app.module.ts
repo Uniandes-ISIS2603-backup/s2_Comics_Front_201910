@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from 'ngx-toastr';
@@ -14,19 +14,14 @@ import {CommonModule} from '@angular/common';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-import { CompradorModule } from './Comprador/comprador.module';
-import { VendedorModule } from './vendedor/vendedor.module';
-import { FormularioComponent } from './Coleccionista/FormularioComponente/formulario.component';
-import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.component';
+import {OrdenPedidoModule} from './OrdenPedido/ordenPedido.module';
+
 
 @NgModule({
     declarations: [
         AppComponent,
-        FormularioComponent,
-        LogInComponent
     ],
     imports: [
-        ReactiveFormsModule,
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
@@ -36,6 +31,7 @@ import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.compo
         ComicDeseoModule,
         FormsModule,
         CommonModule,
+        OrdenPedidoModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',

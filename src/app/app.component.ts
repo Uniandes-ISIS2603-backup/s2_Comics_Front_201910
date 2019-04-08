@@ -21,11 +21,11 @@ export class AppComponent implements OnInit {
      * Assigns a title to the web page
      */
     ngOnInit(): void {
-        this.title = "Tienda de Comics";
+        this.title = "s2_comics-Front";
         this.authService.start();
     }
 
-    /**
+       /**
      * @ignore
      */
     constructor(private authService: AuthService) { }
@@ -35,3 +35,8 @@ export class AppComponent implements OnInit {
     }
 
 }
+
+
+
+
+
