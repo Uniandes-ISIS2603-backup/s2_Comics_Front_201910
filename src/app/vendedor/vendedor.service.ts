@@ -5,7 +5,7 @@ import { Vendedor } from './vendedor';
 import { Observable } from 'rxjs';
 import { VendedorDetail} from './vendedor-detail';
 import {Calificacion} from './calificacion';
-const API_URL = "http://localhost:8080/s2_comics-api/api";
+const API_URL = "http://172.24.41.62:8080/s2_comics-api/api";
 const vendedores = '/vendedores';
 const calificaciones='/calificaciones';
 /**
@@ -24,6 +24,11 @@ export class VendedorService {
     getVendedores() : Observable<Vendedor[]> {
         return this.http.get<Vendedor[]>(API_URL + vendedores);
     }
+
+    getVendedorByAlias(alias):Observable<VendedorDetail>
+    {
+        return this.http.get<VendedorDetail>(API_URL + vendedores + '/' + alias);
+    }
     
     getVendedorDetail(vendedorId):Observable<VendedorDetail>{
    
@@ -36,6 +41,11 @@ export class VendedorService {
     
     createCalificacion(vendedorId,calificacion){
         return this.http.post<Calificacion>(API_URL + vendedores+'/'+vendedorId + calificaciones,calificacion);
+    }
+
+    createVendedor(vendedor):Observable<Vendedor>
+    {
+        return this.http.post<Vendedor>(API_URL + vendedores, vendedor);
     }
     
 }

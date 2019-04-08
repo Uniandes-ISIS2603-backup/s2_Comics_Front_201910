@@ -42,4 +42,21 @@ export class CompradorService
     {
         return this.http.get<CompradorDetail>(API_URL + compradores + '/' + compradorId);
     }
+
+    /**
+     * Obtiene el comprador a partir del alias.
+     * @param alias El alias del comprador que se va a buscar.
+     */
+    getCompradorByAlias(alias):Observable<CompradorDetail>
+    {
+        return this.http.get<CompradorDetail>(API_URL + compradores + '/' + alias);
+    }
+
+    /**
+     * Crea un comprador en la base de datos
+     * @param comprador El comrpador a crear
+     */
+    createComprador(comprador): Observable<Comprador> {
+        return this.http.post<Comprador>(API_URL + compradores, comprador);
+    }
 }

@@ -2,33 +2,26 @@
 <div class="conten-fluid">
     <div class="row">
         <div class="mx-auto">
-            <form [formGroup] = "registrationForm" (ngSubmit)="onRegistrationFormSubmit()">
+            <form [formGroup]="registrationForm" (ngSubmit)="onRegistrationFormSubmit()" #f="ngForm" novalidate>
                 <div class="form-group" style="text-align: center;">
                     <div class="row">
                         <div class="col">
-                            <label for="">Primer Nombre</label>
-                            <input type="text" class="form-control" placeholder="Primer Nombre" size="100px" formControlName="firstName">
-                            <div *ngIf="registrationForm.get('firstName').errors  && isSubmitted">
-                                <div *ngIf="registrationForm.get('firstName').hasError('required')">  
-                                    <span style="color: red;">Por favor llene el campo</span>  
+                            <label for="">Nombre Completo</label>
+                            <input type="text" class="form-control" placeholder="Nombre Completo" size="100px"
+                                formControlName="nombre">
+                            <div *ngIf="(registrationForm.get('nombre').errors  && isSubmitted) || (registrationForm.get('nombre').errors && registrationForm.get('nombre').touched)">
+                                <div *ngIf="registrationForm.get('nombre').hasError('required')">
+                                    <span style="color: red;">Por favor llene el campo</span>
                                 </div>
-                                <div *ngIf="registrationForm.get('firstName').hasError('minlength')">
-                                    <span style="color:red;">Por favor ingrese un nombre con al menos 3 caracteres</span>
+                                <div *ngIf="registrationForm.get('nombre').hasError('minlength')">
+                                    <span style="color:red;">Por favor ingrese un nombre con al menos 3
+                                        caracteres</span>
                                 </div>
-                                <div *ngIf="registrationForm.get('firstName').hasError('maxlength')">
+                                <div *ngIf="registrationForm.get('nombre').hasError('maxlength')">
                                     <span style="color:red;">Por favor ingrese un nombre con máximo 30 caracteres</span>
                                 </div>
-                                <div *ngIf="registrationForm.get('firstName').hasError('pattern')">
+                                <div *ngIf="registrationForm.get('nombre').hasError('pattern')">
                                     <span style="color:red;">Ingrese un nombre válido</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <label for="">Apellido</label>
-                            <input type="text" class="form-control" placeholder="Apellido" formControlName = "lastName">
-                            <div *ngIf="registrationForm.get('lastName').errors && isSubmitted">
-                                <div *ngIf="registrationForm.get('lastName').hasError('required')">
-                                    <span style="color:red;">Por favor llene el campo</span>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +30,7 @@
                 <div class="form-group" style="text-align: center;">
                     <label for="">Alias</label>
                     <input type="text" placeholder="Alias" class="form-control" formControlName="alias">
-                    <div *ngIf="registrationForm.get('alias').errors && isSubmitted">
+                    <div *ngIf="(registrationForm.get('alias').errors && isSubmitted) ||(registrationForm.get('alias').errors && registrationForm.get('alias').touched)">
                         <div *ngIf="registrationForm.get('alias').hasError('required')">
                             <span style="color:red;">Por favor llene este campo</span>
                         </div>
@@ -51,51 +44,62 @@
                 </div>
                 <div class="form group" style="text-align: center; position: relative;">
                     <label for="">Intereses</label>
-                    <textarea name="" id="" cols="10" rows="5" class="form-control" placeholder="Intereses"></textarea>
+                    <textarea name="" id="" cols="10" rows="5" class="form-control" placeholder="Intereses" formControlName="intereses"></textarea>
                 </div>
                 <div class="form-group" style="text-align: center;">
                     <label for="exampleInputEmail1">Email Address</label>
                     <input type="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp"
-                        placeholder="Enter email" formControlName="email">
-                        <div *ngIf="registrationForm.get('email').errors && isSubmitted">
-                            <div *ngIf="registrationForm.get('email').hasError('pattern')">
-                                <span style="color:red;">Ingrese un email válido</span>
-                            </div>
-                            <div *ngIf="registrationForm.get('email').hasError('required')">
-                                <span style="color:red;">Por favor llene el campo</span>
-                            </div>
+                        placeholder="Enter email" formControlName="correoElectronico">
+                    <div *ngIf="(registrationForm.get('correoElectronico').errors && isSubmitted) || (registrationForm.get('correoElectronico').errors && registrationForm.get('correoElectronico').touched)">
+                        <div *ngIf="registrationForm.get('correoElectronico').hasError('pattern')">
+                            <span style="color:red;">Ingrese un email válido</span>
                         </div>
+                        <div *ngIf="registrationForm.get('correoElectronico').hasError('required')">
+                            <span style="color:red;">Por favor llene el campo</span>
+                        </div>
+                    </div>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
                 <div class="form-group" style="text-align: center;">
-                    <label for="" >Contraseña</label>
+                    <label for="">Contraseña</label>
                     <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
-                    <div *ngIf="registrationForm.get('password').errors && isSubmitted">
+                    <div *ngIf="(registrationForm.get('password').errors && isSubmitted) || (registrationForm.get('password').errors && registrationForm.get('password').touched)">
                         <div *ngIf="registrationForm.get('password').hasError('pattern')">
                             <span style="color:red;">Ingrese una contraseña válida</span>
                             <br>
-                            <span style="color:rgb(102, 102, 102);">Entre 4 y 8 caracteres, debe tener al menos un número y una mayúscula</span>
+                            <span style="color:rgb(102, 102, 102);">Entre 4 y 10 caracteres, debe tener al menos un
+                                número y una mayúscula</span>
                         </div>
                         <div *ngIf="registrationForm.get('password').hasError('required')">
                             <span style="color:red;">Por favor llene el campo</span>
                         </div>
                     </div>
                 </div>
-                <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="defaultInline1">
-                    <label class="custom-control-label" for="defaultInline1">Comprador</label>
+                <div class="form-group" style="text-align: center;" [formGroup] = "checkboxGroup">
+                    <label for="">Rol de usuario</label>
+                    <br>
+                    <div class="custom-control custom-checkbox custom-control-inline" *ngFor="let control of valuesArray.controls; let i= index;">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline{{i}}" [formControl] = "control" (change) = "getSelectedRoleValue()">
+                        <label class="custom-control-label" for="defaultInline{{i}}">{{values[i]}}</label>
+                    </div>
+                    <div *ngIf="(valuesError && isSubmitted) || (valuesError && checkValuesChecked())">
+                        <span style="color:red;">Seleccione al menos una opcion</span>
+                    </div>
                 </div>
-                <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="defaultInline2">
-                    <label class="custom-control-label" for="defaultInline2">Vendedor</label>
-                  </div>
+
                 <div class="form-group" style="text-align: center;">
                     <label for="">Subir foto</label>
                     <input type="file" class="form-control-file" style="text-align: center;">
                 </div>
-                <div class="form-group" style="text-align:center;" id="botonEnviar">
-                    <button type="button" class="btn btn-dark" (click) ="onRegistrationFormSubmit()">Enviar</button>
+                <div class="row" style="text-align: center;">
+                    <div class="form-group col" style="text-align:center;" id="botonEnviar">
+                        <button type="button" class="btn btn-success"
+                            (click)="onRegistrationFormSubmit()">Enviar</button>
+                    </div>
+                    <div class="form-group col" style="text-align:center;" id="botonCancelar">
+                        <button type="button" class="btn btn-danger" routerLink="/home">Cancelar</button>
+                    </div>
                 </div>
             </form>
         </div>
