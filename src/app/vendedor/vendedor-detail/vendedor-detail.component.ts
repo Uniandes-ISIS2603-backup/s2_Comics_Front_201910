@@ -31,12 +31,13 @@ vendedorId: number;
     }
     @ViewChild(VendedorCalificacionesComponent) calificacionListComponent: VendedorCalificacionesComponent;
     @ViewChild(VendedorAddCalificacionComponent) calificacionAddComponent: VendedorAddCalificacionComponent;
-     
+
     
        toggleCreateCalificacion(): void {
       
         this.calificacionAddComponent.isCollapsed = !this.calificacionAddComponent.isCollapsed;
     }
+   
      updateCalificaciones(): void {
         this.getVendedorDetail();
         this.calificacionListComponent.updateCalificaciones(this.vendedorDetail.calificaciones);
@@ -49,8 +50,21 @@ vendedorId: number;
         this.vendedorDetail = new VendedorDetail();
         this.getVendedorDetail();
      
-
+ 
   }
-  
+  starList:boolean[] =[true,true,true,true,true];
+      setStar(puntuacion:number):boolean[]{
+       
+      for(var i=0;i<=4;i++){  
+          if (i <= puntuacion-1){  
+          this.starList[i]=false;  
+         
+        }  
+        else{  
+          this.starList[i]=true;  
+        }  
+     }  
+     return this.starList
+ }  
 
 }

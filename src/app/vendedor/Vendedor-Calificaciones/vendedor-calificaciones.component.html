@@ -1,6 +1,5 @@
 
 
-
 <div id="collapseExample" [ngbCollapse]="isCollapsed">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                     <style>
@@ -8,6 +7,7 @@
                     color: orange;
                         }
                     </style>
+    
 <table class="table table">
     <thead class="thead thead-dark">
     <th>Calificaciones</th>
@@ -19,7 +19,7 @@
         
     <tbody>
         <tr >
-            
+          {{  add(calificacion.puntuacion)}}
             <td><span id="vendedor-calificacado"><b>Puntuacion: </b></span>
               
                     
@@ -29,12 +29,21 @@
              
         </tr>
         <tr>
-            <td><span id="vendedor-calificacado"><b>Comentarios: </b></span><span id="calificacion-comentario">{{calificacion.comentarios}}</span></td>
+            <td><span id="vendedor-calificacado"><b >Comentarios: </b></span><span id="calificacion-comentario" >{{calificacion.comentarios}}</span></td>
+           
         </tr>
+     
+    </tbody>
+    <div class="text-right" style="font-size: 12px">
+        <dd class="figure-caption "(click)=" calificacionEditComponent.isCollapsed = !calificacionEditComponent.isCollapsed;calificacionEditComponent.calificacion.id=calificacion.id">Editar </dd>
+    </div>
+
+</table>
+
     </tbody>
 </table>
-    </tbody>
-</table>
+<app-vendedor-edit-calificacion></app-vendedor-edit-calificacion>
+
     <html>
 <head>
 <!-- Font Awesome Icon Library -->
