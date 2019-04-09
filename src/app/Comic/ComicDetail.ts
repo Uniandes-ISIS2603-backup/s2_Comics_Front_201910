@@ -1,4 +1,4 @@
-import Comic from "./Comic";
+import {Comic} from "./Comic";
 
 export class ComicDetail extends Comic{
 

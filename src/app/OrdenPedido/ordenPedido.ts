@@ -1,3 +1,7 @@
+import {Vendedor} from "../vendedor/vendedor";
+import {Comic} from "../comic/comic";
+
+    
 export class OrdenPedido {
 
     /**
@@ -23,17 +27,17 @@ export class OrdenPedido {
     /**
      * Alias del vendedor al cual esta dirigida la orden
      */
-    vendedor: String;
+    vendedor: Vendedor;
     
     /**
      * Nombre del comic que se va a comprar o intercambiar
      */
-     comic: String;
+     comic: Comic;
     
     /**
      * Nombre comic que se va a intercambiar
      */
-     trueque: String;
+     trueque: Comic;
     
 /**
  * numero de compras realizadas por el comprador asociado a la orden
@@ -52,6 +56,7 @@ export class OrdenPedido {
   
     //CONSTRUCTORES
     /**
-     * Constructoe vacio
+     * 
      */
+    
 }

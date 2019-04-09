@@ -3,11 +3,10 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {NgxPermissionsGuard} from 'ngx-permissions';
 
-import { VendedorListComponent } from '../vendedor/vendedor-list/vendedor-list.component';
-
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import {OrdenPedidoListComponent} from '../OrdenPedido/orden-pedido-list/orden-pedido-list.component';
+import {OrdenPedidoDetailComponent} from '../OrdenPedido/orden-pedido-detail/orden-pedido-detail.component';
 
 const routes: Routes = [
 
@@ -45,9 +44,12 @@ const routes: Routes = [
         path: 'orden',
         children:[{path:'list',
         component: OrdenPedidoListComponent,
+       },
+       {path:'detail',
+        component: OrdenPedidoDetailComponent,
        
-        
-        }]
+       },
+    ]
         
     },
     {

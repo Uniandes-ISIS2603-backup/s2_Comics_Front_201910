@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import {OrdenPedidoService} from './ordenPedido.service'
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { OrdenPedidoListComponent } from './orden-pedido-list/orden-pedido-list.component';
+import { OrdenPedidoDetailComponent } from './orden-pedido-detail/orden-pedido-detail.component';
+import { OrdenPedidoCreateComponent } from './orden-pedido-create/orden-pedido-create.component';
 
 
 
@@ -22,8 +24,10 @@ import { OrdenPedidoListComponent } from './orden-pedido-list/orden-pedido-list.
         
     ],
     declarations: [
-     OrdenPedidoListComponent],
-    exports:[OrdenPedidoListComponent],
+     OrdenPedidoListComponent,
+     OrdenPedidoDetailComponent,
+     OrdenPedidoCreateComponent],
+    exports:[OrdenPedidoListComponent,OrdenPedidoDetailComponent, OrdenPedidoCreateComponent],
     providers: [OrdenPedidoService],
    })
 
