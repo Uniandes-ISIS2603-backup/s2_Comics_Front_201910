@@ -1,26 +1,27 @@
-import { Vendedor } from "../vendedor/vendedor";
+//import { Vendedor } from "../vendedor/vendedor";
 
-export class Comic{
- 
-    id: number;
+export class Comic{ 
+  id: number;
 
-    nombre: string;
+  nombre: string;
 
-    autor: string;
+  autor: string;
 
-    anoSalida: number;
+  anioSalida: number;
 
-    perteneceColeccion: boolean;
+  perteneceColeccion: boolean;
 
-    perteneceSerie: boolean;
+  perteneceSerie: boolean;
 
-    precio: number;
+  precio: number;
 
-    temaGlobal: String;
+  tema: String;
 
-    venta: boolean;
+  enVenta: boolean;
 
-    informacion: string;
+  informacion: string;
 
-    vendedor: Vendedor;
+  imagen: string;
+
+  //vendedor: Vendedor;
 }
