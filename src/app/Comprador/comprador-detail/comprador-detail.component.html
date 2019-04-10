@@ -45,7 +45,7 @@
     </div>
 </nav>
 
-<h1 style="text-align:center;">Hola {{compradorDetail.nombre}}</h1>
+<!-- <h1 style="text-align:center;">Hola {{compradorDetail.nombre}}</h1>
 <div class="content-fluid">
     <div class="row">
         <img src="{{compradorDetail.foto}}">
@@ -54,4 +54,49 @@
             <h1>Intereses: {{compradorDetail.intereses}}</h1>
         </div>
     </div>
-</div>
+</div> -->
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-6 img">
+        <img src="{{compradorDetail.foto}}"  alt="" class="img-rounded">
+      </div>
+      <div class="col-md-6 details">
+        <blockquote>
+          <h5>Hola {{compradorDetail.alias}}</h5>
+          <small><cite title="Source Title">{{compradorDetail.intereses}}<i class="icon-map-marker"></i></cite></small>
+        </blockquote>
+        <p>{{compradorDetail.nombre}}<br>
+            {{compradorDetail.correoElectronico}}<br>
+        </p>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="container-fluid">
+      <div class="row profile">
+          <div class="col-md-3">
+              <div class="profile-sidebar">
+                  <div class="profile-user-pic">
+                      <img src="{{compradorDetail.foto}}" alt="" class="img-responsive img-circle">
+                  </div>
+                  <hr>
+                  <div class="profile-user-title">
+                      <div class="profile-user-name">
+                          {{compradorDetail.nombre}}
+                      </div>
+                      <div class="profile-user-email">
+                            {{compradorDetail.correoElectronico}}
+                      </div>
+                      <div class="profile-user-int">
+                          {{compradorDetail.intereses}}
+                      </div>
+                  </div>
+                  <div class="profile-user-buttons">
+                      <button class="btn btn-success btn-sm">
+                          Editar
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>

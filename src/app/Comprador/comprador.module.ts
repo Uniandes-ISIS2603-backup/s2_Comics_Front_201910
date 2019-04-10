@@ -8,11 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { CompradorService } from './comprador.service';
 import { OrdenPedidoModuleModule } from '../OrdenPedido/orden-pedido-module/orden-pedido-module.module';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
+import { CompradorEditComponent } from './comprador-edit/comprador-edit.component';
 
 @NgModule({
     declarations: [
         CompradorListComponent,
-        CompradorDetailComponent],
+        CompradorDetailComponent,
+        CompradorEditComponent],
     imports: [ 
         BrowserModule, 
         AppRoutingModule,
@@ -20,8 +22,7 @@ import { CompradorDetailComponent } from './comprador-detail/comprador-detail.co
         OrdenPedidoModuleModule,
         CommonModule,
         FormsModule],
-    providers: [CompradorService],
-    bootstrap: [CompradorListComponent]
+    providers: [CompradorService]
 })
 
 export class CompradorModule 
