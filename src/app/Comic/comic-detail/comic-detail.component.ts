@@ -34,6 +34,8 @@ export class ComicDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.id = +this.route.snapshot.paramMap.get('id');
+    this.comic = new Comic();
     this.getComicDetail();
   }
 
