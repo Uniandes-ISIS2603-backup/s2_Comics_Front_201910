@@ -5,21 +5,26 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
-import {OrdenPedidoListComponent} from '../OrdenPedido/orden-pedido-list/orden-pedido-list.component';
-import {OrdenPedidoDetailComponent} from '../OrdenPedido/orden-pedido-detail/orden-pedido-detail.component';
-import { CompradorListComponent } from '../Comprador/comprador-list/comprador-list.component';
-import { CompradorDetailComponent } from '../Comprador/comprador-detail/comprador-detail.component';
-
-import { VendedorListComponent } from '../vendedor/vendedor-list/vendedor-list.component';
-import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-detail.component';
-
-import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
-import { ComicListComponent } from '../comic/comic-list/comic-list.component';
-import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
+import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
+import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
+//import { ComicDeseoDetailComponent } from '../ComicDeseo/ComicDeseo-Detail/comicDeseo-Detail.component';
 
 const routes: Routes = [
 
-    
+
+
+    {
+        path: 'comicsdeseo',
+        children:[
+
+            {path:'list', component: ComicDeseoListComponent},
+            {path: ':id', component: ComicDeseoDetailComponent, outlet:'detail'}
+           
+        ]
+        
+
+    },
+
      {
         path: 'auth',
         children: [
@@ -118,6 +123,7 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+  // RouterModule.forRoot(routes)
     ],
     exports: [RouterModule],
     declarations: []
