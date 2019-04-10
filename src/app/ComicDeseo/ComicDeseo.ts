@@ -9,12 +9,11 @@
      /**
       * fecha de agregado del comic a la lista de deseos
       */
-    // fechaAgregado:Date;
+     fechaAgregado:Date;
+
+    // comic:Comic;
       
-      nombre:String;
       
-      id:Number;
-     
      
      
  }

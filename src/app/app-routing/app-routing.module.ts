@@ -5,8 +5,25 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
+import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
+//import { ComicDeseoDetailComponent } from '../ComicDeseo/ComicDeseo-Detail/comicDeseo-Detail.component';
 
 const routes: Routes = [
+
+
+
+    {
+        path: 'comicsdeseo',
+        children:[
+
+            {path:'list', component: ComicDeseoListComponent},
+            {path: ':id', component: ComicDeseoDetailComponent, outlet:'detail'}
+           
+        ]
+        
+
+    },
 
      {
         path: 'auth',
@@ -47,6 +64,7 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+  // RouterModule.forRoot(routes)
     ],
     exports: [RouterModule],
     declarations: []

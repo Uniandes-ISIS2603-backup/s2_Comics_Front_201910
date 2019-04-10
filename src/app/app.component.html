@@ -17,7 +17,8 @@
                 <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                     <div class="form-inline">
                       
-                        <li><list-comicDeseo></list-comicDeseo></li>
+                      <!--  <li><list-comicDeseo></list-comicDeseo></li>-->
+                       <a id="botonWishList" routerLink="/comicsdeseo/list" routerLinkActive="active">WishList</a>
                     </div>
                 </div>
                 <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
@@ -30,16 +31,19 @@
     </nav>
 
     <div>
-        <router-outlet></router-outlet>
+       <router-outlet></router-outlet>
         <br>
+       <router-outlet name="detail"></router-outlet>
         <br>
     </div>
     <footer class="footer bg-light" id="footer">
         <div class="container">
             <p class="navbar-text text-center">
-                <img src="../assets/uniandes.png" alt="logo" width="8" /><span id="footer-text"></span>
-                <a routerLink="/home"> s2_comics-Front</a>
+              <!--  <img src="../assets/uniandes.png" alt="logo" width="8" /><span id="footer-text"></span>-->
+             <!--   <a routerLink="/home"> s2_comics-Front</a>-->
             </p>
         </div>
     </footer>
 </div>
+
+
