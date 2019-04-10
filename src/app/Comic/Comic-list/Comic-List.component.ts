@@ -1,20 +1,28 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
- 
-import {Component, OnInit} from '@angular/core';
-import {Comic} from '../Comic';
-import {ComicService} from '../comic.service';
+import { Component, OnInit } from '@angular/core';
 
+import { Comic } from '../Comic';
+import { ComicService } from '../comic.service';
 
 @Component({
-    selector:'list-comic',
-    templateUrl:'./comic-List.component.html',
-    styleUrls:['./comic-List.component.css']    
+  selector: 'app-comic-list',
+  templateUrl: './comic-list.component.html',
+  styleUrls: ['./comic-list.component.css']
 })
+export class ComicListComponent implements OnInit {
 
-export class ComicListComponent {
-    
+  comics: Comic[];
+
+  constructor(private comicService: ComicService) { }
+
+  getComics(): void {
+    this.comicService.getComics()
+      .subscribe(c => {
+        this.comics = c;
+        console.log(this.comics[0].imagen);
+      });
+  }
+
+  ngOnInit() {
+    this.getComics();
+  }
 }

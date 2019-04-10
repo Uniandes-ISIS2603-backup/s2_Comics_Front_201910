@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
-import { ComicListComponent } from './Comic-list/Comic-list.component';
+import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { ComicService } from './comic.service';
-import {AppRoutingModule} from '../app-routing/app-routing.module';
+import { ComicListComponent } from './comic-list/comic-list.component';
+import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 
 @NgModule({
-    imports: [       
-        CommonModule,
-        AppRoutingModule,
-        BrowserModule,
-        HttpClientModule,
-        NgbModule
-    ],
-    declarations: [ComicListComponent],
-    providers: [ComicService],
-    exports:[ComicListComponent]
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+  ],
+  declarations: [ComicListComponent, ComicDetailComponent],
+  providers: [ComicService],
 })
-export class VendedorModule {}
+export class ComicModule { }
