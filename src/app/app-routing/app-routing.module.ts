@@ -14,6 +14,8 @@ import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-de
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 import { ComicListComponent } from '../comic/comic-list/comic-list.component';
 import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
+import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-pedido-list.component';
+import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
 
 const routes: Routes = [
 
@@ -91,9 +93,20 @@ const routes: Routes = [
     {
         path: '**',
         redirectTo: 'home',
-    }
+    },
 
-
+    {
+        path: 'ordenes',
+        children: [{
+            path: 'list',
+            component: OrdenPedidoListComponent
+        }, 
+        {
+            path: 'detail',
+            component: OrdenPedidoDetailComponent
+        }
+        ]
+    },
 ];
 
 @NgModule({

@@ -6,7 +6,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CompradorService } from './comprador.service';
-import { OrdenPedidoModuleModule } from '../OrdenPedido/orden-pedido-module/orden-pedido-module.module';
+import { OrdenPedidoModule } from '../orden-pedido/orden-pedido.module';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
 
 @NgModule({
@@ -17,7 +17,7 @@ import { CompradorDetailComponent } from './comprador-detail/comprador-detail.co
         BrowserModule, 
         AppRoutingModule,
         HttpClientModule,
-        OrdenPedidoModuleModule,
+        OrdenPedidoModule,
         CommonModule,
         FormsModule],
     providers: [CompradorService],
