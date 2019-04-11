@@ -14,6 +14,8 @@ import { VendedorEditComponent } from '../vendedor/vendedor-edit/vendedor-edit.c
 
 import { ComicListComponent } from '../comic/comic-list/comic-list.component';
 import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
+import { ComicUpdateComponent } from '../comic/comic-update/comic-update.component';
+
 import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
 import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
@@ -28,8 +30,6 @@ const routes:Routes =[
             {path: ':id', component: ComicDeseoDetailComponent, outlet:'detail'}
            
         ]
-        
-
     },
 
      {
@@ -105,6 +105,10 @@ const routes:Routes =[
         {
             path: ':id',
             component: ComicDetailComponent
+        },
+        {
+            path: 'update/:id',
+            component: ComicUpdateComponent
         }
         ]
     },

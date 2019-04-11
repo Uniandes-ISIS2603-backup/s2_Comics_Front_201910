@@ -1,0 +1,68 @@
+<div class="container">
+
+  <h1>Actualización información Comic</h1>
+  <p></p>
+
+  <form>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" value="{{comic.nombre}}" required>
+    </div>
+    <div class="form-group">
+      <label for="autor">Autor</label>
+      <input type="text" class="form-control" id="autor" value="{{comic.autor}}" required>
+    </div>
+    <div class="form-group">
+      <label for="anioSalida">Año salida</label>
+      <input type="number" class="form-control" id="anioSalida" value="{{comic.anioSalida}}" required>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="perteneceColeccion" checked="perteneceColeccion" required>
+      <label class="form-check-label" for="perteneceColeccion">Pertenece a colección</label>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="perteneceSerie" checked="perteneceSerie" required>
+      <label class="form-check-label" for="perteneceSerie">Pertenece a serie</label>
+    </div>
+    <div class="form-group">
+      <label for="precio">Precio</label>
+      <input type="number" class="form-control" id="precio" value="{{comic.precio}}" required>
+    </div>
+    <div class="form-group" >
+      <label for="tema">Tema</label>
+      <select class="form-control" id="tema" required>
+        <option value="1">AVENTURA_ACCION</option>
+        <option value="2">ARTE_ILUSTRACION</option>
+        <option value="3">COMEDIA</option>
+        <option value="4">ENCICLOPEDIA_DOCUMENTAL</option>
+        <option value="5">DRAMA</option>
+        <option value="6">EROTIQUE</option>
+        <option value="7">FANTASTICO</option>
+        <option value="8">NOVELA_GRAFICA</option>
+        <option value="9">HEROICO_FANTASIA_MAGIA</option>
+        <option value="10">HISTORICO</option>
+        <option value="11">HUMOR</option>
+        <option value="12">AMOR_AMISTAD</option>
+        <option value="13">POLAR_THRILLER</option>
+        <option value="14">CIENCIA_FICCION</option>
+        <option value="15">DEPORTE</option>
+        <option value="16">VIEJO_OESTE</option>
+      </select>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="enVenta" checked="enVenta" required>
+      <label class="form-check-label" for="enVenta">En venta</label>
+    </div>
+    <div class="form-group">
+      <label for="informacion">Información</label>
+      <textarea class="form-control" id="informacion" rows="3" value="{{comic.informacion}}" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="imagen">Imagen</label>
+      <input type="text" class="form-control" id="imagen" value="{{comic.imagen}}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
+  <router-outlet></router-outlet>
+</div>
