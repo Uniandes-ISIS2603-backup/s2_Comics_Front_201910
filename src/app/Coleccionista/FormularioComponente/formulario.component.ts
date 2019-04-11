@@ -113,9 +113,17 @@ export class FormularioComponent implements OnInit
         });
     }
     
-    imagenes:string[];
-    cargarImagenes():void{
-       this.httpClient.get<string[]>(API_URL).subscribe(imagenes=>{this.imagenes=imagenes; console.log(imagenes[0])});
+    imagenes : string[];
+
+    /**
+     * 
+     */
+    cargarImagenes():void
+    {
+       this.httpClient.get<string[]>(API_URL).subscribe(imagenes => 
+        {
+            this.imagenes = imagenes;
+        });
     }
     /**
      * 
@@ -216,5 +224,6 @@ export class FormularioComponent implements OnInit
     {
         this.comprador = new Comprador();
         this.vendedor = new Vendedor();
+        this.cargarImagenes();
     }
 }
