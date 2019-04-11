@@ -22,10 +22,10 @@
                   <td style="cursor: pointer;">
                     <a class="figure-caption" routerLink='/orden/id' >{{ordenPedido.id}}</a></td>
                     <td>{{ordenPedido.estado}}</td>
-                    <td>{{ordenPedido.comprador}}</td>
-                    <td>{{ordenPedido.vendedor}}</td>
-                    <td>{{ordenPedido.comic}}</td>
-                    <td>{{ordenPedido.trueque}}</td>
+                    <td>{{ordenPedido.comprador.alias}}</td>
+                    <td>{{ordenPedido.vendedor.alias}}</td>
+                    <td>{{ordenPedido.comic.nombre}}</td>
+                    <td>{{ordenPedido.trueque.nombre}}</td>
                     <td>{{ordenPedido.numeroCompras}}</td>
                     <td>{{ordenPedido.fechaEstimadaEntrega}}</td>
                     <td>{{ordenPedido.tarjetaCredito}}</td>
