@@ -51,9 +51,9 @@ const routes: Routes = [
             component: OrdenPedidoListComponent
         },
         {
-            path: ':id',
-            component: OrdenPedidoDetailComponent
-        }
+            path: 'id',
+            component: OrdenPedidoDetailComponent,
+          }
         ]
     },
     {

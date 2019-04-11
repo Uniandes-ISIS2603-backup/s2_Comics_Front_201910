@@ -1,9 +1,13 @@
-[{
+{
     "id": 1,
-    "alias": "mcattanach0",
-    "intereses": "revolutionize virtual web-readiness",
-    "correoElectronico": "mcattanach0@paypal.com",
-    "foto": "https://robohash.org/quaerepellendussed.png?size=50x50&set=set1",
-    "nombre": "Min Cattanach",
-    "descripcion": "bla bla bla 1"
-}]
+    "estado":"EN ESPERA",
+    "comprador" : "lobezno66", 
+    "vendedor":"lobezno66", 
+    "comic":"x-men", 
+    "trueque": "x-men",
+    "numeroCompras":"0",
+    "tarjetaCredito": "1234567",
+     "fechaEstimadaEntrega": "25/02/2019",
+     "comentario": ""
+  
+  }

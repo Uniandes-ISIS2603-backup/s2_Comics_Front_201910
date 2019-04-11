@@ -53,5 +53,7 @@ export class OrdenPedido {
      * comentario de rechazo
      */
       comentario: String;
+
+      
   
 }

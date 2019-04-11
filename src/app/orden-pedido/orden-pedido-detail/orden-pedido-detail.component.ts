@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { OrdenPedidoService } from "../orden-pedido.service";
-import {  OrdenPedidoDetail} from "../OrdenPedidoDetail";
+import {  OrdenPedido} from "../OrdenPedido";
 
 @Component({
     selector: 'app-orden-pedido-detail',
@@ -29,22 +29,24 @@ import {  OrdenPedidoDetail} from "../OrdenPedidoDetail";
     /**
      * La ordenPedido.
      */
-    ordenPedidoDetail:OrdenPedidoDetail;
+    ordenPedidoId:OrdenPedido;
 
     /**
      * El  id de la ordenPedido que viene de la ruta de acceso.
      */
-    id:number;
+
+
+ @Input()  id:number;
 
     /**
      * Método que obtiene la ordenPedido cuyos detalles queremos mostrar.
      */
-    getOrdenPedidoDetail():void
+    getOrdenPedidoId():void
     {
-        this.service.getOrdenPedidoDetail(this.id)
-        .subscribe(ordenPedidoDetail => 
+        this.service.getOrdenPedidoId(this.id)
+        .subscribe(ordenPedidoId => 
             {
-                this.ordenPedidoDetail = ordenPedidoDetail;
+                this.ordenPedidoId = ordenPedidoId;
             });
     }
 
@@ -57,8 +59,7 @@ import {  OrdenPedidoDetail} from "../OrdenPedidoDetail";
         this.id = +this.route.snapshot.paramMap.get('id');
         if(this.id)
         {
-            this.ordenPedidoDetail = new OrdenPedidoDetail();
-            this.getOrdenPedidoDetail();
+            this.getOrdenPedidoId();
         }
     }
 }
