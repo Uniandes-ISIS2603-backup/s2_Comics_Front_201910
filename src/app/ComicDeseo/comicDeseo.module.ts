@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import {ComicDeseoService} from './comicDeseo.service'
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import {ComicDeseoListComponent} from './ComicDeseo-List/comicDeseo-list.component';
+import {ComicDeseoDetailComponent} from './comicDeseo-detail/comicdeseo-detail.component'; 
 
 
 
@@ -22,7 +23,7 @@ import {ComicDeseoListComponent} from './ComicDeseo-List/comicDeseo-list.compone
         
     ],
     declarations: [
-        ComicDeseoListComponent
+        ComicDeseoListComponent, ComicDeseoDetailComponent
     ],
     exports:[ComicDeseoListComponent],
     providers: [ComicDeseoService],

@@ -14,10 +14,28 @@ import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-de
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 import { ComicListComponent } from '../comic/comic-list/comic-list.component';
 import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
+import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
+import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
+
+
 
 const routes: Routes = [
 
+
+
     {
+        path: 'comicsdeseo',
+        children:[
+
+            {path:'list', component: ComicDeseoListComponent},
+            {path: ':id', component: ComicDeseoDetailComponent, outlet:'detail'}
+           
+        ]
+        
+
+    },
+
+     {
         path: 'auth',
         children: [
             {
