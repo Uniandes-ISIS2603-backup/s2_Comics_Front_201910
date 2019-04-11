@@ -14,6 +14,9 @@ import { CompradorDetail } from "../comprador-detail";
  */
 export class CompradorDetailComponent implements OnInit
 {
+
+    ruta : string = "../../../assets/foto_1.json";
+
     /**
      * 
      * @param route 
@@ -26,6 +29,9 @@ export class CompradorDetailComponent implements OnInit
     {
 
     }
+
+
+    fotos = new FileReader();
 
     /**
      * El comprador.

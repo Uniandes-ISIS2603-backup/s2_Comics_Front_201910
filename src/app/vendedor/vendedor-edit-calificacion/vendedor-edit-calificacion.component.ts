@@ -12,12 +12,12 @@ import { Calificacion } from '../calificacion';
 import { VendedorService } from '../vendedor.service';
 import { VendedorDetail } from '../vendedor-detail';
 @Component({
-    selector: 'app-vendedor-add-calificacion',
-    templateUrl: './vendedor-add-calificacion.component.html',
+    selector: 'app-vendedor-edit-calificacion',
+    templateUrl: './vendedor-edit-calificacion.component.html',
    
 })
 
-export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
+export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
      constructor(
         private vendedorService: VendedorService,
         private toastrService: ToastrService,
@@ -37,12 +37,11 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
     
     @Output() updateCalificaciones = new EventEmitter();
     
-     postCalificacion(calificacionForm: NgForm): Calificacion {
-         
+     putCalificacion(calificacionForm: NgForm): Calificacion {
+        
          if (this.calificacion.puntuacion!=null){
-           
-         
-        this.vendedorService.createCalificacion(this.vendedorId,this.calificacion)
+          
+        this.vendedorService.updateCalificacion(this.vendedorId,this.calificacion,this.calificacion.id)
             .subscribe(() => {
                 calificacionForm.resetForm();
                 this.updateCalificaciones.emit();
@@ -62,7 +61,11 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
         this.ngOnInit();
     }
     starList: boolean[] = [true,true,true,true,true];       // create a list which contains status of 5 stars
-
+    cancelEdition(): void {
+        
+        this.toastrService.warning('Esta calificación no fue editada', 'Edicion de calificacion');
+        this.isCollapsed=true;
+    }
 
 setStar(data:any){
       this.calificacion.puntuacion=data+1;                               

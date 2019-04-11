@@ -4,10 +4,10 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<div id="collapseAddCalificacion" [ngbCollapse]="isCollapsed">
+<div id="collapseEditCalificacion" [ngbCollapse]="isCollapsed">
     <div class="container-fluid">
-        <h3>Agregar una calificacion</h3>
-        <form name="post" (ngSubmit)="calificacionForm.form.valid && postCalificacion(calificacionForm)" #calificacionForm="ngForm" novalidate>
+        <h3>Editar la calificacion</h3>
+        <form name="put" (ngSubmit)="calificacionForm.form.valid && putCalificacion(calificacionForm)" #calificacionForm="ngForm" novalidate>
               <div class="row">
                 <div class="col">
                     <div class="form-group">
@@ -35,7 +35,7 @@ and open the template in the editor.
                 <div class="col">
                     <div class="form-group">
                         <label for="calificacionComentarios"><b>Comentarios</b></label>
-                        <textarea name="calificacionComentarios" class="form-control" id="calificacionComentarios" [(ngModel)]="calificacion.comentarios"
+                        <textarea name="calificacionComentarios" class="form-control" id="calificacionComentarios1" [(ngModel)]="calificacion.comentarios"
                                   #calificacionComentarios="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && calificacionComentarios.invalid }"
                                   ></textarea>
                         
@@ -44,7 +44,11 @@ and open the template in the editor.
                   
             </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary"  >Confirmar calificacion</button>
+                <button type="submit" class="btn btn-primary" >Confirmar </button>
+                <div class="divider"> </div>
+
+                <button type="reset" class="btn btn-danger" (click)="cancelEdition()" >Cancel</button>
+
             </div>
         </form>
     </div>
