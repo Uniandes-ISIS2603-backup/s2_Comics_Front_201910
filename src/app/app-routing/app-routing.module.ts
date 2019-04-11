@@ -19,7 +19,7 @@ import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comic
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
 
-
+const routes:Routes =[
     {
         path: 'comicsdeseo',
         children:[
