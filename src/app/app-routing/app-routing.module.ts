@@ -8,7 +8,6 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
 import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
 
-
 const routes: Routes = [
 
 

@@ -32,6 +32,7 @@ export class ComicDeseoService{
     * @returns The editorial
     */
    getComicDeseoDetail(comicDeseoId): Observable<ComicDeseoDetail> {
+<<<<<<< HEAD
     return this.http.get<ComicDeseoDetail>(API_URL +comicsDeseo+'/'+comicDeseoId);
 }
 
@@ -57,5 +58,11 @@ export class ComicDeseoService{
 
 
      
+=======
+    return this.http.get<ComicDeseoDetail>(API_URL +comicDeseoId);
+}
+
+}
+>>>>>>> branchBaquero
 
 
