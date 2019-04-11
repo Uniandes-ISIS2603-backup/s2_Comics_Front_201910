@@ -70,12 +70,12 @@ const routes: Routes = [
         }, {
             path: ':id',
             component: VendedorDetailComponent,
-            children: [
+        },
                 {
-                   path: 'edit',
+                   path: ':id/edit',
                    component: VendedorEditComponent 
-                }
-            ]
+                
+            
 
         }
 
