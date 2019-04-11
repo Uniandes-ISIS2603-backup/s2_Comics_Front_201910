@@ -10,17 +10,14 @@ import { CompradorDetailComponent } from '../Comprador/comprador-detail/comprado
 
 import { VendedorListComponent } from '../vendedor/vendedor-list/vendedor-list.component';
 import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-detail.component';
+import { VendedorEditComponent } from '../vendedor/vendedor-edit/vendedor-edit.component';
 
-import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 import { ComicListComponent } from '../comic/comic-list/comic-list.component';
 import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
 import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
 import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
-
-
-
-const routes: Routes = [
-
+import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
+import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
 
 
     {
@@ -68,13 +65,17 @@ const routes: Routes = [
         path: 'comprador',
         children: [
             {
-                path: '',
+                path: 'list',
                 component: CompradorListComponent
             },
             {
                 path: ':id',
                 component: CompradorDetailComponent
-            }
+            },
+            {
+                path: ':id/edit',
+                component: CompradorEditComponent
+            },
         ]
     }, {
         path: 'vendedores',
@@ -83,8 +84,13 @@ const routes: Routes = [
             component: VendedorListComponent
         }, {
             path: ':id',
-            component: VendedorDetailComponent
-
+            component: VendedorDetailComponent,
+        },
+                {
+                   path: ':id/edit',
+                   component: VendedorEditComponent 
+                
+            
 
         }
 
