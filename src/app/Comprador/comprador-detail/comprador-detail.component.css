@@ -1,0 +1,30 @@
+body{
+    background: #f1f3fa;
+}
+
+.profile
+{
+    margin: 20px, 0;
+}
+
+.profile-sidebar
+{
+    text-align: center;
+    padding: 20px 20px 10px 10px;
+    background: lightgray;
+    border-radius: 10px;
+}
+
+.profile-user-pic img
+{
+    float: none;
+    margin: 0 auto;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+}
+
+.profile-user-title
+{
+    text-align: center;
+}
