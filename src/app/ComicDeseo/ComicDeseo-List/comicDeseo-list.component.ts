@@ -28,7 +28,8 @@ export class ComicDeseoListComponent implements OnInit{
     
     getComicsDeseo():void{
         
-        this.comicsDeseoService.getComicsDeseo().subscribe(comicsDeseo => this.comicsDeseo = comicsDeseo);
+        this.comicsDeseoService.getComicsDeseo()
+        .subscribe(comicsDeseo => this.comicsDeseo = comicsDeseo);
     }
   
     

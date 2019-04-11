@@ -8,7 +8,7 @@ import { CompradorDetail } from "./comprador-detail";
 
 //const API_URL = environment.apiURL;
 const compradores = '/comprador';
-const API_URL = 'http://localhost:8080/s2_comics-api/api';
+const API_URL = environment.apiURL;
 
 /**
  * El servicio proveedor para todos los compradores relacionados.
@@ -58,15 +58,5 @@ export class CompradorService
      */
     createComprador(comprador): Observable<Comprador> {
         return this.http.post<Comprador>(API_URL + compradores, comprador);
-    }
-
-    /**
-     * Actualiza un comprador en la base de datos
-     * @param id El id del comprador que será actualizado
-     * @param comprador Los datos del comprador que será actualizado.
-     */
-    updateComprador(comprador):Observable<Comprador>
-    {
-        return this.http.put<Comprador>(API_URL + compradores + '/' + comprador.id, comprador);
     }
 }

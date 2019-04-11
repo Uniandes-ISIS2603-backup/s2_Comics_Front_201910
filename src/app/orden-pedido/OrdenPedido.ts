@@ -8,11 +8,6 @@ export class OrdenPedido {
      * identificacdor de la orden de pedido
      */
     id: Number ;
-      /**
-     * comentario de rechazo
-     */
-    comentario: String;
-
 
     tarjetaCredito: String ;
     
@@ -38,11 +33,6 @@ export class OrdenPedido {
      * Nombre del comic que se va a comprar o intercambiar
      */
      comic: Comic;
-     /**
-     * fecha estimada de enrega
-     */
-    fechaEstimadaEntrega: String ;
-    
     
     /**
      * Nombre comic que se va a intercambiar
@@ -54,27 +44,16 @@ export class OrdenPedido {
  */
     numeroCompras: Number;
     
-     /**
-     * Cambia el esatdo de una ordenPedido
-     * @param estado El estado que será renovado
+    /**
+     * fecha estimada de enrega
      */
-    public setEstado(estado2:string):void
-    {
-        this.estado = estado2;
-    }
+    fechaEstimadaEntrega: Date ;
+    
+    /**
+     * comentario de rechazo
+     */
+      comentario: String;
 
-    public setTarjeta(tarjeta:string):void
-    {
-        this.tarjetaCredito = tarjeta;
-    }
-
-
-    public getId():Number
-    {
-        return this.id;
-    }
-
-  
       
   
 }

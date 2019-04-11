@@ -1,59 +1,17 @@
 
 
+
 <div id="collapseExample" [ngbCollapse]="isCollapsed">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                    <style>
-                    .checked {
-                    color: orange;
-                        }
-                    </style>
-    
-<table class="table table">
+<table class="table table-striped">
     <thead class="thead thead-dark">
     <th>Calificaciones</th>
     </thead>
     <tbody>
-      
-        <table class="table table-sm" *ngFor="let calificacion of vendedorCalificaciones">
-   
+        <tr *ngFor="let calificacion of vendedorCalificaciones">
+            <td><span id="vendedor-calificacado"><b>Puntuacion: </b></span><span>: </span><span id="calificacion-comentario">{{calificacion.puntuacion}}</span></td>
+             <td><span id="vendedor-calificacado"><b>Comentarios: </b></span><span>: </span><span id="calificacion-comentario">{{calificacion.comentarios}}</span></td>
+        </tr>
         
-    <tbody>
-        <tr >
-          {{  add(calificacion.puntuacion)}}
-            <td><span id="vendedor-calificacado"><b>Puntuacion: </b></span>
-              
-                    
-                <a *ngFor="let item of setStar(calificacion.puntuacion); let i=index "   >  
-                 <i class="fa" [ngClass]="{'fa-star-o  ':item,'fa-star checked':!item  }" ></i>   
-                                </a>  </td>
-             
-        </tr>
-        <tr>
-            <td><span id="vendedor-calificacado"><b >Comentarios: </b></span><span id="calificacion-comentario" >{{calificacion.comentarios}}</span></td>
-           
-        </tr>
-     
-    </tbody>
-    <div class="text-right" style="font-size: 12px">
-        <dd class="figure-caption "(click)=" calificacionEditComponent.isCollapsed = !calificacionEditComponent.isCollapsed;calificacionEditComponent.calificacion.id=calificacion.id">Editar </dd>
-    </div>
-
-</table>
-
     </tbody>
 </table>
-<app-vendedor-edit-calificacion></app-vendedor-edit-calificacion>
-
-    <html>
-<head>
-<!-- Font Awesome Icon Library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-.checked {
-  color: orange;
-}
-</style>
-</head>
-
-</html>
 </div>

@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="col-md-2">
-        <table class="blueTable" style="border-collapse: collapse;"  width="520">
+        <table class="blueTable">
             <thead class="thead-dark">
                 <tr>
                     <th>OrdenPedido id</th>
@@ -10,8 +10,10 @@
                     <th> comic</th>
                     <th> trueque</th>
                     <th> numeroCompras</th>
+                    <th> fechaEstimadaEntrega</th>
                     <th> tarjetaCredito</th>
-                    
+                    <th> comentario</th>
+  
                 </tr>
                 
             </thead>
@@ -25,13 +27,14 @@
                     <td>{{ordenPedido.comic.nombre}}</td>
                     <td>{{ordenPedido.trueque.nombre}}</td>
                     <td>{{ordenPedido.numeroCompras}}</td>
+                    <td>{{ordenPedido.fechaEstimadaEntrega}}</td>
                     <td>{{ordenPedido.tarjetaCredito}}</td>
+                    <td>{{ordenPedido.comentario}}</td>
                     
                 </tr>
             </tbody>
             
         </table>
-        
     </div>
     </div>
     <router-outlet></router-outlet> 

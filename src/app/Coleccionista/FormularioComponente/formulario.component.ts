@@ -1,4 +1,3 @@
-
 import { Component, OnInit, Output } from "@angular/core";
 import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from "@angular/forms";
 import { CompradorService } from "../../Comprador/comprador.service";
@@ -8,15 +7,13 @@ import { Comprador } from "../../Comprador/comprador";
 import { Vendedor } from "../../vendedor/vendedor";
 import { VendedorService } from "../../vendedor/vendedor.service";
 import { Router } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
-const API_URL = '../../../assets/foto_1.json';
+
 
 @Component({
     selector:'app-form',
     templateUrl: 'formulario.component.html',
     styleUrls: ['formulario.component.css']
 })
-
 
 export class FormularioComponent implements OnInit
 {
@@ -44,8 +41,6 @@ export class FormularioComponent implements OnInit
      * 
      */
     selectedRole = [];
-
-    fotos = [];
 
     /**
      * 
@@ -78,8 +73,7 @@ export class FormularioComponent implements OnInit
         private compradorService:CompradorService,
         private vendedorService: VendedorService,
         private toastrService: ToastrService,
-        private router:Router,
-        private httpClient:HttpClient)
+        private router:Router)
     {
         this.comprador = new Comprador();
         this.vendedor = new Vendedor();
@@ -112,11 +106,7 @@ export class FormularioComponent implements OnInit
             myValues: this.addValuesControls()
         });
     }
-    
-    imagenes:string[];
-    cargarImagenes():void{
-       this.httpClient.get<string[]>(API_URL).subscribe(imagenes=>{this.imagenes=imagenes; console.log(imagenes[0])});
-    }
+
     /**
      * 
      */

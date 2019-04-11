@@ -1,3 +1,15 @@
+<!--<div class="panel-body">
+    <div class="container">
+        <div class="row">
+            <img src="{{compradorDetail.foto}}">
+            <div class="container">
+                <p>{{compradorDetail.nombre}}</p>
+                <p>{{compradorDetail.correoElectronico}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +22,7 @@
                 <a class="nav-link" href="#">Comics Melos<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/comprador/list">Atrás</a>
+                <a class="nav-link" routerLink="/comprador">Atrás</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -18,7 +30,7 @@
                     Tu cuenta
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="/comprador/list">Carrito de compras</a>
+                    <a class="dropdown-item" routerLink="/comprador">Carrito de compras</a>
                     <a class="dropdown-item" href="#">Ordenes</a>
                     <a href="#" class="dropdown-item"></a>
                     <div class="dropdown-divider"></div>
@@ -33,31 +45,13 @@
     </div>
 </nav>
 
-<div class="container-fluid">
-    <div class="row profile" style="text-align: center;">
-        <div class="col-md-3">
-            <div class="profile-sidebar">
-                <div class="profile-user-pic">
-                    <img src="{{compradorDetail.foto}}" alt="" class="img-responsive img-circle">
-                </div>
-                <hr>
-                <div class="profile-user-title">
-                    <div class="profile-user-name">
-                        {{compradorDetail.nombre}}
-                    </div>
-                    <div class="profile-user-email">
-                        {{compradorDetail.correoElectronico}}
-                    </div>
-                    <div class="profile-user-int">
-                        {{compradorDetail.intereses}}
-                    </div>
-                </div>
-                <div class="profile-user-buttons">
-                    <button class="btn btn-success btn-sm" routerLink="/comprador/{{compradorDetail.id}}/edit">
-                        Editar
-                    </button>
-                </div>
-            </div>
+<h1 style="text-align:center;">Hola {{compradorDetail.nombre}}</h1>
+<div class="content-fluid">
+    <div class="row">
+        <img src="{{compradorDetail.foto}}">
+        <h1>Email: {{compradorDetail.correoElectronico}}</h1>
+        <div class="col">
+            <h1>Intereses: {{compradorDetail.intereses}}</h1>
         </div>
     </div>
 </div>

@@ -1,17 +1,16 @@
-<div class="content-fluid">
-    <div class="row">
-        <div class="card text-center" style="width: 18rem; margin-left: 30px;margin-top: 30px; border-radius: 20px;"
-            *ngFor="let vendedor of vendedores">
-            <img class="card-img-top" src="{{vendedor.foto}}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{vendedor.nombre}}</h5>
-                <p class="card-text">{{vendedor.intereses}}</p>
+
+	<div class="content-fluid">
+            <div class="row">
+            <div routerLink="/vendedores/{{vendedor.id}}" class="card cartaCuerpo" style="width: 18rem; margin-left: 30px;margin-top: 30px; border-radius: 20px;" *ngFor="let vendedor of vendedores"  >
+
+  <img class="card-img-top" src="{{vendedor.foto}}" alt="Card image cap">
+  <div class="card-body ">
+    <h5 class="card-title">{{vendedor.nombre}}</h5>
+    <p class="card-text">{{vendedor.intereses}}</p>
+    
+  </div>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{vendedor.correoElectronico}}</li>
-                <li class="list-group-item">{{vendedor.alias}}</li>
-            </ul>
-            <div class="card-body cartaCuerpo" routerLink="/vendedores/{{vendedor.id}}">
-                <a routerLink="/vendedores/{{vendedor.id}}" class="card-link">Ver más...</a>
-            </div>
-        </div>
+</div>
+	
+    </div>
+   

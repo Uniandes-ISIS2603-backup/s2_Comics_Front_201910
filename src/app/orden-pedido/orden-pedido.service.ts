@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { OrdenPedido} from './OrdenPedido';import { environment } from "../../environments/environment";
-
+import { OrdenPedido} from './OrdenPedido';
+import {OrdenPedidoDetail} from './OrdenPedidoDetail';
 import {Observable} from 'rxjs';
 
-const API_URL =  environment.apiURL;
-const ordenesPedido= '/ordenesPedido'
+const API_URL = "../../assets/";
+const ordenesPedido= 'ordenesPedido.json'
 
 @Injectable()
 export class OrdenPedidoService{
@@ -22,8 +22,9 @@ export class OrdenPedidoService{
    
 
     getOrdenPedidoId(ordenPedidoId): Observable<OrdenPedido> {
-        return this.http.get<OrdenPedido>(API_URL + ordenesPedido+ '/'+  ordenPedidoId); 
-       }
+     /**  return this.http.get<OrdenPedido>(API_URL + ordenesPedido+ '/'+  ordenPedidoId); */
+     return this.http.get<OrdenPedido>(API_URL + "data-" + ordenPedidoId+".json"); 
+    }
 
     /**
      * Crea una ordenPedido en la base de datos
@@ -32,27 +33,4 @@ export class OrdenPedidoService{
     createOrdenPedido(ordenPedido): Observable<OrdenPedido> {
         return this.http.post<OrdenPedido>(API_URL + ordenesPedido, ordenPedido);
     }
-
-   /**
-    * Elimina unaordenPedido
-    * @param OrdenPedidoId la id de la ordenPedido
-    * @returns True if the book was deleted, false otherwise
-    */
-   deleteOrdenPedido(OrdenPedidoId): Observable<OrdenPedido> {
-    return this.http.delete<OrdenPedido>(API_URL + ordenesPedido + '/' + OrdenPedidoId);
-}
-/**
-        * Updates a new book
-        * @param ordenPedido la orden pedido a actualizar book
-        * @returns The updated book
-        */
-       updateOrdenPedido( ordenPedido): Observable<OrdenPedido> {
-       
-        return this.http.put<OrdenPedido>(API_URL + ordenesPedido + '/' + ordenPedido.id, ordenPedido);
-    }
-}
-
-
-
-    
 }
