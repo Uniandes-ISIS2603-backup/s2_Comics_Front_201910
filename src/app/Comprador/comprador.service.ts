@@ -8,7 +8,7 @@ import { CompradorDetail } from "./comprador-detail";
 
 //const API_URL = environment.apiURL;
 const compradores = '/comprador';
-const API_URL = environment.apiURL;
+const API_URL = 'http://localhost:8080/s2_comics-api/api';
 
 /**
  * El servicio proveedor para todos los compradores relacionados.
