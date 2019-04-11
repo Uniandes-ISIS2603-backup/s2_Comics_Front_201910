@@ -1,0 +1,37 @@
+[{
+  "id": 1,
+  "estado":"EN ESPERA",
+  "comprador" : "lobezno66", 
+  "vendedor":"lobezno66", 
+  "comic":"x-men", 
+  "trueque": "x-men",
+  "numeroCompras":"0",
+  "tarjetaCredito": "1234567",
+   "fechaEstimadaEntrega": "25/02/2019",
+   "comentario": ""
+
+},{
+  "id": 2,
+  "numeroCompras":"0",
+  "estado":"ACEPTADO", 
+  "trueque": "x-men",
+ "comic":"x-men",  
+  "vendedor":"lobezno66", 
+  "comprador" : "lobezno66",
+  "tarjetaCredito": "1234567" ,  
+  "fechaEstimadaEntrega": "",
+   "comentario": "no lo quiero"
+  }
+  ,{
+    "id": 3,
+    "numeroCompras":"2",
+    "estado":"ENVIADO", 
+    "trueque": "x-men",
+   "comic":"batman",  
+    "vendedor":"lobezno66", 
+    "comprador" : "lector1",
+    "tarjetaCredito": "89101112" ,  
+    "fechaEstimadaEntrega": "3/03/2019",
+     "comentario": ""
+    }
+]

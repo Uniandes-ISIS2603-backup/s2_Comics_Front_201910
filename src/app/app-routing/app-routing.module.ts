@@ -43,6 +43,18 @@ const routes: Routes = [
                 }
             }
         ]
+    },{
+        path: 'orden',
+        children: [
+        {
+            path: 'list',
+            component: OrdenPedidoListComponent
+        },
+        {
+            path: ':id',
+            component: OrdenPedidoDetailComponent
+        }
+        ]
     },
     {
         path: 'form',
@@ -95,18 +107,8 @@ const routes: Routes = [
         redirectTo: 'home',
     },
 
-    {
-        path: 'ordenes',
-        children: [{
-            path: 'list',
-            component: OrdenPedidoListComponent
-        }, 
-        {
-            path: 'detail',
-            component: OrdenPedidoDetailComponent
-        }
-        ]
-    },
+    
+    
 ];
 
 @NgModule({

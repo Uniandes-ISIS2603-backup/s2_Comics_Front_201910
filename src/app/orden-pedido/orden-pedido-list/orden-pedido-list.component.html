@@ -1,10 +1,43 @@
-<p>
-  orden-pedido-list works!
-  fsdfsf
-  dsfsdfsd
-  sfsdfvsdf
-  sfsdfvsdfsfsd
-  sfsdfvsdfsfsdsf
-  sfsdfvsdfsfsdsf
-  sfsdfvsdfsfsd
-</p>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="blueTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>OrdenPedido id</th>
+                    <th> estado</th>
+                    <th> comprador</th>
+                    <th> vendedor</th>
+                    <th> comic</th>
+                    <th> trueque</th>
+                    <th> numeroCompras</th>
+                    <th> fechaEstimadaEntrega</th>
+                    <th> tarjetaCredito</th>
+                    <th> comentario</th>
+  
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor = "let ordenPedido of ordenesPedido">
+                  <td style="cursor: pointer;">
+                      <a class="figure-caption" routerLink ='/orden/id'>{{ordenPedido.id}}</a>
+                 </td>
+                    <td>{{ordenPedido.estado}}</td>
+                    <td>{{ordenPedido.comprador}}</td>
+                    <td>{{ordenPedido.vendedor}}</td>
+                    <td>{{ordenPedido.comic}}</td>
+                    <td>{{ordenPedido.trueque}}</td>
+                    <td>{{ordenPedido.numeroCompras}}</td>
+                    <td>{{ordenPedido.fechaEstimadaEntrega}}</td>
+                    <td>{{ordenPedido.tarjetaCredito}}</td>
+                    <td>{{ordenPedido.comentario}}</td>
+                    
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+    </div>
+    <router-outlet></router-outlet>
+        
+   

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { OrdenPedidoService } from '../orden-pedido.service';
+import { OrdenPedido } from '../ordenPedido';
+
 
 @Component({
   selector: 'app-orden-pedido-list',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdenPedidoListComponent implements OnInit {
 
-  constructor() { }
+  /**
+     * Constructor for the component
+     * @param OrdenPedidoService The author's services provider
+     */
+    constructor(private ordenPedidoService: OrdenPedidoService) {
+       
+     }
+    
+    /**
+     * The list of ordenesPedido which belong to the ComicStore
+     */
+    ordenesPedido: OrdenPedido[];
 
-  ngOnInit() {
-  }
+    /**
+     * Asks the service to update the list of ordenesPedido
+     */
+    getOrdenesPedido(): void {
+        this.ordenPedidoService.getOrdenesPedido().subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido);
+    }
+
+    /**
+     * This will initialize the component by retrieving the list of ordenesPedido from the service
+     * This method will be called when the component is created
+     */
+    ngOnInit() {
+        this.getOrdenesPedido();
+    }
 
 }
