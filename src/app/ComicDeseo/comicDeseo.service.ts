@@ -11,8 +11,8 @@ import {Observable} from 'rxjs';
 import { ComicDeseoDetail } from './ComicDeseoDetail';
 import { environment } from '../../environments/environment';
 
-const API_URL = "../../assets/";
-//const API_URL = environment.apiURL;
+//const API_URL = "../../assets/";
+const API_URL = environment.apiURL;
 const comicsDeseo = '/ComicsDeseo.json';
 
 @Injectable()
@@ -32,9 +32,9 @@ export class ComicDeseoService{
     * Returns the Observable object containing the editorial retrieved from the API
     * @returns The editorial
     */
-  // getComicDeseoDetail(comicDeseoId): Observable<ComicDeseoDetail> {
-  //  return this.http.get<ComicDeseoDetail>(API_URL +comicsDeseo+'/'+comicDeseoId);
-//}
+   getComicDeseoDetail(comicDeseoId): Observable<ComicDeseoDetail> {
+    return this.http.get<ComicDeseoDetail>(API_URL +comicsDeseo+'/'+comicDeseoId);
+}
 
 /**
  * Obtiene el comprador a partir del alias
