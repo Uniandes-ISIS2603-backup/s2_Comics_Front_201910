@@ -118,7 +118,7 @@ export class CompradorEditComponent implements OnInit
             {
                 this.updateForm.reset();
                 this.toastrService.success("El comprador fue actualizado con exito");
-
+                this.router.navigate(['/comprador/' + this.compradorDetail.id])
             });
         this.update.emit();
     }
