@@ -37,7 +37,7 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
          this.vendedorId = +this.route.snapshot.paramMap.get('id');
         this.getCalificaciones();
         
-      
+       
     }
     suma:number =0;
     contador:number=0;
