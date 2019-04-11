@@ -20,7 +20,7 @@
             <tbody>
                 <tr *ngFor = "let ordenPedido of ordenesPedido">
                   <td style="cursor: pointer;">
-                    <a class="figure-caption" routerLink='/orden/id' >{{ordenPedido.id}}</a></td>
+                    <a class="figure-caption" routerLink='/orden/{{ordenPedido.id}}' >{{ordenPedido.id}}</a></td>
                     <td>{{ordenPedido.estado}}</td>
                     <td>{{ordenPedido.comprador.alias}}</td>
                     <td>{{ordenPedido.vendedor.alias}}</td>
