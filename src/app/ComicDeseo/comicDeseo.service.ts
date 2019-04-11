@@ -32,9 +32,30 @@ export class ComicDeseoService{
     * @returns The editorial
     */
    getComicDeseoDetail(comicDeseoId): Observable<ComicDeseoDetail> {
-    return this.http.get<ComicDeseoDetail>(API_URL +comicDeseoId);
+    return this.http.get<ComicDeseoDetail>(API_URL +comicsDeseo+'/'+comicDeseoId);
 }
 
+/**
+ * Obtiene el comprador a partir del alias
+ * @param id Id del comicDeseo
+ */
+    getComicDeseoById(id):Observable<ComicDeseoDetail>{
+
+        return this.http.get<ComicDeseoDetail>(API_URL+comicsDeseo+'/'+id);
+    }
+
+    /**
+     * Crea un comic Deseo
+     * @param comicDeseo el comic deseo que se va a crear
+     */
+
+     createComicDeseo(comicDeseo):Observable<ComicDeseo>{
+
+        return this.http.post<ComicDeseo>(API_URL + comicsDeseo,comicDeseo)
 }
+     }
+
+
+     
 
 

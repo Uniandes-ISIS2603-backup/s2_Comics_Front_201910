@@ -7,7 +7,7 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
 import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
-//import { ComicDeseoDetailComponent } from '../ComicDeseo/ComicDeseo-Detail/comicDeseo-Detail.component';
+
 
 const routes: Routes = [
 
