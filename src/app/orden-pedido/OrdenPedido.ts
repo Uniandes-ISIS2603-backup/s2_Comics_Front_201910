@@ -8,6 +8,11 @@ export class OrdenPedido {
      * identificacdor de la orden de pedido
      */
     id: Number ;
+      /**
+     * comentario de rechazo
+     */
+    comentario: String;
+
 
     tarjetaCredito: String ;
     
@@ -33,6 +38,11 @@ export class OrdenPedido {
      * Nombre del comic que se va a comprar o intercambiar
      */
      comic: Comic;
+     /**
+     * fecha estimada de enrega
+     */
+    fechaEstimadaEntrega: Date ;
+    
     
     /**
      * Nombre comic que se va a intercambiar
@@ -44,16 +54,8 @@ export class OrdenPedido {
  */
     numeroCompras: Number;
     
-    /**
-     * fecha estimada de enrega
-     */
-    fechaEstimadaEntrega: Date ;
     
-    /**
-     * comentario de rechazo
-     */
-      comentario: String;
-
+  
       
   
 }

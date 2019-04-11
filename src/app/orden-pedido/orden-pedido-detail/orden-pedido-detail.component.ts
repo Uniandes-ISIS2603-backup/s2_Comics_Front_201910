@@ -50,6 +50,13 @@ import {  OrdenPedido} from "../OrdenPedido";
             });
     }
 
+    deleteOrdenPedido(): void {
+        
+        buttonClass: 'btn btn-danger'
+        this.service.deleteOrdenPedido(this.id).subscribe(book => {
+        });
+}
+
     /**
      * Se utiliza este metodo para inicialiazr el componente
      * Se necestia crear la ordenPedido con eso no se tiene como indefinido.
