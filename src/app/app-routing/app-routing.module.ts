@@ -10,6 +10,7 @@ import { CompradorDetailComponent } from '../Comprador/comprador-detail/comprado
 
 import { VendedorListComponent } from '../vendedor/vendedor-list/vendedor-list.component';
 import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-detail.component';
+import { VendedorEditComponent } from '../vendedor/vendedor-edit/vendedor-edit.component';
 
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
@@ -68,8 +69,13 @@ const routes: Routes = [
             component: VendedorListComponent
         }, {
             path: ':id',
-            component: VendedorDetailComponent
-
+            component: VendedorDetailComponent,
+            children: [
+                {
+                   path: 'edit',
+                   component: VendedorEditComponent 
+                }
+            ]
 
         }
 

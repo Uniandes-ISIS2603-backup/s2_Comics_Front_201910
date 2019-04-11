@@ -6,6 +6,7 @@ import { VendedorDetail } from '../vendedor-detail';
 import {VendedorCalificacionesComponent} from '../Vendedor-Calificaciones/vendedor-calificaciones.component';
 import {VendedorAddCalificacionComponent} from '../vendedor-add-calificacion/vendedor-add-calificacion.component';
 import { Vendedor } from '../vendedor';
+
 @Component({
   selector: 'app-vendedor-detail',
   templateUrl: './vendedor-detail.component.html',
@@ -19,7 +20,7 @@ export class VendedorDetailComponent implements OnInit {
           private viewRef: ViewContainerRef
   ) { }
 
-
+cambiar:boolean=true;
 
 vendedorId: number;
  vendedorDetail: VendedorDetail;
@@ -31,12 +32,13 @@ vendedorId: number;
     }
     @ViewChild(VendedorCalificacionesComponent) calificacionListComponent: VendedorCalificacionesComponent;
     @ViewChild(VendedorAddCalificacionComponent) calificacionAddComponent: VendedorAddCalificacionComponent;
-     
+
     
        toggleCreateCalificacion(): void {
       
         this.calificacionAddComponent.isCollapsed = !this.calificacionAddComponent.isCollapsed;
     }
+   
      updateCalificaciones(): void {
         this.getVendedorDetail();
         this.calificacionListComponent.updateCalificaciones(this.vendedorDetail.calificaciones);
@@ -49,8 +51,21 @@ vendedorId: number;
         this.vendedorDetail = new VendedorDetail();
         this.getVendedorDetail();
      
-
+ 
   }
-  
+  starList:boolean[] =[true,true,true,true,true];
+      setStar(puntuacion:number):boolean[]{
+       
+      for(var i=0;i<=4;i++){  
+          if (i <= puntuacion-1){  
+          this.starList[i]=false;  
+         
+        }  
+        else{  
+          this.starList[i]=true;  
+        }  
+     }  
+     return this.starList
+ }  
 
 }
