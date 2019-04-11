@@ -52,7 +52,7 @@ export class ComicDeseoService{
      createComicDeseo(comicDeseo):Observable<ComicDeseo>{
 
         return this.http.post<ComicDeseo>(API_URL + comicsDeseo,comicDeseo)
-}
+}           
      }
 
 
