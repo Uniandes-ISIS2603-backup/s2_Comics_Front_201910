@@ -6,6 +6,7 @@ import { VendedorDetail } from '../vendedor-detail';
 import {VendedorCalificacionesComponent} from '../Vendedor-Calificaciones/vendedor-calificaciones.component';
 import {VendedorAddCalificacionComponent} from '../vendedor-add-calificacion/vendedor-add-calificacion.component';
 import { Vendedor } from '../vendedor';
+
 @Component({
   selector: 'app-vendedor-detail',
   templateUrl: './vendedor-detail.component.html',
@@ -19,7 +20,7 @@ export class VendedorDetailComponent implements OnInit {
           private viewRef: ViewContainerRef
   ) { }
 
-
+cambiar:boolean=true;
 
 vendedorId: number;
  vendedorDetail: VendedorDetail;

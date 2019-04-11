@@ -61,7 +61,11 @@ export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
         this.ngOnInit();
     }
     starList: boolean[] = [true,true,true,true,true];       // create a list which contains status of 5 stars
-
+    cancelEdition(): void {
+        
+        this.toastrService.warning('Esta calificación no fue editada', 'Edicion de calificacion');
+        this.isCollapsed=true;
+    }
 
 setStar(data:any){
       this.calificacion.puntuacion=data+1;                               

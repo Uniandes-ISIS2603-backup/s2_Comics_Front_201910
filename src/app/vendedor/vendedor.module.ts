@@ -8,9 +8,10 @@ import { VendedorDetailComponent } from './vendedor-detail/vendedor-detail.compo
 import {VendedorCalificacionesComponent} from './Vendedor-Calificaciones/vendedor-calificaciones.component'
 import {VendedorAddCalificacionComponent} from './vendedor-add-calificacion/vendedor-add-calificacion.component'
 import { VendedorService } from './vendedor.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {VendedorEditCalificacionComponent} from './vendedor-edit-calificacion/vendedor-edit-calificacion.component';
+import {VendedorEditComponent} from './vendedor-edit/vendedor-edit.component';
 
 @NgModule({
     imports: [       
@@ -19,11 +20,12 @@ import {VendedorEditCalificacionComponent} from './vendedor-edit-calificacion/ve
         AppRoutingModule,
         BrowserModule,
         HttpClientModule,
-        
+        ReactiveFormsModule,
         NgbModule
     ],
     declarations: [VendedorListComponent,VendedorDetailComponent,
-        VendedorCalificacionesComponent, VendedorAddCalificacionComponent,VendedorEditCalificacionComponent],
+        VendedorCalificacionesComponent,
+         VendedorAddCalificacionComponent,VendedorEditCalificacionComponent, VendedorEditComponent],
     providers: [VendedorService],
     exports:[VendedorListComponent,VendedorEditCalificacionComponent]
 })
