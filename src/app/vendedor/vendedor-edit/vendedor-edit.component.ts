@@ -162,43 +162,7 @@ export class VendedorEditComponent implements OnInit
     /**
      * 
      */
-    onRegistrationFormSubmit()
-    {  
-        this.isSubmitted = true;  
-        
-        if(this.registrationForm.valid)
-        {      
-            this.comprador = Object.assign({}, this.registrationForm.value);
-            this.vendedor = Object.assign({}, this.registrationForm.value);
-
-            for (var i = 0; i < this.selectedRole.length; i++) {
-                if (this.selectedRole[i] == "Comprador") {
-                    this.compradorService.createComprador(this.comprador).subscribe(()=>
-                    {
-                        this.registrationForm.reset();
-                        this.update.emit('');
-                        this.toastrService.success("El comprador fue creado exitosamente", 'comprador añadido');
-                    }, err =>
-                    {
-                        this.toastrService.error(err, 'Error');
-                    });
-                }
-                else if (this.selectedRole[i] == "Vendedor") {
-                    this.vendedorService.createVendedor(this.vendedor).subscribe(()=>
-                    {
-                        this.registrationForm.reset();
-                        this.update.emit('');
-                        this.toastrService.success("El vendedor fue creado exitosamente", 'vendedor añadido');
-                    },
-                    err =>
-                    {
-                        this.toastrService.error(err, "Error");
-                    });
-                }
-            }
-            this.router.navigate(['/home']);
-        }
-    }
+   
 
 
      vendedorId:number;
@@ -212,12 +176,28 @@ export class VendedorEditComponent implements OnInit
     @Output() updateVendedores = new EventEmitter();
     
      putVendedor(vendedorForm: NgForm): Vendedor {
-        
+       var vendedor;
          if (this.vendedor!=null){
-          
+            vendedor = Object.assign({}, vendedorForm.value);
+            if(vendedor.nombre!=""){
+            this.vendedor.nombre=vendedor.nombre;
+            }
+            if(vendedor.alias!=""){
+                this.vendedor.alias=vendedor.alias;
+                }
+             if(vendedor.intereses!=null){
+                    this.vendedor.intereses=vendedor.intereses;
+                 }
+                 if(vendedor.correoElectronico!=""){
+                    this.vendedor.correoElectronico=vendedor.correoElectronico;
+                 }
+                 if(vendedor.password!=""){
+                    this.vendedor.password=vendedor.password;
+                 }
         this.vendedorService.updateVendedor(this.vendedorId,this.vendedor)
             .subscribe(() => {
-                vendedorForm.resetForm();
+                
+                
                 
                 this.toastrService.success("La calificacion fue creada exitosamente", 'Calificación anadida');
             }, err => {
@@ -242,6 +222,7 @@ export class VendedorEditComponent implements OnInit
 
         this.comprador = new Comprador();
         this.vendedor = new Vendedor();
+
         this.vendedorService.getVendedorDetail(this.vendedorId).subscribe(vendedor=>{this.vendedor=vendedor;});
 
     }
