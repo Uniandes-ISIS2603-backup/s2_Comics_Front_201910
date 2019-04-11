@@ -19,7 +19,9 @@ export class OrdenPedidoService{
         
     }
 
-   
+    getOrdenPedidoDetail(ordenPedidoId): Observable<OrdenPedidoDetail> {
+        return this.http.get<OrdenPedidoDetail>(API_URL + "data-" + ordenPedidoId+".json");
+    }
 
     getOrdenPedidoId(ordenPedidoId): Observable<OrdenPedido> {
      /**  return this.http.get<OrdenPedido>(API_URL + ordenesPedido+ '/'+  ordenPedidoId); */
