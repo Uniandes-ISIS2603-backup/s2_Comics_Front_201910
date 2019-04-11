@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, SystemJsNgModuleLoader } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { OrdenPedidoService } from "../orden-pedido.service";
 import {  OrdenPedido} from "../OrdenPedido";
+import { a } from "@angular/core/src/render3";
+import { Services } from "@angular/core/src/view";
 
 @Component({
     selector: 'app-orden-pedido-detail',
@@ -53,9 +55,26 @@ import {  OrdenPedido} from "../OrdenPedido";
     deleteOrdenPedido(): void {
         
         buttonClass: 'btn btn-danger'
+        if(this.ordenPedidoId.estado=="EN_ESPERA" ||this.ordenPedidoId.estado=="FINALIZADO" ){
+          }
+          else{
+            alert('La ordenPedido debe estar en estado EN_ESPERA o FINALIZADO para poder ser eliminado')   
+   
+          }
         this.service.deleteOrdenPedido(this.id).subscribe(book => {
-        });
+         
+        
+          alert('se borro la ordenPedido');}
+
+);
 }
+
+actualizarEstadoOrden():void 
+    {
+        this.service.updateOrdenPedido(this.ordenPedidoId)
+        .subscribe(() => {
+              }); }
+
 
     /**
      * Se utiliza este metodo para inicialiazr el componente

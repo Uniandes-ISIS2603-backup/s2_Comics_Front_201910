@@ -41,7 +41,7 @@ export class OrdenPedido {
      /**
      * fecha estimada de enrega
      */
-    fechaEstimadaEntrega: Date ;
+    fechaEstimadaEntrega: String ;
     
     
     /**
@@ -54,7 +54,26 @@ export class OrdenPedido {
  */
     numeroCompras: Number;
     
-    
+     /**
+     * Cambia el esatdo de una ordenPedido
+     * @param estado El estado que será renovado
+     */
+    public setEstado(estado2:string):void
+    {
+        this.estado = estado2;
+    }
+
+    public setTarjeta(tarjeta:string):void
+    {
+        this.tarjetaCredito = tarjeta;
+    }
+
+
+    public getId():Number
+    {
+        return this.id;
+    }
+
   
       
   

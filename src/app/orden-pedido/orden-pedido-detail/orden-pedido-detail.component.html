@@ -10,7 +10,6 @@
                     <th> comic</th>
                     <th> trueque</th>
                     <th> numeroCompras</th>
-                    <th> fechaEstimadaEntrega</th>
                     <th> tarjetaCredito</th>
                     <th> comentario</th>
   
@@ -20,15 +19,20 @@
             <tbody>
                 <tr >
                   <td >{{ordenPedidoId.id}}</td>
-                    <td>{{ordenPedidoId.estado}}</td>
+                    <td><select [(ngModel)]="ordenPedidoId.estado">
+                            <option value="ENVIADO">ENVIADO</option>
+                            <option value="EN_ESPERA">EN_ESPERA</option>
+                            <option value="ACEPTADO">ACEPTADO</option> 
+                            <option value="NEGADO">NEGADO</option>
+                          </select></td>
                     <td>{{ordenPedidoId.comprador.alias}}</td>
                     <td>{{ordenPedidoId.vendedor.alias}}</td>
                     <td>{{ordenPedidoId.comic.nombre}}</td>
                     <td>{{ordenPedidoId.trueque.nombre}}</td>
                     <td>{{ordenPedidoId.numeroCompras}}</td>
-                    <td>{{ordenPedidoId.fechaEstimadaEntrega}}</td>
                     <td>{{ordenPedidoId.tarjetaCredito}}</td>
                     <td>{{ordenPedidoId.comentario}}</td>
+                    <td>{{ordenPedidoId.estado}}</td>
                     
                      
                 </tr>
@@ -43,6 +47,9 @@
         <tr>
                 <td><button class="btn btn-danger" (click)="deleteOrdenPedido()">Delete</button></td>
           </tr>
+         
+                <td><button class="btn btn-danger" (click)="actualizarEstadoOrden()">Actualizar</button></td>
+   
         </div>
     </div>
    

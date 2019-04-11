@@ -42,4 +42,13 @@ export class OrdenPedidoService{
    deleteOrdenPedido(OrdenPedidoId): Observable<OrdenPedido> {
     return this.http.delete<OrdenPedido>(API_URL + ordenesPedido + '/' + OrdenPedidoId);
 }
+/**
+        * Updates a new book
+        * @param ordenPedido la orden pedido a actualizar book
+        * @returns The updated book
+        */
+       updateOrdenPedido( ordenPedido): Observable<OrdenPedido> {
+       
+        return this.http.put<OrdenPedido>(API_URL + ordenesPedido + '/' + ordenPedido.id, ordenPedido);
+    }
 }
