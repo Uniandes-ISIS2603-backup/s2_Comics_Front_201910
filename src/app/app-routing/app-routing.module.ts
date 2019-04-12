@@ -48,7 +48,15 @@ const routes: Routes = [
         children: [
         {
             path: 'list',
-            component: OrdenPedidoListComponent
+            component: OrdenPedidoListComponent,
+            children: [
+{   path :'compra',
+    component:OrdenPedidoListComponent
+},
+{   path :'venta',
+    component:OrdenPedidoListComponent
+}
+            ]
         },
         {
             path: ':id',

@@ -12,7 +12,6 @@
                     <th> tarjetaCredito</th>
                     
                 </tr>
-                
             </thead>
             <tbody>
                 <tr *ngFor = "let ordenPedido of ordenesPedido">
@@ -20,7 +19,7 @@
                     <a class="figure-caption" routerLink='/orden/{{ordenPedido.id}}' >{{ordenPedido.id}}</a></td>
                     <td>{{ordenPedido.estado}}</td>
                     <td>{{ordenPedido.comprador.alias}}</td>
-                    <td>{{ordenPedido.vendedor.alias}}</td>
+                    <td>{{ordenPedido.vendedor.nombre}}</td>
                     <td>{{ordenPedido.comic.nombre}}</td>
                     <td>{{ordenPedido.trueque.nombre}}</td>
                     <td>{{ordenPedido.tarjetaCredito}}</td>
@@ -28,8 +27,53 @@
             </tbody>
             
         </table>
-        
+       
     </div>
     </div>
     <router-outlet></router-outlet> 
   
+    
+    <div class="col-sm">
+            <div class="container-fluid">
+                <table class="table table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">obtener Ordenes Comprador</th>
+                            <th scope="col">id comprador</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tr >
+                        <td> 
+                                <button type="submit" class="btn btn-danger" (click)="getOrdenesPedidoComprador()" >obtener</button>
+                        </td>
+                        <td scope="row">
+                            <input type="text" [(ngModel)]="idComprador">
+                        </td>
+                        <td scope="row">
+                               {{idComprador}}
+                            </td>
+                        </tr>
+                </table> 
+
+                        <div class="container-fluid">
+                            <table class="table table-hover">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">obtener Ordenes vendedor</th>
+                                        <th scope="col">id vendedor</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tr >
+                                    <td> 
+                                            <button type="submit" class="btn btn-danger" (click)="getOrdenesPedidoVendedor()" >obtener</button>
+                                    </td>
+                                    <td scope="row">
+                                        <input type="text" [(ngModel)]="idVendedor">
+                                    </td>
+                                    <td scope="row">
+                                           {{idVendedor}}
+                                        </td>
+                                    </tr>
+                            </table> 

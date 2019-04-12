@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { OrdenPedido} from './OrdenPedido';
-import {OrdenPedidoDetail} from './OrdenPedidoDetail';
 import {Observable} from 'rxjs';
 import { environment } from "../../environments/environment";
 
 
 const API_URL = environment.apiURL;
 const ordenesPedido= '/ordenesPedido'
+const comprador= '/comprador'
+const vendedor= '/vendedores'
+const pedido= '/pedido'
 
 @Injectable()
 export class OrdenPedidoService{
@@ -50,5 +52,15 @@ export class OrdenPedidoService{
     */
    deleteOrdenPedido(ordenPedido_Id): Observable<OrdenPedido> {
     return this.http.delete<OrdenPedido>(API_URL + ordenesPedido + '/' + ordenPedido_Id);
+}
+
+getOrdenesPedidoVendedor(vendedorId):  Observable<OrdenPedido[]> {
+    return this.http.get<OrdenPedido[]>(API_URL + vendedor + '/' + vendedorId +pedido);
+}
+
+getOrdenesPedidoComprador(compradorId):  Observable<OrdenPedido[]> {
+    return this.http.get<OrdenPedido[]>(API_URL + comprador + '/' + compradorId +pedido);
+
+
 }
 }

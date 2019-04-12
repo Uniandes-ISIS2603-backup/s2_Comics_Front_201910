@@ -12,6 +12,7 @@
                         <th> trueque</th>
                         <th> tarjetaCredito</th>
                         <th> numeroCompras</th>
+                        <th> fecha estimada de entega</th>
                         <th> Comentario</th>
                         <th> cambiar estado</th>
                         
@@ -26,7 +27,7 @@
                            <a routerLink="/comprador/{{ordenPedidoId.comprador.id}}" class="card-link">{{ordenPedidoId.comprador.alias}}</a>
                             </td>
                         <td>
-                           <a routerLink="/vendedores/{{ordenPedidoId.vendedor.id}}" class="card-link">{{ordenPedidoId.vendedor.alias}}</a>
+                           <a routerLink="/vendedores/{{ordenPedidoId.vendedor.id}}" class="card-link">{{ordenPedidoId.vendedor.nombre}}</a>
                            </td>
                         <td>
                            <a routerLink="/comic/{{ordenPedidoId.comic.id}}" class="card-link"> {{ordenPedidoId.comic.nombre}}</a>
@@ -36,11 +37,13 @@
                            </td>
                         <td>{{ordenPedidoId.tarjetaCredito}}</td>
                         <td>{{ordenPedidoId.numeroCompras}}</td>
+                        <td>{{ordenPedidoId.fechaEstimadaEntrega}}</td>
                         <td>{{ordenPedidoId.comentario}}</td>
 
                          <td><select [(ngModel)]="ordenPedidoId.estado">
                                 <option value="ACEPTADO">ACEPTADO</option> 
-                                <option value="RECHAZADO">RECHAZADO</option> 
+                                <option value="RECHAZADO">RECHAZADO</option>
+                                <option value="EN_ESPERA">EN_ESPERA</option>
                              </select></td>
                     </tr>
                 </tbody>
@@ -54,3 +57,4 @@
             <div class="row form-inline justify-content-center align-self-center">
                     <button type="submit" class="btn btn-danger" (click)="deleteOrdenPedido()" >Eliminar</button>
                 </div>
+            

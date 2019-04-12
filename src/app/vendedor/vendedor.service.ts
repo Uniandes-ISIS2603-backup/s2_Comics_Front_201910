@@ -5,7 +5,9 @@ import { Vendedor } from './vendedor';
 import { Observable } from 'rxjs';
 import { VendedorDetail} from './vendedor-detail';
 import {Calificacion} from './calificacion';
-const API_URL = "'http://localhost:8080/s2_comics-api/api'";
+import { environment } from "../../environments/environment";
+
+const API_URL = environment.apiURL;;
 const vendedores = '/vendedores';
 const calificaciones='/calificaciones';
 /**
