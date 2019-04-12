@@ -12,6 +12,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {VendedorEditCalificacionComponent} from './vendedor-edit-calificacion/vendedor-edit-calificacion.component';
 import {VendedorEditComponent} from './vendedor-edit/vendedor-edit.component';
+import {ComicModule} from '../comic/comic.module';
 
 @NgModule({
     imports: [       
@@ -21,7 +22,8 @@ import {VendedorEditComponent} from './vendedor-edit/vendedor-edit.component';
         BrowserModule,
         HttpClientModule,
         ReactiveFormsModule,
-        NgbModule
+        NgbModule,
+        ComicModule
     ],
     declarations: [VendedorListComponent,VendedorDetailComponent,
         VendedorCalificacionesComponent,
