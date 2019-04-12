@@ -11,6 +11,9 @@ import {VendedorAddCalificacionComponent} from './vendedor-add-calificacion/vend
 import { VendedorService } from './vendedor.service';
 import { FormsModule } from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
+import {VendedorEditCalificacionComponent} from './vendedor-edit-calificacion/vendedor-edit-calificacion.component';
+import {VendedorEditComponent} from './vendedor-edit/vendedor-edit.component';
+import {ComicModule} from '../comic/comic.module';
 
 @NgModule({
     imports: [       
@@ -19,8 +22,9 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
         AppRoutingModule,
         BrowserModule,
         HttpClientModule,
-        
-        NgbModule
+        ReactiveFormsModule,
+        NgbModule,
+        ComicModule
     ],
     declarations: [VendedorListComponent,VendedorDetailComponent,
         VendedorCalificacionesComponent, VendedorAddCalificacionComponent],
