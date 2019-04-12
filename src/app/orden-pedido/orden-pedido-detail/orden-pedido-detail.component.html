@@ -1,7 +1,6 @@
 
 <div class="container-fluid">
-        <div class="col-md-2">
-            <table class="blueTable" style="border-collapse: collapse;"  width="520">
+            <table class="blueTable" style="border-collapse: collapse;"  WIDTH="100%">
                 <thead class="thead-dark">
                     <tr>
                         <th>OrdenPedido id</th>
@@ -15,7 +14,7 @@
                         <th> fecha estimada de entega</th>
                         <th> Comentario</th>
                         <th> cambiar estado</th>
-                        
+                        <th> cambiar comentario</th>
                     </tr>
                     
                 </thead>
@@ -45,14 +44,22 @@
                                 <option value="RECHAZADO">RECHAZADO</option>
                                 <option value="EN_ESPERA">EN_ESPERA</option>
                              </select></td>
+                             <td scope="row">
+                                    <input type="text" [(ngModel)]="ordenPedidoId.comentario">
+                                </td>
                     </tr>
                 </tbody>
                 
             </table>
             
+        <div>
+                <br>
         </div>
         <div class="row form-inline justify-content-center align-self-center">
                 <button type="submit" (click)="updateOrdenPedido()" >Actualizar</button>
+            </div>
+            <div>
+                    <br>
             </div>
             <div class="row form-inline justify-content-center align-self-center">
                     <button type="submit" class="btn btn-danger" (click)="deleteOrdenPedido()" >Eliminar</button>
