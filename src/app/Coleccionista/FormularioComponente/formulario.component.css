@@ -2,3 +2,14 @@ textarea
 {
     resize: none;
 }
+
+.card
+{
+    display: block;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}

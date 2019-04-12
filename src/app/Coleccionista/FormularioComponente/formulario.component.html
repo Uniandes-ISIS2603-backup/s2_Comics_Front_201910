@@ -97,11 +97,38 @@
 
                 <div class="form-group" style="text-align: center;">
                     <label for="">Escoger foto</label>
-                    <div *ngFor="let i of imagenes;">
-                        <div *ngIf=""></div>
-                        <img src="{{i}}" alt="">
+                    <hr>
+                    <div fxLayout="row" fxLayoutGap="20px">
+                        <ng-container *ngFor="let i of [0,1,2,3,4];">
+                            <img id="img-x" class="card" src="{{imagenes[i]}}" alt="">
+                        </ng-container>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutGap="20px">
+                        <ng-container *ngFor="let i of [5, 6, 7, 8, 9];">
+                            <img class="card" src="{{imagenes[i]}}" alt="">
+                        </ng-container>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutGap="20px">
+                        <ng-container *ngFor="let i of [10, 11, 12, 13, 14];">
+                            <img class="card" src="{{imagenes[i]}}" alt="">
+                        </ng-container>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutGap="20px">
+                        <ng-container *ngFor="let i of [15, 16, 17, 18, 19];">
+                            <img class="card" src="{{imagenes[i]}}" alt="">
+                        </ng-container>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutGap="20px">
+                        <ng-container *ngFor="let i of [20, 21, 22, 23, 24];">
+                            <img class="card" src="{{imagenes[i]}}" alt="">
+                        </ng-container>
                     </div>
                 </div>
+
                 <div class="row" style="text-align: center;">
                     <div class="form-group col" style="text-align:center;" id="botonEnviar">
                         <button type="button" class="btn btn-success"
@@ -114,5 +141,5 @@
             </form>
         </div>
     </div>
-   
+
 </div>

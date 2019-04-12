@@ -9,6 +9,7 @@ import { Vendedor } from "../../vendedor/vendedor";
 import { VendedorService } from "../../vendedor/vendedor.service";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
+import { $ } from "protractor";
 const API_URL = '../../../assets/foto_1.json';
 
 @Component({
@@ -16,7 +17,6 @@ const API_URL = '../../../assets/foto_1.json';
     templateUrl: 'formulario.component.html',
     styleUrls: ['formulario.component.css']
 })
-
 
 export class FormularioComponent implements OnInit
 {
@@ -187,7 +187,7 @@ export class FormularioComponent implements OnInit
         {      
             this.comprador = Object.assign({}, this.registrationForm.value);
             this.vendedor = Object.assign({}, this.registrationForm.value);
-
+            
             for (var i = 0; i < this.selectedRole.length; i++) {
                 if (this.selectedRole[i] == "Comprador") {
                     this.compradorService.createComprador(this.comprador).subscribe(()=>
