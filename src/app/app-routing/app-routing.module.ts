@@ -19,106 +19,106 @@ import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comic
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
 
-
-    {
-        path: 'comicsdeseo',
-        children:[
-
-            {path:'list', component: ComicDeseoListComponent},
-            {path: ':id', component: ComicDeseoDetailComponent, outlet:'detail'}
-           
-        ]
-        
-
-    },
-
-     {
-        path: 'auth',
-        children: [
-            {
-                path: 'login',
-                component: AuthLoginComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['GUEST']
-                    }
-                }
-            },
-            {
-                path: ':sign-up',
-                component: AuthSignUpComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['GUEST']
-                    }
-                }
-            }
-        ]
-    },
-    {
-        path: 'form',
-        component: FormularioComponent
-    },
-    {
-        path: 'comprador',
-        children: [
-            {
-                path: 'list',
-                component: CompradorListComponent
-            },
-            {
-                path: ':id',
-                component: CompradorDetailComponent
-            },
-            {
-                path: ':id/edit',
-                component: CompradorEditComponent
-            },
-        ]
-    }, {
-        path: 'vendedores',
-        children: [{
-            path: 'list',
-            component: VendedorListComponent
-        }, {
-            path: ':id',
-            component: VendedorDetailComponent,
-        },
+const routes: Routes = [
                 {
-                   path: ':id/edit',
-                   component: VendedorEditComponent 
-                
-            
+                    path: 'comicsdeseo',
+                    children:[
 
-        }
+                        {path:'list', component: ComicDeseoListComponent},
+                        {path: ':id', component: ComicDeseoDetailComponent, outlet:'detail'}
+                    
+                    ]
+                    
 
-        ]
-    },
-    {
-        path: 'comic',
-        children: [{
-            path: 'list',
-            component: ComicListComponent
-        },
-        {
-            path: ':id',
-            component: ComicDetailComponent
-        }
-        ]
-    },
-    {
-        path: 'home',
-        component: AuthLoginComponent
-    },
-    {
-        path: '**',
-        redirectTo: 'home',
-    }
+                },
+
+                {
+                    path: 'auth',
+                    children: [
+                        {
+                            path: 'login',
+                            component: AuthLoginComponent,
+                            canActivate: [NgxPermissionsGuard],
+                            data: {
+                                permissions: {
+                                    only: ['GUEST']
+                                }
+                            }
+                        },
+                        {
+                            path: ':sign-up',
+                            component: AuthSignUpComponent,
+                            canActivate: [NgxPermissionsGuard],
+                            data: {
+                                permissions: {
+                                    only: ['GUEST']
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    path: 'form',
+                    component: FormularioComponent
+                },
+                {
+                    path: 'comprador',
+                    children: [
+                        {
+                            path: 'list',
+                            component: CompradorListComponent
+                        },
+                        {
+                            path: ':id',
+                            component: CompradorDetailComponent
+                        },
+                        {
+                            path: ':id/edit',
+                            component: CompradorEditComponent
+                        },
+                    ]
+                }, {
+                    path: 'vendedores',
+                    children: [{
+                        path: 'list',
+                        component: VendedorListComponent
+                    }, {
+                        path: ':id',
+                        component: VendedorDetailComponent,
+                    },
+                            {
+                            path: ':id/edit',
+                            component: VendedorEditComponent 
+                            
+                        
+
+                    }
+
+                    ]
+                },
+                {
+                    path: 'comic',
+                    children: [{
+                        path: 'list',
+                        component: ComicListComponent
+                    },
+                    {
+                        path: ':id',
+                        component: ComicDetailComponent
+                    }
+                    ]
+                },
+                {
+                    path: 'home',
+                    component: AuthLoginComponent
+                },
+                {
+                    path: '**',
+                    redirectTo: 'home',
+                }
 
 
-];
+            ];
 
 @NgModule({
     imports: [
