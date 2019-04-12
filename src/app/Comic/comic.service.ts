@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { Comic } from "./Comic";
 import { ComicDetail } from "./ComicDetail";
 
-const API_URL = "http://localhost:8080/s2_comics-api/api";
-const comics = '/comic';
+const API_URL = '../../assets';
+const comics = '/comics.json';
 
 @Injectable()
 export class ComicService {
@@ -17,12 +17,9 @@ export class ComicService {
     return this.http.get<Comic[]>(API_URL + comics);
   }
   
-  getComicDetail(comicId): Observable<ComicDetail> {
+  getComicDetail(): Observable<ComicDetail> {
     //cambiar
-    return this.http.get<ComicDetail>(API_URL + comics + '/' + comicId);
+    return this.http.get<ComicDetail>(API_URL + comics);
   }
 
-  updateComic(comicId,comic){      
-    return this.http.put<ComicDetail>(API_URL + comics +'/'+comicId ,comic);
-  }
 }

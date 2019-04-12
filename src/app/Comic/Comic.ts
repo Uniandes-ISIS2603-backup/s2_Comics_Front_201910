@@ -1,4 +1,4 @@
-import { Vendedor } from "../vendedor/vendedor";
+//import { Vendedor } from "../vendedor/vendedor";
 
 export class Comic{ 
   id: number;
@@ -23,5 +23,5 @@ export class Comic{
 
   imagen: string;
 
-  vendedor: Vendedor;
+  //vendedor: Vendedor;
 }

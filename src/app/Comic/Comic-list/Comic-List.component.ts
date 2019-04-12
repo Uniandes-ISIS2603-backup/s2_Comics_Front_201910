@@ -18,6 +18,7 @@ export class ComicListComponent implements OnInit {
     this.comicService.getComics()
       .subscribe(c => {
         this.comics = c;
+        console.log(this.comics[0].imagen);
       });
   }
 

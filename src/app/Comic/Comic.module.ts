@@ -8,7 +8,6 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { ComicService } from './comic.service';
 import { ComicListComponent } from './comic-list/comic-list.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
-import { ComicUpdateComponent } from './comic-update/comic-update.component';
 
 @NgModule({
   imports: [
@@ -18,7 +17,7 @@ import { ComicUpdateComponent } from './comic-update/comic-update.component';
     CommonModule,
     FormsModule,
   ],
-  declarations: [ComicListComponent, ComicDetailComponent, ComicUpdateComponent],
+  declarations: [ComicListComponent, ComicDetailComponent],
   providers: [ComicService],
 })
 export class ComicModule { }
