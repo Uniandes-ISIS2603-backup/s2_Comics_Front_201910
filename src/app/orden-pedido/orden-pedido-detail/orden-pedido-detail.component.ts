@@ -51,6 +51,22 @@ import {  OrdenPedido} from "../OrdenPedido";
     }
 
     /**
+    * This function updates the ordenPedido
+    */
+   updateOrdenPedido(): void {
+
+    this.service.updateOrdenPedido(this.ordenPedidoId)
+        .subscribe(() => {
+            
+            });
+}
+
+deleteOrdenPedido(): void {
+     this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
+        alert('se elimino la OrdenPedido'); });
+}
+
+    /**
      * Se utiliza este metodo para inicialiazr el componente
      * Se necestia crear la ordenPedido con eso no se tiene como indefinido.
      */

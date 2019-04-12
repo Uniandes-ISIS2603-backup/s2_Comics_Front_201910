@@ -34,4 +34,21 @@ export class OrdenPedidoService{
     createOrdenPedido(ordenPedido): Observable<OrdenPedido> {
         return this.http.post<OrdenPedido>(API_URL + ordenesPedido, ordenPedido);
     }
+
+     /**
+        * Updates a new ordenPedido
+        * @param ordenPedido The updated rdenPedido
+        * @returns The updated ordenPedido
+        */
+       updateOrdenPedido(ordenPedido): Observable<OrdenPedido> {
+        return this.http.put<OrdenPedido>(API_URL + ordenesPedido + '/' + ordenPedido.id, ordenPedido);
+    }
+    /**
+    * Deletes a ordenPedido
+    * @param ordenPedido_Id The ordenPedido's id
+    * @returns True if the book was deleted, false otherwise
+    */
+   deleteOrdenPedido(ordenPedido_Id): Observable<OrdenPedido> {
+    return this.http.delete<OrdenPedido>(API_URL + ordenesPedido + '/' + ordenPedido_Id);
+}
 }

@@ -13,6 +13,7 @@
                         <th> tarjetaCredito</th>
                         <th> numeroCompras</th>
                         <th> Comentario</th>
+                        <th> cambiar estado</th>
                         
                     </tr>
                     
@@ -36,9 +37,20 @@
                         <td>{{ordenPedidoId.tarjetaCredito}}</td>
                         <td>{{ordenPedidoId.numeroCompras}}</td>
                         <td>{{ordenPedidoId.comentario}}</td>
+
+                         <td><select [(ngModel)]="ordenPedidoId.estado">
+                                <option value="ACEPTADO">ACEPTADO</option> 
+                                <option value="RECHAZADO">RECHAZADO</option> 
+                             </select></td>
                     </tr>
                 </tbody>
                 
             </table>
             
         </div>
+        <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" (click)="updateOrdenPedido()" >Actualizar</button>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-danger" (click)="deleteOrdenPedido()" >Eliminar</button>
+                </div>
