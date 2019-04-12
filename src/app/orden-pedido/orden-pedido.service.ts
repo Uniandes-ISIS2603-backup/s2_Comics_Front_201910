@@ -3,9 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import { OrdenPedido} from './OrdenPedido';
 import {OrdenPedidoDetail} from './OrdenPedidoDetail';
 import {Observable} from 'rxjs';
+import { environment } from "../../environments/environment";
 
-const API_URL = "../../assets/";
-const ordenesPedido= 'ordenesPedido.json'
+
+const API_URL = environment.apiURL;
+const ordenesPedido= '/ordenesPedido'
 
 @Injectable()
 export class OrdenPedidoService{
@@ -19,13 +21,10 @@ export class OrdenPedidoService{
         
     }
 
-    getOrdenPedidoDetail(ordenPedidoId): Observable<OrdenPedidoDetail> {
-        return this.http.get<OrdenPedidoDetail>(API_URL + "data-" + ordenPedidoId+".json");
-    }
+    
 
     getOrdenPedidoId(ordenPedidoId): Observable<OrdenPedido> {
-     /**  return this.http.get<OrdenPedido>(API_URL + ordenesPedido+ '/'+  ordenPedidoId); */
-     return this.http.get<OrdenPedido>(API_URL + "data-" + ordenPedidoId+".json"); 
+       return this.http.get<OrdenPedido>(API_URL + ordenesPedido+ '/'+  ordenPedidoId); 
     }
 
     /**

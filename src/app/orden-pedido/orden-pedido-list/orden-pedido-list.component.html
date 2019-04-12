@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="col-md-2">
-        <table class="blueTable">
+        <table class="blueTable" style="border-collapse: collapse;"  width="520">
             <thead class="thead-dark">
                 <tr>
                     <th>OrdenPedido id</th>
@@ -9,33 +9,27 @@
                     <th> vendedor</th>
                     <th> comic</th>
                     <th> trueque</th>
-                    <th> numeroCompras</th>
-                    <th> fechaEstimadaEntrega</th>
                     <th> tarjetaCredito</th>
-                    <th> comentario</th>
-  
+                    
                 </tr>
                 
             </thead>
             <tbody>
                 <tr *ngFor = "let ordenPedido of ordenesPedido">
                   <td style="cursor: pointer;">
-                    <a class="figure-caption" routerLink='/orden/id' >{{ordenPedido.id}}</a></td>
+                    <a class="figure-caption" routerLink='/orden/{{ordenPedido.id}}' >{{ordenPedido.id}}</a></td>
                     <td>{{ordenPedido.estado}}</td>
                     <td>{{ordenPedido.comprador.alias}}</td>
                     <td>{{ordenPedido.vendedor.alias}}</td>
                     <td>{{ordenPedido.comic.nombre}}</td>
                     <td>{{ordenPedido.trueque.nombre}}</td>
-                    <td>{{ordenPedido.numeroCompras}}</td>
-                    <td>{{ordenPedido.fechaEstimadaEntrega}}</td>
                     <td>{{ordenPedido.tarjetaCredito}}</td>
-                    <td>{{ordenPedido.comentario}}</td>
-                    
-                </tr>
+                 </tr>
             </tbody>
             
         </table>
+        
     </div>
     </div>
     <router-outlet></router-outlet> 
-   
+  

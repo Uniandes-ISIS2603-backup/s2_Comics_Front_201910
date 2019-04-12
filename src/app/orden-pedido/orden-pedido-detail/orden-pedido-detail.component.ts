@@ -36,7 +36,7 @@ import {  OrdenPedido} from "../OrdenPedido";
      */
 
 
- @Input()  id:number;
+   id:number;
 
     /**
      * Método que obtiene la ordenPedido cuyos detalles queremos mostrar.
