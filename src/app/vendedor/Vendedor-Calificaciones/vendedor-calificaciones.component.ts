@@ -19,9 +19,11 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
     constructor(private vendedorService: VendedorService,  private route: ActivatedRoute, private viewRef: ViewContainerRef){}
   @Input()  vendedorCalificaciones : Calificacion [];
     vendedorId: number;
+    //atributo para mostrrar/ocultar el componente
     public isCollapsed = true;
+    //atributo que permite utilizar el componente de editar
     @ViewChild(VendedorEditCalificacionComponent) calificacionEditComponent: VendedorEditCalificacionComponent;
-
+//atributo que llama al servicio para cargar la lista de calificaciones
     getCalificaciones(): void {
         this.vendedorService.getCalificaciones(this.vendedorId).subscribe(vendedorCalificaciones => this.vendedorCalificaciones = vendedorCalificaciones);
     }
@@ -29,10 +31,12 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
 
         this.vendedorCalificaciones = calificaciones;
     }
+    //metodo que oculta la ventana de editar calificaciones
     toggleUpdateCalificacion(): void {
       
         this.calificacionEditComponent.isCollapsed = !this.calificacionEditComponent.isCollapsed;
     }
+    //se obtiene el id del vendedor actual
     ngOnInit(){
          this.vendedorId = +this.route.snapshot.paramMap.get('id');
         this.getCalificaciones();
@@ -45,6 +49,7 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
          this.suma+=numero;
          this.contador++;
      }
+     //metodo para mostrar el promedio de las calificaicoens del vendedor
       average():number{
          return this.suma/this.contador;
          
@@ -57,7 +62,7 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
         
     
  
-
+//metodo para desplegar las puntuaciones utilizando estrellas
     setStar(puntuacion:number):boolean[]{
         var starList =[true,true,true,true,true];
       for(var i=0;i<=4;i++){  
