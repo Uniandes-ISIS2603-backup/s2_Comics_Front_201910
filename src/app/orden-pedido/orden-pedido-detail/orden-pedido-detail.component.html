@@ -11,11 +11,10 @@
                         <th> trueque</th>
                         <th> tarjetaCredito</th>
                         <th> numeroCompras</th>
-                        <th> fecha estimada de entega</th>
                         <th> Comentario</th>
                         <th> cambiar estado</th>
                         <th> cambiar comentario</th>
-                    </tr>
+                        </tr>
                     
                 </thead>
                 <tbody>
@@ -36,7 +35,6 @@
                            </td>
                         <td>{{ordenPedidoId.tarjetaCredito}}</td>
                         <td>{{ordenPedidoId.numeroCompras}}</td>
-                        <td>{{ordenPedidoId.fechaEstimadaEntrega}}</td>
                         <td>{{ordenPedidoId.comentario}}</td>
 
                          <td><select [(ngModel)]="ordenPedidoId.estado">
@@ -47,6 +45,8 @@
                              <td scope="row">
                                     <input type="text" [(ngModel)]="ordenPedidoId.comentario">
                                 </td>
+                              
+                                   
                     </tr>
                 </tbody>
                 
