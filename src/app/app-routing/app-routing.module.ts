@@ -107,6 +107,10 @@ const routes: Routes = [
                     {
                         path: ':id',
                         component: ComicDetailComponent
+                    },
+                    {
+                        path: 'update/:id',
+                        component: ComicUpdateComponent
                     }
                     ]
                 },

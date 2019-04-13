@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormBuilder, FormControl, Validators, NgControl } from "@angular/forms";
 
 import { Comic } from '../Comic';
+import { ComicDetail } from '../ComicDetail';
 import { ComicService } from '../comic.service';
 
 @Component({
@@ -12,37 +14,111 @@ import { ComicService } from '../comic.service';
 
 export class ComicUpdateComponent implements OnInit {
 
-  comic: Comic;
+  updateForm: FormGroup;
 
-  id: number;
+  isSubmitted: boolean = false;
   
-  submitted = false;
+  comic: ComicDetail;
 
-  
+  idComic: number;
+    
+  @Input() nComic: Comic;
+
+  @Output() update = new EventEmitter();
   
   constructor(
     private comicService: ComicService,
-    private route: ActivatedRoute
-    ) { }
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    )
+  {
+    this.nComic = new Comic();
+    this.updateForm = this.formBuilder.group({
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(90),
+      ]),
+      autor: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(30),
+        Validators.pattern('^[a-z A-Z]*$')
+      ]),
+      anioSalida: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(4),
+        Validators.pattern('^[0-9]*$')
+      ]),
+      // perteneceColeccion: new FormControl({value: this.comic.perteneceColeccion}),
+      // perteneceSerie: new FormControl({value: this.comic.perteneceSerie}),
+      precio: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(6),
+        Validators.pattern('^[0-9]*.[0-9]*$')
+      ]),
+      // tema: new FormControl({value: this.comic.tema}),
+      // enVenta: new FormControl({value: this.comic.enVenta}),
+      imagen: new FormControl(''),
+      informacion: new FormControl('', [
+        Validators.maxLength(250),
+      ]),
+      // vendedor: new FormControl({value: this.comic.vendedor})
+    });
+  }
+  
+  submitForm(){
+    this.isSubmitted = true;
+    this.nComic = Object.assign({}, this.updateForm.value);
+    this.nComic.id = this.comic.id;
+    //this.nComic.vendedor = this.comic.vendedor;
 
-    getComicDetail(): void {
-      //this.comicService.getComicDetail(this.id).subscribe(det => { this.comic = det; });
-    this.comicService.getComics().subscribe(
-      com => {
-        com.forEach((c) => {
-          if(c.id === this.id){
-            this.comic = c;
-          }
-        })
+    if(this.updateForm.get('nombre').value == ""){
+      this.nComic.nombre = this.comic.nombre;
+    }
+    if(this.updateForm.get('autor').value == ""){
+      this.nComic.autor = this.comic.autor;
+    }
+    if(this.updateForm.get('anioSalida').value == ""){
+      this.nComic.anioSalida = this.comic.anioSalida;
+    }
+
+    this.nComic.perteneceColeccion = this.comic.perteneceColeccion;
+
+      this.nComic.perteneceSerie = this.comic.perteneceSerie;
+
+    if(this.updateForm.get('precio').value == ""){
+      this.nComic.precio = this.comic.precio;
+    }
+
+    this.nComic.tema = this.comic.tema;
+    
+    this.nComic.enVenta = this.comic.enVenta;
+    
+    if(this.updateForm.get('informacion').value == ""){
+      this.nComic.informacion = this.comic.informacion;
+    }
+    if(this.updateForm.get('imagen').value == ""){
+      this.nComic.imagen = this.comic.imagen;
+    }
+
+    this.comicService.updateComic(this.idComic,this.nComic).subscribe(object =>
+      {
+        this.updateForm.reset();
+        this.router.navigate(['/comic/' + this.comic.id]);
       });
-    }
-    
-    ngOnInit() {
-      this.id = +this.route.snapshot.paramMap.get('id');
-      this.comic = new Comic();
-      this.getComicDetail();
-    }
-    
-    onSubmit(){this.submitted = true;}
+    this.update.emit();
+  }
 
+  getComicDetail(): void {
+    this.comicService.getComicDetail(this.idComic).subscribe(det => { this.comic = det; });
+  }
+  
+  ngOnInit() {
+    this.idComic = +this.route.snapshot.paramMap.get('id');
+    this.comic = new ComicDetail();
+    this.getComicDetail();
+  } 
 }
