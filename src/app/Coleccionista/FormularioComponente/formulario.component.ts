@@ -9,7 +9,7 @@ import { Vendedor } from "../../vendedor/vendedor";
 import { VendedorService } from "../../vendedor/vendedor.service";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
-const API_URL = '../../../assets/foto_1.json';
+const API_URL = '../../../assets/foto_2.json';
 
 @Component({
     selector:'app-form',
@@ -17,61 +17,58 @@ const API_URL = '../../../assets/foto_1.json';
     styleUrls: ['formulario.component.css']
 })
 
-
 export class FormularioComponent implements OnInit
 {
     /**
-     * 
+     * Formulario de registro
      */
     registrationForm : FormGroup;
 
     /**
-     * 
+     * Booleano que me permite saber si el fomrmulario ha sido enviado
      */
     isSubmitted: boolean = false;
 
     /**
-     * 
+     * Grupo que representa los roles de usuario
      */
     checkboxGroup: FormGroup;
 
     /**
-     * 
+     * Los valores de los roles
      */
     values: Array<String> = ["Comprador", "Vendedor"];
 
     /**
-     * 
+     * Rol seleccionado, puede ser más de uno
      */
     selectedRole = [];
 
-    fotos = [];
-
     /**
-     * 
+     * Booleano que me determina si hay error seleccionando los roles de usuario
      */
     valuesError: Boolean = true;
 
     /**
-     * 
+     * El comprador que se va a crear en la base de datos
      */
     comprador:Comprador;
 
     /**
-     * 
+     * El vendedor que se va a crear en la base de datos
      */
     vendedor: Vendedor;
 
     /**
-     * 
+     * El evento que se emite si hubo exito al crear los objetos en la base de datos.
      */
     @Output() update = new EventEmitter();
 
     /**
-     * 
-     * @param formBuilder 
-     * @param compradorService 
-     * @param vendedorService 
+     * Construcotr de la clase.
+     * @param formBuilder Objeto que crea el formulario 
+     * @param compradorService Servicio de peticiones del comprador
+     * @param vendedorService Servicio de peticiones del vendedor.
      * @param toastrService 
      */
     constructor(private formBuilder: FormBuilder,
@@ -113,12 +110,30 @@ export class FormularioComponent implements OnInit
         });
     }
     
-    imagenes:string[];
-    cargarImagenes():void{
-       this.httpClient.get<string[]>(API_URL).subscribe(imagenes=>{this.imagenes=imagenes; console.log(imagenes[0])});
-    }
+    imagenes : string[];
+
     /**
-     * 
+     * Función que asigna la ruta de la imagen que se selecciona en el formulario
+     * @param url 
+     */
+    funcion(url:string)
+    {
+        this.registrationForm.get('foto').setValue(url);
+    }
+
+    /**
+     * Cargar las imagenes de un archivo JSON a través de una peticion HTTP
+     */
+    cargarImagenes():void
+    {
+       this.httpClient.get<string[]>(API_URL).subscribe(imagenes => 
+        {
+            this.imagenes = imagenes;
+        });
+    }
+
+    /**
+     * Añade los valores a los controles.
      */
     addValuesControls()
     {
@@ -130,7 +145,7 @@ export class FormularioComponent implements OnInit
     }
 
     /**
-     * 
+     * determina el rol que se escogió y se agrega a un arreglo
      */
     get valuesArray()
     {
@@ -138,7 +153,7 @@ export class FormularioComponent implements OnInit
     }
 
     /**
-     * 
+     * Obtiene el rol seleccionado
      */
     getSelectedRoleValue()
     {
@@ -154,7 +169,7 @@ export class FormularioComponent implements OnInit
     }
 
     /**
-     * 
+     * Verifica los si los valores fueron seleccionados o no. Al menos uno debe ser seleccionado
      */
     checkValuesChecked()
     {
@@ -165,11 +180,12 @@ export class FormularioComponent implements OnInit
                 {
                     flg = true;
                 }
-            });  
+            });
         return flg;      
     }
+
     /**
-     * 
+     * Funcion que se activa cuando se envía el formulario de creacion
      */
     onRegistrationFormSubmit()
     {  
@@ -179,6 +195,8 @@ export class FormularioComponent implements OnInit
         {      
             this.comprador = Object.assign({}, this.registrationForm.value);
             this.vendedor = Object.assign({}, this.registrationForm.value);
+            console.log(this.comprador.foto);
+            
 
             for (var i = 0; i < this.selectedRole.length; i++) {
                 if (this.selectedRole[i] == "Comprador") {
@@ -205,16 +223,16 @@ export class FormularioComponent implements OnInit
                     });
                 }
             }
-            this.router.navigate(['/home']);
         }
     }
 
     /**
-     * 
+     * Funcion que se activa al momento de cargar la pagina.
      */
     ngOnInit()
     {
         this.comprador = new Comprador();
         this.vendedor = new Vendedor();
+        this.cargarImagenes();
     }
 }
