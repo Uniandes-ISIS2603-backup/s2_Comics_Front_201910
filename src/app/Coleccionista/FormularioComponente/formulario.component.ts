@@ -9,7 +9,6 @@ import { Vendedor } from "../../vendedor/vendedor";
 import { VendedorService } from "../../vendedor/vendedor.service";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
-import { $ } from "protractor";
 const API_URL = '../../../assets/foto_1.json';
 
 @Component({
@@ -115,6 +114,17 @@ export class FormularioComponent implements OnInit
 
     /**
      * 
+     * @param url 
+     */
+    funcion(url:string)
+    {
+        // this.comprador.foto = url;
+        // this.vendedor.foto = url;
+        this.registrationForm.get('foto').setValue(url);
+    }
+
+    /**
+     * 
      */
     cargarImagenes():void
     {
@@ -123,6 +133,7 @@ export class FormularioComponent implements OnInit
             this.imagenes = imagenes;
         });
     }
+
     /**
      * 
      */
@@ -171,9 +182,10 @@ export class FormularioComponent implements OnInit
                 {
                     flg = true;
                 }
-            });  
+            });
         return flg;      
     }
+
     /**
      * 
      */
@@ -185,6 +197,8 @@ export class FormularioComponent implements OnInit
         {      
             this.comprador = Object.assign({}, this.registrationForm.value);
             this.vendedor = Object.assign({}, this.registrationForm.value);
+            console.log(this.comprador.foto);
+            
 
             for (var i = 0; i < this.selectedRole.length; i++) {
                 if (this.selectedRole[i] == "Comprador") {
@@ -211,7 +225,7 @@ export class FormularioComponent implements OnInit
                     });
                 }
             }
-            this.router.navigate(['/home']);
+            // this.router.navigate(['/home']);
         }
     }
 
