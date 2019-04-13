@@ -45,8 +45,6 @@ export class FormularioComponent implements OnInit
      */
     selectedRole = [];
 
-    fotos = [];
-
     /**
      * 
      */
@@ -187,7 +185,7 @@ export class FormularioComponent implements OnInit
         {      
             this.comprador = Object.assign({}, this.registrationForm.value);
             this.vendedor = Object.assign({}, this.registrationForm.value);
-            
+
             for (var i = 0; i < this.selectedRole.length; i++) {
                 if (this.selectedRole[i] == "Comprador") {
                     this.compradorService.createComprador(this.comprador).subscribe(()=>

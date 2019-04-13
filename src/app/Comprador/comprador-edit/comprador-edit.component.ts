@@ -15,27 +15,27 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class CompradorEditComponent implements OnInit
 {
     /**
-     * 
+     * Objeto que agrupa los componentes del formulario
      */
     updateForm : FormGroup;
 
     /**
-     * 
+     * Booleano que determina si el formulario se envió
      */
     isSubmitted: boolean = false;
 
     /**
-     * 
+     * El detalle del comprador que vamos a editar, se obtiene a partir de una petición GET
      */
     compradorDetail:CompradorDetail;
 
     /**
-     * 
+     * El id del comprador que vamos a editar
      */
     id:number;
 
     /**
-     * 
+     * El objeto nuevo que actualiza el viejo
      */
     @Input() comprador: Comprador;
 
@@ -45,10 +45,10 @@ export class CompradorEditComponent implements OnInit
     @Output() update = new EventEmitter();
 
     /**
-     * 
-     * @param service 
-     * @param formBuilder 
-     * @param route 
+     * Constructor de la clase
+     * @param service Servicio de la clase que me permite hacer peticiones al servidor.
+     * @param formBuilder Creador de nuestro formulario reactivo.
+     * @param route enrutador que nos permite navegar entre componentes
      * @param toastrService 
      * @param router 
      */
