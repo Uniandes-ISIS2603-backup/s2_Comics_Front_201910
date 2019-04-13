@@ -20,55 +20,55 @@ const API_URL = '../../../assets/foto_2.json';
 export class FormularioComponent implements OnInit
 {
     /**
-     * 
+     * Formulario de registro
      */
     registrationForm : FormGroup;
 
     /**
-     * 
+     * Booleano que me permite saber si el fomrmulario ha sido enviado
      */
     isSubmitted: boolean = false;
 
     /**
-     * 
+     * Grupo que representa los roles de usuario
      */
     checkboxGroup: FormGroup;
 
     /**
-     * 
+     * Los valores de los roles
      */
     values: Array<String> = ["Comprador", "Vendedor"];
 
     /**
-     * 
+     * Rol seleccionado, puede ser más de uno
      */
     selectedRole = [];
 
     /**
-     * 
+     * Booleano que me determina si hay error seleccionando los roles de usuario
      */
     valuesError: Boolean = true;
 
     /**
-     * 
+     * El comprador que se va a crear en la base de datos
      */
     comprador:Comprador;
 
     /**
-     * 
+     * El vendedor que se va a crear en la base de datos
      */
     vendedor: Vendedor;
 
     /**
-     * 
+     * El evento que se emite si hubo exito al crear los objetos en la base de datos.
      */
     @Output() update = new EventEmitter();
 
     /**
-     * 
-     * @param formBuilder 
-     * @param compradorService 
-     * @param vendedorService 
+     * Construcotr de la clase.
+     * @param formBuilder Objeto que crea el formulario 
+     * @param compradorService Servicio de peticiones del comprador
+     * @param vendedorService Servicio de peticiones del vendedor.
      * @param toastrService 
      */
     constructor(private formBuilder: FormBuilder,
@@ -113,18 +113,16 @@ export class FormularioComponent implements OnInit
     imagenes : string[];
 
     /**
-     * 
+     * Función que asigna la ruta de la imagen que se selecciona en el formulario
      * @param url 
      */
     funcion(url:string)
     {
-        // this.comprador.foto = url;
-        // this.vendedor.foto = url;
         this.registrationForm.get('foto').setValue(url);
     }
 
     /**
-     * 
+     * Cargar las imagenes de un archivo JSON a través de una peticion HTTP
      */
     cargarImagenes():void
     {
@@ -135,7 +133,7 @@ export class FormularioComponent implements OnInit
     }
 
     /**
-     * 
+     * Añade los valores a los controles.
      */
     addValuesControls()
     {
@@ -147,7 +145,7 @@ export class FormularioComponent implements OnInit
     }
 
     /**
-     * 
+     * determina el rol que se escogió y se agrega a un arreglo
      */
     get valuesArray()
     {
@@ -155,7 +153,7 @@ export class FormularioComponent implements OnInit
     }
 
     /**
-     * 
+     * Obtiene el rol seleccionado
      */
     getSelectedRoleValue()
     {
@@ -171,7 +169,7 @@ export class FormularioComponent implements OnInit
     }
 
     /**
-     * 
+     * Verifica los si los valores fueron seleccionados o no. Al menos uno debe ser seleccionado
      */
     checkValuesChecked()
     {
@@ -187,7 +185,7 @@ export class FormularioComponent implements OnInit
     }
 
     /**
-     * 
+     * Funcion que se activa cuando se envía el formulario de creacion
      */
     onRegistrationFormSubmit()
     {  
@@ -225,12 +223,11 @@ export class FormularioComponent implements OnInit
                     });
                 }
             }
-            // this.router.navigate(['/home']);
         }
     }
 
     /**
-     * 
+     * Funcion que se activa al momento de cargar la pagina.
      */
     ngOnInit()
     {

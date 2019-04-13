@@ -81,7 +81,7 @@ export class CompradorEditComponent implements OnInit
     }
 
     /**
-     * 
+     * Funcion que se activa cuando se envía el formulario.
      */
     onEditFormSubmit()
     {
@@ -124,7 +124,7 @@ export class CompradorEditComponent implements OnInit
     }
 
     /**
-     * 
+     * Funcion que me permite obtener el comprador que quiero editar
      */
     getCompradorDetail()
     {
@@ -135,7 +135,7 @@ export class CompradorEditComponent implements OnInit
     }
 
     /**
-     * 
+     * Funcion que se ejecuta al inicializar la pagina.
      */
     ngOnInit()
     {
