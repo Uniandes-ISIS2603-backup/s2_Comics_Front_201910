@@ -9,7 +9,7 @@ import { Vendedor } from "../../vendedor/vendedor";
 import { VendedorService } from "../../vendedor/vendedor.service";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
-const API_URL = '../../../assets/foto_1.json';
+const API_URL = '../../../assets/foto_2.json';
 
 @Component({
     selector:'app-form',
