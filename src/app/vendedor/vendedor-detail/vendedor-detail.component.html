@@ -17,6 +17,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link" routerLink="/vendedores">Atrás</a>
                                 </li>
+                                <li class="nav-item">
+                                    
+                                        <a class="nav-link" (click)="comicsComponent.isCollapsed=!comicsComponent.isCollapsed" style="cursor:pointer">Añadir comic</a>
+                                    </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
@@ -67,7 +71,7 @@
               <hr> 
             <br>
             <div class="row"><div class="col-md-2">
-               
+               <app-vendedor-comics></app-vendedor-comics>
                 </div>
                     <div class="col-md-6">
                         <h4>Información básica</h4>

@@ -10,12 +10,14 @@ import { OrdenPedidoModuleModule } from '../OrdenPedido/orden-pedido-module/orde
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
 import { CompradorEditComponent } from './comprador-edit/comprador-edit.component';
 
+
 @NgModule({
     declarations: [
         CompradorListComponent,
         CompradorDetailComponent,
         CompradorEditComponent],
     imports: [ 
+       
         ReactiveFormsModule,
         BrowserModule, 
         AppRoutingModule,

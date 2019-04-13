@@ -13,7 +13,8 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {VendedorEditCalificacionComponent} from './vendedor-edit-calificacion/vendedor-edit-calificacion.component';
 import {VendedorEditComponent} from './vendedor-edit/vendedor-edit.component';
 import {ComicModule} from '../comic/comic.module';
-
+import {VendedorComicsComponent} from './vendedor-comic/vendedor-comic.component';
+import {ComicService} from './../comic/comic.service';
 @NgModule({
     imports: [       
         CommonModule,
@@ -27,8 +28,8 @@ import {ComicModule} from '../comic/comic.module';
     ],
     declarations: [VendedorListComponent,VendedorDetailComponent,
         VendedorCalificacionesComponent,
-         VendedorAddCalificacionComponent,VendedorEditCalificacionComponent, VendedorEditComponent],
-    providers: [VendedorService],
+         VendedorAddCalificacionComponent,VendedorEditCalificacionComponent, VendedorEditComponent,VendedorComicsComponent],
+    providers: [VendedorService,ComicService],
     exports:[VendedorListComponent,VendedorEditCalificacionComponent]
 })
 export class VendedorModule {}

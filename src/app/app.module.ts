@@ -21,6 +21,7 @@ import { VendedorModule } from './vendedor/vendedor.module';
 import { FormularioComponent } from './Coleccionista/FormularioComponente/formulario.component';
 import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.component';
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -28,6 +29,7 @@ import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.compo
         LogInComponent
     ],
     imports: [
+        
         ReactiveFormsModule,
         BrowserModule,
         AppRoutingModule,
