@@ -21,7 +21,7 @@ export class VendedorComicsComponent implements OnInit,OnChanges {
     //metodo que llama al servicio de los comics para cargar una lista de todos los comics disponibles
     getComics(): void {
         this.comicService.getComics().subscribe(comics=>{this.comics=comics});
-    }
+    } 
 //metodo que llama al servicio de vendedor para añadir un comic a su lista de comics
     addComic(comicId:Comic): void {
     console.log(comicId);
