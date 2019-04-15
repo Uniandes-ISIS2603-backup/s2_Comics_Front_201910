@@ -250,13 +250,13 @@ export class FormularioComponent implements OnInit
             'left': 0,
             'right': 0,
             'bottom': 0,
-            'background': 'rgb(255,255,255)'
+            'background': 'rgb(0,0,0)'
         };
 
         this.myParams = {
             particles: {
                 number: {
-                    value: 50,
+                    value: 100,
                     density:
                         {
                             enable:true,
@@ -264,21 +264,21 @@ export class FormularioComponent implements OnInit
                         }
                 },
                 color: {
-                    value: '#000000'
+                    value: '#e25822'
                 },
                 shape: {
                     type: 'triangle',
                     stroke:
                         {
                             width: 0,
-                            color: '#ffffff'
+                            color: '#e25822'
                         }
                 },
                 polygon:{
                     nb_sides: 5
                 },
                 line_linked:{
-                    enable: true,
+                    enable: false,
                     distance: 300,
                     color: '#000000',
                     opacity: 0.4,

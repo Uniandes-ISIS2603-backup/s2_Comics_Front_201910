@@ -2,6 +2,10 @@ textarea {
     resize: none;
 }
 
+form{
+    color: white;
+}
+
 .card {
     display: block;
     padding: 15px;
@@ -15,8 +19,9 @@ textarea {
 img {
     transition: 0.2s ease-in-out;
     cursor: pointer;
-    background-color: white;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+    background-color: black;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+    border-radius: 10%;
 }
 
 img:hover {
@@ -28,7 +33,7 @@ img:hover {
 }
 
 #inlineRadio0:checked + label > img , #inlineRadio1:checked + label > img, #inlineRadio2:checked + label > img, #inlineRadio3:checked + label > img, #inlineRadio4:checked + label > img{
-    background-color: black;
+    background-color: white;
 }
 
 #inlineRadio5,  #inlineRadio6, #inlineRadio7, #inlineRadio8, #inlineRadio9{
@@ -36,7 +41,7 @@ img:hover {
 }
 
 #inlineRadio5:checked + label > img , #inlineRadio6:checked + label > img, #inlineRadio7:checked + label > img, #inlineRadio8:checked + label > img, #inlineRadio9:checked + label > img{
-    background-color: black;
+    background-color: white;
 }
 
 #inlineRadio10,  #inlineRadio11, #inlineRadio12, #inlineRadio13, #inlineRadio14{
@@ -44,7 +49,7 @@ img:hover {
 }
 
 #inlineRadio10:checked + label > img , #inlineRadio11:checked + label > img, #inlineRadio12:checked + label > img, #inlineRadio13:checked + label > img, #inlineRadio14:checked + label > img{
-    background-color: black;
+    background-color: white;
 }
 
 #inlineRadio15,  #inlineRadio16, #inlineRadio17, #inlineRadio18, #inlineRadio19{
@@ -52,7 +57,7 @@ img:hover {
 }
 
 #inlineRadio15:checked + label > img , #inlineRadio16:checked + label > img, #inlineRadio17:checked + label > img, #inlineRadio18:checked + label > img, #inlineRadio19:checked + label > img{
-    background-color: black;
+    background-color: white;
 }
 
 #inlineRadio20,  #inlineRadio21, #inlineRadio22, #inlineRadio23, #inlineRadio24{
@@ -60,5 +65,5 @@ img:hover {
 }
 
 #inlineRadio20:checked + label > img , #inlineRadio21:checked + label > img, #inlineRadio22:checked + label > img, #inlineRadio23:checked + label > img, #inlineRadio24:checked + label > img{
-    background-color: black;
+    background-color: white;
 }

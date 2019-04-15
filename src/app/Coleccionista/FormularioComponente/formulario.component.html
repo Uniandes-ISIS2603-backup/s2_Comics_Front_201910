@@ -1,5 +1,5 @@
 <particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
-<h1 style="text-align: center;">Formulario de creación de coleccionista</h1>
+<h1 style="text-align: center; color: white;">Formulario de creación de coleccionista</h1>
 <div class="conten-fluid">
     <div class="row">
         <div class="mx-auto">
@@ -9,6 +9,7 @@
                         <div class="col-3"></div>
                         <div class="col-6">
                             <label for="">Nombre Completo</label>
+                            <hr>
                             <input type="text" class="form-control" placeholder="Nombre Completo" size="100px"
                                    formControlName="nombre">
                             <div
@@ -35,6 +36,7 @@
                         <div class="col-3"></div>
                         <div class="col-6">
                             <label for="">Alias</label>
+                            <hr>
                             <input type="text" placeholder="Alias" class="form-control" formControlName="alias">
                             <div
                                     *ngIf="(registrationForm.get('alias').errors && isSubmitted) ||(registrationForm.get('alias').errors && registrationForm.get('alias').touched)">
