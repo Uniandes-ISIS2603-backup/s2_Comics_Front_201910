@@ -20,6 +20,7 @@ import { VendedorModule } from './vendedor/vendedor.module';
 import { FormularioComponent } from './Coleccionista/FormularioComponente/formulario.component';
 import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {ParticlesModule} from "angular-particle";
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         FlexLayoutModule,
         ReactiveFormsModule,
         BrowserModule,
+        ParticlesModule,
         AppRoutingModule,
         HttpClientModule,
         VendedorModule,

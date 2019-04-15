@@ -6,6 +6,8 @@ import { ToastrService } from "ngx-toastr";
 import { CompradorDetail } from "../comprador-detail";
 import { ActivatedRoute, Router } from "@angular/router";
 
+const API_URL = '../../../assets/foto_2.json';
+
 @Component({
     selector: 'app-comprador-edit',
     templateUrl: 'comprador-edit.component.html',
@@ -14,6 +16,10 @@ import { ActivatedRoute, Router } from "@angular/router";
 
 export class CompradorEditComponent implements OnInit
 {
+    myStyle: object = {};
+    myParams: object = {};
+    width: number = 100;
+    height: number = 100;
     /**
      * Objeto que agrupa los componentes del formulario
      */
@@ -40,7 +46,7 @@ export class CompradorEditComponent implements OnInit
     @Input() comprador: Comprador;
 
     /**
-     * 
+     *
      */
     @Output() update = new EventEmitter();
 
@@ -49,20 +55,20 @@ export class CompradorEditComponent implements OnInit
      * @param service Servicio de la clase que me permite hacer peticiones al servidor.
      * @param formBuilder Creador de nuestro formulario reactivo.
      * @param route enrutador que nos permite navegar entre componentes
-     * @param toastrService 
-     * @param router 
+     * @param toastrService
+     * @param router
      */
     constructor(private service:CompradorService,
-        private formBuilder: FormBuilder,
-        private route:ActivatedRoute,
-        private toastrService: ToastrService,
-        private router: Router)
+                private formBuilder: FormBuilder,
+                private route:ActivatedRoute,
+                private toastrService: ToastrService,
+                private router: Router)
     {
         this.comprador = new Comprador();
         this.updateForm = this.formBuilder.group({
             nombre : new FormControl({value:'', disabled: true},[
-                Validators.minLength(3),  
-                Validators.maxLength(30),  
+                Validators.minLength(3),
+                Validators.maxLength(30),
                 Validators.pattern('^[a-zA-Z ]*$')
             ]),
             alias: new FormControl({value:'', disabled: true},[
@@ -115,11 +121,11 @@ export class CompradorEditComponent implements OnInit
         }
 
         this.service.updateComprador(this.comprador).subscribe(object =>
-            {
-                this.updateForm.reset();
-                this.toastrService.success("El comprador fue actualizado con exito");
-                this.router.navigate(['/comprador/' + this.compradorDetail.id])
-            });
+        {
+            this.updateForm.reset();
+            this.toastrService.success("El comprador fue actualizado con exito");
+            this.router.navigate(['/comprador/' + this.compradorDetail.id])
+        });
         this.update.emit();
     }
 
@@ -129,9 +135,9 @@ export class CompradorEditComponent implements OnInit
     getCompradorDetail()
     {
         this.service.getCompradorDetail(this.id).subscribe(object =>
-            {
-                this.compradorDetail = object;
-            });
+        {
+            this.compradorDetail = object;
+        });
     }
 
     /**
@@ -145,5 +151,84 @@ export class CompradorEditComponent implements OnInit
             this.compradorDetail = new CompradorDetail();
             this.getCompradorDetail();
         }
+
+        this.myStyle = {
+            'position': 'fixed',
+            'width': '100%',
+            'height': '100%',
+            'z-index': -1,
+            'top': 0,
+            'left': 0,
+            'right': 0,
+            'bottom': 0,
+            'background': 'rgb(255,255,255)'
+        };
+
+        this.myParams = {
+            particles: {
+                number: {
+                    value: 50,
+                    density:
+                        {
+                            enable:true,
+                            value_area:800
+                        }
+                },
+                color: {
+                    value: '#000000'
+                },
+                shape: {
+                    type: 'triangle',
+                    stroke:
+                        {
+                            width: 0,
+                            color: '#ffffff'
+                        }
+                },
+                polygon:{
+                    nb_sides: 5
+                },
+                line_linked:{
+                    enable: true,
+                    distance: 300,
+                    color: '#000000',
+                    opacity: 0.4,
+                    width: 2
+                },
+                move:{
+                    enable: true,
+                    speed: 12,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                },
+                interactivity:{
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: false,
+                            mode: 'repulse'
+                        },
+                        onclick:{
+
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        repulse: {
+                            distance: 400,
+                            duration: 0.4
+                        }
+                    }
+                }
+            }
+        };
     }
 }
