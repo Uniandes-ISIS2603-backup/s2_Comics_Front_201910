@@ -5,6 +5,7 @@ import { Comprador } from "../comprador";
 import { ToastrService } from "ngx-toastr";
 import { CompradorDetail } from "../comprador-detail";
 import { ActivatedRoute, Router } from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 
 const API_URL = '../../../assets/foto_2.json';
 
@@ -62,7 +63,8 @@ export class CompradorEditComponent implements OnInit
                 private formBuilder: FormBuilder,
                 private route:ActivatedRoute,
                 private toastrService: ToastrService,
-                private router: Router)
+                private router: Router,
+                private httpClient:HttpClient)
     {
         this.comprador = new Comprador();
         this.updateForm = this.formBuilder.group({
@@ -130,6 +132,31 @@ export class CompradorEditComponent implements OnInit
     }
 
     /**
+     *
+     */
+    imagenes: string[];
+
+    /**
+     *
+     */
+    cargarImagenes():void
+    {
+        this.httpClient.get<string[]>(API_URL).subscribe(imagenes =>
+        {
+            this.imagenes = imagenes;
+        });
+    }
+
+    /**
+     *
+     * @param url
+     */
+    funcion(url:string)
+    {
+        this.updateForm.get('foto').setValue(url);
+    }
+
+    /**
      * Funcion que me permite obtener el comprador que quiero editar
      */
     getCompradorDetail()
@@ -152,6 +179,8 @@ export class CompradorEditComponent implements OnInit
             this.getCompradorDetail();
         }
 
+        this.cargarImagenes();
+
         this.myStyle = {
             'position': 'fixed',
             'width': '100%',
@@ -167,7 +196,7 @@ export class CompradorEditComponent implements OnInit
         this.myParams = {
             particles: {
                 number: {
-                    value: 50,
+                    value: 100,
                     density:
                         {
                             enable:true,
@@ -189,7 +218,7 @@ export class CompradorEditComponent implements OnInit
                     nb_sides: 5
                 },
                 line_linked:{
-                    enable: true,
+                    enable: false,
                     distance: 300,
                     color: '#000000',
                     opacity: 0.4,

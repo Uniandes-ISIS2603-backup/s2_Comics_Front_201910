@@ -280,7 +280,7 @@ export class FormularioComponent implements OnInit
                 line_linked:{
                     enable: false,
                     distance: 300,
-                    color: '#000000',
+                    color: '#FFFFFF',
                     opacity: 0.4,
                     width: 2
                 },
