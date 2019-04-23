@@ -8,18 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { CompradorService } from './comprador.service';
 import { OrdenPedidoModule } from '../orden-pedido/orden-pedido.module';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
-import { CompradorEditComponent } from './comprador-edit/comprador-edit.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import {ParticlesModule} from "angular-particle";
+
 
 @NgModule({
     declarations: [
         CompradorListComponent,
-        CompradorDetailComponent,
-        CompradorEditComponent],
-    imports: [
-        ParticlesModule,
-        FlexLayoutModule,
+        CompradorDetailComponent],
+    imports: [ 
+       
         ReactiveFormsModule,
         BrowserModule, 
         AppRoutingModule,
