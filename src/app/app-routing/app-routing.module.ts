@@ -45,12 +45,18 @@ const routes: Routes = [
                         component: ComicDetailComponent
                     },
                     {
+<<<<<<< HEAD
                         path: ':sign-up',
                 component: AuthSignUpComponent,
                 canActivate: [NgxPermissionsGuard],
                 data: {
                     permissions: {
                         only: ['GUEST']                    }
+=======
+                        path: 'update/:id',
+                        component: ComicUpdateComponent
+                    }
+>>>>>>> parent of 8f6242c... Revert "Merge branch 'master' into Jenifer2"
                 }
             }
         ]

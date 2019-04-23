@@ -1,0 +1,19 @@
+<div id="collapseAddCalificacion" [ngbCollapse]="isCollapsed">
+        <div class="container-fluid">
+            <h5 class="text-center">Agregar un comic</h5>
+            <br>
+            <select v-model="selected" class="form-control " id="myselect" >
+                    <option type="button" *ngFor="let comic of comics" value="comic.id"   >{{comic.nombre}}</option>
+                  </select>
+               
+        </div>
+      
+        <br>
+        <br>
+      
+        <div class="text-center">
+            <p><strong>{{ selected }}</strong></p>
+            <button type="button" class="btn-primary" (click)="addComic(selectedValue)">Añadir</button>
+           
+        </div> 
+    </div>

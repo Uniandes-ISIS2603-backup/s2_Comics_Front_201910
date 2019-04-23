@@ -21,6 +21,7 @@ import { FormularioComponent } from './Coleccionista/FormularioComponente/formul
 import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.component';
 import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -28,6 +29,7 @@ import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
         LogInComponent
     ],
     imports: [
+        
         ReactiveFormsModule,
         BrowserModule,
         AppRoutingModule,
