@@ -10,7 +10,8 @@
                             <label for="">Nombre Completo</label>
                             <input type="text" class="form-control" placeholder="Nombre Completo" size="100px"
                                 formControlName="nombre">
-                            <div *ngIf="(registrationForm.get('nombre').errors  && isSubmitted) || (registrationForm.get('nombre').errors && registrationForm.get('nombre').touched)">
+                            <div
+                                *ngIf="(registrationForm.get('nombre').errors  && isSubmitted) || (registrationForm.get('nombre').errors && registrationForm.get('nombre').touched)">
                                 <div *ngIf="registrationForm.get('nombre').hasError('required')">
                                     <span style="color: red;">Por favor llene el campo</span>
                                 </div>
@@ -105,11 +106,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group" style="text-align: center;" [formGroup] = "checkboxGroup">
+                <div class="form-group" style="text-align: center;" [formGroup]="checkboxGroup">
                     <label for="">Rol de usuario</label>
                     <br>
-                    <div class="custom-control custom-checkbox custom-control-inline" *ngFor="let control of valuesArray.controls; let i= index;">
-                        <input type="checkbox" class="custom-control-input" id="defaultInline{{i}}" [formControl] = "control" (change) = "getSelectedRoleValue()">
+                    <div class="custom-control custom-checkbox custom-control-inline"
+                        *ngFor="let control of valuesArray.controls; let i= index;">
+                        <input type="checkbox" class="custom-control-input" id="defaultInline{{i}}"
+                            [formControl]="control" (change)="getSelectedRoleValue()">
                         <label class="custom-control-label" for="defaultInline{{i}}">{{values[i]}}</label>
                     </div>
                     <div *ngIf="(valuesError && isSubmitted) || (valuesError && checkValuesChecked())">

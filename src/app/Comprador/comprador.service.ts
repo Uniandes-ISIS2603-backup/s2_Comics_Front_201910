@@ -59,4 +59,14 @@ export class CompradorService
     createComprador(comprador): Observable<Comprador> {
         return this.http.post<Comprador>(API_URL + compradores, comprador);
     }
+
+    /**
+     * Actualiza un comprador en la base de datos
+     * @param id El id del comprador que será actualizado
+     * @param comprador Los datos del comprador que será actualizado.
+     */
+    updateComprador(comprador):Observable<Comprador>
+    {
+        return this.http.put<Comprador>(API_URL + compradores + '/' + comprador.id, comprador);
+    }
 }

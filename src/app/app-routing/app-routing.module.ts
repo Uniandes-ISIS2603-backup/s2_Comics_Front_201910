@@ -14,6 +14,7 @@ import { FormularioComponent } from '../Coleccionista/FormularioComponente/formu
 
 import { ComicListComponent } from '../comic/comic-list/comic-list.component';
 import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
+
 import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-pedido-list.component';
 import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
 
@@ -45,18 +46,12 @@ const routes: Routes = [
                         component: ComicDetailComponent
                     },
                     {
-<<<<<<< HEAD
                         path: ':sign-up',
                 component: AuthSignUpComponent,
                 canActivate: [NgxPermissionsGuard],
                 data: {
                     permissions: {
                         only: ['GUEST']                    }
-=======
-                        path: 'update/:id',
-                        component: ComicUpdateComponent
-                    }
->>>>>>> parent of 8f6242c... Revert "Merge branch 'master' into Jenifer2"
                 }
             }
         ]

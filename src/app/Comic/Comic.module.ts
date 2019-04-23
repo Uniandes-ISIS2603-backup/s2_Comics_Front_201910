@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComicService } from './comic.service';
 import { ComicListComponent } from './comic-list/comic-list.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
+import { ComicUpdateComponent } from './comic-update/comic-update.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { ComicDetailComponent } from './comic-detail/comic-detail.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [ComicListComponent, ComicDetailComponent],
+  declarations: [ComicListComponent, ComicDetailComponent, ComicUpdateComponent],
   providers: [ComicService],
 })
 export class ComicModule { }
