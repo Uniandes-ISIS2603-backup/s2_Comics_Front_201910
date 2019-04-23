@@ -11,7 +11,7 @@ import { Vendedor } from "./vendedor";
 
 export class VendedorDetail extends Vendedor {
     
-  
+    /** Los libros del author **/
    calificaciones : Calificacion[];
     
 }

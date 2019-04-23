@@ -5,8 +5,7 @@
             <form [formGroup]="registrationForm" (ngSubmit)="onRegistrationFormSubmit()" #f="ngForm" novalidate>
                 <div class="form-group" style="text-align: center;">
                     <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-6">
+                        <div class="col">
                             <label for="">Nombre Completo</label>
                             <input type="text" class="form-control" placeholder="Nombre Completo" size="100px"
                                 formControlName="nombre">
@@ -29,79 +28,51 @@
                     </div>
                 </div>
                 <div class="form-group" style="text-align: center;">
-                    <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-6">
-                            <label for="">Alias</label>
-                            <input type="text" placeholder="Alias" class="form-control" formControlName="alias">
-                            <div
-                                *ngIf="(registrationForm.get('alias').errors && isSubmitted) ||(registrationForm.get('alias').errors && registrationForm.get('alias').touched)">
-                                <div *ngIf="registrationForm.get('alias').hasError('required')">
-                                    <span style="color:red;">Por favor llene este campo</span>
-                                </div>
-                                <div *ngIf="registrationForm.get('alias').hasError('minlength')">
-                                    <span style="color:red;">Por favor ingrese un alias con al menos 5 caracteres</span>
-                                </div>
-                                <div *ngIf="registrationForm.get('alias').hasError('maxlength')">
-                                    <span style="color:red;">Por favor ingrese un alias con máximo 30 caracteres</span>
-                                </div>
-                            </div>
+                    <label for="">Alias</label>
+                    <input type="text" placeholder="Alias" class="form-control" formControlName="alias">
+                    <div *ngIf="(registrationForm.get('alias').errors && isSubmitted) ||(registrationForm.get('alias').errors && registrationForm.get('alias').touched)">
+                        <div *ngIf="registrationForm.get('alias').hasError('required')">
+                            <span style="color:red;">Por favor llene este campo</span>
+                        </div>
+                        <div *ngIf="registrationForm.get('alias').hasError('minlength')">
+                            <span style="color:red;">Por favor ingrese un alias con al menos 5 caracteres</span>
+                        </div>
+                        <div *ngIf="registrationForm.get('alias').hasError('maxlength')">
+                            <span style="color:red;">Por favor ingrese un alias con máximo 30 caracteres</span>
                         </div>
                     </div>
                 </div>
                 <div class="form group" style="text-align: center; position: relative;">
-                    <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-6">
-                            <label for="">Intereses</label>
-                            <hr>
-                            <textarea name="" id="" cols="10" rows="5" class="form-control" placeholder="Intereses"
-                                formControlName="intereses"></textarea>
-                        </div>
-                    </div>
+                    <label for="">Intereses</label>
+                    <textarea name="" id="" cols="10" rows="5" class="form-control" placeholder="Intereses" formControlName="intereses"></textarea>
                 </div>
                 <div class="form-group" style="text-align: center;">
-                    <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-6">
-                            <label for="exampleInputEmail1">Email Address</label>
-                            <input type="email" class="form-control" id="exampleInputemail1"
-                                aria-describedby="emailHelp" placeholder="Enter email"
-                                formControlName="correoElectronico">
-                            <div
-                                *ngIf="(registrationForm.get('correoElectronico').errors && isSubmitted) || (registrationForm.get('correoElectronico').errors && registrationForm.get('correoElectronico').touched)">
-                                <div *ngIf="registrationForm.get('correoElectronico').hasError('pattern')">
-                                    <span style="color:red;">Ingrese un email válido</span>
-                                </div>
-                                <div *ngIf="registrationForm.get('correoElectronico').hasError('required')">
-                                    <span style="color:red;">Por favor llene el campo</span>
-                                </div>
-                            </div>
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                                else.</small>
+                    <label for="exampleInputEmail1">Email Address</label>
+                    <input type="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp"
+                        placeholder="Enter email" formControlName="correoElectronico">
+                    <div *ngIf="(registrationForm.get('correoElectronico').errors && isSubmitted) || (registrationForm.get('correoElectronico').errors && registrationForm.get('correoElectronico').touched)">
+                        <div *ngIf="registrationForm.get('correoElectronico').hasError('pattern')">
+                            <span style="color:red;">Ingrese un email válido</span>
+                        </div>
+                        <div *ngIf="registrationForm.get('correoElectronico').hasError('required')">
+                            <span style="color:red;">Por favor llene el campo</span>
                         </div>
                     </div>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
                 </div>
                 <div class="form-group" style="text-align: center;">
-                    <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-6">
-                            <label for="">Contraseña</label>
-                            <input type="password" class="form-control" placeholder="Enter Password"
-                                formControlName="password">
-                            <div
-                                *ngIf="(registrationForm.get('password').errors && isSubmitted) || (registrationForm.get('password').errors && registrationForm.get('password').touched)">
-                                <div *ngIf="registrationForm.get('password').hasError('pattern')">
-                                    <span style="color:red;">Ingrese una contraseña válida</span>
-                                    <br>
-                                    <span style="color:rgb(102, 102, 102);">Entre 4 y 10 caracteres, debe tener al menos
-                                        un
-                                        número y una mayúscula</span>
-                                </div>
-                                <div *ngIf="registrationForm.get('password').hasError('required')">
-                                    <span style="color:red;">Por favor llene el campo</span>
-                                </div>
-                            </div>
+                    <label for="">Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
+                    <div *ngIf="(registrationForm.get('password').errors && isSubmitted) || (registrationForm.get('password').errors && registrationForm.get('password').touched)">
+                        <div *ngIf="registrationForm.get('password').hasError('pattern')">
+                            <span style="color:red;">Ingrese una contraseña válida</span>
+                            <br>
+                            <span style="color:rgb(102, 102, 102);">Entre 4 y 10 caracteres, debe tener al menos un
+                                número y una mayúscula</span>
+                        </div>
+                        <div *ngIf="registrationForm.get('password').hasError('required')">
+                            <span style="color:red;">Por favor llene el campo</span>
                         </div>
                     </div>
                 </div>
@@ -118,60 +89,16 @@
                 </div>
 
                 <div class="form-group" style="text-align: center;">
-                    <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-6">
-                            <label for="">Escoger foto</label>
-                            <hr>
-                            <div fxLayout="row" fxLayoutGap="20px">
-                                <ng-container *ngFor="let i of [0,1,2,3,4];" style="margin: 0px; font-size: 0;">
-                                    <img id="img-x" class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                        (click)="funcion(imagenes[i])" style="width: 16%;">
-                                </ng-container>
-                            </div>
-
-                            <div fxLayout="row" fxLayoutGap="20px">
-                                <ng-container *ngFor="let i of [5, 6, 7, 8, 9];">
-                                    <img id="img-x" class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                        (click)="funcion(imagenes[i])" style="width: 16%;">
-                                </ng-container>
-                            </div>
-
-                            <div fxLayout="row" fxLayoutGap="20px">
-                                <ng-container *ngFor="let i of [10, 11, 12, 13, 14];">
-                                    <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                        (click)="funcion(imagenes[i])" style="width: 16%;">
-                                </ng-container>
-                            </div>
-
-                            <div fxLayout="row" fxLayoutGap="20px">
-                                <ng-container *ngFor="let i of [15, 16, 17, 18, 19];">
-                                    <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                        (click)="funcion(imagenes[i])" style="width: 16%;">
-                                </ng-container>
-                            </div>
-
-                            <div fxLayout="row" fxLayoutGap="20px">
-                                <ng-container *ngFor="let i of [20, 21, 22, 23, 24];">
-                                    <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                        (click)="funcion(imagenes[i])" style="width: 16%;">
-                                </ng-container>
-                            </div>
-                        </div>
-                    </div>
+                    <label for="">Subir foto</label>
+                    <input type="file" class="form-control-file" style="text-align: center;">
                 </div>
-
                 <div class="row" style="text-align: center;">
-                    <div class="col-3">
+                    <div class="form-group col" style="text-align:center;" id="botonEnviar">
+                        <button type="button" class="btn btn-success"
+                            (click)="onRegistrationFormSubmit()">Enviar</button>
                     </div>
-                    <div class="col-6">
-                        <div class="form-group col" style="text-align:center;" id="botonEnviar">
-                            <button type="button" class="btn btn-success"
-                                (click)="onRegistrationFormSubmit()">Enviar</button>
-                        </div>
-                        <div class="form-group col" style="text-align:center;" id="botonCancelar">
-                            <button type="button" class="btn btn-danger" routerLink="/home">Cancelar</button>
-                        </div>
+                    <div class="form-group col" style="text-align:center;" id="botonCancelar">
+                        <button type="button" class="btn btn-danger" routerLink="/home">Cancelar</button>
                     </div>
                 </div>
             </form>

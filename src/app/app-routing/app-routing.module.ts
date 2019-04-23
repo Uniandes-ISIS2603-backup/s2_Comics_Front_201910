@@ -31,22 +31,14 @@ const routes: Routes = [
                         only: ['GUEST']
                     }
                 }
-            }
-                    ]
-                },
-                {
-                    path: 'comic',
-                    children: [{
-                        path: 'list',
-                        component: ComicListComponent
-                    },
-                    {
-                        path: ':id',
-                        component: ComicDetailComponent
-                    },
-                    {
-                        path: 'update/:id',
-                        component: ComicUpdateComponent
+            },
+            {
+                path: ':sign-up',
+                component: AuthSignUpComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
                     }
                 }
             }
