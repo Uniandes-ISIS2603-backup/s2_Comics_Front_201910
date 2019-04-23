@@ -6,18 +6,18 @@
     
 import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { NgForm } from '@angular/forms';
+import { NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Calificacion } from '../calificacion';
 import { VendedorService } from '../vendedor.service';
-import { Vendedor } from '../vendedor';
+import { VendedorDetail } from '../vendedor-detail';
 @Component({
-    selector: 'app-vendedor-add-calificacion',
-    templateUrl: './vendedor-add-calificacion.component.html',
+    selector: 'app-vendedor-edit-calificacion',
+    templateUrl: './vendedor-edit-calificacion.component.html',
    
 })
 
-export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
+export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
      constructor(
         private vendedorService: VendedorService,
         private toastrService: ToastrService,
@@ -25,22 +25,21 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
 
     ) { }
     
-     @Input() vendedor: Vendedor;
+     @Input() vendedor: VendedorDetail;
 
      vendedorId:number;
-    /**
-    * The review to post
-    */
+   
     calificacion: Calificacion;
-    //atributo para esconder/mostrar el componente
+    
     public isCollapsed = true;
     
     @Output() updateCalificaciones = new EventEmitter();
-    
-    //metodo que llama al servicio del vendedor para crear una nueva calificacion segun el formulario recibido 
-     postCalificacion(calificacionForm: NgForm): Calificacion {
+    //metodo que llama al servicio para actualizar la calificacion
+     putCalificacion(calificacionForm: NgForm): Calificacion {
         
-        this.vendedorService.createCalificacion(this.vendedorId,this.calificacion)
+         if (this.calificacion.puntuacion!=null){
+          
+        this.vendedorService.updateCalificacion(this.vendedorId,this.calificacion,this.calificacion.id)
             .subscribe(() => {
                 calificacionForm.resetForm();
                 this.updateCalificaciones.emit();
@@ -48,20 +47,25 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
             }, err => {
                 this.toastrService.error(err, 'Error');
             });
+         }
         return this.calificacion;
     }
-
-    //obtiene la id del vendedor actual y lo inicializa llamando al servicio
+    //inicializa el vendedor dueño de las calificaicones
     ngOnInit(){
           this.vendedorId = +this.route.snapshot.paramMap.get('id');
           this.calificacion=new Calificacion();
+         this.vendedorService.getVendedorDetail(this.vendedorId).subscribe(vendedor=>{this.vendedor=vendedor;});
     }
     ngOnChanges() {
         this.ngOnInit();
     }
-    starList: boolean[] = [true,true,true,true,true];    
-
-//metodo que modifica el arreglo de booleanos para desplegar la puntuacion con estrellas
+    starList: boolean[] = [true,true,true,true,true];       // create a list which contains status of 5 stars
+    cancelEdition(): void {
+        
+        this.toastrService.warning('Esta calificación no fue editada', 'Edicion de calificacion');
+        this.isCollapsed=true;
+    }
+//metodo que permite desplegar la puntuacion con estrellas
 setStar(data:any){
       this.calificacion.puntuacion=data+1;                               
       for(var i=0;i<=4;i++){  

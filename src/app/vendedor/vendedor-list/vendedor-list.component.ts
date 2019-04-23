@@ -30,9 +30,7 @@ export class VendedorListComponent implements OnInit {
 
 
 
-    /**
-     * Asks the service to update the list of editorials
-     */
+    //metodo que llama al servicio para inicializar la lista de vendedores
     getVendedores(): void {
         this.vendedorService.getVendedores().subscribe(vendedores => this.vendedores = vendedores);
     }

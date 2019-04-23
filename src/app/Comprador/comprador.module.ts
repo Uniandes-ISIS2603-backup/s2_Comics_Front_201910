@@ -9,11 +9,14 @@ import { CompradorService } from './comprador.service';
 import { OrdenPedidoModule } from '../orden-pedido/orden-pedido.module';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
 
+
 @NgModule({
     declarations: [
         CompradorListComponent,
         CompradorDetailComponent],
     imports: [ 
+       
+        ReactiveFormsModule,
         BrowserModule, 
         AppRoutingModule,
         HttpClientModule,

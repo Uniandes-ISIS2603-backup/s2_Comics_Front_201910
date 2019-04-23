@@ -1,0 +1,136 @@
+<h1 style="text-align: center;">Editar comic</h1>
+<div class="content-fluid">
+  <div class="row">
+    <div class="mx-auto">
+      <form [formGroup]="updateForm" (ngSubmit)="submitForm()">
+        <div class="form-group" style="text-align: center;">
+            <div class="row">
+                <div class="col">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" type="text" class="form-control" value="{{comic.nombre}}" size="100px"
+                        formControlName="nombre">
+                    <div *ngIf="(updateForm.get('nombre').errors  && isSubmitted) || (updateForm.get('nombre').errors && updateForm.get('nombre').touched)">
+                        <div *ngIf="updateForm.get('nombre').hasError('required')">
+                            <span style="color: red;">Por favor llene el campo</span>
+                        </div>
+                        <div *ngIf="updateForm.get('nombre').hasError('minlength')">
+                            <span style="color:red;">Por favor ingrese un nombre con al menos 3
+                                caracteres</span>
+                        </div>
+                        <div *ngIf="updateForm.get('nombre').hasError('maxlength')">
+                            <span style="color:red;">Por favor ingrese un nombre con máximo 30 caracteres</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="text-align: center;">
+            <div class="row">
+                <div class="col">
+                    <label for="autor">Autor</label>
+                    <input id="autor" type="text" class="form-control" value="{{comic.autor}}" size="100px"
+                        formControlName="autor">
+                    <div *ngIf="(updateForm.get('autor').errors  && isSubmitted) || (updateForm.get('autor').errors && updateForm.get('autor').touched)">
+                        <div *ngIf="updateForm.get('autor').hasError('required')">
+                            <span style="color: red;">Por favor llene el campo</span>
+                        </div>
+                        <div *ngIf="updateForm.get('autor').hasError('minlength')">
+                            <span style="color:red;">Por favor ingrese un nombre con al menos 3
+                                caracteres</span>
+                        </div>
+                        <div *ngIf="updateForm.get('autor').hasError('maxlength')">
+                            <span style="color:red;">Por favor ingrese un nombre con máximo 30 caracteres</span>
+                        </div>
+                        <div *ngIf="updateForm.get('autor').hasError('pattern')">
+                            <span style="color:red;">Ingrese un autor válido compuesto solo de letras del alfabeto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="text-align: center;">
+            <div class="row">
+                <div class="col">
+                    <label for="anioSalida">año salida</label>
+                    <input id="anioSalida" type="text" class="form-control" value="{{comic.anioSalida}}" size="100px"
+                        formControlName="anioSalida">
+                    <div *ngIf="(updateForm.get('anioSalida').errors  && isSubmitted) || (updateForm.get('anioSalida').errors && updateForm.get('anioSalida').touched)">
+                        <div *ngIf="updateForm.get('anioSalida').hasError('required')">
+                            <span style="color: red;">Por favor llene el campo</span>
+                        </div>
+                        <div *ngIf="updateForm.get('anioSalida').hasError('minlength')">
+                            <span style="color:red;">Por favor ingrese un año valido</span>
+                        </div>
+                        <div *ngIf="updateForm.get('anioSalida').hasError('maxlength')">
+                            <span style="color:red;">Por favor ingrese un año valido</span>
+                        </div>
+                        <div *ngIf="updateForm.get('anioSalida').hasError('pattern')">
+                            <span style="color:red;">Ingrese un valor solo numerico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="text-align: center;">
+            <div class="row">
+                <div class="col">
+                    <label for="precio">precio</label>
+                    <input id="precio" type="text" class="form-control" value="{{comic.precio}}" size="100px"
+                        formControlName="precio">
+                    <div *ngIf="(updateForm.get('precio').errors  && isSubmitted) || (updateForm.get('precio').errors && updateForm.get('precio').touched)">
+                        <div *ngIf="updateForm.get('precio').hasError('required')">
+                            <span style="color: red;">Por favor llene el campo</span>
+                        </div>
+                        <div *ngIf="updateForm.get('precio').hasError('maxlength')">
+                            <span style="color:red;">Por favor ingrese un precio menor a 999.99</span>
+                        </div>
+                        <div *ngIf="updateForm.get('precio').hasError('pattern')">
+                            <span style="color:red;">Ingrese un valor solo numerico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="text-align: center;">
+            <div class="row">
+                <div class="col">
+                    <label for="imagen">Imagen</label>
+                    <input id="imagen" type="text" class="form-control" value="{{comic.imagen}}" size="100px"
+                        formControlName="imagen">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="text-align: center;">
+            <div class="row">
+                <div class="col">
+                    <label for="informacion">Informacion</label>
+                    <textarea id="informacion" rows="2" class="form-control" value="{{comic.informacion}}" formControlName="informacion"></textarea>
+                    <div *ngIf="(updateForm.get('informacion').errors  && isSubmitted) || (updateForm.get('informacion').errors && updateForm.get('informacion').touched)">
+                        <div *ngIf="updateForm.get('informacion').hasError('maxlength')">
+                            <span style="color:red;">Por favor ingrese informacion con máximo 250 caracteres</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <div class="row" style="text-align: center;">
+            <div class="form-group col" style="text-align:center;" id="botonEnviar">
+                <button type="button" class="btn btn-success"
+                    (click)="submitForm()">Enviar</button>
+            </div>
+            <div class="form-group col" style="text-align:center;" id="botonCancelar">
+                <button type="button" class="btn btn-danger" routerLink="/comic/{{comic.id}}">Cancelar</button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+ 
