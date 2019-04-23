@@ -1,0 +1,190 @@
+<particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
+<h1 Style="text-align: center;">Update Comprador con id: {{compradorDetail.id}}</h1>
+<div class="content-fluid">
+    <div class="row">
+        <div class="mx-auto">
+            <form [formGroup]="updateForm" (ngSubmit)="onEditFormSubmit()">
+                <div class="form-group row" style="text-align:center;">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <label for="">Nombre</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="{{compradorDetail.nombre}}"
+                                size="100px" formControlName="nombre">
+                            <button type="button" class="btn btn-info" (click)="updateForm.get('nombre').enable()">
+                                <i class="icon-pencil"></i>
+                                Edit
+                            </button>
+                        </div>
+                        <div
+                            *ngIf="(updateForm.get('nombre').errors  && isSubmitted) || (updateForm.get('nombre').errors && updateForm.get('nombre').touched)">
+                            <div *ngIf="updateForm.get('nombre').hasError('minlength')">
+                                <span style="color:red;">Por favor ingrese un nombre con al menos 3
+                                    caracteres</span>
+                            </div>
+                            <div *ngIf="updateForm.get('nombre').hasError('maxlength')">
+                                <span style="color:red;">Por favor ingrese un nombre con máximo 30 caracteres</span>
+                            </div>
+                            <div *ngIf="updateForm.get('nombre').hasError('pattern')">
+                                <span style="color:red;">Ingrese un nombre válido</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" style="text-align:center;">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <label for="">Alias</label>
+                        <div class="input-group">
+                            <input type="text" placeholder="{{compradorDetail.alias}}" class="form-control"
+                                formControlName="alias" size="100px">
+                            <button type="button" class="btn btn-info" (click)="updateForm.get('alias').enable()">
+                                <i class="icon-pencil"></i>
+                                Edit
+                            </button>
+                        </div>
+                        <div
+                            *ngIf="(updateForm.get('alias').errors && isSubmitted) ||(updateForm.get('alias').errors && updateForm.get('alias').touched)">
+                            <div *ngIf="updateForm.get('alias').hasError('minlength')">
+                                <span style="color:red;">Por favor ingrese un alias con al menos 5 caracteres</span>
+                            </div>
+                            <div *ngIf="updateForm.get('alias').hasError('maxlength')">
+                                <span style="color:red;">Por favor ingrese un alias con máximo 30 caracteres</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" style="text-align:center;">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <label for="">Intereses</label>
+                        <div class="input-group">
+                            <textarea name="" id="" cols="10" rows="5" class="form-control"
+                                placeholder="{{compradorDetail.intereses}}" formControlName="intereses"></textarea>
+                            <button type="button" class="btn btn-info" (click)="updateForm.get('intereses').enable()">
+                                <i class="icon-pencil"></i>
+                                Edit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" style="text-align: center;">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <label for="exampleInputEmail1">Email Address</label>
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="exampleInputemail1"
+                                aria-describedby="emailHelp" placeholder="{{compradorDetail.correoElectronico}}"
+                                formControlName="correoElectronico">
+                            <button type="button" class="btn btn-info"
+                                (click)="updateForm.get('correoElectronico').enable()">
+                                <i class="icon-pencil"></i>
+                                Edit
+                            </button>
+                        </div>
+                        <div
+                            *ngIf="(updateForm.get('correoElectronico').errors && isSubmitted) || (updateForm.get('correoElectronico').errors && updateForm.get('correoElectronico').touched)">
+                            <div *ngIf="updateForm.get('correoElectronico').hasError('pattern')">
+                                <span style="color:red;">Ingrese un email válido</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row" style="text-align: center;">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <label for="">Contraseña</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" placeholder="Enter Password"
+                                formControlName="password">
+                            <button type="button" class="btn btn-info" (click)="updateForm.get('password').enable()">
+                                <i class="icon-pencil"></i>
+                                Edit
+                            </button>
+                        </div>
+                        <div
+                            *ngIf="(updateForm.get('password').errors && isSubmitted) || (updateForm.get('password').errors && updateForm.get('password').touched)">
+                            <div *ngIf="updateForm.get('password').hasError('pattern')">
+                                <span style="color:red;">Ingrese una contraseña válida</span>
+                                <br>
+                                <span style="color:rgb(102, 102, 102);">Entre 4 y 10 caracteres, debe tener al menos un
+                                    número y una mayúscula</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-check form-check-inline" style="text-align: center;">
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            <label for="">Escoger foto</label>
+                            <hr>
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <ng-container *ngFor="let i of [0,1,2,3,4];" style="margin: 0; font-size: 0;">
+                                    <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                                    <label for="inlineRadio{{i}}">
+                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
+                                             (click)="funcion(imagenes[i])" style="width: 90%;">
+                                    </label>
+                                </ng-container>
+                            </div>
+
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <ng-container *ngFor="let i of [5, 6, 7, 8, 9];">
+                                    <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                                    <label for="inlineRadio{{i}}">
+                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
+                                             (click)="funcion(imagenes[i])" style="width: 90%;">
+                                    </label>
+                                </ng-container>
+                            </div>
+
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <ng-container *ngFor="let i of [10, 11, 12, 13, 14];">
+                                    <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                                    <label for="inlineRadio{{i}}">
+                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
+                                             (click)="funcion(imagenes[i])" style="width: 90%;">
+                                    </label>
+                                </ng-container>
+                            </div>
+
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <ng-container *ngFor="let i of [15, 16, 17, 18, 19];">
+                                    <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                                    <label for="inlineRadio{{i}}">
+                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
+                                             (click)="funcion(imagenes[i])" style="width: 90%;">
+                                    </label>
+                                </ng-container>
+                            </div>
+
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <ng-container *ngFor="let i of [20, 21, 22, 23, 24];">
+                                    <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                                    <label for="inlineRadio{{i}}">
+                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
+                                             (click)="funcion(imagenes[i])" style="width: 90%;">
+                                    </label>
+                                </ng-container>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="text-align: center;">
+                    <div class="form-group col" style="text-align:center;" id="botonEnviar">
+                        <button type="button" class="btn btn-success" (click)="onEditFormSubmit()">Enviar</button>
+                    </div>
+                    <div class="form-group col" style="text-align:center;" id="botonCancelar">
+                        <button type="button" class="btn btn-danger" routerLink="/comprador/{{compradorDetail.id}}">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
