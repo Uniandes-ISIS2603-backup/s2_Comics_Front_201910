@@ -1,0 +1,9 @@
+{
+
+    "nombre": " Thanos",
+    "id":1,
+    "ruta":"../assets/comic2.jpg",
+    "descripcion":"Es un medio visual de narración verbo-icónica que comunica historias de uno o varios personajes. Se trata de una “narración secuencial mediante imágenes fijas” (Castillo, 2004: 248). Es decir, mediante una sucesión de imágenes (compuestas por caricaturas dibujadas) que se complementan con textos.",
+    "precio":30000,
+    "autor":"Su Abuela"
+}
