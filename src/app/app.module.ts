@@ -16,10 +16,10 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import { ComicModule } from './comic/comic.module';
 import { CompradorModule } from './Comprador/comprador.module';
-import { OrdenPedidoModuleModule } from './OrdenPedido/orden-pedido-module/orden-pedido-module.module';
 import { VendedorModule } from './vendedor/vendedor.module';
 import { FormularioComponent } from './Coleccionista/FormularioComponente/formulario.component';
 import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.component';
+import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
 
 
 @NgModule({
@@ -50,7 +50,7 @@ import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.compo
         NgxPermissionsModule.forRoot(),
         NgbModule,
         CompradorModule,
-        OrdenPedidoModuleModule,
+        OrdenPedidoModule,
         ComicModule
     ],
     bootstrap: [AppComponent],

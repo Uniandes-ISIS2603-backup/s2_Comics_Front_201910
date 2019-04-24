@@ -4,22 +4,20 @@
  * and open the template in the editor.
  */
  
- export class ComicDeseo{
+export class ComicDeseo{
      
-     /**
-      * fecha de agregado del comic a la lista de deseos
-      */
-     fechaAgregado:String;
+  /**
+   * fecha de agregado del comic a la lista de deseos
+   */
+  fechaAgregado:String;
 
-    // comic:Comic;
-      
-    public darFecha():String{
+ // comic:Comic;
+   
+ public darFecha():String{
 
-        return this.fechaAgregado;
-    }
-      
-     
-     
+     return this.fechaAgregado;
  }
-
-
+   
+  
+  
+}

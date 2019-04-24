@@ -1,58 +1,58 @@
 <!-- Page Content -->
 <div class="container">
 
-    <div class="row">
+  <div class="row">
 
-      <div class="col-lg-3">
-        <h1 class="my-4">Opciones</h1>
-        <div class="list-group">
-            <button type="button" class="btn btn-primary" routerLink="/comic/update/{{comic.id}}">Actualizar Comic</button>
+    <div class="col-lg-3">
+      <h1 class="my-4">Opciones</h1>
+      <div class="list-group">
+          <button type="button" class="btn btn-primary" routerLink="/comic/update/{{comic.id}}">Actualizar Comic</button>
+      </div>
+    </div>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+
+      <div class="card mt-4">
+        <img class="card-img-top img-fluid" src={{comic.imagen}} alt="">
+        <div class="card-body">
+          <h3 class="card-title">{{comic.nombre}}</h3>
+          <h4>${{comic.precio}}</h4>
+          <p class="card-text"><strong>Autor: </strong>{{comic.autor}}</p>
+          <p class="card-text"><strong>Tema: </strong>{{comic.tema}}</p>
+          <p class="card-text"><strong>AnioSalida: </strong>{{comic.anioSalida}}</p>
+          <p class="card-text" *ngIf="comic.perteneceColeccion"><strong>Pertenece a coleccion: </strong>Sí</p>
+          <p class="card-text" *ngIf="!comic.perteneceColeccion"><strong>Pertenece a coleccion: </strong>No</p>
+          <p class="card-text" *ngIf="comic.perteneceSerie"><strong>Pertenece a serie: </strong>Sí</p>
+          <p class="card-text" *ngIf="!comic.perteneceSerie"><strong>Pertenece a serie: </strong>No</p>
+          <p class="card-text"><strong>Descripción: </strong>{{comic.informacion}}</p>
         </div>
       </div>
-      <!-- /.col-lg-3 -->
+      <!-- /.card -->
 
-      <div class="col-lg-9">
-
-        <div class="card mt-4">
-          <img class="card-img-top img-fluid" src={{comic.imagen}} alt="">
-          <div class="card-body">
-            <h3 class="card-title">{{comic.nombre}}</h3>
-            <h4>${{comic.precio}}</h4>
-            <p class="card-text"><strong>Autor: </strong>{{comic.autor}}</p>
-            <p class="card-text"><strong>Tema: </strong>{{comic.tema}}</p>
-            <p class="card-text"><strong>AnioSalida: </strong>{{comic.anioSalida}}</p>
-            <p class="card-text" *ngIf="comic.perteneceColeccion"><strong>Pertenece a coleccion: </strong>Sí</p>
-            <p class="card-text" *ngIf="!comic.perteneceColeccion"><strong>Pertenece a coleccion: </strong>No</p>
-            <p class="card-text" *ngIf="comic.perteneceSerie"><strong>Pertenece a serie: </strong>Sí</p>
-            <p class="card-text" *ngIf="!comic.perteneceSerie"><strong>Pertenece a serie: </strong>No</p>
-            <p class="card-text"><strong>Descripción: </strong>{{comic.informacion}}</p>
-          </div>
+      <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+          Product Reviews
         </div>
-        <!-- /.card -->
-
-        <div class="card card-outline-secondary my-4">
-          <div class="card-header">
-            Product Reviews
-          </div>
-          <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <a href="#" class="btn btn-success">Leave a Review</a>
-          </div>
+        <div class="card-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+          <hr>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+          <hr>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+          <hr>
+          <a href="#" class="btn btn-success">Leave a Review</a>
         </div>
-        <!-- /.card -->
-
       </div>
-      <!-- /.col-lg-9 -->
+      <!-- /.card -->
 
     </div>
+    <!-- /.col-lg-9 -->
 
   </div>
-  <!-- /.container -->
+
+</div>
+<!-- /.container -->

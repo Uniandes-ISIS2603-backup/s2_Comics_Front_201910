@@ -1,4 +1,3 @@
-
 import { Component, OnInit, Output } from "@angular/core";
 import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from "@angular/forms";
 import { CompradorService } from "../../Comprador/comprador.service";
