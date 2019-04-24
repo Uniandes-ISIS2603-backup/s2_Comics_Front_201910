@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -12,8 +12,20 @@ and open the template in the editor.
                 <div class="col">
                     <div class="form-group">
                         <label for="calificacionPuntuacion"><b>Puntuacion</b></label>
-                        <input type="number" name="calificacionPuntuacion" class="form-control" id="calificacionPuntuacion" [(ngModel)]="calificacion.puntuacion"
-                               #calificacionPuntuacion="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && calificacionPuntuacion.invalid }" required>
+                       <br>  
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <style>
+                    .checked {
+                    color: orange;
+                        }
+                    </style>
+                    <a *ngFor="let item of starList; let i=index " (click)="setStar(i)" >  
+                 <i class="fa" [ngClass]="{'fa-star-o  ':item,'fa-star checked':!item  }" ></i>   
+                                </a>  
+                            <br>  
+                            <div >
+                            Rating : {{calificacion.puntuacion}} estrellas  
+                            </div>
                                <div class="invalid-feedback">
                             <div>Falta la puntuacion</div>
                         </div>
@@ -29,10 +41,12 @@ and open the template in the editor.
                         
                     </div>
                 </div>
+                  
             </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Confirmar calificacion</button>
+                <button type="submit" class="btn btn-primary"  >Confirmar calificacion</button>
             </div>
         </form>
     </div>
 </div>
+

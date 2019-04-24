@@ -41,7 +41,6 @@ import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
         ComicDeseoModule,
         FormsModule,
         CommonModule,
-        OrdenPedidoModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
@@ -51,6 +50,7 @@ import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
         NgxPermissionsModule.forRoot(),
         NgbModule,
         CompradorModule,
+        OrdenPedidoModule,
         ComicModule
     ],
     bootstrap: [AppComponent],

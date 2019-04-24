@@ -13,7 +13,7 @@ import { AppModule } from '../../app.module';
 import { VendedorListComponent } from './vendedor-list.component';
 import {VendedorService} from '../vendedor.service';
 import { Vendedor } from '../vendedor';
-/*
+
 describe('VendedorListComponent', () => {
     let component: VendedorListComponent;
     let fixture: ComponentFixture<VendedorListComponent>;
@@ -50,4 +50,3 @@ describe('VendedorListComponent', () => {
         expect(component.vendedores[vendedores.length - 1].nombre).toEqual(vendedores[vendedores.length - 1].nombre);
     });
 });
-*/

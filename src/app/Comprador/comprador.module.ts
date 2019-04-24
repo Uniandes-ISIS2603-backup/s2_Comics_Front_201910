@@ -6,7 +6,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompradorService } from './comprador.service';
-import { OrdenPedidoModule } from '../orden-pedido/orden-pedido.module';
+import { OrdenPedidoModule} from '../orden-pedido/orden-pedido.module';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
 import { CompradorEditComponent } from './comprador-edit/comprador-edit.component';
 

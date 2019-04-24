@@ -14,6 +14,7 @@ import { CompradorDetail } from "../comprador-detail";
  */
 export class CompradorDetailComponent implements OnInit
 {
+
     /**
      * 
      * @param route 
