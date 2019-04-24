@@ -9,11 +9,12 @@ import {HttpClient} from '@angular/common/http';
 import {ComicDeseo} from './ComicDeseo';
 import {Observable} from 'rxjs';
 import { ComicDeseoDetail } from './ComicDeseoDetail';
+
 import { environment } from '../../environments/environment';
 
-//const API_URL = "../../assets/";
-const API_URL = environment.apiURL;
-const comicsDeseo = '/ComicsDeseo.json';
+const API_URL = "../../assets/";
+//const API_URL = environment.apiURL;
+const comicsDeseo = 'ComicsDeseo.json';
 
 @Injectable()
 export class ComicDeseoService{
