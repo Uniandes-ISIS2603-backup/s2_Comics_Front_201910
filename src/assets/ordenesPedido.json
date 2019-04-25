@@ -1,0 +1,146 @@
+[{
+
+    "comic": {
+        "autor": "autor1",
+        "enVenta": true,
+        "id": 1,
+        "informacion": "holoi",
+        "nombre": "comic1",
+        "perteneceColeccion": true,
+        "perteneceSerie": false,
+        "precio": 20.13,
+        "tema": "FANTASTICO",
+        "vendedor": {}
+    },
+    "comprador": {
+        "alias": "comprador1",
+        "correoElectronico": "correo@hotmail.com",
+        "foto": "foto1",
+        "id": 1,
+        "intereses": "interes1",
+        "nombre": "nombre1"
+    },
+    "estado": "ACEPTADO",
+    "id": 1,
+    "tarjetaCredito": "123456",
+    "fechaEstimadaEntrega": "2019/05/12",
+    "numeroCompras":1,
+    "trueque": {
+        "autor": "autor1",
+        "enVenta": true,
+        "id": 2,
+        "informacion": "holoi",
+        "nombre": "comic2",
+        "perteneceColeccion": true,
+        "perteneceSerie": false,
+        "precio": 20.13,
+        "tema": "FANTASTICO",
+        "vendedor": {}
+    },
+    "vendedor": {
+        "alias": "vendedor1",
+        "correoElectronico": "correo@hotmail.com",
+        "foto": "foto1",
+        "id": 1,
+        "intereses": "interes1",
+        "nombre": "nombre1"
+    }
+}
+
+,{
+  
+
+  "comic": {
+    "autor": "autor2",
+    "enVenta": true,
+    "id": 2,
+    "informacion": "holoi",
+    "nombre": "comic3",
+    "perteneceColeccion": true,
+    "perteneceSerie": false,
+    "precio": 20.13,
+    "tema": "FANTASTICO",
+    "vendedor": {}
+},
+"comprador": {
+    "alias": "comprador1",
+    "correoElectronico": "correo@hotmail.com",
+    "foto": "foto1",
+    "id": 1,
+    "intereses": "interes1",
+    "nombre": "nombre1"
+},
+"estado": "RECHAZADO",
+"id": 2,
+"tarjetaCredito": "123456",
+"comentario": "no lo quiero",
+"numeroCompras": 1,
+"trueque": {
+    "autor": "autor1",
+    "enVenta": true,
+    "id": 2,
+    "informacion": "holoi",
+    "nombre": "comic2",
+    "perteneceColeccion": true,
+    "perteneceSerie": false,
+    "precio": 20.13,
+    "tema": "FANTASTICO",
+    "vendedor": {}
+},
+"vendedor": {
+    "alias": "vendedor2",
+    "correoElectronico": "correo@hotmail.com",
+    "foto": "foto1",
+    "id": 1,
+    "intereses": "interes1",
+    "nombre": "nombre1"
+}}
+  ,{
+    
+  "comic": {
+    "autor": "autor2",
+    "enVenta": true,
+    "id": 3,
+    "informacion": "holoi",
+    "nombre": "comic3",
+    "perteneceColeccion": true,
+    "perteneceSerie": false,
+    "precio": 20.13,
+    "tema": "FANTASTICO",
+    "vendedor": {}
+},
+"comprador": {
+    "alias": "comprador1",
+    "correoElectronico": "correo@hotmail.com",
+    "foto": "foto1",
+    "id": 1,
+    "intereses": "interes1",
+    "nombre": "nombre1"
+},
+"estado": "ACEPTADO",
+"id": 3,
+"tarjetaCredito": "123456",
+"fechaEstimadaEntrega":"2019/08/08",
+"numeroCompras":3,
+"trueque": {
+    "autor": "autor1",
+    "enVenta": true,
+    "id": 2,
+    "informacion": "holoi",
+    "nombre": "comic2",
+    "perteneceColeccion": true,
+    "perteneceSerie": false,
+    "precio": 20.13,
+    "tema": "FANTASTICO",
+    "vendedor": {}
+},
+"vendedor": {
+    "alias": "vendedor2",
+    "correoElectronico": "correo@hotmail.com",
+    "foto": "foto1",
+    "id": 1,
+    "intereses": "interes1",
+    "nombre": "nombre1"
+}
+  }
+]

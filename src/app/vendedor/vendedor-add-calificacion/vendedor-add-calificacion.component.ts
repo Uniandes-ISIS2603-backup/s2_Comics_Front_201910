@@ -32,11 +32,12 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
     * The review to post
     */
     calificacion: Calificacion;
-    
+    //atributo para esconder/mostrar el componente
     public isCollapsed = true;
     
     @Output() updateCalificaciones = new EventEmitter();
     
+    //metodo que llama al servicio del vendedor para crear una nueva calificacion segun el formulario recibido 
      postCalificacion(calificacionForm: NgForm): Calificacion {
          
          if (this.calificacion.puntuacion!=null){
@@ -53,6 +54,8 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
          }
         return this.calificacion;
     }
+
+    //obtiene la id del vendedor actual y lo inicializa llamando al servicio
     ngOnInit(){
           this.vendedorId = +this.route.snapshot.paramMap.get('id');
           this.calificacion=new Calificacion();
@@ -61,9 +64,9 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
     ngOnChanges() {
         this.ngOnInit();
     }
-    starList: boolean[] = [true,true,true,true,true];       // create a list which contains status of 5 stars
+    starList: boolean[] = [true,true,true,true,true];    
 
-
+//metodo que modifica el arreglo de booleanos para desplegar la puntuacion con estrellas
 setStar(data:any){
       this.calificacion.puntuacion=data+1;                               
       for(var i=0;i<=4;i++){  

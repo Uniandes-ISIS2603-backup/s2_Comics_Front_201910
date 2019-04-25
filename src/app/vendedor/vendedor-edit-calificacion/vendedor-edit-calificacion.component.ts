@@ -28,15 +28,13 @@ export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
      @Input() vendedor: VendedorDetail;
 
      vendedorId:number;
-    /**
-    * The review to post
-    */
+   
     calificacion: Calificacion;
     
     public isCollapsed = true;
     
     @Output() updateCalificaciones = new EventEmitter();
-    
+    //metodo que llama al servicio para actualizar la calificacion
      putCalificacion(calificacionForm: NgForm): Calificacion {
         
          if (this.calificacion.puntuacion!=null){
@@ -52,6 +50,7 @@ export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
          }
         return this.calificacion;
     }
+    //inicializa el vendedor dueño de las calificaicones
     ngOnInit(){
           this.vendedorId = +this.route.snapshot.paramMap.get('id');
           this.calificacion=new Calificacion();
@@ -66,7 +65,7 @@ export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
         this.toastrService.warning('Esta calificación no fue editada', 'Edicion de calificacion');
         this.isCollapsed=true;
     }
-
+//metodo que permite desplegar la puntuacion con estrellas
 setStar(data:any){
       this.calificacion.puntuacion=data+1;                               
       for(var i=0;i<=4;i++){  
@@ -79,5 +78,4 @@ setStar(data:any){
      }  
  }  
 }
-
 

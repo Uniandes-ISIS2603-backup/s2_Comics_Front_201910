@@ -174,7 +174,7 @@ export class VendedorEditComponent implements OnInit
   
     
     @Output() updateVendedores = new EventEmitter();
-    
+    //metodo que llama al servicio para actualizar al vendedor con el formulario recibido
      putVendedor(vendedorForm: NgForm): Vendedor {
        var vendedor;
          if (this.vendedor!=null){
@@ -210,12 +210,14 @@ export class VendedorEditComponent implements OnInit
     ngOnChanges() {
         this.ngOnInit();
     }
-    starList: boolean[] = [true,true,true,true,true];       // create a list which contains status of 5 stars
+    starList: boolean[] = [true,true,true,true,true];      
+   //metodo que cancela la edicion del vendedor
     cancelEdition(): void {
         
         this.toastrService.warning('Este vendedor no fue editada', 'Edicion de vendedor');
        
     }
+    //inicializa el id del vendedor con el path actual e inicializa el vendedor con este id
     ngOnInit()
     {
         this.vendedorId = +this.route.snapshot.paramMap.get('id');

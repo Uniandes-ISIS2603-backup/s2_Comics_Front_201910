@@ -14,13 +14,13 @@ import {CommonModule} from '@angular/common';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import { ComicModule } from './comic/comic.module';
 import { CompradorModule } from './Comprador/comprador.module';
-import { OrdenPedidoModuleModule } from './OrdenPedido/orden-pedido-module/orden-pedido-module.module';
 import { VendedorModule } from './vendedor/vendedor.module';
 import { FormularioComponent } from './Coleccionista/FormularioComponente/formulario.component';
 import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import {ParticlesModule} from "angular-particle";
+import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
+
 
 @NgModule({
     declarations: [
@@ -29,10 +29,9 @@ import {ParticlesModule} from "angular-particle";
         LogInComponent
     ],
     imports: [
-        FlexLayoutModule,
+        
         ReactiveFormsModule,
         BrowserModule,
-        ParticlesModule,
         AppRoutingModule,
         HttpClientModule,
         VendedorModule,
@@ -51,7 +50,8 @@ import {ParticlesModule} from "angular-particle";
         NgxPermissionsModule.forRoot(),
         NgbModule,
         CompradorModule,
-        OrdenPedidoModuleModule
+        OrdenPedidoModule,
+        ComicModule
     ],
     bootstrap: [AppComponent],
     providers: [

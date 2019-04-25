@@ -1,0 +1,8 @@
+{
+    "nombre": "X-Men",
+      "id":3,
+      "ruta":"../assets/comic4.jpg",
+      "descripcion":"El Cómic de X-Men, o también conocidos como Patrulla-X, son un grupo de superhéroes del Universo Marvel creado por Stan Lee y Jack Kirby. Los cómics nos cuentan las historias de los mutantes, con grandes poderes y capacidades que se caracterizan gracias a las mutaciones y cambios en su estructura genética. Estos personajes se ven involucrados en pasar desapercibidos entre los humanos y a la vez, con el doble fin de protegerlos de mutantes malvados, así como de defender a los mutantes del miedo de los humanos. Como contrapartida, aparece otro grupo de mutantes que buscarán revelarse violentamente contra la humanidad.” (Castillo, 2004: 248). Es decir, mediante una sucesión de imágenes (compuestas por caricaturas dibujadas) que se complementan con textos.",
+      "precio":55000,
+      "autor":"Su papa"
+}
