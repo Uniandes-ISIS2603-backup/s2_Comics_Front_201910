@@ -1,0 +1,13 @@
+{
+    "id": 1,
+    "estado":"EN ESPERA",
+    "comprador" : "lobezno66", 
+    "vendedor":"lobezno66", 
+    "comic":"x-men", 
+    "trueque": "x-men",
+    "numeroCompras":"0",
+    "tarjetaCredito": "1234567",
+     "fechaEstimadaEntrega": "25/02/2019",
+     "comentario": ""
+  
+  }
