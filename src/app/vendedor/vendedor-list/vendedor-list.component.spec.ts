@@ -50,4 +50,3 @@ describe('VendedorListComponent', () => {
         expect(component.vendedores[vendedores.length - 1].nombre).toEqual(vendedores[vendedores.length - 1].nombre);
     });
 });
-

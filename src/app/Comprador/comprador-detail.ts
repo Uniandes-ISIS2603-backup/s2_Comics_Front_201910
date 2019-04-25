@@ -1,5 +1,5 @@
 import {Comprador} from './comprador';
-import { OrdenPedidoModuleModule } from '../OrdenPedido/orden-pedido-module/orden-pedido-module.module';
+import { OrdenPedidoModule } from '../orden-pedido/orden-pedido.module';
 import { ComicDeseoModule } from '../ComicDeseo/comicDeseo.module';
 
 /**
@@ -10,7 +10,7 @@ export class CompradorDetail extends Comprador
     /**
      * Objeto que reresenta las ordenes del comprador.
      */
-    ordenes: OrdenPedidoModuleModule[];
+    ordenes: OrdenPedidoModule[];
 
     /**
      * Objeto que representa los comics deseo del comprador

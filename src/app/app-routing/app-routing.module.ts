@@ -20,6 +20,9 @@ import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDese
 import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
+import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-pedido-list.component';
+import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
+
 
 const routes: Routes = [
                 {
@@ -79,6 +82,26 @@ const routes: Routes = [
                             component: CompradorEditComponent
                         },
                     ]
+                },{
+                    path: 'orden',
+                    children: [
+                    {
+                        path: 'list',
+                        component: OrdenPedidoListComponent,
+                        children: [
+            {   path :'compra',
+                component:OrdenPedidoListComponent
+            },
+            {   path :'venta',
+                component:OrdenPedidoListComponent
+            }
+                        ]
+                    },
+                    {
+                        path: ':id',
+                        component: OrdenPedidoDetailComponent,
+                      }
+                    ]
                 }, {
                     path: 'vendedores',
                     children: [{
@@ -107,6 +130,10 @@ const routes: Routes = [
                     {
                         path: ':id',
                         component: ComicDetailComponent
+                    },
+                    {
+                        path: 'update/:id',
+                        component: ComicUpdateComponent
                     }
                     ]
                 },

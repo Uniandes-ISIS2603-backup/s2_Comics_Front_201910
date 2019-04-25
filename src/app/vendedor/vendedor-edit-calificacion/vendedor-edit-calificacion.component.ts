@@ -79,4 +79,3 @@ setStar(data:any){
  }  
 }
 
-
