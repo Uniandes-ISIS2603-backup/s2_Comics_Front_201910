@@ -8,14 +8,14 @@
                         <label for="">Nombre</label>
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="{{compradorDetail.nombre}}"
-                                size="100px" formControlName="nombre">
+                                   size="100px" formControlName="nombre">
                             <button type="button" class="btn btn-info" (click)="updateForm.get('nombre').enable()">
                                 <i class="icon-pencil"></i>
                                 Edit
                             </button>
                         </div>
                         <div
-                            *ngIf="(updateForm.get('nombre').errors  && isSubmitted) || (updateForm.get('nombre').errors && updateForm.get('nombre').touched)">
+                                *ngIf="(updateForm.get('nombre').errors  && isSubmitted) || (updateForm.get('nombre').errors && updateForm.get('nombre').touched)">
                             <div *ngIf="updateForm.get('nombre').hasError('minlength')">
                                 <span style="color:red;">Por favor ingrese un nombre con al menos 3
                                     caracteres</span>
@@ -34,14 +34,14 @@
                         <label for="">Alias</label>
                         <div class="input-group">
                             <input type="text" placeholder="{{compradorDetail.alias}}" class="form-control"
-                                formControlName="alias" size="100px">
+                                   formControlName="alias" size="100px">
                             <button type="button" class="btn btn-info" (click)="updateForm.get('alias').enable()">
                                 <i class="icon-pencil"></i>
                                 Edit
                             </button>
                         </div>
                         <div
-                            *ngIf="(updateForm.get('alias').errors && isSubmitted) ||(updateForm.get('alias').errors && updateForm.get('alias').touched)">
+                                *ngIf="(updateForm.get('alias').errors && isSubmitted) ||(updateForm.get('alias').errors && updateForm.get('alias').touched)">
                             <div *ngIf="updateForm.get('alias').hasError('minlength')">
                                 <span style="color:red;">Por favor ingrese un alias con al menos 5 caracteres</span>
                             </div>
@@ -56,7 +56,7 @@
                         <label for="">Intereses</label>
                         <div class="input-group">
                             <textarea name="" id="" cols="10" rows="5" class="form-control"
-                                placeholder="{{compradorDetail.intereses}}" formControlName="intereses"></textarea>
+                                      placeholder="{{compradorDetail.intereses}}" formControlName="intereses"></textarea>
                             <button type="button" class="btn btn-info" (click)="updateForm.get('intereses').enable()">
                                 <i class="icon-pencil"></i>
                                 Edit
@@ -69,16 +69,16 @@
                         <label for="exampleInputEmail1">Email Address</label>
                         <div class="input-group">
                             <input type="email" class="form-control" id="exampleInputemail1"
-                                aria-describedby="emailHelp" placeholder="{{compradorDetail.correoElectronico}}"
-                                formControlName="correoElectronico">
+                                   aria-describedby="emailHelp" placeholder="{{compradorDetail.correoElectronico}}"
+                                   formControlName="correoElectronico">
                             <button type="button" class="btn btn-info"
-                                (click)="updateForm.get('correoElectronico').enable()">
+                                    (click)="updateForm.get('correoElectronico').enable()">
                                 <i class="icon-pencil"></i>
                                 Edit
                             </button>
                         </div>
                         <div
-                            *ngIf="(updateForm.get('correoElectronico').errors && isSubmitted) || (updateForm.get('correoElectronico').errors && updateForm.get('correoElectronico').touched)">
+                                *ngIf="(updateForm.get('correoElectronico').errors && isSubmitted) || (updateForm.get('correoElectronico').errors && updateForm.get('correoElectronico').touched)">
                             <div *ngIf="updateForm.get('correoElectronico').hasError('pattern')">
                                 <span style="color:red;">Ingrese un email válido</span>
                             </div>
@@ -92,14 +92,14 @@
                         <label for="">Contraseña</label>
                         <div class="input-group">
                             <input type="password" class="form-control" placeholder="Enter Password"
-                                formControlName="password">
+                                   formControlName="password">
                             <button type="button" class="btn btn-info" (click)="updateForm.get('password').enable()">
                                 <i class="icon-pencil"></i>
                                 Edit
                             </button>
                         </div>
                         <div
-                            *ngIf="(updateForm.get('password').errors && isSubmitted) || (updateForm.get('password').errors && updateForm.get('password').touched)">
+                                *ngIf="(updateForm.get('password').errors && isSubmitted) || (updateForm.get('password').errors && updateForm.get('password').touched)">
                             <div *ngIf="updateForm.get('password').hasError('pattern')">
                                 <span style="color:red;">Ingrese una contraseña válida</span>
                                 <br>
