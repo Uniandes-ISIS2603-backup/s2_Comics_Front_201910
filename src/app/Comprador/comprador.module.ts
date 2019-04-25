@@ -9,7 +9,7 @@ import { CompradorService } from './comprador.service';
 import { OrdenPedidoModuleModule } from '../OrdenPedido/orden-pedido-module/orden-pedido-module.module';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
 import { CompradorEditComponent } from './comprador-edit/comprador-edit.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
@@ -17,7 +17,7 @@ import { CompradorEditComponent } from './comprador-edit/comprador-edit.componen
         CompradorDetailComponent,
         CompradorEditComponent],
     imports: [ 
-       
+        FlexLayoutModule,
         ReactiveFormsModule,
         BrowserModule, 
         AppRoutingModule,

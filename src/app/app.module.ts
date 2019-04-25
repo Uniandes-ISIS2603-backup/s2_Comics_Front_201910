@@ -20,7 +20,7 @@ import { OrdenPedidoModuleModule } from './OrdenPedido/orden-pedido-module/orden
 import { VendedorModule } from './vendedor/vendedor.module';
 import { FormularioComponent } from './Coleccionista/FormularioComponente/formulario.component';
 import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
@@ -29,7 +29,7 @@ import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.compo
         LogInComponent
     ],
     imports: [
-        
+        FlexLayoutModule,
         ReactiveFormsModule,
         BrowserModule,
         AppRoutingModule,
