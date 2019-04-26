@@ -9,6 +9,8 @@ import { CompradorService } from './comprador.service';
 import { OrdenPedidoModule} from '../orden-pedido/orden-pedido.module';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
 import { CompradorEditComponent } from './comprador-edit/comprador-edit.component';
+import {ParticlesModule} from "angular-particle";
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -16,15 +18,17 @@ import { CompradorEditComponent } from './comprador-edit/comprador-edit.componen
         CompradorListComponent,
         CompradorDetailComponent,
         CompradorEditComponent],
-    imports: [ 
-       
+    imports: [
+        FlexLayoutModule,
         ReactiveFormsModule,
-        BrowserModule, 
+        BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         OrdenPedidoModule,
         CommonModule,
-        FormsModule],
+        FormsModule,
+        ParticlesModule
+    ],
     providers: [CompradorService]
 })
 

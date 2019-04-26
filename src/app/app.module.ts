@@ -20,7 +20,8 @@ import { VendedorModule } from './vendedor/vendedor.module';
 import { FormularioComponent } from './Coleccionista/FormularioComponente/formulario.component';
 import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.component';
 import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {ParticlesModule} from "angular-particle";
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
         LogInComponent
     ],
     imports: [
-        
+        ParticlesModule,
+        FlexLayoutModule,
         ReactiveFormsModule,
         BrowserModule,
         AppRoutingModule,

@@ -1,19 +1,21 @@
-<h1 style="text-align: center;">Formulario de creación de coleccionista</h1>
+<particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
+<h1 class="titulo" style="text-align: center; color: white; font-family: 'papyrus'; font-weight: 400;">Formulario de creación de coleccionista</h1>
 <div class="conten-fluid">
     <div class="row">
         <div class="mx-auto">
-            <form [formGroup]="registrationForm" (ngSubmit)="onRegistrationFormSubmit()" #f="ngForm" novalidate>
+            <form [formGroup]="registrationForm" (ngSubmit)="onRegistrationFormSubmit()" novalidate>
                 <div class="form-group" style="text-align: center;">
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="col-6">
-                            <label for="">Nombre Completo</label>
+                            <label for="" style="font-family: 'papyrus'; font-weight: 400; font-size: 20px;">Nombre Completo</label>
+                            <hr>
                             <input type="text" class="form-control" placeholder="Nombre Completo" size="100px"
-                                formControlName="nombre">
+                                   formControlName="nombre">
                             <div
-                                *ngIf="(registrationForm.get('nombre').errors  && isSubmitted) || (registrationForm.get('nombre').errors && registrationForm.get('nombre').touched)">
+                                    *ngIf="(registrationForm.get('nombre').errors  && isSubmitted) || (registrationForm.get('nombre').errors && registrationForm.get('nombre').touched)">
                                 <div *ngIf="registrationForm.get('nombre').hasError('required')">
-                                    <span style="color: red;">Por favor llene el campo</span>
+                                    <span style="color: red; ">Por favor llene el campo</span>
                                 </div>
                                 <div *ngIf="registrationForm.get('nombre').hasError('minlength')">
                                     <span style="color:red;">Por favor ingrese un nombre con al menos 3
@@ -33,10 +35,11 @@
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="col-6">
-                            <label for="">Alias</label>
+                            <label for="" style="font-family: 'papyrus'; font-weight: 400; font-size: 20px;">Alias</label>
+                            <hr>
                             <input type="text" placeholder="Alias" class="form-control" formControlName="alias">
                             <div
-                                *ngIf="(registrationForm.get('alias').errors && isSubmitted) ||(registrationForm.get('alias').errors && registrationForm.get('alias').touched)">
+                                    *ngIf="(registrationForm.get('alias').errors && isSubmitted) ||(registrationForm.get('alias').errors && registrationForm.get('alias').touched)">
                                 <div *ngIf="registrationForm.get('alias').hasError('required')">
                                     <span style="color:red;">Por favor llene este campo</span>
                                 </div>
@@ -54,23 +57,25 @@
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="col-6">
-                            <label for="">Intereses</label>
+                            <label for="" style="font-family: 'papyrus'; font-weight: 400; font-size: 20px;">Intereses</label>
                             <hr>
                             <textarea name="" id="" cols="10" rows="5" class="form-control" placeholder="Intereses"
-                                formControlName="intereses"></textarea>
+                                      formControlName="intereses"></textarea>
                         </div>
                     </div>
                 </div>
+                <br>
                 <div class="form-group" style="text-align: center;">
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="col-6">
-                            <label for="exampleInputEmail1">Email Address</label>
+                            <label for="exampleInputEmail1" style="font-family: 'papyrus'; font-weight: 400; font-size: 20px;">Email Address</label>
+                            <hr>
                             <input type="email" class="form-control" id="exampleInputemail1"
-                                aria-describedby="emailHelp" placeholder="Enter email"
-                                formControlName="correoElectronico">
+                                   aria-describedby="emailHelp" placeholder="Enter email"
+                                   formControlName="correoElectronico">
                             <div
-                                *ngIf="(registrationForm.get('correoElectronico').errors && isSubmitted) || (registrationForm.get('correoElectronico').errors && registrationForm.get('correoElectronico').touched)">
+                                    *ngIf="(registrationForm.get('correoElectronico').errors && isSubmitted) || (registrationForm.get('correoElectronico').errors && registrationForm.get('correoElectronico').touched)">
                                 <div *ngIf="registrationForm.get('correoElectronico').hasError('pattern')">
                                     <span style="color:red;">Ingrese un email válido</span>
                                 </div>
@@ -78,7 +83,7 @@
                                     <span style="color:red;">Por favor llene el campo</span>
                                 </div>
                             </div>
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            <small id="emailHelp" class="form-text text-muted" style="font-family: 'papyrus'; font-weight: 400; font-size: 15px;">We'll never share your email with anyone
                                 else.</small>
                         </div>
                     </div>
@@ -87,11 +92,12 @@
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="col-6">
-                            <label for="">Contraseña</label>
+                            <label for="" style="font-family: 'papyrus'; font-weight: 400; font-size: 20px;">Contraseña</label>
+                            <hr>
                             <input type="password" class="form-control" placeholder="Enter Password"
-                                formControlName="password">
+                                   formControlName="password">
                             <div
-                                *ngIf="(registrationForm.get('password').errors && isSubmitted) || (registrationForm.get('password').errors && registrationForm.get('password').touched)">
+                                    *ngIf="(registrationForm.get('password').errors && isSubmitted) || (registrationForm.get('password').errors && registrationForm.get('password').touched)">
                                 <div *ngIf="registrationForm.get('password').hasError('pattern')">
                                     <span style="color:red;">Ingrese una contraseña válida</span>
                                     <br>
@@ -107,74 +113,94 @@
                     </div>
                 </div>
                 <div class="form-group" style="text-align: center;" [formGroup]="checkboxGroup">
-                    <label for="">Rol de usuario</label>
+                    <label for="" style="font-family: 'papyrus'; font-weight: 400; font-size: 20px;">Rol de usuario</label>
                     <br>
                     <div class="custom-control custom-checkbox custom-control-inline"
-                        *ngFor="let control of valuesArray.controls; let i= index;">
+                         *ngFor="let control of valuesArray.controls; let i= index;">
                         <input type="checkbox" class="custom-control-input" id="defaultInline{{i}}"
-                            [formControl]="control" (change)="getSelectedRoleValue()">
-                        <label class="custom-control-label" for="defaultInline{{i}}">{{values[i]}}</label>
+                               [formControl]="control" (change)="getSelectedRoleValue()">
+                        <label class="custom-control-label" for="defaultInline{{i}}" style="font-family: 'papyrus'; font-weight: 400; font-size: 20px;">{{values[i]}}</label>
                     </div>
                     <div *ngIf="(valuesError && isSubmitted) || (valuesError && checkValuesChecked())">
                         <span style="color:red;">Seleccione al menos una opcion</span>
                     </div>
                 </div>
-
-                <div class="form-group" style="text-align: center;">
+                <br>
+                <div class="form-check form-check-inline" style="text-align: center;">
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="col-6">
-                            <label for="">Escoger foto</label>
+                            <label for="" style="font-family: 'papyrus'; font-weight: 400; font-size: 20px;">Escoger foto</label>
                             <hr>
                             <div fxLayout="row" fxLayoutGap="20px">
-                                <ng-container *ngFor="let i of [0,1,2,3,4];" style="margin: 0px; font-size: 0;">
-                                    <img id="img-x" class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                        (click)="funcion(imagenes[i])" style="width: 16%;">
+                                <ng-container *ngFor="let i of [0,1,2,3,4];" style="margin: 0; font-size: 0;">
+                                    <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                                    <label for="inlineRadio{{i}}">
+                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
+                                             (click)="funcion(imagenes[i])" style="width: 90%;">
+                                    </label>
                                 </ng-container>
                             </div>
 
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <ng-container *ngFor="let i of [5, 6, 7, 8, 9];">
-                                    <img id="img-x" class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                        (click)="funcion(imagenes[i])" style="width: 16%;">
+                                    <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                                    <label for="inlineRadio{{i}}">
+                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
+                                             (click)="funcion(imagenes[i])" style="width: 90%;">
+                                    </label>
                                 </ng-container>
                             </div>
 
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <ng-container *ngFor="let i of [10, 11, 12, 13, 14];">
-                                    <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                        (click)="funcion(imagenes[i])" style="width: 16%;">
+                                    <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                                    <label for="inlineRadio{{i}}">
+                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
+                                             (click)="funcion(imagenes[i])" style="width: 90%;">
+                                    </label>
                                 </ng-container>
                             </div>
 
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <ng-container *ngFor="let i of [15, 16, 17, 18, 19];">
-                                    <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                        (click)="funcion(imagenes[i])" style="width: 16%;">
+                                    <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                                    <label for="inlineRadio{{i}}">
+                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
+                                             (click)="funcion(imagenes[i])" style="width: 90%;">
+                                    </label>
                                 </ng-container>
                             </div>
 
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <ng-container *ngFor="let i of [20, 21, 22, 23, 24];">
-                                    <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                        (click)="funcion(imagenes[i])" style="width: 16%;">
+                                    <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                                    <label for="inlineRadio{{i}}">
+                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
+                                             (click)="funcion(imagenes[i])" style="width: 90%;">
+                                    </label>
                                 </ng-container>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row" style="text-align: center;">
-                    <div class="col-3">
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group col" style="text-align:center;" id="botonEnviar">
-                            <button type="button" class="btn btn-success"
-                                (click)="onRegistrationFormSubmit()">Enviar</button>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-3">
+                                    <button type="button" class="btn green"
+                                            (click)="onRegistrationFormSubmit()">Enviar</button>
+                                </div>
+                                <div class="col-6"></div>
+                                <div class="col-3">
+                                    <button type="button" class="btn red" routerLink="/home">Cancelar</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group col" style="text-align:center;" id="botonCancelar">
-                            <button type="button" class="btn btn-danger" routerLink="/home">Cancelar</button>
-                        </div>
+                        <div class="col-4"></div>
                     </div>
                 </div>
             </form>
