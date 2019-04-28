@@ -20,9 +20,9 @@ export class LogInComponent implements OnInit {
     comprador: Comprador;
 
     constructor(private formBuilder: FormBuilder,
-        private compradorService: CompradorService,
-        private vendedorService: VendedorService,
-        private router: Router) {
+                private compradorService: CompradorService,
+                private vendedorService: VendedorService,
+                private router: Router) {
         this.logInForm = this.formBuilder.group({
             alias: new FormControl('', [
                 Validators.required
@@ -54,22 +54,21 @@ export class LogInComponent implements OnInit {
                 else
                 {
                     this.vendedorService.getVendedorByAlias(alias).subscribe( user =>
+                    {
+                        if(user != null)
                         {
-                            if(user != null)
+                            this.vendedor = user;
+                            if(this.vendedor.password == password)
                             {
-                                this.vendedor = user;
-                                if(this.vendedor.password == password)
-                                {
-                                    this.router.navigate(['/vendedores/' + this.vendedor.id]);
-                                    this.logInForm.reset();
-                                }
-                                else
-                                {
-                                    console.log("Error");
-                                    
-                                }
+                                this.router.navigate(['/vendedores/' + this.vendedor.id]);
+                                this.logInForm.reset();
                             }
-                        });
+                            else
+                            {
+                                console.log("Error");
+                            }
+                        }
+                    });
                 }
             });
 

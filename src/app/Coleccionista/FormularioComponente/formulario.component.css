@@ -1,13 +1,59 @@
-textarea {
+textarea, input[type=text], input[type=password], input[type=email] {
     resize: none;
+    color: black;
+    box-sizing: border-box;
+    background-color: rgba(188, 188, 188, 0.81);
+    border: none;
+    transition:background-color 0.5s ease;
+}
+
+*
+{
+    font-family: 'papyrus';
+    font-weight: 400;
+}
+
+button:hover {
+    text-shadow: 2px 2px 0px rgba(0,0,0,.3)
+}
+
+.green
+{
+    background-color: darkgreen;
+}
+
+.red
+{
+    background-color: darkred;
+}
+
+textarea:focus, input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
+{
+    background-color: rgba(105, 105, 105, 0.86);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+}
+
+.titulo
+{
+    transition: text-shadow .3s ease-in-out;
+}
+
+.titulo:hover
+{
+    text-shadow: 0 -3px 4px yellow, 0 -6px 12px #e25822, 0 -10px 15px red;
+}
+
+form
+{
+    color: black;
 }
 
 .card {
     display: block;
     padding: 15px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -15,8 +61,59 @@ textarea {
 img {
     transition: 0.2s ease-in-out;
     cursor: pointer;
+    background-color: whitesmoke;
+    box-shadow: 0 0 16px rgba(0, 68, 255, 0.5);
+    border-radius: 10%;
 }
 
 img:hover {
     transform: scale(1.2);
 }
+
+#inlineRadio0,  #inlineRadio1, #inlineRadio2, #inlineRadio3, #inlineRadio4,
+#inlineRadio5,  #inlineRadio6, #inlineRadio7, #inlineRadio8, #inlineRadio9,
+#inlineRadio10,  #inlineRadio11, #inlineRadio12, #inlineRadio13, #inlineRadio14,
+#inlineRadio15,  #inlineRadio16, #inlineRadio17, #inlineRadio18, #inlineRadio19,
+#inlineRadio20,  #inlineRadio21, #inlineRadio22, #inlineRadio23, #inlineRadio24{
+    display: none;
+}
+
+#inlineRadio0:checked + label > img , #inlineRadio1:checked + label > img, #inlineRadio2:checked + label > img, #inlineRadio3:checked + label > img, #inlineRadio4:checked + label > img,
+#inlineRadio5:checked + label > img , #inlineRadio6:checked + label > img, #inlineRadio7:checked + label > img, #inlineRadio8:checked + label > img, #inlineRadio9:checked + label > img,
+#inlineRadio10:checked + label > img , #inlineRadio11:checked + label > img, #inlineRadio12:checked + label > img, #inlineRadio13:checked + label > img, #inlineRadio14:checked + label > img,
+#inlineRadio15:checked + label > img , #inlineRadio16:checked + label > img, #inlineRadio17:checked + label > img, #inlineRadio18:checked + label > img, #inlineRadio19:checked + label > img,
+#inlineRadio20:checked + label > img , #inlineRadio21:checked + label > img, #inlineRadio22:checked + label > img, #inlineRadio23:checked + label > img, #inlineRadio24:checked + label > img{
+    background-color: rgba(0, 68, 226, 0.75);
+}
+
+/*#inlineRadio5,  #inlineRadio6, #inlineRadio7, #inlineRadio8, #inlineRadio9{*/
+/*    display: none;*/
+/*}*/
+
+/*#inlineRadio5:checked + label > img , #inlineRadio6:checked + label > img, #inlineRadio7:checked + label > img, #inlineRadio8:checked + label > img, #inlineRadio9:checked + label > img{*/
+/*    background-color: white;*/
+/*}*/
+
+/*#inlineRadio10,  #inlineRadio11, #inlineRadio12, #inlineRadio13, #inlineRadio14{*/
+/*    display: none;*/
+/*}*/
+
+/*#inlineRadio10:checked + label > img , #inlineRadio11:checked + label > img, #inlineRadio12:checked + label > img, #inlineRadio13:checked + label > img, #inlineRadio14:checked + label > img{*/
+/*    background-color: white;*/
+/*}*/
+
+/*#inlineRadio15,  #inlineRadio16, #inlineRadio17, #inlineRadio18, #inlineRadio19{*/
+/*    display: none;*/
+/*}*/
+
+/*#inlineRadio15:checked + label > img , #inlineRadio16:checked + label > img, #inlineRadio17:checked + label > img, #inlineRadio18:checked + label > img, #inlineRadio19:checked + label > img{*/
+/*    background-color: white;*/
+/*}*/
+
+/*#inlineRadio20,  #inlineRadio21, #inlineRadio22, #inlineRadio23, #inlineRadio24{*/
+/*    display: none;*/
+/*}*/
+
+/*#inlineRadio20:checked + label > img , #inlineRadio21:checked + label > img, #inlineRadio22:checked + label > img, #inlineRadio23:checked + label > img, #inlineRadio24:checked + label > img{*/
+/*    background-color: white;*/
+/*}*/

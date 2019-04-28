@@ -18,6 +18,10 @@ const API_URL = '../../../assets/foto_2.json';
 
 export class FormularioComponent implements OnInit
 {
+    myStyle: object = {};
+    myParams: object = {};
+    width: number = 100;
+    height: number = 100;
     /**
      * Formulario de registro
      */
@@ -65,17 +69,19 @@ export class FormularioComponent implements OnInit
 
     /**
      * Construcotr de la clase.
-     * @param formBuilder Objeto que crea el formulario 
+     * @param formBuilder Objeto que crea el formulario
      * @param compradorService Servicio de peticiones del comprador
      * @param vendedorService Servicio de peticiones del vendedor.
-     * @param toastrService 
+     * @param toastrService
+     * @param router
+     * @param httpClient
      */
     constructor(private formBuilder: FormBuilder,
-        private compradorService:CompradorService,
-        private vendedorService: VendedorService,
-        private toastrService: ToastrService,
-        private router:Router,
-        private httpClient:HttpClient)
+                private compradorService:CompradorService,
+                private vendedorService: VendedorService,
+                private toastrService: ToastrService,
+                private router:Router,
+                private httpClient:HttpClient)
     {
         this.comprador = new Comprador();
         this.vendedor = new Vendedor();
@@ -83,8 +89,8 @@ export class FormularioComponent implements OnInit
             id: new FormControl(0),
             nombre : new FormControl('',[
                 Validators.required,
-                Validators.minLength(3),  
-                Validators.maxLength(30),  
+                Validators.minLength(3),
+                Validators.maxLength(30),
                 Validators.pattern('^[a-zA-Z ]*$')
             ]),
             alias: new FormControl('',[
@@ -108,12 +114,12 @@ export class FormularioComponent implements OnInit
             myValues: this.addValuesControls()
         });
     }
-    
+
     imagenes : string[];
 
     /**
      * Función que asigna la ruta de la imagen que se selecciona en el formulario
-     * @param url 
+     * @param url
      */
     funcion(url:string)
     {
@@ -125,7 +131,7 @@ export class FormularioComponent implements OnInit
      */
     cargarImagenes():void
     {
-       this.httpClient.get<string[]>(API_URL).subscribe(imagenes => 
+        this.httpClient.get<string[]>(API_URL).subscribe(imagenes =>
         {
             this.imagenes = imagenes;
         });
@@ -137,9 +143,9 @@ export class FormularioComponent implements OnInit
     addValuesControls()
     {
         const arr = this.values.map(element =>
-            {
-                return this.formBuilder.control(false);
-            });
+        {
+            return this.formBuilder.control(false);
+        });
         return this.formBuilder.array(arr);
     }
 
@@ -164,7 +170,7 @@ export class FormularioComponent implements OnInit
                 this.selectedRole.push(this.values[i]);
             }
         });
-        this.valuesError = this.selectedRole.length > 0 ? false : true;
+        this.valuesError = this.selectedRole.length <= 0;
     }
 
     /**
@@ -174,28 +180,28 @@ export class FormularioComponent implements OnInit
     {
         let flg = false;
         this.valuesArray.controls.forEach(control =>
+        {
+            if(control.touched)
             {
-                if(control.touched)
-                {
-                    flg = true;
-                }
-            });
-        return flg;      
+                flg = true;
+            }
+        });
+        return flg;
     }
 
     /**
      * Funcion que se activa cuando se envía el formulario de creacion
      */
     onRegistrationFormSubmit()
-    {  
-        this.isSubmitted = true;  
-        
+    {
+        this.isSubmitted = true;
+
         if(this.registrationForm.valid)
-        {      
+        {
             this.comprador = Object.assign({}, this.registrationForm.value);
             this.vendedor = Object.assign({}, this.registrationForm.value);
             console.log(this.comprador.foto);
-            
+
 
             for (var i = 0; i < this.selectedRole.length; i++) {
                 if (this.selectedRole[i] == "Comprador") {
@@ -211,15 +217,15 @@ export class FormularioComponent implements OnInit
                 }
                 else if (this.selectedRole[i] == "Vendedor") {
                     this.vendedorService.createVendedor(this.vendedor).subscribe(()=>
-                    {
-                        this.registrationForm.reset();
-                        this.update.emit('');
-                        this.toastrService.success("El vendedor fue creado exitosamente", 'vendedor añadido');
-                    },
-                    err =>
-                    {
-                        this.toastrService.error(err, "Error");
-                    });
+                        {
+                            this.registrationForm.reset();
+                            this.update.emit('');
+                            this.toastrService.success("El vendedor fue creado exitosamente", 'vendedor añadido');
+                        },
+                        err =>
+                        {
+                            this.toastrService.error(err, "Error");
+                        });
                 }
             }
         }
@@ -233,5 +239,96 @@ export class FormularioComponent implements OnInit
         this.comprador = new Comprador();
         this.vendedor = new Vendedor();
         this.cargarImagenes();
+
+        this.myStyle = {
+            'position': 'fixed',
+            'width': '100%',
+            'height': '100%',
+            'z-index': -1,
+            'top': 0,
+            'left': 0,
+            'right': 0,
+            'bottom': 0,
+            'background': 'white'
+        };
+
+        this.myParams = {
+            particles: {
+                number: {
+                    value: 50,
+                    density:
+                        {
+                            enable:true,
+                            value_area:1000
+                        }
+                },
+                color: {
+                    value: '#b61924'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke:
+                        {
+                            width: 0,
+                            color: '#b61924'
+                        }
+                },
+                polygon:{
+                    nb_sides: 5
+                },
+                line_linked:{
+                    enable: true,
+                    distance: 300,
+                    color: '#b61924',
+                    opacity: 0.4,
+                    width: 2
+                },
+                move:{
+                    enable: true,
+                    speed: 12,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                },
+                size:
+                    {
+                        value: 10,
+                        random: true,
+                        anim:
+                            {
+                                enable: false,
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                    },
+                interactivity:{
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: false,
+                            mode: 'repulse'
+                        },
+                        onclick:{
+
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        repulse: {
+                            distance: 400,
+                            duration: 0.4
+                        }
+                    }
+                }
+            }
+        };
     }
 }
