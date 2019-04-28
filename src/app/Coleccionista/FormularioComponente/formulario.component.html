@@ -1,5 +1,5 @@
 <particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
-<h1 class="titulo" style="text-align: center; color: white; font-family: 'papyrus'; font-weight: 400;">Formulario de creación de coleccionista</h1>
+<h1 class="titulo" style="text-align: center; color: black; font-family: 'papyrus'; font-weight: 400;">Formulario de creación de coleccionista</h1>
 <div class="conten-fluid">
     <div class="row">
         <div class="mx-auto">
@@ -128,15 +128,15 @@
                 <br>
                 <div class="form-check form-check-inline" style="text-align: center;">
                     <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-6">
+                        <div class="col-lg-3 col-md-2 col-sm-1 col-xs-1"></div>
+                        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-10">
                             <label for="" style="font-family: 'papyrus'; font-weight: 400; font-size: 20px;">Escoger foto</label>
                             <hr>
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <ng-container *ngFor="let i of [0,1,2,3,4];" style="margin: 0; font-size: 0;">
                                     <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
                                     <label for="inlineRadio{{i}}">
-                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
+                                        <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image img-circle"
                                              (click)="funcion(imagenes[i])" style="width: 90%;">
                                     </label>
                                 </ng-container>
@@ -182,6 +182,7 @@
                                 </ng-container>
                             </div>
                         </div>
+                        <div class="col-lg-3 col-md-2 col-sm-1 col-xs-1"></div>
                     </div>
                 </div>
 

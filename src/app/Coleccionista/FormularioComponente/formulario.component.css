@@ -45,7 +45,7 @@ textarea:focus, input[type=text]:focus, input[type=password]:focus, input[type=e
 
 form
 {
-    color: white;
+    color: black;
 }
 
 .card {
@@ -61,8 +61,8 @@ form
 img {
     transition: 0.2s ease-in-out;
     cursor: pointer;
-    background-color: black;
-    box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+    background-color: whitesmoke;
+    box-shadow: 0 0 16px rgba(0, 68, 255, 0.5);
     border-radius: 10%;
 }
 
@@ -83,7 +83,7 @@ img:hover {
 #inlineRadio10:checked + label > img , #inlineRadio11:checked + label > img, #inlineRadio12:checked + label > img, #inlineRadio13:checked + label > img, #inlineRadio14:checked + label > img,
 #inlineRadio15:checked + label > img , #inlineRadio16:checked + label > img, #inlineRadio17:checked + label > img, #inlineRadio18:checked + label > img, #inlineRadio19:checked + label > img,
 #inlineRadio20:checked + label > img , #inlineRadio21:checked + label > img, #inlineRadio22:checked + label > img, #inlineRadio23:checked + label > img, #inlineRadio24:checked + label > img{
-    background-color: white;
+    background-color: rgba(0, 68, 226, 0.75);
 }
 
 /*#inlineRadio5,  #inlineRadio6, #inlineRadio7, #inlineRadio8, #inlineRadio9{*/
