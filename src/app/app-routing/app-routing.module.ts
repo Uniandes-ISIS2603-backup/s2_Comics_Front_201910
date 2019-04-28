@@ -14,6 +14,7 @@ import { VendedorEditComponent } from '../vendedor/vendedor-edit/vendedor-edit.c
 
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
+import {LogInComponent} from "../Coleccionista/LogInComponente/logIn.component";
 
 const routes: Routes = [
 
@@ -41,6 +42,10 @@ const routes: Routes = [
                 }
             }
         ]
+    },
+    {
+        path: 'login',
+        component: LogInComponent
     },
     {
         path: 'form',

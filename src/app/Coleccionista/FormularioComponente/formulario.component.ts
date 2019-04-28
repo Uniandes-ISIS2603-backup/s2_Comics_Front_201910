@@ -256,31 +256,31 @@ export class FormularioComponent implements OnInit
         this.myParams = {
             particles: {
                 number: {
-                    value: 100,
+                    value: 50,
                     density:
                         {
                             enable:true,
-                            value_area:800
+                            value_area:1000
                         }
                 },
                 color: {
-                    value: '#003ee2'
+                    value: '#b61924'
                 },
                 shape: {
-                    type: 'triangle',
+                    type: 'circle',
                     stroke:
                         {
                             width: 0,
-                            color: '#003ee2'
+                            color: '#b61924'
                         }
                 },
                 polygon:{
                     nb_sides: 5
                 },
                 line_linked:{
-                    enable: false,
+                    enable: true,
                     distance: 300,
-                    color: '#FFFFFF',
+                    color: '#b61924',
                     opacity: 0.4,
                     width: 2
                 },
@@ -298,6 +298,18 @@ export class FormularioComponent implements OnInit
                         rotateY: 1200
                     }
                 },
+                size:
+                    {
+                        value: 10,
+                        random: true,
+                        anim:
+                            {
+                                enable: false,
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                    },
                 interactivity:{
                     detect_on: 'canvas',
                     events: {

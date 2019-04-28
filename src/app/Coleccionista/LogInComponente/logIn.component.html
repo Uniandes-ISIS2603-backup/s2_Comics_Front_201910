@@ -1,42 +1,89 @@
-<form class="px-4 py-3" [formGroup]="logInForm">
-    <div class="form-group">
-        <label for="">Alias</label>
-        <input type="text" class="form-control" id="" placeholder="jonDoe1"
-               formControlName="alias">
-        <div *ngIf="(logInForm.get('alias').errors && isSubmitted) ||
+<!--<form class="px-4 py-3" [formGroup]="logInForm">-->
+<!--    <div class="form-group">-->
+<!--        <label for="">Alias</label>-->
+<!--        <input type="text" class="form-control" id="" placeholder="jonDoe1"-->
+<!--               formControlName="alias">-->
+<!--        <div *ngIf="(logInForm.get('alias').errors && isSubmitted) ||-->
+<!--            (logInForm.get('alias').errors && logInForm.get('alias').touched)">-->
+<!--            <div *ngIf="logInForm.get('alias').hasError('required')">-->
+<!--                <span style="color:red;">Por favor llene este campo</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="">Password</label>-->
+<!--        <input type="password" class="form-control" placeholder="Password"-->
+<!--               formControlName="password">-->
+<!--        <div *ngIf="(logInForm.get('password').errors && isSubmitted) ||-->
+<!--            (logInForm.get('password').errors && logInForm.get('password').touched)">-->
+<!--            <div *ngIf="logInForm.get('password').hasError('required')">-->
+<!--                <span style="color:red;">Por favor llene el campo</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--        <label for="">-->
+<!--            Role-->
+<!--        </label>-->
+<!--        <select name="" class="custom-select form-control" id="inputGroupSelect01">-->
+<!--            <option selected>Choose...</option>-->
+<!--            <option value="1">One</option>-->
+<!--            <option value="2">Two</option>-->
+<!--            <option value="3">Three</option>-->
+<!--        </select>-->
+<!--    </div>-->
+
+<!--    <button type="submit" class="btn btn-danger" (click)="onLogIngSubmit()">Sign in</button>-->
+<!--</form>-->
+<!--<div class="dropdown-divider"></div>-->
+<!--<a class="dropdown-item" routerLink="/form">New around here? Sign up</a>-->
+<!--<a class="dropdown-item" href="#">Forgot password?</a>-->
+<div class="center">
+    <div class="card" style="width: 18rem; border-radius: 10px;">
+        <div class="card-body" style="text-align: center;">
+            <h5 class="card-title">Log In</h5>
+            <form class="px-4 py-3" [formGroup]="logInForm">
+                <div class="form-group">
+                    <label for="">Alias</label>
+                    <input type="text" class="form-control" id="" placeholder="jonDoe1"
+                           formControlName="alias">
+                    <div *ngIf="(logInForm.get('alias').errors && isSubmitted) ||
             (logInForm.get('alias').errors && logInForm.get('alias').touched)">
-            <div *ngIf="logInForm.get('alias').hasError('required')">
-                <span style="color:red;">Por favor llene este campo</span>
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="">Password</label>
-        <input type="password" class="form-control" placeholder="Password"
-               formControlName="password">
-        <div *ngIf="(logInForm.get('password').errors && isSubmitted) ||
+                        <div *ngIf="logInForm.get('alias').hasError('required')">
+                            <span style="color:red;">Por favor llene este campo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" placeholder="Password"
+                           formControlName="password">
+                    <div *ngIf="(logInForm.get('password').errors && isSubmitted) ||
             (logInForm.get('password').errors && logInForm.get('password').touched)">
-            <div *ngIf="logInForm.get('password').hasError('required')">
-                <span style="color:red;">Por favor llene el campo</span>
-            </div>
+                        <div *ngIf="logInForm.get('password').hasError('required')">
+                            <span style="color:red;">Por favor llene el campo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="">
+                        Role
+                    </label>
+                    <select name="" class="custom-select form-control" id="inputGroupSelect01">
+                        <option value="1" selected>Administrador</option>
+                        <option value="2">Comprador</option>
+                        <option value="3">Vendedor</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-danger" (click)="onLogIngSubmit()">Sign in</button>
+                <hr>
+            </form>
         </div>
+        <a class="dropdown-item" routerLink="/form">Nuevo por aquí? Regístrate!</a>
+        <a class="dropdown-item" href="#">Forgot password?</a>
     </div>
-
-    <div class="form-group">
-        <label for="">
-            Role
-        </label>
-        <select name="" class="custom-select form-control" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
-    </div>
-
-    <button type="submit" class="btn btn-danger" (click)="onLogIngSubmit()">Sign in</button>
-</form>
-<div class="dropdown-divider"></div>
-<a class="dropdown-item" routerLink="/form">New around here? Sign up</a>
-<a class="dropdown-item" href="#">Forgot password?</a>
-
+</div>
