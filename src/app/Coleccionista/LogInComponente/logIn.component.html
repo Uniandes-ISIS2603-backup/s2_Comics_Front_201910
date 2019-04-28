@@ -1,8 +1,8 @@
 <form class="px-4 py-3" [formGroup]="logInForm">
     <div class="form-group">
-        <label for="exampleDropdownFormEmail1">Alias</label>
-        <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="jonDoe1"
-            formControlName="alias">
+        <label for="">Alias</label>
+        <input type="text" class="form-control" id="" placeholder="jonDoe1"
+               formControlName="alias">
         <div *ngIf="(logInForm.get('alias').errors && isSubmitted) ||
             (logInForm.get('alias').errors && logInForm.get('alias').touched)">
             <div *ngIf="logInForm.get('alias').hasError('required')">
@@ -11,9 +11,9 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="exampleDropdownFormPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password"
-            formControlName="password">
+        <label for="">Password</label>
+        <input type="password" class="form-control" placeholder="Password"
+               formControlName="password">
         <div *ngIf="(logInForm.get('password').errors && isSubmitted) ||
             (logInForm.get('password').errors && logInForm.get('password').touched)">
             <div *ngIf="logInForm.get('password').hasError('required')">
@@ -21,8 +21,22 @@
             </div>
         </div>
     </div>
+
+    <div class="form-group">
+        <label for="">
+            Role
+        </label>
+        <select name="" class="custom-select form-control" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </div>
+
     <button type="submit" class="btn btn-danger" (click)="onLogIngSubmit()">Sign in</button>
 </form>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" routerLink="/form">New around here? Sign up</a>
 <a class="dropdown-item" href="#">Forgot password?</a>
+

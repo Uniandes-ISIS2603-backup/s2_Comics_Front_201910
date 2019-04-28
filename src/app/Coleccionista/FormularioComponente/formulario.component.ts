@@ -250,7 +250,7 @@ export class FormularioComponent implements OnInit
             'left': 0,
             'right': 0,
             'bottom': 0,
-            'background': 'rgb(0,0,0)'
+            'background': 'white'
         };
 
         this.myParams = {
@@ -264,14 +264,14 @@ export class FormularioComponent implements OnInit
                         }
                 },
                 color: {
-                    value: '#e25822'
+                    value: '#003ee2'
                 },
                 shape: {
                     type: 'triangle',
                     stroke:
                         {
                             width: 0,
-                            color: '#e25822'
+                            color: '#003ee2'
                         }
                 },
                 polygon:{
