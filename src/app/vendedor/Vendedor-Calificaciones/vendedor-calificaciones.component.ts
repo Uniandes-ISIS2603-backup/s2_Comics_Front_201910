@@ -16,7 +16,9 @@ import {VendedorEditCalificacionComponent} from '../vendedor-edit-calificacion/v
 })
 
 export class VendedorCalificacionesComponent implements OnInit,OnChanges {
-    constructor(private vendedorService: VendedorService,  private route: ActivatedRoute, private viewRef: ViewContainerRef){}
+    constructor(private vendedorService: VendedorService,
+                private route: ActivatedRoute,
+                private viewRef: ViewContainerRef){}
     @Input()  vendedorCalificaciones : Calificacion [];
     vendedorId: number;
     //atributo para mostrrar/ocultar el componente

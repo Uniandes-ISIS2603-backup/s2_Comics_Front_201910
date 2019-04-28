@@ -23,6 +23,7 @@ import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-ed
 import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-pedido-list.component';
 import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
 import {LogInComponent} from "../Coleccionista/LogInComponente/logIn.component";
+import {CompradorComicsListComponent} from "../Comprador/comprador-comics/comprador-comics.component";
 
 
 const routes: Routes = [
@@ -81,6 +82,10 @@ const routes: Routes = [
                 path: ':id/edit',
                 component: CompradorEditComponent
             },
+            {
+                path: ':id/comics',
+                component: CompradorComicsListComponent
+            }
         ]
     },{
         path: 'orden',
