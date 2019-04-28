@@ -17,7 +17,7 @@ import {VendedorEditCalificacionComponent} from '../vendedor-edit-calificacion/v
 
 export class VendedorCalificacionesComponent implements OnInit,OnChanges {
     constructor(private vendedorService: VendedorService,  private route: ActivatedRoute, private viewRef: ViewContainerRef){}
-  @Input()  vendedorCalificaciones : Calificacion [];
+    @Input()  vendedorCalificaciones : Calificacion [];
     vendedorId: number;
     public isCollapsed = true;
     @ViewChild(VendedorEditCalificacionComponent) calificacionEditComponent: VendedorEditCalificacionComponent;
@@ -30,46 +30,41 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
         this.vendedorCalificaciones = calificaciones;
     }
     toggleUpdateCalificacion(): void {
-      
+
         this.calificacionEditComponent.isCollapsed = !this.calificacionEditComponent.isCollapsed;
     }
     ngOnInit(){
-         this.vendedorId = +this.route.snapshot.paramMap.get('id');
+        this.vendedorId = +this.route.snapshot.paramMap.get('id');
         this.getCalificaciones();
-        
-       
+
+
     }
     suma:number =0;
     contador:number=0;
-     add(numero:number):void{
-         this.suma+=numero;
-         this.contador++;
-     }
-      average():number{
-         return this.suma/this.contador;
-         
-          
-        }
+    add(numero:number):void{
+        this.suma+=numero;
+        this.contador++;
+    }
+    average():number{
+        return this.suma/this.contador;
+    }
     ngOnChanges(){
         this.ngOnInit();
-        
+
     }
-        
-    
- 
 
     setStar(puntuacion:number):boolean[]{
         var starList =[true,true,true,true,true];
-      for(var i=0;i<=4;i++){  
-          if (i <= puntuacion-1){  
-          starList[i]=false;  
-         
-        }  
-        else{  
-          starList[i]=true;  
-        }  
-     }  
-     return starList
- }  
+        for(var i=0;i<=4;i++){
+            if (i <= puntuacion-1){
+                starList[i]=false;
+
+            }
+            else{
+                starList[i]=true;
+            }
+        }
+        return starList
+    }
 
 }
