@@ -1,4 +1,3 @@
-
 import { Component, OnInit, Output } from "@angular/core";
 import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from "@angular/forms";
 import { CompradorService } from "../../Comprador/comprador.service";
@@ -9,7 +8,6 @@ import { Vendedor } from "../../vendedor/vendedor";
 import { VendedorService } from "../../vendedor/vendedor.service";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
-
 const API_URL = '../../../assets/foto_2.json';
 
 @Component({
@@ -24,7 +22,6 @@ export class FormularioComponent implements OnInit
     myParams: object = {};
     width: number = 100;
     height: number = 100;
-
     /**
      * Formulario de registro
      */
@@ -76,6 +73,8 @@ export class FormularioComponent implements OnInit
      * @param compradorService Servicio de peticiones del comprador
      * @param vendedorService Servicio de peticiones del vendedor.
      * @param toastrService
+     * @param router
+     * @param httpClient
      */
     constructor(private formBuilder: FormBuilder,
                 private compradorService:CompradorService,
@@ -171,7 +170,7 @@ export class FormularioComponent implements OnInit
                 this.selectedRole.push(this.values[i]);
             }
         });
-        this.valuesError = this.selectedRole.length > 0 ? false : true;
+        this.valuesError = this.selectedRole.length <= 0;
     }
 
     /**

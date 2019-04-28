@@ -6,11 +6,12 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompradorService } from './comprador.service';
-import { OrdenPedidoModuleModule } from '../OrdenPedido/orden-pedido-module/orden-pedido-module.module';
+import { OrdenPedidoModule} from '../orden-pedido/orden-pedido.module';
 import { CompradorDetailComponent } from './comprador-detail/comprador-detail.component';
 import { CompradorEditComponent } from './comprador-edit/comprador-edit.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import {ParticlesModule} from "angular-particle";
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
     declarations: [
@@ -18,15 +19,16 @@ import {ParticlesModule} from "angular-particle";
         CompradorDetailComponent,
         CompradorEditComponent],
     imports: [
-        ParticlesModule,
         FlexLayoutModule,
         ReactiveFormsModule,
-        BrowserModule, 
+        BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        OrdenPedidoModuleModule,
+        OrdenPedidoModule,
         CommonModule,
-        FormsModule],
+        FormsModule,
+        ParticlesModule
+    ],
     providers: [CompradorService]
 })
 

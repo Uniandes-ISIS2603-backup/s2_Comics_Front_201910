@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { CompradorService } from "../comprador.service";
-import { FormGroup, FormControl, Validators, FormBuilder, NgControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators, FormBuilder} from "@angular/forms";
 import { Comprador } from "../comprador";
 import { ToastrService } from "ngx-toastr";
 import { CompradorDetail } from "../comprador-detail";
@@ -21,6 +21,7 @@ export class CompradorEditComponent implements OnInit
     myParams: object = {};
     width: number = 100;
     height: number = 100;
+
     /**
      * Objeto que agrupa los componentes del formulario
      */

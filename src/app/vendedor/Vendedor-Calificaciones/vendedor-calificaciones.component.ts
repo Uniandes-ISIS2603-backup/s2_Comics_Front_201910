@@ -19,9 +19,11 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
     constructor(private vendedorService: VendedorService,  private route: ActivatedRoute, private viewRef: ViewContainerRef){}
     @Input()  vendedorCalificaciones : Calificacion [];
     vendedorId: number;
+    //atributo para mostrrar/ocultar el componente
     public isCollapsed = true;
+    //atributo que permite utilizar el componente de editar
     @ViewChild(VendedorEditCalificacionComponent) calificacionEditComponent: VendedorEditCalificacionComponent;
-
+//atributo que llama al servicio para cargar la lista de calificaciones
     getCalificaciones(): void {
         this.vendedorService.getCalificaciones(this.vendedorId).subscribe(vendedorCalificaciones => this.vendedorCalificaciones = vendedorCalificaciones);
     }
@@ -29,10 +31,12 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
 
         this.vendedorCalificaciones = calificaciones;
     }
+    //metodo que oculta la ventana de editar calificaciones
     toggleUpdateCalificacion(): void {
 
         this.calificacionEditComponent.isCollapsed = !this.calificacionEditComponent.isCollapsed;
     }
+    //se obtiene el id del vendedor actual
     ngOnInit(){
         this.vendedorId = +this.route.snapshot.paramMap.get('id');
         this.getCalificaciones();
