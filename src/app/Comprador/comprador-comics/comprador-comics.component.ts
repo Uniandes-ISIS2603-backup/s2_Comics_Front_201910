@@ -3,7 +3,11 @@ import {CompradorService} from "../comprador.service";
 import {ActivatedRoute} from "@angular/router";
 import {Comic} from "../../Comic/Comic";
 import {log} from "util";
+import {VendedorService} from "../../vendedor/vendedor.service";
 import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
+import { Comprador } from "../comprador";
+import { Observable } from "rxjs";
+import { CompradorDetail } from "../comprador-detail";
 
 @Component({
     selector: 'app-comprador-comics',
@@ -21,9 +25,11 @@ export class CompradorComicsListComponent implements  OnInit
      * @param modalDialogService
      */
     constructor(private compradorService: CompradorService,
+        private vendedorService: VendedorService,
                 private route: ActivatedRoute,
                 private viewRef: ViewContainerRef,
                 private modalDialogService: ModalDialogService)
+                
     {
 
     }
@@ -32,6 +38,8 @@ export class CompradorComicsListComponent implements  OnInit
      *
      */
     @Input() compradorComics: Comic[];
+
+    @Input() vendedorComics: Comic[];
 
     /**
      *
@@ -42,6 +50,24 @@ export class CompradorComicsListComponent implements  OnInit
         {
             this.compradorComics = lista;
         });
+    }
+
+    comprador:Comprador;
+
+    getComprador():void
+    {
+        this.compradorService.getCompradorDetail(this.compradorId).subscribe(comprador=>
+            {
+                this.comprador = comprador;
+            });
+    }
+
+    getComicsComprador(): void
+    {
+        this.vendedorService.getComicsVendedorPorAlias(this.comprador.alias).subscribe(lista=>
+            {
+                this.vendedorComics = lista;
+            });
     }
 
     /**
@@ -89,5 +115,7 @@ export class CompradorComicsListComponent implements  OnInit
         this.compradorId = +this.route.snapshot.paramMap.get('id');
         // console.log("Este es el id del comprador: " + this.compradorId);
         this.getComics();
+        this.getComprador();
+        this.getComicsComprador();
     }
 }

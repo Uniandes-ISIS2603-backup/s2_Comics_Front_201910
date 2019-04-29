@@ -68,5 +68,14 @@ export class VendedorService {
     {
         return this.http.post<Vendedor>(API_URL + vendedores, vendedor);
     }
+    vendedor:Vendedor;
+    id:number;
+    getComicsVendedorPorAlias(vendedorAlias){
+     
+        this.http.get<Vendedor>(API_URL+vendedores+'/'+vendedorAlias).subscribe(vendedor1 =>{this.vendedor=vendedor1;});
+       this.id=this.vendedor.id;
+        return this.http.get<Comic[]>(API_URL+vendedores+'/'+this.id+'/comics');
+     }
+
 
 }
