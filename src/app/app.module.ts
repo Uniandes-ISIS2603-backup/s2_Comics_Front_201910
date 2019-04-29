@@ -30,7 +30,10 @@ import {ParticlesModule} from "angular-particle";
         LogInComponent
     ],
     imports: [
+        ParticlesModule,
+        FlexLayoutModule,
         ReactiveFormsModule,
+        BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         VendedorModule,

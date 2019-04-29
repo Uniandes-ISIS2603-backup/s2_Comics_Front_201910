@@ -2,10 +2,9 @@
     <div class="container-fluid">
         <h5 class="text-center">Agregar un comic</h5>
         <br>
-        <select #newSelect [(ngModel)]="selected" class="form-control " id="myselect" (change)="selectedId=selected" >
-                <option type="button" *ngFor="let comic of comics" value={{comic.id}}   >{{comic.nombre}}</option>
+        <select v-model="selected" class="form-control " id="myselect" >
+                <option type="button" *ngFor="let comic of comics" value="comic.id"   >{{comic.nombre}}</option>
               </select>
-            
            
     </div>
   
@@ -13,8 +12,8 @@
     <br>
   
     <div class="text-center">
-     
-        <button type="button" class="btn-primary" (click)="addComic(selectedId)">Añadir</button>
+        <p><strong>{{ selected }}</strong></p>
+        <button type="button" class="btn-primary" (click)="addComic(selectedValue)">Añadir</button>
        
     </div> 
 </div>
