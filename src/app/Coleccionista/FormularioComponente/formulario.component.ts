@@ -263,14 +263,14 @@ export class FormularioComponent implements OnInit
                         }
                 },
                 color: {
-                    value: '#FF0000'
+                    value: '#b61924'
                 },
                 shape: {
                     type: 'circle',
                     stroke:
                         {
                             width: 0,
-                            color: '#FF0000'
+                            color: '#b61924'
                         }
                 },
                 polygon:{
@@ -279,7 +279,7 @@ export class FormularioComponent implements OnInit
                 line_linked:{
                     enable: true,
                     distance: 300,
-                    color: '#FF0000',
+                    color: '#b61924',
                     opacity: 0.4,
                     width: 2
                 },

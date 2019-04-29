@@ -11,15 +11,13 @@ import { CompradorDetailComponent } from './comprador-detail/comprador-detail.co
 import { CompradorEditComponent } from './comprador-edit/comprador-edit.component';
 import {ParticlesModule} from "angular-particle";
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {CompradorComicsListComponent} from "./comprador-comics/comprador-comics.component";
 
 
 @NgModule({
     declarations: [
         CompradorListComponent,
         CompradorDetailComponent,
-        CompradorEditComponent,
-        CompradorComicsListComponent],
+        CompradorEditComponent],
     imports: [
         FlexLayoutModule,
         ReactiveFormsModule,
@@ -34,10 +32,10 @@ import {CompradorComicsListComponent} from "./comprador-comics/comprador-comics.
     providers: [CompradorService]
 })
 
-export class CompradorModule
+export class CompradorModule 
 {
     OnInit()
     {
-
+        
     }
 }

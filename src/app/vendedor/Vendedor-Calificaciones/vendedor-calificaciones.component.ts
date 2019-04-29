@@ -16,10 +16,8 @@ import {VendedorEditCalificacionComponent} from '../vendedor-edit-calificacion/v
 })
 
 export class VendedorCalificacionesComponent implements OnInit,OnChanges {
-    constructor(private vendedorService: VendedorService,
-                private route: ActivatedRoute,
-                private viewRef: ViewContainerRef){}
-    @Input()  vendedorCalificaciones : Calificacion [];
+    constructor(private vendedorService: VendedorService,  private route: ActivatedRoute, private viewRef: ViewContainerRef){}
+  @Input()  vendedorCalificaciones : Calificacion [];
     vendedorId: number;
     //atributo para mostrrar/ocultar el componente
     public isCollapsed = true;
@@ -35,42 +33,48 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
     }
     //metodo que oculta la ventana de editar calificaciones
     toggleUpdateCalificacion(): void {
-
+      
         this.calificacionEditComponent.isCollapsed = !this.calificacionEditComponent.isCollapsed;
     }
     //se obtiene el id del vendedor actual
     ngOnInit(){
-        this.vendedorId = +this.route.snapshot.paramMap.get('id');
+         this.vendedorId = +this.route.snapshot.paramMap.get('id');
         this.getCalificaciones();
-
-
+        
+       
     }
     suma:number =0;
     contador:number=0;
-    add(numero:number):void{
-        this.suma+=numero;
-        this.contador++;
-    }
-    average():number{
-        return this.suma/this.contador;
-    }
+     add(numero:number):void{
+         this.suma+=numero;
+         this.contador++;
+     }
+     //metodo para mostrar el promedio de las calificaicoens del vendedor
+      average():number{
+         return this.suma/this.contador;
+         
+          
+        }
     ngOnChanges(){
         this.ngOnInit();
-
+        
     }
-
+        
+    
+ 
+//metodo para desplegar las puntuaciones utilizando estrellas
     setStar(puntuacion:number):boolean[]{
         var starList =[true,true,true,true,true];
-        for(var i=0;i<=4;i++){
-            if (i <= puntuacion-1){
-                starList[i]=false;
-
-            }
-            else{
-                starList[i]=true;
-            }
-        }
-        return starList
-    }
+      for(var i=0;i<=4;i++){  
+          if (i <= puntuacion-1){  
+          starList[i]=false;  
+         
+        }  
+        else{  
+          starList[i]=true;  
+        }  
+     }  
+     return starList
+ }  
 
 }

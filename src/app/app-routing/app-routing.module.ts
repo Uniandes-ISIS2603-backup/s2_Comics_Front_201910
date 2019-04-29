@@ -24,7 +24,6 @@ import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-
 import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
 import {CreateComponent} from '../orden-pedido/create/create.component';
 import {LogInComponent} from "../Coleccionista/LogInComponente/logIn.component";
-import {CompradorComicsListComponent} from "../Comprador/comprador-comics/comprador-comics.component";
 
 
 const routes: Routes = [
@@ -83,10 +82,6 @@ const routes: Routes = [
                 path: ':id/edit',
                 component: CompradorEditComponent
             },
-            {
-                path: ':id/comics',
-                component: CompradorComicsListComponent
-            }
         ]
     },{
         path: 'orden',
