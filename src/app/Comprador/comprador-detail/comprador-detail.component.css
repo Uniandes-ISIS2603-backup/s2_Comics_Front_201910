@@ -4,7 +4,7 @@ body{
 
 .profile
 {
-    margin: 20px, 0;
+    margin: 20px;
 }
 
 .profile-sidebar
@@ -28,3 +28,14 @@ body{
 {
     text-align: center;
 }
+
+.container-fluid
+{
+    text-align: center;
+}
+
+.profile
+{
+    display: inline-block;
+}
+

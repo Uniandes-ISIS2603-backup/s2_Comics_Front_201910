@@ -21,6 +21,7 @@ import { FormularioComponent } from './Coleccionista/FormularioComponente/formul
 import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.component';
 import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {ParticlesModule} from "angular-particle";
 
 @NgModule({
     declarations: [
@@ -29,9 +30,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         LogInComponent
     ],
     imports: [
-        FlexLayoutModule,
         ReactiveFormsModule,
-        BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         VendedorModule,
