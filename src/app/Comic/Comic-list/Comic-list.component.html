@@ -17,8 +17,8 @@
 
     <div class="col-lg-9">
       <div class="row" style="padding-top: 35px">
-      
-        
+
+
         <div class="col-lg-4 col-md-6 mb-4" *ngFor="let com of comics">
           <div class="card h-100">
             <a routerLink="/comic/{{com.id}}"><img class="card-img-top" src={{com.imagen}} alt=""></a>
@@ -30,7 +30,7 @@
               <p class="card-text">Autor: {{com.autor}}<br>Año: {{com.anioSalida}}<br>Tema: {{com.tema}}</p>
             </div>
             <div class="card-footer">
-            <button type="button" class="btn btn-primary">Lo deseo</button>
+              <button type="button" class="btn btn-primary">Lo deseo</button>
             </div>
           </div>
         </div>
