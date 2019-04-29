@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { Comprador } from "./comprador";
 import { environment } from "../../environments/environment";
 import { CompradorDetail } from "./comprador-detail";
+import {Comic} from "../Comic/Comic";
 
 
 //const API_URL = environment.apiURL;
@@ -62,11 +63,29 @@ export class CompradorService
 
     /**
      * Actualiza un comprador en la base de datos
-     * @param id El id del comprador que será actualizado
      * @param comprador Los datos del comprador que será actualizado.
      */
     updateComprador(comprador):Observable<Comprador>
     {
         return this.http.put<Comprador>(API_URL + compradores + '/' + comprador.id, comprador);
+    }
+
+    /**
+     *
+     * @param compradorId
+     */
+    getCarro(compradorId): Observable<Comic[]>
+    {
+        return this.http.get<Comic[]>(API_URL + compradores + '/' + compradorId + '/comics');
+    }
+
+    /**
+     *
+     * @param compradorId
+     * @param comicId
+     */
+    deleteComic(compradorId, comicId): Observable<boolean>
+    {
+        return this.http.delete<boolean>(API_URL + compradores + "/" + compradorId + "/comics/" + comicId)
     }
 }
