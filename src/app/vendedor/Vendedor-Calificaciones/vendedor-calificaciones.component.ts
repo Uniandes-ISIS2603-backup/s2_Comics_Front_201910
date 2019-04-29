@@ -33,6 +33,10 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
 
         this.vendedorCalificaciones = calificaciones;
     }
+    deleteCalificaciones(calificacionId:number): void {
+
+        this.vendedorService.deleteCalificacion(this.vendedorId,calificacionId);
+    }
     //metodo que oculta la ventana de editar calificaciones
     toggleUpdateCalificacion(): void {
 

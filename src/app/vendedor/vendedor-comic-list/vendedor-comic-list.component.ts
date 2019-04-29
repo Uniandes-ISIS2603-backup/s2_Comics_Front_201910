@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-vendedor-comic-list',
   templateUrl: './vendedor-comic-list.component.html'
 })
-export class ComicListComponent implements OnInit {
+export class VendedorComicListComponent implements OnInit {
 
   isCollapsed=true;
   comics: Comic[];
