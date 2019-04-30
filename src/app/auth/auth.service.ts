@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
+import {Coleccionista} from "../Coleccionista/coleccionista";
 
 /**
  * The service provider for everything related to authentication
@@ -42,10 +43,35 @@ export class AuthService {
         localStorage.setItem('role', 'CLIENT');
     }
 
+    /**
+     *
+     * @param compradorId
+     */
+    setCompradorRole(compradorId):void
+    {
+        this.roleService.flushRoles();
+        this.roleService.addRole('Comprador', ['']);
+        localStorage.setItem('role', 'Comprador');
+        localStorage.setItem('user', compradorId + '');
+    }
+
+    /**
+     *
+     * @param vendedorId
+     */
+    setVendedorRole(vendedorId): void
+    {
+        this.roleService.flushRoles();
+        this.roleService.addRole('Vendedor', ['']);
+        localStorage.setItem('role', 'Vendedor');
+        localStorage.setItem('user', vendedorId + '');
+    }
+
     setAdministratorRole (): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
+        this.roleService.addRole('ADMIN', ['']);
         localStorage.setItem('role', 'ADMIN');
+        console.log("Admin");
     }
 
     printRole (): void {
@@ -55,6 +81,7 @@ export class AuthService {
     /**
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
+     * @param user
      */
     login (role): void {
         if (role === 'Administrator') {
@@ -66,12 +93,35 @@ export class AuthService {
     }
 
     /**
+     *
+     * @param role
+     * @param userId
+     */
+    logIn(role, userId)
+    {
+        if(role === 'Administrador')
+        {
+            this.setAdministratorRole();
+        }
+        else if(role == 'Vendedor')
+        {
+            this.setVendedorRole(userId);
+        }
+        else if(role == 'Comprador')
+        {
+            this.setCompradorRole(userId);
+        }
+        this.router.navigateByUrl('/home');
+    }
+
+    /**
      * Logs the user out
      */
     logout (): void {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
-        this.router.navigateByUrl('/');
+        localStorage.removeItem('user');
+        this.router.navigateByUrl('/home');
     }
 }

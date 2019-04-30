@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from "@angular/core";
-import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms";
+import {FormGroup, FormBuilder, FormControl, Validators, FormArray} from "@angular/forms";
 import { CompradorService } from "../../Comprador/comprador.service";
 import { Comprador } from "../../Comprador/comprador";
 import { Router } from "@angular/router";
@@ -22,6 +22,8 @@ export class LogInComponent implements OnInit {
      */
     logInForm: FormGroup;
 
+    rolesGroup : FormGroup;
+
     /**
      *
      */
@@ -36,6 +38,8 @@ export class LogInComponent implements OnInit {
      *
      */
     comprador: Comprador;
+
+    roles: Array<String> = ["Comprador", "Vendedor", "Administrador"];
 
     /**
      *
@@ -56,49 +60,80 @@ export class LogInComponent implements OnInit {
             ]),
             password: new FormControl('', [
                 Validators.required
+            ]),
+            role: new FormControl('', [
+                Validators.required
             ])
         });
+
+        this.rolesGroup = this.formBuilder.group({
+            myValues: this.addValuesControl()
+        })
     }
-    //Golda Percival
-    onLogIngSubmit() {
+
+    addValuesControl()
+    {
+        const arr = this.roles.map(object =>
+        {
+            return this.formBuilder.control(false);
+        });
+
+        return this.formBuilder.array(arr);
+    }
+
+    onLogInSubmit() {
         this.isSubmitted = true;
 
         if (this.logInForm.valid) {
             var alias: string = this.logInForm.get('alias').value;
             var password: string = this.logInForm.get('password').value;
+            var role: string = this.logInForm.get('role').value;
 
-            this.compradorService.getCompradorByAlias(alias).subscribe(cadena => {
-                if (cadena != null) {
-                    this.comprador = cadena;
-                    if (this.comprador.password == password) {
-                        this.router.navigate(['/comprador/' + this.comprador.id]);
-                        this.logInForm.reset();
+            if(role == "Comprador")
+            {
+                this.compradorService.getCompradorByAlias(alias).subscribe(cadena =>
+                {
+                    if(cadena != null)
+                    {
+                        this.comprador = cadena;
+                        if(this.comprador.password == password)
+                        {
+                            this.auth.logIn(role, this.comprador.id);
+                            this.logInForm.reset();
+                        }
+                        else
+                        {
+                            alert("Error");
+                        }
+                    }
+                    else
+                    {
+                        alert("Error");
+                    }
+                });
+            }
+            else if(role == "Vendedor")
+            {
+                this.vendedorService.getVendedorByAlias(alias).subscribe(cadena =>
+                {
+                    if(cadena != null)
+                    {
+                        this.vendedor = cadena;
+                        if(this.vendedor.password == password)
+                        {
+                            this.auth.logIn(role, cadena.id);
+                            this.logInForm.reset();
+                        }
                     }
                     else {
-                        console.log("Error!");
+                        alert("Error");
                     }
-                }
-                else
-                {
-                    this.vendedorService.getVendedorByAlias(alias).subscribe( user =>
-                    {
-                        if(user != null)
-                        {
-                            this.vendedor = user;
-                            if(this.vendedor.password == password)
-                            {
-                                this.router.navigate(['/vendedores/' + this.vendedor.id]);
-                                this.logInForm.reset();
-                            }
-                            else
-                            {
-                                console.log("Error");
-                            }
-                        }
-                    });
-                }
-            });
-
+                });
+            }
+            else if(role == "Administrador")
+            {
+                this.auth.logIn(role, null);
+            }
         }
         else {
             this.logInForm.reset();
@@ -132,7 +167,7 @@ export class LogInComponent implements OnInit {
                 1,
                 {
                     css: {
-                        transform: 'translateX(' + left / 12 + 'px) translateY(' + top/4 + 'px)'
+                        transform: 'translateX(' + left / 6 + 'px) translateY(' + top/4 + 'px)'
                     },
                     ease: Expo.easeOut,
                     overwrite: 'all'
@@ -143,7 +178,7 @@ export class LogInComponent implements OnInit {
                 1,
                 {
                     css: {
-                        transform: 'translateX(' + left / 4 + 'px)translateY(' + top/4 + 'px)'
+                        transform: 'translateX(' + left / 2 + 'px)translateY(' + top/4 + 'px)'
                     },
                     ease: Expo.easeOut,
                     overwrite: 'all'
@@ -154,7 +189,7 @@ export class LogInComponent implements OnInit {
                 10,
                 {
                     css: {
-                        transform: 'rotate(' + left / 200 + 'deg)'
+                        transform: 'rotate(' + left / 150 + 'deg)'
                     },
                     ease: Expo.easeOut,
                     overwrite: 'none'
