@@ -236,6 +236,7 @@ export class FormularioComponent implements OnInit
      */
     ngOnInit()
     {
+        document.body.style.overflow = 'visible';
         this.comprador = new Comprador();
         this.vendedor = new Vendedor();
         this.cargarImagenes();

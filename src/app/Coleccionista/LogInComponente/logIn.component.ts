@@ -17,12 +17,34 @@ import {AuthService} from "../../auth/auth.service";
 })
 
 export class LogInComponent implements OnInit {
+    /**
+     *
+     */
     logInForm: FormGroup;
+
+    /**
+     *
+     */
     isSubmitted: boolean = false;
 
+    /**
+     *
+     */
     vendedor: Vendedor;
+
+    /**
+     *
+     */
     comprador: Comprador;
 
+    /**
+     *
+     * @param formBuilder
+     * @param compradorService
+     * @param vendedorService
+     * @param router
+     * @param auth
+     */
     constructor(private formBuilder: FormBuilder,
                 private compradorService: CompradorService,
                 private vendedorService: VendedorService,
@@ -83,8 +105,12 @@ export class LogInComponent implements OnInit {
         }
     }
 
+    /**
+     *
+     */
     background(): void
     {
+        document.body.style.overflow = 'hidden';
         var $layer_0 = $('.layer-0'),
             $layer_1 = $('.layer-1'),
             $layer_2 = $('.layer-2'),

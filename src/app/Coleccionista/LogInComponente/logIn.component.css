@@ -1,19 +1,7 @@
 .center
 {
     text-align: center;
-}
-
-html, body
-{
-    background-color: rgb(1, 12, 13);
-    height: 100%;
-    margin: 0;
     overflow: hidden;
-}
-
-body
-{
-    padding: 50px 0;
 }
 
 .box
@@ -109,6 +97,9 @@ body
     position: absolute;
     right: -10%;
     top: -20%;
+    overflow: hidden;
+    /*height: 100%;*/
+    /*width: 100%;*/
 }
 
 .planet
@@ -126,6 +117,7 @@ body
     height: 688.8px;
     width: 817.2px;
     margin: 100px 0 0 -900px;
+    overflow: hidden;
 }
 
 #planet-2
@@ -135,4 +127,5 @@ body
     height: 688.8px;
     width: 817.2px;
     margin: -300px 0 0 300px;
+    overflow: hidden;
 }
