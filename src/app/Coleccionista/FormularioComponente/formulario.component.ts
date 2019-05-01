@@ -249,7 +249,7 @@ export class FormularioComponent implements OnInit
             'left': 0,
             'right': 0,
             'bottom': 0,
-            'background': 'black'
+            'background': 'white'
         };
 
         this.myParams = {
@@ -263,23 +263,23 @@ export class FormularioComponent implements OnInit
                         }
                 },
                 color: {
-                    value: '#e25822'
+                    value: '#FF0000'
                 },
                 shape: {
-                    type: 'triangle',
+                    type: 'circle',
                     stroke:
                         {
                             width: 0,
-                            color: '#e25822'
+                            color: '#FF0000'
                         }
                 },
                 polygon:{
                     nb_sides: 5
                 },
                 line_linked:{
-                    enable: false,
+                    enable: true,
                     distance: 300,
-                    color: '#e25822',
+                    color: '#FF0000',
                     opacity: 0.4,
                     width: 2
                 },
@@ -299,7 +299,7 @@ export class FormularioComponent implements OnInit
                 },
                 size:
                     {
-                        value: 5,
+                        value: 10,
                         random: true,
                         anim:
                             {

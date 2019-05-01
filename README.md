@@ -6,12 +6,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Complementos a instalar
-Run `npm install` for node-module package.
-Run `npm install gsap --save` for gsap and TweenMax packages.
-Run `npm install angular-particle --save` for ParticlesJS package.
-Run `npm i -s @angular/flex-layout @angular/cdk` for FlexLayout and CDK packages.
-
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
