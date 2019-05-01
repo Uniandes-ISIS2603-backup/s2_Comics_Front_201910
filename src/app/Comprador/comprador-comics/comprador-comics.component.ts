@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Comic} from "../../Comic/Comic";
 import {log} from "util";
 import {VendedorService} from "../../vendedor/vendedor.service";
+import {OrdenPedidoService} from "../../orden-pedido/orden-pedido.service";
 import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
 import { Comprador } from "../comprador";
 import { Observable } from "rxjs";
@@ -26,6 +27,7 @@ export class CompradorComicsListComponent implements  OnInit
      */
     constructor(private compradorService: CompradorService,
         private vendedorService: VendedorService,
+        private ordenPedidoService:OrdenPedidoService,
                 private route: ActivatedRoute,
                 private viewRef: ViewContainerRef,
                 private modalDialogService: ModalDialogService)
@@ -66,10 +68,17 @@ export class CompradorComicsListComponent implements  OnInit
     getComicsComprador(): void
     {
     
-        this.vendedorService.getComicsVendedorPorAlias(this.comprador.alias).subscribe(lista=>
+        this.vendedorService.getComicsVendedor(this.compradorId).subscribe(lista=>
             {
                 this.vendedorComics = lista;
             });
+    }
+
+    createOrdenPedido():void
+    {
+        
+
+
     }
 
     /**

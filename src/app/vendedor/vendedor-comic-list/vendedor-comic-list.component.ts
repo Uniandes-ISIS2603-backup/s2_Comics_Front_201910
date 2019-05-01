@@ -5,7 +5,7 @@ import {VendedorService} from '../vendedor.service';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-vendedor-comic-list',
-  templateUrl: './vendedor-comic-list.html'
+  templateUrl: './vendedor-comic-list.component.html'
 })
 export class VendedorComicListComponent implements OnInit {
 
@@ -15,7 +15,6 @@ vendedorId:number;
   constructor(private vendedorService: VendedorService, private route: ActivatedRoute,) { }
 
   getComics(): void {
-  
     this.vendedorService.getComicsVendedor(this.vendedorId)
       .subscribe(c => {
         this.comics = c;
