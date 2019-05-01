@@ -39,14 +39,19 @@
                         <li>Año de salida: {{comic.anioSalida}}</li>
                         <li>Autor: {{comic.autor}}</li>
                     </td>
-                    <td  > <select>
-                        <option value="ACEPTADO"  *ngFor="let comic of vendedorComics;">{{comic.nombre}}</option> 
-                     </select></td>
-                    <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
-                        <span class="fa fa-trash"></span>
-                    </button></td> 
+  
                
+                    <td  > <select>
+                        <option   *ngFor="let comic of vendedorComics;">{{comic.nombre}}</option> 
+                     </select></td>
+
+                     <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
+                            <span class="fa fa-trash"></span>
+                        </button></td> 
+                  
                 </tr>
+               
+                
                 </tbody>
             </table>
         </div>

@@ -60,11 +60,13 @@ export class CompradorComicsListComponent implements  OnInit
             {
                 this.comprador = comprador;
             });
+          
     }
 
     getComicsComprador(): void
     {
-        this.vendedorService.getComicsVendedorPorAlias(this.comprador.alias).subscribe(lista=>
+    
+        this.vendedorService.getComicsVendedor(this.compradorId).subscribe(lista=>
             {
                 this.vendedorComics = lista;
             });
