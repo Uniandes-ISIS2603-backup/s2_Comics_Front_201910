@@ -50,7 +50,7 @@ import {ParticlesModule} from "angular-particle";
         NgbModule,
         CompradorModule,
         OrdenPedidoModule,
-        ComicModule
+        ComicModule,ParticlesModule,FlexLayoutModule
     ],
     bootstrap: [AppComponent],
     providers: [
