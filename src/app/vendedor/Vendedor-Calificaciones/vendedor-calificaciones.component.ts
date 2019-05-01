@@ -9,7 +9,7 @@ import {VendedorService} from '../vendedor.service';
 import {Calificacion} from '../calificacion';
 import { ActivatedRoute } from '@angular/router';
 import {VendedorEditCalificacionComponent} from '../vendedor-edit-calificacion/vendedor-edit-calificacion.component';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
     selector: 'app-vendedor-calificaciones',
     templateUrl: './vendedor-calificaciones.component.html',
@@ -18,8 +18,9 @@ import {VendedorEditCalificacionComponent} from '../vendedor-edit-calificacion/v
 export class VendedorCalificacionesComponent implements OnInit,OnChanges {
     constructor(private vendedorService: VendedorService,
                 private route: ActivatedRoute,
-                private viewRef: ViewContainerRef){}
+                private viewRef: ViewContainerRef, private toastrService: ToastrService){}
     @Input()  vendedorCalificaciones : Calificacion [];
+   
     vendedorId: number;
     //atributo para mostrrar/ocultar el componente
     public isCollapsed = true;
@@ -33,9 +34,14 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
 
         this.vendedorCalificaciones = calificaciones;
     }
-    deleteCalificaciones(calificacionId:number): void {
+    deleteCalificacion(calificacionId:number): void {
 
-        this.vendedorService.deleteCalificacion(this.vendedorId,calificacionId);
+        this.vendedorService.deleteCalificacion(this.vendedorId,calificacionId).subscribe(() => {
+            this.toastrService.error("The comment was successfully deleted", "Comment deleted");
+            this.ngOnInit();
+        }, err => {
+            this.toastrService.error(err, "Error");
+        });
     }
     //metodo que oculta la ventana de editar calificaciones
     toggleUpdateCalificacion(): void {
@@ -48,6 +54,9 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
         this.getCalificaciones();
 
 
+    }
+    refresh(){
+        window.location.reload();
     }
     suma:number =0;
     contador:number=0;

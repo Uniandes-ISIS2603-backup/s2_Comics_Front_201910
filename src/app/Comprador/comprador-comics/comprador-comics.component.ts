@@ -3,14 +3,14 @@ import {CompradorService} from "../comprador.service";
 import {ActivatedRoute} from "@angular/router";
 import {Comic} from "../../Comic/Comic";
 import {log} from "util";
-import {VendedorService} from "../../vendedor/vendedor.service";
-import {OrdenPedidoService} from "../../orden-pedido/orden-pedido.service";
 import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
 import { Comprador } from "../comprador";
 import { Observable } from "rxjs";
 import { CompradorDetail } from "../comprador-detail";
 import { OrdenPedido } from "../../orden-pedido/OrdenPedido";
 import { Vendedor } from "../../vendedor/vendedor";
+import {VendedorService} from "../../vendedor/vendedor.service";
+import {OrdenPedidoService} from "../../orden-pedido/orden-pedido.service";
 
 @Component({
     selector: 'app-comprador-comics',
@@ -34,7 +34,6 @@ export class CompradorComicsListComponent implements  OnInit
                 private route: ActivatedRoute,
                 private viewRef: ViewContainerRef,
                 private modalDialogService: ModalDialogService)
-                
     {
 
     }
@@ -152,9 +151,6 @@ export class CompradorComicsListComponent implements  OnInit
     {
         this.compradorId = +this.route.snapshot.paramMap.get('id');
         // console.log("Este es el id del comprador: " + this.compradorId);
-        this.getComprador();
         this.getComics();
-       
-        this.getComicsComprador();
     }
 }

@@ -24,7 +24,7 @@ export class VendedorDetailComponent implements OnInit {
   ) { }
 
 cambiar:boolean=true;
-
+comics:Comic[];
 vendedorId: number;
  vendedorDetail: VendedorDetail;
 

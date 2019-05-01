@@ -48,7 +48,8 @@ export class VendedorService {
     //llama al back y hace la peticion post del subrecurso entre vendedores y comics
 
     addComic(vendedorId,comicId){
-        return this.http.post<Comic>(API_URL + vendedores+'/'+vendedorId + '/comics/'+comicId, "");
+        console.log(API_URL + vendedores+'/'+vendedorId + '/comics/'+comicId);
+        return this.http.post<Comic>(API_URL + vendedores+'/'+vendedorId + '/comics/'+comicId, null);
     }
     //llama al back y hace la peticion put de una calificacion
 
@@ -58,8 +59,8 @@ export class VendedorService {
     }
 
     deleteCalificacion(vendedorId,id){
-
-        this.http.delete<Calificacion>(API_URL + vendedores+'/'+vendedorId + calificaciones+'/'+id);
+        console.log(API_URL + vendedores+'/'+vendedorId  +calificaciones+'/'+id);
+    return  this.http.delete<boolean>(API_URL + vendedores+'/'+vendedorId  +calificaciones+'/'+id);
     }
     //llama al back y hace la peticion put de un vendedor
 
@@ -73,8 +74,6 @@ export class VendedorService {
     {
         return this.http.post<Vendedor>(API_URL + vendedores, vendedor);
     }
- 
-
 
     getComicsVendedor(vendedorId){
         return this.http.get<Comic[]>(API_URL+vendedores+'/'+vendedorId+'/comics');
@@ -85,7 +84,7 @@ export class VendedorService {
      
        this.http.get<Vendedor>(API_URL+vendedores+'/'+vendedorAlias).subscribe(vendedor1 =>{this.vendedor=vendedor1;});
       this.id=this.vendedor.id;
-       return this.http.get<Comic[]>(API_URL+vendedores+'/'+this.id);
+       return this.http.get<Comic[]>(API_URL+vendedores+'/'+this.id+'/comics');
     }
     
 }

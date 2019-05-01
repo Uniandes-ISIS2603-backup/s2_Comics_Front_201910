@@ -30,10 +30,7 @@ import {ParticlesModule} from "angular-particle";
         LogInComponent
     ],
     imports: [
-        ParticlesModule,
-        FlexLayoutModule,
         ReactiveFormsModule,
-        BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         VendedorModule,
@@ -53,7 +50,7 @@ import {ParticlesModule} from "angular-particle";
         NgbModule,
         CompradorModule,
         OrdenPedidoModule,
-        ComicModule
+        ComicModule,ParticlesModule,FlexLayoutModule
     ],
     bootstrap: [AppComponent],
     providers: [

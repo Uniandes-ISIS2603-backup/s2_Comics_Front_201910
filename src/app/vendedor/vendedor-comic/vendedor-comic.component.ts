@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Input,OnChanges ,ViewChild,ViewContainerRef} from '@angular/core';
 import {VendedorService} from '../vendedor.service';
 import {Calificacion} from '../calificacion';
@@ -43,4 +44,4 @@ export class VendedorComicsComponent implements OnInit,OnChanges {
         
     }
 
-}    
+}   
