@@ -17,12 +17,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nombre del comic</th>
-                    <th scope="col">en Venta</th>
                     <th scope="col">Detalles</th>
-                    <th scope="col">asociar comic trueque</th>
-                    <th scope="col">eliminar</th>
-
-                    
                 </tr>
                 </thead>
                 <tbody>
@@ -33,33 +28,17 @@
                     <td>
                         <dd>{{comic.nombre}}</dd>
                     </td>
-                    <td> {{comic.enVenta}}</td>
                     <td>
                         <li>Costo: {{comic.precio}}</li>
                         <li>Año de salida: {{comic.anioSalida}}</li>
                         <li>Autor: {{comic.autor}}</li>
                     </td>
-  
-               
-                    <td  > <select>
-                        <option   *ngFor="let comic of vendedorComics;">{{comic.nombre}}</option> 
-                     </select></td>
-
-                     <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
-                            <span class="fa fa-trash"></span>
-                        </button></td> 
-                  
+                    <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
+                        <span class="fa fa-trash"></span>
+                    </button></td>
                 </tr>
-               
-                
                 </tbody>
             </table>
         </div>
     </div>
-</div>
-<br>
-<br>
-<div style="width: 330px; margin: 0 auto;">
-        <button class="boton_personalizado"   >comprar</button>
-
 </div>

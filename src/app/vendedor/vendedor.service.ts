@@ -48,7 +48,8 @@ export class VendedorService {
     //llama al back y hace la peticion post del subrecurso entre vendedores y comics
 
     addComic(vendedorId,comicId){
-        return this.http.post<Comic>(API_URL + vendedores+'/'+vendedorId + '/comics/'+comicId, "");
+        console.log(API_URL + vendedores+'/'+vendedorId + '/comics/'+comicId);
+        return this.http.post<Comic>(API_URL + vendedores+'/'+vendedorId + '/comics/'+comicId, null);
     }
     //llama al back y hace la peticion put de una calificacion
 
@@ -73,11 +74,8 @@ export class VendedorService {
     {
         return this.http.post<Vendedor>(API_URL + vendedores, vendedor);
     }
- 
-
 
     getComicsVendedor(vendedorId){
-        alert(API_URL+vendedores+'/'+vendedorId+'/comics');
         return this.http.get<Comic[]>(API_URL+vendedores+'/'+vendedorId+'/comics');
     }
     vendedor:Vendedor;

@@ -2,8 +2,137 @@
 {
     text-align: center;
 }
-.card
+
+html, body
+{
+    background-color: rgb(1, 12, 13);
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body
+{
+    padding: 50px 0;
+}
+
+.box
 {
     display: inline-block;
-    margin-top: 10%;
+    transform: translate(-50%, -50%);
+    z-index: 30;
+    width: 400px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: rgba(25, 25, 25, 0.89);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.box h1
+{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.box input[type = "text"], .box input[type = "password"]
+{
+    /*border: 0;*/
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.box label
+{
+    color: white;
+}
+
+.box select
+{
+    margin: 20px auto;
+    background: none;
+    display: block;
+    text-align: center;
+    border: 2px solid #3498db;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    transition: 0.25s;
+    -webkit-appearance: button;
+}
+
+.box input[type = "text"]:focus, .box input[type = "password"]:focus
+{
+    width: 280px;
+    border-color: #2ecc71;
+}
+
+.box button[type = "submit"]
+{
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.box button[type = "submit"]:hover
+{
+    background: #2ecc71;
+}
+
+#background
+{
+    background-image: url('https://blogdesuperheroes.es/wp-content/plugins/BdSGallery/BdSGaleria/44974.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: -20%;
+    left: -10%;
+    position: absolute;
+    right: -10%;
+    top: -20%;
+}
+
+.planet
+{
+    background-size: cover;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+}
+
+#planet-1
+{
+    background-image: url('https://www.pngkey.com/png/full/3-30957_fighting-superman-batman-vs-superman-injustice-png.png');
+    z-index: 20;
+    height: 688.8px;
+    width: 817.2px;
+    margin: 100px 0 0 -900px;
+}
+
+#planet-2
+{
+    background-image: url('https://www.pngkey.com/png/full/66-661603_injustice-gods-among-us-batman-vs-render-injustice.png');
+    z-index: 20;
+    height: 688.8px;
+    width: 817.2px;
+    margin: -300px 0 0 300px;
 }

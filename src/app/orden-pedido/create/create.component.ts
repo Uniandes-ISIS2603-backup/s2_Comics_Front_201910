@@ -1,26 +1,15 @@
-import { Component, OnInit, Input,OnChanges ,ViewChild,ViewContainerRef} from '@angular/core';
-
-import {Vendedor} from '../../vendedor/vendedor';
-import { Comic } from '../../Comic/Comic';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class CreateComponent implements OnInit, OnChanges {
-
-  public isCollapsed = true;
-  vendedor:Vendedor;
-  comics:Comic;
+export class CreateComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
   }
-  ngOnChanges(){
-    this.ngOnInit();
-}
-
 
 }
