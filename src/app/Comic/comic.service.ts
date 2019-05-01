@@ -4,9 +4,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { Comic } from "./Comic";
 import { ComicDetail } from "./ComicDetail";
-import {environment} from "../../environments/environment";
 
-const API_URL = environment.apiURL;
+const API_URL = "http://localhost:8080/s2_comics-api/api";
 const comics = '/comic';
 
 @Injectable()

@@ -5,10 +5,6 @@ import { Comprador } from "../../Comprador/comprador";
 import { Router } from "@angular/router";
 import { VendedorService } from "../../vendedor/vendedor.service";
 import { Vendedor } from "../../vendedor/vendedor";
-import {TweenMax} from "gsap/TweenMax";
-import {Expo} from "gsap/all";
-import $ from "jquery";
-import {AuthService} from "../../auth/auth.service";
 
 @Component({
     selector: 'app-login',
@@ -26,8 +22,7 @@ export class LogInComponent implements OnInit {
     constructor(private formBuilder: FormBuilder,
                 private compradorService: CompradorService,
                 private vendedorService: VendedorService,
-                private router: Router,
-                private auth: AuthService) {
+                private router: Router) {
         this.logInForm = this.formBuilder.group({
             alias: new FormControl('', [
                 Validators.required
@@ -83,60 +78,7 @@ export class LogInComponent implements OnInit {
         }
     }
 
-    background(): void
-    {
-        var $layer_0 = $('.layer-0'),
-            $layer_1 = $('.layer-1'),
-            $layer_2 = $('.layer-2'),
-            $container = $('body'),
-            container_w = $container.width(),
-            container_h = $container.height();
-
-        $(window).on('mousemove.parallax', function(event)
-        {
-            var pos_x = event.pageX,
-                pos_y = event.pageY,
-                left = 0,
-                top = 0;
-            left = container_w / 2 - pos_x;
-            top  = container_h / 2 - pos_y;
-
-            TweenMax.to(
-                $layer_2,
-                1,
-                {
-                    css: {
-                        transform: 'translateX(' + left / 12 + 'px) translateY(' + top/4 + 'px)'
-                    },
-                    ease: Expo.easeOut,
-                    overwrite: 'all'
-                });
-
-            TweenMax.to(
-                $layer_1,
-                1,
-                {
-                    css: {
-                        transform: 'translateX(' + left / 4 + 'px)translateY(' + top/4 + 'px)'
-                    },
-                    ease: Expo.easeOut,
-                    overwrite: 'all'
-                });
-
-            TweenMax.to(
-                $layer_0,
-                10,
-                {
-                    css: {
-                        transform: 'rotate(' + left / 200 + 'deg)'
-                    },
-                    ease: Expo.easeOut,
-                    overwrite: 'none'
-                });
-        });
-    }
-
     ngOnInit() {
-        this.background();
+
     }
 }

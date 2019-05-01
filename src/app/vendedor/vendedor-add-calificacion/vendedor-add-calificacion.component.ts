@@ -4,14 +4,13 @@
  * and open the template in the editor.
  */
     
-import { Component, OnInit, Input, OnChanges, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Calificacion } from '../calificacion';
 import { VendedorService } from '../vendedor.service';
 import { VendedorDetail } from '../vendedor-detail';
-import {VendedorCalificacionesComponent} from '../Vendedor-Calificaciones/vendedor-calificaciones.component';
 @Component({
     selector: 'app-vendedor-add-calificacion',
     templateUrl: './vendedor-add-calificacion.component.html',
@@ -27,7 +26,7 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
     ) { }
     
      @Input() vendedor: VendedorDetail;
-     @ViewChild(VendedorCalificacionesComponent) vendedorCalificacionesComponent: VendedorCalificacionesComponent;
+
      vendedorId:number;
     /**
     * The review to post

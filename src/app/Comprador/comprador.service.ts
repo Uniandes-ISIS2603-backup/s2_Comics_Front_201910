@@ -52,7 +52,7 @@ export class CompradorService
     {
         return this.http.get<CompradorDetail>(API_URL + compradores + '/' + alias);
     }
-
+    
     /**
      * Crea un comprador en la base de datos
      * @param comprador El comrpador a crear

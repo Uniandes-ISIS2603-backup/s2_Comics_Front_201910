@@ -39,52 +39,51 @@
 <!--<div class="dropdown-divider"></div>-->
 <!--<a class="dropdown-item" routerLink="/form">New around here? Sign up</a>-->
 <!--<a class="dropdown-item" href="#">Forgot password?</a>-->
-<div id="background" class="layer-0">
-</div>
 <div class="center">
-    <div id="planet-2" class="planet layer-2"></div>
-    <div id="planet-1" class="planet layer-1"></div>
-
-    <form class="px-4 py-3 box" [formGroup]="logInForm">
-        <h1 class="">Log In</h1>
-        <div class="form-group">
-            <input type="text" class="form-control" id="" placeholder="Alias"
-                   formControlName="alias">
-            <div *ngIf="(logInForm.get('alias').errors && isSubmitted) ||
+    <div class="card" style="width: 18rem; border-radius: 10px;">
+        <div class="card-body" style="text-align: center;">
+            <h5 class="card-title">Log In</h5>
+            <form class="px-4 py-3" [formGroup]="logInForm">
+                <div class="form-group">
+                    <label for="">Alias</label>
+                    <input type="text" class="form-control" id="" placeholder="jonDoe1"
+                           formControlName="alias">
+                    <div *ngIf="(logInForm.get('alias').errors && isSubmitted) ||
             (logInForm.get('alias').errors && logInForm.get('alias').touched)">
-                <div *ngIf="logInForm.get('alias').hasError('required')">
-                    <span style="color:red; transition: 0.25s ease-in-out;">Por favor llene este campo</span>
+                        <div *ngIf="logInForm.get('alias').hasError('required')">
+                            <span style="color:red;">Por favor llene este campo</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password"
-                   formControlName="password">
-            <div *ngIf="(logInForm.get('password').errors && isSubmitted) ||
+
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" placeholder="Password"
+                           formControlName="password">
+                    <div *ngIf="(logInForm.get('password').errors && isSubmitted) ||
             (logInForm.get('password').errors && logInForm.get('password').touched)">
-                <div *ngIf="logInForm.get('password').hasError('required')">
-                    <span style="color:red;">Por favor llene el campo</span>
+                        <div *ngIf="logInForm.get('password').hasError('required')">
+                            <span style="color:red;">Por favor llene el campo</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label for="">
+                        Role
+                    </label>
+                    <select name="" class="custom-select form-control" id="inputGroupSelect01">
+                        <option value="1" selected>Administrador</option>
+                        <option value="2">Comprador</option>
+                        <option value="3">Vendedor</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-danger" (click)="onLogIngSubmit()">Sign in</button>
+                <hr>
+            </form>
         </div>
-
-        <div class="form-group">
-            <label for="inputGroup">
-                Rol de usuario
-            </label>
-            <select name="Role" class="custom-select form-control" id="inputGroup">
-                <option value="1" selected>Administrador</option>
-                <option value="2">Comprador</option>
-                <option value="3">Vendedor</option>
-            </select>
-        </div>
-
-        <button type="submit" class="" (click)="onLogIngSubmit()">Sign in</button>
-        <hr>
-        <a class="" routerLink="/form">Nuevo por aquí? Regístrate!</a>
-        <br>
-        <a class="" href="#">Forgot password?</a>
-    </form>
-
+        <a class="dropdown-item" routerLink="/form">Nuevo por aquí? Regístrate!</a>
+        <a class="dropdown-item" href="#">Forgot password?</a>
+    </div>
 </div>
-

@@ -22,6 +22,7 @@ import { FormularioComponent } from '../Coleccionista/FormularioComponente/formu
 import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
 import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-pedido-list.component';
 import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
+import {CreateComponent} from '../orden-pedido/create/create.component';
 import {LogInComponent} from "../Coleccionista/LogInComponente/logIn.component";
 import {CompradorComicsListComponent} from "../Comprador/comprador-comics/comprador-comics.component";
 
@@ -103,9 +104,14 @@ const routes: Routes = [
                 ]
             },
             {
+                path: 'create',
+                component: CreateComponent,
+            },
+            {
                 path: ':id',
                 component: OrdenPedidoDetailComponent,
             }
+            
         ]
     }, {
         path: 'vendedores',
