@@ -9,6 +9,8 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
 import { Comprador } from "../comprador";
 import { Observable } from "rxjs";
 import { CompradorDetail } from "../comprador-detail";
+import { OrdenPedido } from "../../orden-pedido/OrdenPedido";
+import { Vendedor } from "../../vendedor/vendedor";
 
 @Component({
     selector: 'app-comprador-comics',
@@ -28,6 +30,7 @@ export class CompradorComicsListComponent implements  OnInit
     constructor(private compradorService: CompradorService,
         private vendedorService: VendedorService,
         private ordenPedidoService:OrdenPedidoService,
+      
                 private route: ActivatedRoute,
                 private viewRef: ViewContainerRef,
                 private modalDialogService: ModalDialogService)
@@ -41,8 +44,10 @@ export class CompradorComicsListComponent implements  OnInit
      */
     @Input() compradorComics: Comic[];
 
+    ordenPedido:OrdenPedido;
     @Input() vendedorComics: Comic[];
     @Input() comprador:Comprador;
+    @Input() vendedor:Vendedor;
 
     /**
      *
@@ -67,8 +72,10 @@ export class CompradorComicsListComponent implements  OnInit
 
     getComicsComprador(): void
     {
-    
-        this.vendedorService.getComicsVendedor(this.compradorId).subscribe(lista=>
+        
+        
+
+            this.vendedorService.getComicsVendedor(this.compradorId).subscribe(lista=>
             {
                 this.vendedorComics = lista;
             });
@@ -76,8 +83,26 @@ export class CompradorComicsListComponent implements  OnInit
 
     createOrdenPedido():void
     {
-        
-
+        alert("almenos llego al metodo");
+        for (let i in this.compradorComics) {
+           
+           this.ordenPedido = new OrdenPedido();
+          this.ordenPedido.comic=this.compradorComics[i];
+          alert( "comic" + this.ordenPedido.comic.autor);
+          
+          this.ordenPedido.comprador=this.comprador;
+         
+          this.ordenPedido.estado='EN_ESPERA';
+         
+          this.ordenPedido.vendedor= this.compradorComics[i].vendedor;
+          alert("ojala"+ this.compradorComics[i].vendedor.alias);
+          
+          alert("se intentara crear una orden");
+        this.ordenPedidoService.createOrdenPedido(this.ordenPedido).subscribe(ordenPedido=>
+            {
+                this.ordenPedido = ordenPedido;
+            });
+        }
 
     }
 
@@ -112,6 +137,8 @@ export class CompradorComicsListComponent implements  OnInit
                 ]
             });
     }
+
+     
 
     /**
      *

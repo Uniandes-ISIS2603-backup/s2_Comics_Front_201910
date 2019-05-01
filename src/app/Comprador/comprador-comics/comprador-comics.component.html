@@ -38,28 +38,38 @@
                         <li>Costo: {{comic.precio}}</li>
                         <li>Año de salida: {{comic.anioSalida}}</li>
                         <li>Autor: {{comic.autor}}</li>
+                        <li>Vendedor: {{comic.vendedor.alias}}</li>
                     </td>
   
                
-                    <td  > <select>
-                        <option   *ngFor="let comic of vendedorComics;">{{comic.nombre}}</option> 
-                     </select></td>
+                    
 
                      <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
                             <span class="fa fa-trash"></span>
                         </button></td> 
                   
                 </tr>
-               
-                
+            
                 </tbody>
+
+               
+
             </table>
         </div>
     </div>
+
+    <select >
+        <option   *ngFor="let comic of vendedorComics; let i = index;" value="{{comic.nombre}}"   >{{comic.nombre}}</option> 
+     </select>
+    
+      
+
+
 </div>
 <br>
 <br>
 <div style="width: 330px; margin: 0 auto;">
-        <button class="boton_personalizado"   >comprar</button>
-
+       
+        <button type="submit" class="btn btn-danger" (click)=" createOrdenPedido()"  >comprar</button>
+              
 </div>

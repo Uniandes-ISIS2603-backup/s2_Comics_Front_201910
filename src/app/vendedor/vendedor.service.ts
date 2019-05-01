@@ -77,7 +77,6 @@ export class VendedorService {
 
 
     getComicsVendedor(vendedorId){
-        alert(API_URL+vendedores+'/'+vendedorId+'/comics');
         return this.http.get<Comic[]>(API_URL+vendedores+'/'+vendedorId+'/comics');
     }
     vendedor:Vendedor;

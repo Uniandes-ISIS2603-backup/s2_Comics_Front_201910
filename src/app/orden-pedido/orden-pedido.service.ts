@@ -34,6 +34,12 @@ export class OrdenPedidoService{
      * @param ordenPedido la ordenPedido a crear
      */
     createOrdenPedido(ordenPedido): Observable<OrdenPedido> {
+        alert("creando ordenPedido http"+ API_URL + ordenesPedido + ordenPedido.vendedor.nombre)
+
+        ordenPedido.comprador=ordenPedido.comprador.id;
+        ordenPedido.vendedor=ordenPedido.vendedor.id;
+        ordenPedido.comic=ordenPedido.comic.id;
+
         return this.http.post<OrdenPedido>(API_URL + ordenesPedido, ordenPedido);
     }
 
@@ -60,7 +66,8 @@ getOrdenesPedidoVendedor(vendedorId):  Observable<OrdenPedido[]> {
 
 getOrdenesPedidoComprador(compradorId):  Observable<OrdenPedido[]> {
     return this.http.get<OrdenPedido[]>(API_URL + comprador + '/' + compradorId +pedido);
-
-
 }
+
+
+
 }
