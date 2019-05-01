@@ -40,6 +40,7 @@ export class CompradorComicsListComponent implements  OnInit
     @Input() compradorComics: Comic[];
 
     @Input() vendedorComics: Comic[];
+    @Input() comprador:Comprador;
 
     /**
      *
@@ -52,7 +53,6 @@ export class CompradorComicsListComponent implements  OnInit
         });
     }
 
-    comprador:Comprador;
 
     getComprador():void
     {
@@ -66,7 +66,7 @@ export class CompradorComicsListComponent implements  OnInit
     getComicsComprador(): void
     {
     
-        this.vendedorService.getComicsVendedor(this.compradorId).subscribe(lista=>
+        this.vendedorService.getComicsVendedorPorAlias(this.comprador.alias).subscribe(lista=>
             {
                 this.vendedorComics = lista;
             });
@@ -116,8 +116,9 @@ export class CompradorComicsListComponent implements  OnInit
     {
         this.compradorId = +this.route.snapshot.paramMap.get('id');
         // console.log("Este es el id del comprador: " + this.compradorId);
-        this.getComics();
         this.getComprador();
+        this.getComics();
+       
         this.getComicsComprador();
     }
 }

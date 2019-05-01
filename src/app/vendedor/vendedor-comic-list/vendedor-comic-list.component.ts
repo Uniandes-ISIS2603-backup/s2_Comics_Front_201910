@@ -15,6 +15,7 @@ vendedorId:number;
   constructor(private vendedorService: VendedorService, private route: ActivatedRoute,) { }
 
   getComics(): void {
+  
     this.vendedorService.getComicsVendedor(this.vendedorId)
       .subscribe(c => {
         this.comics = c;
