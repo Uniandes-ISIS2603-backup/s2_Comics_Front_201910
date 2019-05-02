@@ -4,14 +4,27 @@
   <div class="row">
 
     <div class="col-lg-3">
-
-      <h1 class="my-4">Filtrar por categoria</h1>
+      <h1 class="my-4">Filtrar Catalogo</h1>
+      <div class="search">
+          <input type="text" class="searchTerm" placeholder="Filtrar por titulo, autor, palabra clave...">
+          <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+        </button>
+      </div>
       <div class="list-group">
+        <div>
+          <div class="form-check list-group-item">
+            <input type="checkbox" class="form-check-input" id="Accion">
+            <label class="form-check-label" for="Accion">Acción</label>
+          </div>
+        </div>
         <a href="#" class="list-group-item">Category 1</a>
         <a href="#" class="list-group-item">Category 2</a>
         <a href="#" class="list-group-item">Category 3</a>
-      </div>
-
+        <div class ="list-group-item">
+          <ng5-slider [(value)]="minPrice" [(highValue)]="maxPrice" [options]="options"></ng5-slider>
+        </div>
+      </div>  
     </div>
     <!-- /.col-lg-3 -->
 
