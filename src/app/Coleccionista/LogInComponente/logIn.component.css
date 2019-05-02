@@ -112,20 +112,20 @@
 
 #planet-1
 {
-    background-image: url('https://www.pngkey.com/png/full/3-30957_fighting-superman-batman-vs-superman-injustice-png.png');
+    background-image: url('../../../assets/Superman.png');
     z-index: 20;
     height: 688.8px;
     width: 817.2px;
-    margin: 100px 0 0 -900px;
+    margin: 50px 0 0 -900px;
     overflow: hidden;
 }
 
 #planet-2
 {
-    background-image: url('https://www.pngkey.com/png/full/66-661603_injustice-gods-among-us-batman-vs-render-injustice.png');
+    background-image: url('../../../assets/Batman.png');
     z-index: 20;
     height: 688.8px;
     width: 817.2px;
-    margin: -375px 0 0 300px;
+    margin: -390px 0 0 300px;
     overflow: hidden;
 }

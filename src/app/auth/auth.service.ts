@@ -53,6 +53,7 @@ export class AuthService {
         this.roleService.addRole('Comprador', ['']);
         localStorage.setItem('role', 'Comprador');
         localStorage.setItem('user', compradorId + '');
+        // localStorage.get('user');
     }
 
     /**
