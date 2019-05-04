@@ -16,7 +16,9 @@ export class AuthService {
      * @param roleService NgxRolesService to manage authentication roles
      * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
-    constructor (private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
+    constructor (private router: Router,
+                 private roleService: NgxRolesService,
+                 private permissionsService: NgxPermissionsService) { }
 
     start (): void {
         this.permissionsService.flushPermissions();

@@ -73,6 +73,9 @@ export class LogInComponent implements OnInit {
         })
     }
 
+    /**
+     * Agrega los valores al grupo de control 'rolesGroup'
+     */
     addValuesControl()
     {
         const arr = this.roles.map(object =>
@@ -83,9 +86,14 @@ export class LogInComponent implements OnInit {
         return this.formBuilder.array(arr);
     }
 
-    onLogInSubmit() {
+    /**
+     * Funcion que se ejecuta cuando se da click al boton 'Sign In'
+     */
+    onLogInSubmit()
+    {
         this.isSubmitted = true;
 
+        //Valida que el formulario no tenga errores.
         if (this.logInForm.valid)
         {
             var alias: string = this.logInForm.get('alias').value;
@@ -144,6 +152,9 @@ export class LogInComponent implements OnInit {
         }
     }
 
+    /**
+     * Funcion que me permite cerrar la ventana de dialogo de error
+     */
     pop():void
     {
         if(close == 0)
@@ -167,7 +178,22 @@ export class LogInComponent implements OnInit {
     }
 
     /**
-     *
+     * Funcion que me permite mostrar el password del usuario en el Login
+     */
+    showPassword():void
+    {
+        let password = $('#password'),
+            toggle = $('#show-password');
+
+        toggle.click(function()
+        {
+            toggle.is(':checked') ? password.attr('type', 'text'):password.attr('type', 'password');
+        })
+    }
+
+    /**
+     * La funcion del efecto mouse parallax el background, se utilizó
+     * TweenMax para su logro.
      */
     background(): void
     {
@@ -183,10 +209,10 @@ export class LogInComponent implements OnInit {
         {
             var pos_x = event.pageX,
                 pos_y = event.pageY,
-                left = 0,
-                top = 0;
-            left = container_w / 2 - pos_x;
-            top  = container_h / 2 - pos_y;
+                left = container_w / 2 - pos_x,
+                top = container_h / 2 - pos_y;
+            // left = container_w / 2 - pos_x;
+            // top  = container_h / 2 - pos_y;
 
             TweenMax.to(
                 $layer_2,
@@ -223,7 +249,12 @@ export class LogInComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
+    /**
+     * Funcion que se ejecuta al iniciar el componente
+     */
+    ngOnInit()
+    {
+        this.showPassword();
         this.background();
     }
 }
