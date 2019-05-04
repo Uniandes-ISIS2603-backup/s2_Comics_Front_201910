@@ -68,6 +68,25 @@
     border-color: #2ecc71;
 }
 
+.alert button[type = "submit"]
+{
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.alert button[type = "submit"]:hover
+{
+    background: #2ecc71;
+}
+
 .box button[type = "submit"]
 {
     background: none;
@@ -128,4 +147,118 @@
     width: 817.2px;
     margin: -390px 0 0 300px;
     overflow: hidden;
+}
+
+.alert i
+ {
+     color: #c0392b;
+     font-size: 40px;
+     display: block;
+     margin: 20px 0;
+ }
+
+.alert
+{
+    width: 500px;
+    overflow: hidden;
+    background: #000000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(89%);
+    z-index: 50;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    transition: .25s ease-in-out;
+    display: none;
+    animation: appear .25s ease-in-out;
+}
+
+@keyframes appear {
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+@keyframes disappear {
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+
+/*=============================================
+=            pantalla de escritorio grande        1366px    =
+=============================================*/
+@media(min-width:1200px)
+{
+    .alert
+    {
+        width: 600px;
+        transform: translateX(-50%) translateY(89%);
+    }
+}
+
+/*=====================================
+=Pantalla de escritorio mediano  (md)  1024px=
+===============================*/
+@media(max-width: 1199px) and (min-width: 992px)
+{
+    .alert
+    {
+        width: 600px;
+        transform: translateX(-50%) translateY(50%);
+    }
+}
+
+/*=============================================
+=            Pantalla de tablet    SMALL (sm)   768px  =
+=============================================*/
+@media(max-width: 991px) and (min-width: 768px)
+{
+    .alert
+    {
+        width: 600px;
+        transform: translateX(-50%) translateY(50%);
+    }
+
+    .layer-1, .layer-2
+    {
+        display: none;
+    }
+}
+
+/*=============================================
+=            Pantalla de celulares EXTRA SMALL (xs)    horizontal 480px o vertical 320px       =
+=============================================*/
+@media(max-width: 767px)
+{
+    .alert
+    {
+        width: 600px;
+        transform: translateX(-50%) translateY(40%);
+    }
+
+    .alert i
+    {
+        color: #c0392b;
+        font-size: 20px;
+        display: block;
+    }
+
+    .layer-1, .layer-2
+    {
+        display: none;
+    }
 }

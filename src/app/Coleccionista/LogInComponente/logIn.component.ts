@@ -10,6 +10,8 @@ import {Expo} from "gsap/all";
 import $ from "jquery";
 import {AuthService} from "../../auth/auth.service";
 
+var close = 0;
+
 @Component({
     selector: 'app-login',
     templateUrl: 'logIn.component.html',
@@ -61,7 +63,7 @@ export class LogInComponent implements OnInit {
             password: new FormControl('', [
                 Validators.required
             ]),
-            role: new FormControl('', [
+            role: new FormControl(null, [
                 Validators.required
             ])
         });
@@ -84,7 +86,8 @@ export class LogInComponent implements OnInit {
     onLogInSubmit() {
         this.isSubmitted = true;
 
-        if (this.logInForm.valid) {
+        if (this.logInForm.valid)
+        {
             var alias: string = this.logInForm.get('alias').value;
             var password: string = this.logInForm.get('password').value;
             var role: string = this.logInForm.get('role').value;
@@ -98,7 +101,7 @@ export class LogInComponent implements OnInit {
                         this.comprador = cadena;
                         if(this.comprador.password == password)
                         {
-                            this.auth.logIn(role, this.comprador.id);
+                            this.auth.logIn("Comprador", this.comprador.id);
                             this.logInForm.reset();
                         }
                         else
@@ -135,8 +138,31 @@ export class LogInComponent implements OnInit {
                 this.auth.logIn(role, null);
             }
         }
-        else {
-            this.logInForm.reset();
+        else
+        {
+            this.pop();
+        }
+    }
+
+    pop():void
+    {
+        if(close == 0)
+        {
+            $('.alert').css(
+                {
+                    'display':'block'
+                }
+            );
+            close = 1;
+        }
+        else if(close == 1)
+        {
+            $('.alert').css(
+                {
+                    'display':'none'
+                }
+            );
+            close = 0;
         }
     }
 

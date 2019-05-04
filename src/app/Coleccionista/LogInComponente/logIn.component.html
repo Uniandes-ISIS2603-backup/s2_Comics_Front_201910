@@ -42,6 +42,12 @@
 <div id="background" class="layer-0">
 </div>
 
+<div class="alert">
+    <i class="fa fa-times"></i>
+    <h1>Completa los campos requeridos</h1>
+    <button (click)="pop()" type="submit">Ok</button>
+</div>
+
 <div class="center">
     <div id="planet-2" class="planet layer-2"></div>
     <div id="planet-1" class="planet layer-1"></div>
@@ -74,9 +80,14 @@
                 Rol de usuario
             </label>
             <select required formControlName = "role" class="custom-select form-control" id="inputGroup">
-                <option value ="" selected>Choose your side...</option>
-                <option *ngFor="let item of roles" [id]="item">{{item}}</option>
+                <option [ngValue]="null" selected>Choose your side...</option>
+                <option *ngFor="let item of roles" [value]="item">{{item}}</option>
             </select>
+            <div *ngIf="logInForm.get('role').errors && logInForm.get('role').touched">
+                <div *ngIf="logInForm.get('role').hasError('required')">
+                    <span style="color:red;">Por favor escoja un rol</span>
+                </div>
+            </div>
         </div>
 
         <button type="submit" class="" (click)="onLogInSubmit()">Sign in</button>

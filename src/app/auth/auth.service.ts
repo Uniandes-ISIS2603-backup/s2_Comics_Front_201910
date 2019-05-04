@@ -21,14 +21,18 @@ export class AuthService {
     start (): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
-        this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
+        // this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
         const role = localStorage.getItem('role');
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
             this.setAdministratorRole();
-        } else {
-            this.setClientRole();
+        } else if(role === 'Comprador'){
+            this.setCompradorRole(localStorage.getItem('user'));
+        }
+        else if(role == 'Vendedor')
+        {
+            this.setVendedorRole(localStorage.getItem('user'));
         }
     }
 
@@ -53,6 +57,7 @@ export class AuthService {
         this.roleService.addRole('Comprador', ['']);
         localStorage.setItem('role', 'Comprador');
         localStorage.setItem('user', compradorId + '');
+        // console.log(localStorage.getItem('role'))
         // localStorage.get('user');
     }
 
@@ -73,10 +78,6 @@ export class AuthService {
         this.roleService.addRole('ADMIN', ['']);
         localStorage.setItem('role', 'ADMIN');
         console.log("Admin");
-    }
-
-    printRole (): void {
-        console.log(this.roleService.getRoles());
     }
 
     /**
