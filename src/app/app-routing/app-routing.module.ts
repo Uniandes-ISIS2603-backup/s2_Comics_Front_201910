@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxPermissionsGuard } from 'ngx-permissions';
 
+import {HomePage} from '../Home/home';
+
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { CompradorListComponent } from '../Comprador/comprador-list/comprador-list.component';
@@ -164,8 +166,13 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'home',
+        path:'AuthLC',
         component: AuthLoginComponent
+        
+    },
+    {
+       path: 'home',
+        component: HomePage
     },
     {
         path: '**',

@@ -1,0 +1,71 @@
+.mainTitle{
+
+    color: white;
+    font-size: 40px;
+}
+.container-fluid {
+    /* The image used */
+    background-image: url("../assets/bannerHome.jpg");
+  
+    min-height: 150px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    /* Needed to position the navbar */
+    position: relative;
+  }
+  
+
+
+
+ 
+
+  /* Position the navbar container inside the image */
+  .container {
+    
+    position: absolute;
+    margin: 20px;
+    width: 100%;
+   
+  }
+  
+  /* The navbar */
+  .topnav {
+    overflow: hidden;
+    
+
+    
+
+    
+   
+  }
+
+  .nav-item{
+
+    float: right;
+    text-align: right;
+  }
+  .navbar-nav{
+
+    float: right;
+    text-align: right;
+  }
+  
+  /* Navbar links */
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: right;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+  
+    color: red;
+  }
+  
