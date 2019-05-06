@@ -1,23 +1,58 @@
-textarea {
+.center
+{
+    text-align: center;
+}
+.box textarea {
     resize: none;
 }
 
-.card {
+.box
+{
+    display: inline-block;
+    transform: translate(-50%, 5%);
+    width: 60%;
+    z-index: 30;
+    position: absolute;
+}
+
+.box textarea, .box input[type=text], .box input[type=password],
+.box input[type=email]
+{
+    background: none;
     display: block;
-    padding: 15px;
-    /*border: 1px solid black;*/
-    border-radius: 8px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #34495e;
+    padding: 14px 10px;
+    width: 70%;
+    outline: none;
+    color: black;
+    border-radius: 10px 0 0 10px;
+    transition: 0.25s;
+}
+
+.box button[type="button"]
+{
+    height: calc(1.5em + .75rem + 2px);
+    margin: 20px auto;
+    border-radius: 0 5px 5px 0;
+    transition: 0.25s;
+}
+
+.box textarea:focus, .box input[type=text]:focus,
+.box input[type=password]:focus, .box input[type=email]:focus
+{
+    width: 90%;
 }
 
 img {
+    margin: 15px;
     transition: 0.2s ease-in-out;
     cursor: pointer;
-    background-color: white;
+    background: none;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
     border-radius: 10%;
+    border: 2px solid #34495e;
 }
 
 img:hover {
@@ -37,5 +72,5 @@ img:hover {
 #inlineRadio10:checked + label > img , #inlineRadio11:checked + label > img, #inlineRadio12:checked + label > img, #inlineRadio13:checked + label > img, #inlineRadio14:checked + label > img,
 #inlineRadio15:checked + label > img , #inlineRadio16:checked + label > img, #inlineRadio17:checked + label > img, #inlineRadio18:checked + label > img, #inlineRadio19:checked + label > img,
 #inlineRadio20:checked + label > img , #inlineRadio21:checked + label > img, #inlineRadio22:checked + label > img, #inlineRadio23:checked + label > img, #inlineRadio24:checked + label > img{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.77);
 }

@@ -62,11 +62,27 @@ const routes: Routes = [
     },
     {
         path: 'form',
-        component: FormularioComponent
+        component: FormularioComponent,
+        canActivate: [NgxPermissionsGuard],
+        data:
+            {
+                permissions:
+                    {
+                        only: ['GUEST']
+                    }
+            }
     },
     {
         path: 'login',
-        component: LogInComponent
+        component: LogInComponent,
+        canActivate: [NgxPermissionsGuard],
+        data:
+            {
+                permissions:
+                    {
+                        only: ['GUEST']
+                    }
+            }
     },
     {
         path: 'comprador',
