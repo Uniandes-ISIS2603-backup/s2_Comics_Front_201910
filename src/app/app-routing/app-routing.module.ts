@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxPermissionsGuard } from 'ngx-permissions';
 
+import {HomePage} from '../Home/home';
+
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { CompradorListComponent } from '../Comprador/comprador-list/comprador-list.component';
@@ -15,6 +17,7 @@ import { VendedorEditComponent } from '../vendedor/vendedor-edit/vendedor-edit.c
 import { ComicListComponent } from '../comic/comic-list/comic-list.component';
 import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
 import { ComicUpdateComponent } from '../comic/comic-update/comic-update.component';
+import { ComicCreateComponent } from '../comic/comic-create/comic-create.component';
 
 import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
 import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
@@ -159,19 +162,28 @@ const routes: Routes = [
             path: 'list',
             component: ComicListComponent
         },
-            {
-                path: ':id',
-                component: ComicDetailComponent
-            },
-            {
-                path: 'update/:id',
-                component: ComicUpdateComponent
-            }
+        {
+            path: 'create',
+            component: ComicCreateComponent
+        },
+        {
+            path: ':id',
+            component: ComicDetailComponent
+        },
+        {
+            path: 'update/:id',
+            component: ComicUpdateComponent
+        }
         ]
     },
     {
-        path: 'home',
+        path:'AuthLC',
         component: AuthLoginComponent
+        
+    },
+    {
+       path: 'home',
+        component: HomePage
     },
     {
         path: '**',

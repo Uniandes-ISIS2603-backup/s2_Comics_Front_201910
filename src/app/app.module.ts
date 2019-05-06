@@ -21,7 +21,8 @@ import { FormularioComponent } from './Coleccionista/FormularioComponente/formul
 import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.component';
 import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {ParticlesModule} from "angular-particle";
+import {ParticlesModule} from "angular-particle"; 
+import {HomeModule} from './Home/home.module';
 
 @NgModule({
     declarations: [
@@ -37,6 +38,7 @@ import {ParticlesModule} from "angular-particle";
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
+        HomeModule,
         ComicDeseoModule,
         FormsModule,
         CommonModule,

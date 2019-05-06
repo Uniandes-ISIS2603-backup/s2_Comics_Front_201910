@@ -8,9 +8,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Complementos a instalar
 Run `npm install` for node-module package.
-Run `npm install` gsap --save for gsap and TweenMax packages.
-Run `npm install` angular-particle --save for ParticlesJS package.
+Run `npm install gsap --save` for gsap and TweenMax packages.
+Run `npm install angular-particle --save` for ParticlesJS package.
 Run `npm i -s @angular/flex-layout @angular/cdk` for FlexLayout and CDK packages.
+Run `npm install --save ng5-slider` for Price slider
 
 ## Code scaffolding
 
