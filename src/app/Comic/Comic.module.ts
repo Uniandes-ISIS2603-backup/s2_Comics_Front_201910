@@ -4,11 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng5SliderModule } from 'ng5-slider';
 
 import { ComicService } from './comic.service';
 import { ComicListComponent } from './comic-list/comic-list.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { ComicUpdateComponent } from './comic-update/comic-update.component';
+import { ComicCreateComponent } from './comic-create/comic-create.component';
+
 
 @NgModule({
   imports: [
@@ -17,9 +20,10 @@ import { ComicUpdateComponent } from './comic-update/comic-update.component';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    Ng5SliderModule
   ],
-  declarations: [ComicListComponent, ComicDetailComponent, ComicUpdateComponent],
+  declarations: [ComicListComponent, ComicDetailComponent, ComicUpdateComponent, ComicCreateComponent],
   providers: [ComicService],
 })
 export class ComicModule { }

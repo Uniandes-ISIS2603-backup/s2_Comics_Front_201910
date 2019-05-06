@@ -4,8 +4,9 @@ import { HttpClient } from '@angular/common/http';
 
 import { Comic } from "./Comic";
 import { ComicDetail } from "./ComicDetail";
+import {environment} from "../../environments/environment";
 
-const API_URL = "http://localhost:8080/s2_comics-api/api";
+const API_URL = environment.apiURL;
 const comics = '/comic';
 
 @Injectable()
@@ -24,5 +25,9 @@ export class ComicService {
 
   updateComic(comicId,comic){      
     return this.http.put<ComicDetail>(API_URL + comics +'/'+comicId ,comic);
+  }
+
+  createComic(comic){
+    return this.http.post<ComicDetail>(API_URL + comics ,comic);
   }
 }

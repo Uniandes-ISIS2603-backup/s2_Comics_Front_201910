@@ -43,6 +43,8 @@ export class CompradorListComponent implements OnInit
      */
     ngOnInit()
     {
+        document.body.style.overflowY = 'visible';
+        document.body.style.overflowX = 'hidden';
         this.getCompradores();
     }
 }

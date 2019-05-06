@@ -17,6 +17,7 @@ import { VendedorEditComponent } from '../vendedor/vendedor-edit/vendedor-edit.c
 import { ComicListComponent } from '../comic/comic-list/comic-list.component';
 import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
 import { ComicUpdateComponent } from '../comic/comic-update/comic-update.component';
+import { ComicCreateComponent } from '../comic/comic-create/comic-create.component';
 
 import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
 import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
@@ -25,6 +26,7 @@ import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-ed
 import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-pedido-list.component';
 import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
 import {LogInComponent} from "../Coleccionista/LogInComponente/logIn.component";
+import {CompradorComicsListComponent} from "../Comprador/comprador-comics/comprador-comics.component";
 
 
 const routes: Routes = [
@@ -62,11 +64,27 @@ const routes: Routes = [
     },
     {
         path: 'form',
-        component: FormularioComponent
+        component: FormularioComponent,
+        canActivate: [NgxPermissionsGuard],
+        data:
+            {
+                permissions:
+                    {
+                        only: ['GUEST']
+                    }
+            }
     },
     {
         path: 'login',
-        component: LogInComponent
+        component: LogInComponent,
+        canActivate: [NgxPermissionsGuard],
+        data:
+            {
+                permissions:
+                    {
+                        only: ['GUEST']
+                    }
+            }
     },
     {
         path: 'comprador',
@@ -83,6 +101,10 @@ const routes: Routes = [
                 path: ':id/edit',
                 component: CompradorEditComponent
             },
+            {
+                path: ':id/comics',
+                component: CompradorComicsListComponent
+            }
         ]
     },{
         path: 'orden',
@@ -129,14 +151,18 @@ const routes: Routes = [
             path: 'list',
             component: ComicListComponent
         },
-            {
-                path: ':id',
-                component: ComicDetailComponent
-            },
-            {
-                path: 'update/:id',
-                component: ComicUpdateComponent
-            }
+        {
+            path: 'create',
+            component: ComicCreateComponent
+        },
+        {
+            path: ':id',
+            component: ComicDetailComponent
+        },
+        {
+            path: 'update/:id',
+            component: ComicUpdateComponent
+        }
         ]
     },
     {

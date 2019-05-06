@@ -1,0 +1,44 @@
+<br>
+<div class="row" style="text-align: center;">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+    <h1 style="display: inline-block;">
+        Carrito de compras
+    </h1>
+    <div class="col-lg-4 col-md-2 col-sm-1 col-xs-1"></div>
+    <button class=" btn btn-danger" routerLink = "/comprador/{{compradorId}}">Atras</button>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="table-responsive">
+            <br>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre del comic</th>
+                    <th scope="col">Detalles</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let comic of compradorComics; let i = index;">
+                    <td>
+                        <dd>{{i+1}}</dd>
+                    </td>
+                    <td>
+                        <dd>{{comic.nombre}}</dd>
+                    </td>
+                    <td>
+                        <li>Costo: {{comic.precio}}</li>
+                        <li>Año de salida: {{comic.anioSalida}}</li>
+                        <li>Autor: {{comic.autor}}</li>
+                    </td>
+                    <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
+                        <span class="fa fa-trash"></span>
+                    </button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
