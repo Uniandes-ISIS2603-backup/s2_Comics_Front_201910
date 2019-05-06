@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Options, LabelType } from 'ng5-slider';
 
 import { Comic } from '../Comic';
@@ -37,7 +37,9 @@ export class ComicListComponent implements OnInit {
     }
   };
 
-  constructor(private comicService: ComicService) { }
+  constructor(private comicService: ComicService, private compradorService: CompradorService, 
+              private router: Router, private viewRef: ViewContainerRef, 
+              private modalDialogService: ModalDialogService) { }
 
   getComics(): void {
     console.log("In get comics");
@@ -91,11 +93,6 @@ export class ComicListComponent implements OnInit {
         }
     }
 
-    ngOnInit()
-    {
-        document.body.style.opacity='visible';
-        this.getComics();
-    }
   deseleccionar(){
     for(let cat of this.categoriasElegidas)
       cat = false;
