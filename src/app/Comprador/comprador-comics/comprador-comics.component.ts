@@ -151,6 +151,8 @@ export class CompradorComicsListComponent implements  OnInit
     {
         this.compradorId = +this.route.snapshot.paramMap.get('id');
         // console.log("Este es el id del comprador: " + this.compradorId);
+       this.getComprador();
         this.getComics();
+        this.getComicsComprador();
     }
 }
