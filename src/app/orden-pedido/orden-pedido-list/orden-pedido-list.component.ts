@@ -50,7 +50,7 @@ export class OrdenPedidoListComponent implements OnInit {
 
 getOrdenesPedidoComprador():void{
 
-this.ordenPedidoService.getOrdenesPedidoComprador(parseInt(localStorage.getItem("user"))).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
+this.ordenPedidoService.getOrdenesPedidoComprador(this.idComprador).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
 }
 getOrdenesPedidoVendedor():void{
   this.ordenPedidoService.getOrdenesPedidoVendedor(this.idVendedor).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
@@ -62,14 +62,17 @@ getOrdenesPedidoVendedor():void{
     ngOnInit() {
       this.idComprador=parseInt(localStorage.getItem("user"));
       this.idVendedor=parseInt(localStorage.getItem("user"));
-      alert(localStorage.getItem("role"))
       if(localStorage.getItem("role")=='comprador'){
       this.getOrdenesPedidoComprador();
        
       }
-      else{
+     if(localStorage.getItem("role")=='vendedor') {
         this.getOrdenesPedidoVendedor(); 
       }
+      if(localStorage.getItem("role")=='ADMIN') {
+        this.getOrdenesPedido(); 
+      }
+
     }
 
 }

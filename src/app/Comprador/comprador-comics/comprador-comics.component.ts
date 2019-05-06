@@ -82,22 +82,18 @@ export class CompradorComicsListComponent implements  OnInit
 
     createOrdenPedido():void
     {
-        alert("almenos llego al metodo");
         for (let i in this.compradorComics) {
            
            this.ordenPedido = new OrdenPedido();
           this.ordenPedido.comic=this.compradorComics[i];
-          alert( "comic" + this.ordenPedido.comic.autor);
           
           this.ordenPedido.comprador=this.comprador;
          
           this.ordenPedido.estado='EN_ESPERA';
          
           this.ordenPedido.vendedor= this.compradorComics[i].vendedor;
-          alert("ojala"+ this.compradorComics[i].vendedor.alias);
           
-          alert("se intentara crear una orden");
-        this.ordenPedidoService.createOrdenPedido(this.ordenPedido).subscribe(ordenPedido=>
+           this.ordenPedidoService.createOrdenPedido(this.ordenPedido).subscribe(ordenPedido=>
             {
                 this.ordenPedido = ordenPedido;
             });
