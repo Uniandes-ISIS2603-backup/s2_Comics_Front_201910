@@ -11,29 +11,36 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav mr-auto mt-0">
-                <li class="nav-item" routerLink="/vendedores/list">
+                <li class="nav-item" routerLink="/vendedores/list"
+                    *ngxPermissionsOnly="['ADMIN']">
                     <button class="btn btn-light">
                         Vendedores
                     </button>
                 </li>
-                <li class="nav-item" routerLink="/comprador/list" style="text-align:center; margin-left: 10px;">
+                <li class="nav-item" routerLink="/comprador/list" style="text-align:center; margin-left: 10px;"
+                    *ngxPermissionsOnly="['ADMIN']">
                     <button class="btn btn-light">Compradores</button>
                 </li>
                 <li class="nav-item" routerLink="/comic/list" style="text-align:center; margin-left: 10px;">
                     <button class="btn btn-light">Comics</button>
                 </li>
-                <li  class="nav-item" routerLink="/comicsdeseo/list" style="text-align:center; margin-left: 10px;">
+                <li  class="nav-item" routerLink="/comicsdeseo/list" style="text-align:center; margin-left: 10px;"
+                     *ngxPermissionsOnly="['Comprador', 'ADMIN']">
                     <button class="btn btn-light">WishList</button>
                 </li>
-                <li class="nav-item" routerLink="orden/list" style="text-align:center; margin-left: 10px;">
+                <li class="nav-item" routerLink="orden/list" style="text-align:center; margin-left: 10px;"
+                    *ngxPermissionsOnly="['Vendedor', 'Comprador', 'ADMIN']">
                     <button class="btn btn-light">Ordenes</button>
                 </li>
                 <div style="text-align: right;">
-                    <div class="btn-group" routerLink="/login">
+                    <div class="btn-group" routerLink="/login"
+                         *ngxPermissionsOnly="['GUEST']">
+                        <!-- Colocar esto en el <a href="/login"></a>-->
                         <button type="button" class="btn btn-light">Log In</button>
                     </div>
 
-                    <div class="btn-group" routerLink="/form" style="text-align:center; margin-left: 20px;">
+                    <div class="btn-group" routerLink="/form" style="text-align:center; margin-left: 20px;"
+                         *ngxPermissionsOnly="['GUEST']">
                         <button class="btn btn-outline-dark">Sign Up</button>
                     </div>
                 </div>
@@ -44,10 +51,12 @@
 
                         </div>
                     </div>
-                    <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
+                    <div class="flex-row" *ngxPermissionsOnly="['Vendedor', 'Comprador', 'ADMIN']">
                         <div class="form-inline">
-                            <li><a id="logout-navbar-item" (click)="logout()" href="#"><span
-                                    class="fa fa-sign-out"></span></a></li>
+                            <li><a id="logout-navbar-item" (click)="logout()" href="#">
+                                <button type="button" class="btn btn-danger">
+                                    Cerrar Sesión
+                                    <i class="fa fa-sign-out"></i></button></a></li>
                         </div>
                     </div>
                 </div>
