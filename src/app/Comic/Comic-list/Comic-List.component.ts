@@ -11,10 +11,14 @@ import { ComicService } from '../comic.service';
 })
 export class ComicListComponent implements OnInit {
 
-  comics: Comic[];
+  comics: Comic[] = new Array();
 
-  minPrice: number = 100;
-  maxPrice: number = 400;
+  categoriasNombre: string[] = ['AVENTURA_ACCION','ARTE_ILUSTRACION','COMEDIA','ENCICLOPEDIA_DOCUMENTAL','DRAMA','EROTIQUE',
+                                'FANTASTICO','NOVELA_GRAFICA','HEROICO_FANTASIA_MAGIA','HISTORICO','HUMOR','DRAMA','AMOR_AMISTAD',
+                                'POLAR_THRILLER','CIENCIA_FICCION','DEPORTE','VIEJO_OESTE'];
+  categoriasElegidas: boolean[] = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
+  minPrice: number = 0;
+  maxPrice: number = 500;
   options: Options = {
     floor: 0,
     ceil: 500,
@@ -33,10 +37,30 @@ export class ComicListComponent implements OnInit {
   constructor(private comicService: ComicService) { }
 
   getComics(): void {
+    console.log("In get comics");
     this.comicService.getComics()
-      .subscribe(c => {
-        this.comics = c;
+      .subscribe(comicArr => {
+        let temp: Comic[] = comicArr;
+        temp.forEach(c => {
+          if(c.precio <= this.maxPrice && c.precio >= this.minPrice){
+            for(let i = 0 ; i < this.categoriasNombre.length ; ++i){
+              if(c.tema == this.categoriasNombre[i] && this.categoriasElegidas[i]){
+                this.comics.push(c);
+                break;
+              }
+            }
+          }
+        });
       });
+  }
+
+  deseleccionar(){
+    for(let cat of this.categoriasElegidas)
+      cat = false;
+  }
+
+  search(){
+
   }
 
   ngOnInit() {

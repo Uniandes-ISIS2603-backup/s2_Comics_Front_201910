@@ -39,3 +39,8 @@ body{
   font-size: 20px;
   margin-bottom: 25px;
 }
+
+.catBut {
+  height: 30px;
+  font-size: 10px;
+}

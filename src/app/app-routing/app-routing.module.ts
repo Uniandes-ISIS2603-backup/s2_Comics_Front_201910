@@ -15,6 +15,7 @@ import { VendedorEditComponent } from '../vendedor/vendedor-edit/vendedor-edit.c
 import { ComicListComponent } from '../comic/comic-list/comic-list.component';
 import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
 import { ComicUpdateComponent } from '../comic/comic-update/comic-update.component';
+import { ComicCreateComponent } from '../comic/comic-create/comic-create.component';
 
 import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
 import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
@@ -132,14 +133,18 @@ const routes: Routes = [
             path: 'list',
             component: ComicListComponent
         },
-            {
-                path: ':id',
-                component: ComicDetailComponent
-            },
-            {
-                path: 'update/:id',
-                component: ComicUpdateComponent
-            }
+        {
+            path: 'create',
+            component: ComicCreateComponent
+        },
+        {
+            path: ':id',
+            component: ComicDetailComponent
+        },
+        {
+            path: 'update/:id',
+            component: ComicUpdateComponent
+        }
         ]
     },
     {
