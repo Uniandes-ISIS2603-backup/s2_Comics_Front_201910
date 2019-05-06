@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { OrdenPedidoService } from '../orden-pedido.service';
 import { OrdenPedido } from '../ordenPedido';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
+import { Vendedor } from '../../vendedor/vendedor';
+import { Comprador } from '../../Comprador/comprador';
+import { CompradorService } from '../../Comprador/comprador.service';
+import { VendedorService } from '../../vendedor/vendedor.service';
 
 
 
@@ -17,19 +21,26 @@ export class OrdenPedidoListComponent implements OnInit {
      * Constructor for the component
      * @param OrdenPedidoService The author's services provider
      */
-    constructor(private ordenPedidoService: OrdenPedidoService) {
-       
-     }
+    constructor(private ordenPedidoService: OrdenPedidoService ,
+      private compradorService: CompradorService,
+      private vendedorService: VendedorService   ){
+        }
     
     /**
      * The list of ordenesPedido which belong to the ComicStore
      */
+  
     ordenesPedido: OrdenPedido[];
 
     ordenPedido: OrdenPedido;
     rol: String =localStorage.getItem("role");
-    idComprador: Number;
-    idVendedor: Number;
+    idComprador:Number;
+    comprador: Comprador;
+    aliasComprador: String;
+    idVendedor:Number;
+    vendedor: Vendedor;
+    aliasVendedor: String;
+
     /**
      * Asks the service to update the list of ordenesPedido
      */
@@ -49,10 +60,15 @@ export class OrdenPedidoListComponent implements OnInit {
 }
 
 getOrdenesPedidoComprador():void{
-
+  if(localStorage.getItem("role")=='ADMIN'){
+this.compradorService.getCompradorByAlias(this.aliasComprador).subscribe(comprador => this.comprador= comprador );
+this.idComprador=this.comprador.id;}
 this.ordenPedidoService.getOrdenesPedidoComprador(this.idComprador).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
 }
 getOrdenesPedidoVendedor():void{
+  if(localStorage.getItem("role")=='ADMIN'){
+    this.vendedorService.getVendedorByAlias(this.aliasVendedor).subscribe(vendedor => this.vendedor= vendedor );
+    this.idVendedor=this.vendedor.id;}
   this.ordenPedidoService.getOrdenesPedidoVendedor(this.idVendedor).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
   }
     /**
@@ -60,13 +76,15 @@ getOrdenesPedidoVendedor():void{
      * This method will be called when the component is created
      */
     ngOnInit() {
-      this.idComprador=parseInt(localStorage.getItem("user"));
-      this.idVendedor=parseInt(localStorage.getItem("user"));
-      if(localStorage.getItem("role")=='comprador'){
+      alert(localStorage.getItem("role"))
+     this.idComprador=parseInt(localStorage.getItem("user"));
+     this.idVendedor=parseInt(localStorage.getItem("user"));
+      
+      if(localStorage.getItem("role")=='Comprador'){
       this.getOrdenesPedidoComprador();
        
       }
-     if(localStorage.getItem("role")=='vendedor') {
+     if(localStorage.getItem("role")=='Vendedor') {
         this.getOrdenesPedidoVendedor(); 
       }
       if(localStorage.getItem("role")=='ADMIN') {

@@ -35,9 +35,10 @@ export class OrdenPedidoService{
      */
     createOrdenPedido(ordenPedido): Observable<OrdenPedido> {
       
-        ordenPedido.comprador=ordenPedido.comprador.id;
-        ordenPedido.vendedor=ordenPedido.vendedor.id;
-        ordenPedido.comic=ordenPedido.comic.id;
+      alert("id"+ordenPedido.id+ "comentario"+ ordenPedido.comentario+ "estado:" + ordenPedido.estado+ 
+      "fecha: "+ ordenPedido.fechaEstimadaEntrega+" numeroComprasComprador: " + ordenPedido.numeroCompras+ 
+      "tarjetaCredito: "+ ordenPedido.tarjetaCredito +" comprador: " + ordenPedido.comprador.id + "vendedor: "+ ordenPedido.vendedor.id+
+      "comic: " + ordenPedido.comic.id +"trueque: " + ordenPedido.trueque.id)
 
         return this.http.post<OrdenPedido>(API_URL + ordenesPedido, ordenPedido);
     }

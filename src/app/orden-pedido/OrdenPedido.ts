@@ -30,6 +30,10 @@ export class OrdenPedido {
     vendedor: Vendedor;
     
     /**
+     * comentario de rechazo
+     */
+    comentario: String;
+    /**
      * Nombre del comic que se va a comprar o intercambiar
      */
      comic: Comic;
@@ -42,17 +46,14 @@ export class OrdenPedido {
 /**
  * numero de compras realizadas por el comprador asociado a la orden
  */
-    numeroCompras: Number;
+    numeroComprasComprador: Number;
     
     /**
      * fecha estimada de enrega
      */
-    fechaEstimadaEntrega: Date ;
+    fechaEstimadaEntrega: String ;
     
-    /**
-     * comentario de rechazo
-     */
-      comentario: String;
+    
 
       
   

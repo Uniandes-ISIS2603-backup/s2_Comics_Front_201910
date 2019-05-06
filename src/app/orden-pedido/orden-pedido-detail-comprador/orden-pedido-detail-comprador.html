@@ -43,19 +43,16 @@
                         <option value="ENVIADO">ENVIADO</option>
                         <option value="FINALIZADO">RECIBIDO</option>
                      </select></td>
-                     <td scope="row">
+                     <td scope="row" >
                             <input type="text" [(ngModel)]="ordenPedidoId.comentario">
                         </td>
-                      
+                        
                            
             </tr>
         </tbody>
         
     </table>
-    
-<div>
-        <br>
-</div>
+ 
 <div class="row form-inline justify-content-center align-self-center">
         <button type="submit" (click)="updateOrdenPedido()" >Actualizar</button>
     </div>

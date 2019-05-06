@@ -66,6 +66,7 @@ export class CompradorComicsListComponent implements  OnInit
             {
                 this.comprador = comprador;
             });
+         
           
     }
 
@@ -82,17 +83,30 @@ export class CompradorComicsListComponent implements  OnInit
 
     createOrdenPedido():void
     {
+        alert("llegue")
+
         for (let i in this.compradorComics) {
            
            this.ordenPedido = new OrdenPedido();
+           this.ordenPedido.id=11;
+           this.ordenPedido.comentario="comentario";
+           
+          this.ordenPedido.estado='EN_ESPERA';
+
+           this.ordenPedido.fechaEstimadaEntrega="2018/05/01";
+           this.ordenPedido.numeroComprasComprador= 0;
+           this.ordenPedido.tarjetaCredito="456789";
+           
+          this.ordenPedido.comprador=this.comprador;
           this.ordenPedido.comic=this.compradorComics[i];
           
-          this.ordenPedido.comprador=this.comprador;
-         
-          this.ordenPedido.estado='EN_ESPERA';
-         
           this.ordenPedido.vendedor= this.compradorComics[i].vendedor;
+         
+         
+          this.ordenPedido.trueque=this.compradorComics[i];
           
+          alert("llegue2")
+         
            this.ordenPedidoService.createOrdenPedido(this.ordenPedido).subscribe(ordenPedido=>
             {
                 this.ordenPedido = ordenPedido;
