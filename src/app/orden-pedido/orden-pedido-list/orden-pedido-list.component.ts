@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenPedidoService } from '../orden-pedido.service';
 import { OrdenPedido } from '../ordenPedido';
+import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 
 
@@ -11,6 +12,7 @@ import { OrdenPedido } from '../ordenPedido';
 })
 export class OrdenPedidoListComponent implements OnInit {
 
+   
   /**
      * Constructor for the component
      * @param OrdenPedidoService The author's services provider
@@ -25,7 +27,7 @@ export class OrdenPedidoListComponent implements OnInit {
     ordenesPedido: OrdenPedido[];
 
     ordenPedido: OrdenPedido;
-
+    rol: String =localStorage.getItem("role");
     idComprador: Number;
     idVendedor: Number;
     /**
@@ -47,7 +49,8 @@ export class OrdenPedidoListComponent implements OnInit {
 }
 
 getOrdenesPedidoComprador():void{
-this.ordenPedidoService.getOrdenesPedidoComprador(this.idComprador).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
+
+this.ordenPedidoService.getOrdenesPedidoComprador(parseInt(localStorage.getItem("user"))).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
 }
 getOrdenesPedidoVendedor():void{
   this.ordenPedidoService.getOrdenesPedidoVendedor(this.idVendedor).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
@@ -57,7 +60,16 @@ getOrdenesPedidoVendedor():void{
      * This method will be called when the component is created
      */
     ngOnInit() {
-        this.getOrdenesPedido();
+      this.idComprador=parseInt(localStorage.getItem("user"));
+      this.idVendedor=parseInt(localStorage.getItem("user"));
+      alert(localStorage.getItem("role"))
+      if(localStorage.getItem("role")=='comprador'){
+      this.getOrdenesPedidoComprador();
+       
+      }
+      else{
+        this.getOrdenesPedidoVendedor(); 
+      }
     }
 
 }
