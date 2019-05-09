@@ -40,12 +40,14 @@
                         <li>Año de salida: {{comic.anioSalida}}</li>
                         <li>Autor: {{comic.autor}}</li>
                         <li>Vendedor: {{comic.vendedor.alias}}</li>
+                       
                     </td>
   
                
-                    <select >
-                        <option   *ngFor="let comic of vendedorComics; let i = index;" value="{{comic.nombre}}"   >{{comic.nombre}}</option> 
+                    <select name="trueque" id="trueque" [(ngModel)]="seleccion">
+                        <option   *ngFor="let comic of vendedorComics; let i=index;"  value="{{i}}"   >{{comic.nombre}}</option> 
                      </select>
+                     <li>selector: {{seleccion}}</li>
 
                      <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
                             <span class="fa fa-trash"></span>
