@@ -17,7 +17,11 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nombre del comic</th>
+                    <th scope="col">En venta</th>
                     <th scope="col">Detalles</th>
+                    <th scope="col">Seleccione comic para trueque</th>
+                    <th scope="col">eliminar</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -29,16 +33,46 @@
                         <dd>{{comic.nombre}}</dd>
                     </td>
                     <td>
+                        <dd>{{comic.enVenta}}</dd>
+                    </td>
+                    <td>
                         <li>Costo: {{comic.precio}}</li>
                         <li>Año de salida: {{comic.anioSalida}}</li>
                         <li>Autor: {{comic.autor}}</li>
+                        <li>Vendedor: {{comic.vendedor.alias}}</li>
+                       
                     </td>
-                    <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
-                        <span class="fa fa-trash"></span>
-                    </button></td>
+  
+               
+                    <select name="trueque" id="trueque" [(ngModel)]="seleccion">
+                        <option   *ngFor="let comic of vendedorComics; let i=index;"  value="{{i}}"   >{{comic.nombre}}</option> 
+                     </select>
+                     <li>selector: {{seleccion}}</li>
+
+                     <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
+                            <span class="fa fa-trash"></span>
+                        </button></td> 
+                  
                 </tr>
+            
                 </tbody>
+
+               
+
             </table>
         </div>
     </div>
+
+   
+    
+      
+
+
+</div>
+<br>
+<br>
+<div style="width: 330px; margin: 0 auto;">
+       
+        <button type="submit" class="btn btn-danger" (click)=" createOrdenPedido()"  >comprar</button>
+              
 </div>

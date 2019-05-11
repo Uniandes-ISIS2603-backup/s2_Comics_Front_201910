@@ -23,8 +23,12 @@ import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDese
 import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
+
 import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-pedido-list.component';
 import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
+import {OrdenPedidoDetailComprador} from '../orden-pedido/orden-pedido-detail-comprador/orden-pedido-detail-comprador'
+import {OrdenPedidoDetailVendedor} from '../orden-pedido/orden-pedido-detail-vendedor/orden-pedido-detail-vendedor'
+
 import {LogInComponent} from "../Coleccionista/LogInComponente/logIn.component";
 import {CompradorComicsListComponent} from "../Comprador/comprador-comics/comprador-comics.component";
 
@@ -124,7 +128,14 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: OrdenPedidoDetailComponent,
-            }
+                children: [
+                    {   path :'comprador',
+                        component:OrdenPedidoDetailComprador
+                    },
+                    {   path :'vendedor',
+                        component:OrdenPedidoDetailVendedor
+                    }
+                ]},
         ]
     }, {
         path: 'vendedores',

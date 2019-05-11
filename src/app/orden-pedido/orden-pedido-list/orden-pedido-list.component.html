@@ -1,5 +1,5 @@
 <div class="container-fluid">
-        <table class="blueTable" style="border-collapse: collapse;"  width="1000">
+        <table  class="table table-hover" style="border-collapse: collapse;"  width="1000">
             <thead class="thead-dark">
                 <tr>
                     <th>OrdenPedido id</th>
@@ -19,10 +19,11 @@
                     <a class="figure-caption" routerLink='/orden/{{ordenPedido.id}}' >{{ordenPedido.id}}</a></td>
                     <td>{{ordenPedido.estado}}</td>
                     <td>{{ordenPedido.comprador.alias}}</td>
-                    <td>{{ordenPedido.vendedor.nombre}}</td>
+                    <td>{{ordenPedido.vendedor.alias}}</td>
                     <td>{{ordenPedido.comic.nombre}}</td>
                     <td>{{ordenPedido.trueque.nombre}}</td>
                     <td>{{ordenPedido.tarjetaCredito}}</td>
+                    <td>{{ordenPedido.fechaEstimadaEntrega}}</td>
                  </tr>
             </tbody>
             
@@ -32,6 +33,9 @@
     </div>
     <router-outlet></router-outlet> 
   
+   
+
+
     
     <div class="col-sm">
             <div class="container-fluid">
@@ -48,7 +52,7 @@
                                 <button type="submit" class="btn btn-danger" (click)="getOrdenesPedidoComprador()" >obtener</button>
                         </td>
                         <td scope="row">
-                            <input type="text" [(ngModel)]="idComprador">
+                            <input type="text" [(ngModel)]="aliasComprador">
                         </td>
                         <td scope="row">
                                {{idComprador}}
@@ -70,7 +74,7 @@
                                             <button type="submit" class="btn btn-danger" (click)="getOrdenesPedidoVendedor()" >obtener</button>
                                     </td>
                                     <td scope="row">
-                                        <input type="text" [(ngModel)]="idVendedor">
+                                        <input type="text" [(ngModel)]="aliasVendedor">
                                     </td>
                                     <td scope="row">
                                            {{idVendedor}}

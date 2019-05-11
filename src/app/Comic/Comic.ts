@@ -24,4 +24,8 @@ export class Comic{
   imagen: string;
 
   vendedor: Vendedor;
+
+   getVendedor(): Vendedor{
+    return this.vendedor;
+  }
 }
