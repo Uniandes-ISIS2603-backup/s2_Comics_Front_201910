@@ -10,6 +10,8 @@ import {OrdenPedidoService} from './orden-pedido.service';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { OrdenPedidoListComponent } from './orden-pedido-list/orden-pedido-list.component';
 import { OrdenPedidoDetailComponent } from './orden-pedido-detail/orden-pedido-detail.component';
+import {OrdenPedidoDetailComprador} from './orden-pedido-detail-comprador/orden-pedido-detail-comprador';
+import {OrdenPedidoDetailVendedor} from './orden-pedido-detail-vendedor/orden-pedido-detail-vendedor';
 import { CreateComponent } from './create/create.component';
 
 
@@ -26,6 +28,8 @@ import { CreateComponent } from './create/create.component';
     declarations: [
      OrdenPedidoListComponent,
      OrdenPedidoDetailComponent,
+     OrdenPedidoDetailVendedor,
+     OrdenPedidoDetailComprador,
      CreateComponent],
     exports:[OrdenPedidoListComponent,OrdenPedidoDetailComponent],
     providers: [OrdenPedidoService],

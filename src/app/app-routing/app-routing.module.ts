@@ -13,7 +13,7 @@ import { CompradorDetailComponent } from '../Comprador/comprador-detail/comprado
 import { VendedorListComponent } from '../vendedor/vendedor-list/vendedor-list.component';
 import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-detail.component';
 import { VendedorEditComponent } from '../vendedor/vendedor-edit/vendedor-edit.component';
-
+import { VendedorOrdenPedidoListComponent } from '../vendedor/vendedor-orden-pedido-list/vendedor-orden-pedido-list.component';
 import { ComicListComponent } from '../comic/comic-list/comic-list.component';
 import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
 import { ComicUpdateComponent } from '../comic/comic-update/comic-update.component';
@@ -23,8 +23,12 @@ import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDese
 import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
+
 import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-pedido-list.component';
 import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
+import {OrdenPedidoDetailComprador} from '../orden-pedido/orden-pedido-detail-comprador/orden-pedido-detail-comprador'
+import {OrdenPedidoDetailVendedor} from '../orden-pedido/orden-pedido-detail-vendedor/orden-pedido-detail-vendedor'
+
 import {LogInComponent} from "../Coleccionista/LogInComponente/logIn.component";
 import {CompradorComicsListComponent} from "../Comprador/comprador-comics/comprador-comics.component";
 
@@ -124,7 +128,14 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: OrdenPedidoDetailComponent,
-            }
+                children: [
+                    {   path :'comprador',
+                        component:OrdenPedidoDetailComprador
+                    },
+                    {   path :'vendedor',
+                        component:OrdenPedidoDetailVendedor
+                    }
+                ]},
         ]
     }, {
         path: 'vendedores',
@@ -138,6 +149,14 @@ const routes: Routes = [
             {
                 path: ':id/edit',
                 component: VendedorEditComponent
+
+
+
+            }
+            ,
+            {
+                path: ':id/pedidos',
+                component: VendedorOrdenPedidoListComponent
 
 
 

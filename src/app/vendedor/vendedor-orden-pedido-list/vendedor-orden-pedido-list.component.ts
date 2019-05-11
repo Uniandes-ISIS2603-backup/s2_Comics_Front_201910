@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdenPedidoService } from '../orden-pedido.service';
-import { OrdenPedido } from '../ordenPedido';
+import { OrdenPedidoService } from '../../orden-pedido/orden-pedido.service';
+import { OrdenPedido } from '../../orden-pedido/ordenPedido';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
-import { Vendedor } from '../../vendedor/vendedor';
+import { Vendedor } from '../vendedor';
 import { Comprador } from '../../Comprador/comprador';
 import { CompradorService } from '../../Comprador/comprador.service';
-import { VendedorService } from '../../vendedor/vendedor.service';
-
+import { VendedorService } from '../vendedor.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
-  selector: 'app-orden-pedido-list',
-  templateUrl: './orden-pedido-list.component.html',
-  styleUrls: ['./orden-pedido-list.component.css']
+  selector: 'vendedor-orden-pedido-list',
+  templateUrl: './vendedor-orden-pedido-list.component.html',
+  styleUrls: ['./vendedor-orden-pedido-list.component.css']
 })
-export class OrdenPedidoListComponent implements OnInit {
+export class VendedorOrdenPedidoListComponent implements OnInit {
 
    
   /**
@@ -23,7 +23,8 @@ export class OrdenPedidoListComponent implements OnInit {
      */
     constructor(private ordenPedidoService: OrdenPedidoService ,
       private compradorService: CompradorService,
-      private vendedorService: VendedorService   ){
+      private vendedorService: VendedorService , 
+      private route: ActivatedRoute  ){
         }
     
     /**
@@ -66,30 +67,26 @@ this.idComprador=this.comprador.id;}
 this.ordenPedidoService.getOrdenesPedidoComprador(this.idComprador).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
 }
 getOrdenesPedidoVendedor():void{
-  if(localStorage.getItem("role")=='ADMIN'){
-    this.vendedorService.getVendedorByAlias(this.aliasVendedor).subscribe(vendedor => this.vendedor= vendedor );
-    this.idVendedor=this.vendedor.id;}
-  this.ordenPedidoService.getOrdenesPedidoVendedor(this.idVendedor).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
-  }
+ this.ordenPedidoService.getOrdenesPedidoVendedor(this.idVendedor).subscribe(ordenesPedido=>this.ordenesPedido=ordenesPedido)
+  
+}
+updateOrdenPedido(): void {
+for(let i:number=0;i<this.ordenesPedido.length;i++){
+  this.ordenPedidoService.updateOrdenPedido(this.ordenesPedido[i])
+      .subscribe(() => {
+          
+          });
+        }
+}
     /**
      * This will initialize the component by retrieving the list of ordenesPedido from the service
      * This method will be called when the component is created
      */
     ngOnInit() {
-      alert(localStorage.getItem("role"))
-     this.idComprador=parseInt(localStorage.getItem("user"));
-     this.idVendedor=parseInt(localStorage.getItem("user"));
-      
-      if(localStorage.getItem("role")=='Comprador'){
-      this.getOrdenesPedidoComprador();
-       
-      }
-     if(localStorage.getItem("role")=='Vendedor') {
+      this.idVendedor = +this.route.snapshot.paramMap.get('id');
         this.getOrdenesPedidoVendedor(); 
-      }
-      if(localStorage.getItem("role")=='ADMIN') {
-        this.getOrdenesPedido(); 
-      }
+      
+    
 
     }
 

@@ -31,10 +31,7 @@ import {HomeModule} from './Home/home.module';
         LogInComponent
     ],
     imports: [
-        ParticlesModule,
-        FlexLayoutModule,
         ReactiveFormsModule,
-        BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         VendedorModule,
@@ -55,7 +52,7 @@ import {HomeModule} from './Home/home.module';
         NgbModule,
         CompradorModule,
         OrdenPedidoModule,
-        ComicModule
+        ComicModule,ParticlesModule,FlexLayoutModule
     ],
     bootstrap: [AppComponent],
     providers: [
