@@ -8,6 +8,7 @@ import {ComicService} from '../../comic/comic.service';
 @Component({
     selector: 'app-vendedor-comics',
     templateUrl: './vendedor-comic.component.html',
+    styleUrls: ['./vendedor-comic.component.css']
 })
 
 export class VendedorComicsComponent implements OnInit,OnChanges {
