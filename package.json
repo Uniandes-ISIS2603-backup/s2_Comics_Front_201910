@@ -40,7 +40,6 @@
         "gsap": "^2.1.2",
         "intl": "^1.2.5",
         "jquery": "^3.2.1",
-        "ng5-slider": "^1.1.14",
         "ngx-bootstrap": "^3.0.1",
         "ngx-cookie-service": "^1.0.10",
         "ngx-modal-dialog": "^3.0.0",

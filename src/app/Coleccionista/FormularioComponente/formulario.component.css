@@ -21,8 +21,7 @@ hr
     resize: none;
 }
 
-.box textarea, .box input[type=text], .box input[type=password],
-input[type=email] {
+.box textarea, input[type=text], input[type=password], input[type=email] {
     background: none;
     display: block;
     margin: 20px auto;
@@ -46,8 +45,7 @@ button:hover {
     text-shadow: 2px 2px 0px rgba(0,0,0,.3)
 }
 
-.box textarea:focus, .box input[type=text]:focus,
-.box input[type=password]:focus, .box input[type=email]:focus
+.box textarea:focus, input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
 {
     width: 100%;
     border-color: #2ecc71;

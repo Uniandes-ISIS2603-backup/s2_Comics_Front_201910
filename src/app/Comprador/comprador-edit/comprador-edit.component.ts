@@ -205,14 +205,14 @@ export class CompradorEditComponent implements OnInit
                         }
                 },
                 color: {
-                    value: '#34495e'
+                    value: '#000000'
                 },
                 shape: {
                     type: 'triangle',
                     stroke:
                         {
                             width: 0,
-                            color: '#34495e'
+                            color: '#ffffff'
                         }
                 },
                 polygon:{
@@ -221,7 +221,7 @@ export class CompradorEditComponent implements OnInit
                 line_linked:{
                     enable: false,
                     distance: 300,
-                    color: '#34495e',
+                    color: '#000000',
                     opacity: 0.4,
                     width: 2
                 },

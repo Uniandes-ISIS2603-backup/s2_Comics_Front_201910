@@ -200,7 +200,7 @@ export class FormularioComponent implements OnInit
         {
             this.comprador = Object.assign({}, this.registrationForm.value);
             this.vendedor = Object.assign({}, this.registrationForm.value);
-            // console.log(this.comprador.foto);
+            console.log(this.comprador.foto);
 
 
             for (var i = 0; i < this.selectedRole.length; i++) {
@@ -236,7 +236,6 @@ export class FormularioComponent implements OnInit
      */
     ngOnInit()
     {
-        document.body.style.overflow = 'visible';
         this.comprador = new Comprador();
         this.vendedor = new Vendedor();
         this.cargarImagenes();

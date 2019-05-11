@@ -41,18 +41,11 @@
 <!--<a class="dropdown-item" href="#">Forgot password?</a>-->
 <div id="background" class="layer-0">
 </div>
-
-<div class="alert">
-    <i class="fa fa-times"></i>
-    <h1>Completa los campos requeridos</h1>
-    <button (click)="pop()" type="submit">Ok</button>
-</div>
-
 <div class="center">
     <div id="planet-2" class="planet layer-2"></div>
     <div id="planet-1" class="planet layer-1"></div>
 
-    <form class="box" [formGroup]="logInForm">
+    <form class="px-4 py-3 box" [formGroup]="logInForm">
         <h1 class="">Log In</h1>
         <div class="form-group">
             <input type="text" class="form-control" id="" placeholder="Alias"
@@ -65,7 +58,7 @@
             </div>
         </div>
         <div class="form-group">
-            <input type="password" id="password" class="form-control" placeholder="Password"
+            <input type="password" class="form-control" placeholder="Password"
                    formControlName="password">
             <div *ngIf="(logInForm.get('password').errors && isSubmitted) ||
             (logInForm.get('password').errors && logInForm.get('password').touched)">
@@ -73,28 +66,20 @@
                     <span style="color:red;">Por favor llene el campo</span>
                 </div>
             </div>
-            <label for="show-password">
-                <input type="checkbox" id="show-password">
-                Show password
-            </label>
         </div>
 
         <div class="form-group">
             <label for="inputGroup">
                 Rol de usuario
             </label>
-            <select required formControlName = "role" class="custom-select form-control" id="inputGroup">
-                <option [ngValue]="null" selected>Choose your side...</option>
-                <option *ngFor="let item of roles" [value]="item">{{item}}</option>
+            <select name="Role" class="custom-select form-control" id="inputGroup">
+                <option value="1" selected>Administrador</option>
+                <option value="2">Comprador</option>
+                <option value="3">Vendedor</option>
             </select>
-            <div *ngIf="logInForm.get('role').errors && logInForm.get('role').touched">
-                <div *ngIf="logInForm.get('role').hasError('required')">
-                    <span style="color:red;">Por favor escoja un rol</span>
-                </div>
-            </div>
         </div>
 
-        <button type="submit" class="" (click)="onLogInSubmit()">Sign in</button>
+        <button type="submit" class="" (click)="onLogIngSubmit()">Sign in</button>
         <hr>
         <a class="" routerLink="/form">Nuevo por aquí? Regístrate!</a>
         <br>
