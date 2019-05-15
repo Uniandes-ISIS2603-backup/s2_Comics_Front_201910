@@ -14,6 +14,7 @@ hr
     width: 60%;
     z-index: 30;
     position: absolute;
+    text-align: center;
 }
 
 .box textarea
@@ -31,7 +32,7 @@ input[type=email] {
     padding: 14px 10px;
     width: 90%;
     outline: none;
-    color: white;
+    color: black;
     border-radius: 10px;
     transition: 0.25s;
 }
@@ -43,7 +44,7 @@ input[type=email] {
 }
 
 button:hover {
-    text-shadow: 2px 2px 0px rgba(0,0,0,.3)
+    text-shadow: 2px 2px 0 rgba(0,0,0,.3)
 }
 
 .box textarea:focus, .box input[type=text]:focus,
@@ -74,16 +75,15 @@ img {
     margin: 15px;
     transition: 0.2s ease-in-out;
     cursor: pointer;
-    /*background-color: whitesmoke;*/
-    /*box-shadow: 0 0 16px rgba(0, 68, 255, 0.5);*/
-    border-radius: 10%;
+    border-radius: 10px;
     background: none;
     border: 2px solid black;
+    display: inline-block;
 }
 
-/*img:hover {*/
-/*    transform: scale(1.2);*/
-/*}*/
+img:hover {
+    transform: scale(1.2);
+}
 
 #inlineRadio0,  #inlineRadio1, #inlineRadio2, #inlineRadio3, #inlineRadio4,
 #inlineRadio5,  #inlineRadio6, #inlineRadio7, #inlineRadio8, #inlineRadio9,
