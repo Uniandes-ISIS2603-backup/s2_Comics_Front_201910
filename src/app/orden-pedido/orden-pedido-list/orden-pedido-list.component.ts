@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenPedidoService } from '../orden-pedido.service';
-import { OrdenPedido } from '../ordenPedido';
+import { OrdenPedido } from '../OrdenPedido';
 
 
 

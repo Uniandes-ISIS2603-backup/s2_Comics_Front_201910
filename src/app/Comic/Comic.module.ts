@@ -6,9 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ComicService } from './comic.service';
-import { ComicListComponent } from './comic-list/comic-list.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { ComicUpdateComponent } from './comic-update/comic-update.component';
+import {ComicListComponent} from "./Comic-list/Comic-List.component";
 
 @NgModule({
   imports: [

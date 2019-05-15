@@ -3,8 +3,8 @@ import { Component, OnInit, Input,OnChanges ,ViewChild,ViewContainerRef} from '@
 import {VendedorService} from '../vendedor.service';
 import {Calificacion} from '../calificacion';
 import { ActivatedRoute } from '@angular/router';
-import {Comic} from '../../comic/comic';
-import {ComicService} from '../../comic/comic.service';
+import {Comic} from "../../Comic/Comic";
+import {ComicService} from "../../Comic/comic.service";
 @Component({
     selector: 'app-vendedor-comics',
     templateUrl: './vendedor-comic.component.html',

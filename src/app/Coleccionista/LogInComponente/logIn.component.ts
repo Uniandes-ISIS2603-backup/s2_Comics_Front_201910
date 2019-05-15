@@ -249,6 +249,11 @@ export class LogInComponent implements OnInit {
         });
     }
 
+    alert():void
+    {
+
+    }
+
     /**
      * Funcion que se ejecuta al iniciar el componente
      */
