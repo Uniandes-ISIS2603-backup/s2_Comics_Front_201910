@@ -26,7 +26,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             
-                            <a class="dropdown-item" href="#">Ordenes</a>
+                            <a class="dropdown-item"  routerLink="/vendedores/{{vendedorDetail.id}}/pedidos">Ordenes</a>
                             <a href="#" class="dropdown-item" (click)=" calificacionListComponent.isCollapsed = !calificacionListComponent.isCollapsed">Calificaciones  <span class="badge badge-primary badge-pill ">{{calificacionListComponent.vendedorCalificaciones?.length}}</span></a>
                             <a class="dropdown-item" (click)="comicListComponent.isCollapsed=!comicListComponent.isCollapsed">Comics</a>
 
