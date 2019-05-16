@@ -55,6 +55,7 @@ import {  OrdenPedido} from "../OrdenPedido";
     */
    updateOrdenPedido(): void {
 
+    alert("yeiii estoy llegando")
     this.service.updateOrdenPedido(this.ordenPedidoId)
         .subscribe(() => {
             
