@@ -20,6 +20,8 @@
                     <th scope="col">En venta</th>
                     <th scope="col">Detalles</th>
                     <th scope="col">Seleccione comic para trueque</th>
+                    <th scope="col"> tarjeta de credito
+                    </th>
                     <th scope="col">eliminar</th>
 
                 </tr>
@@ -40,14 +42,18 @@
                         <li>Año de salida: {{comic.anioSalida}}</li>
                         <li>Autor: {{comic.autor}}</li>
                         <li>Vendedor: {{comic.vendedor.alias}}</li>
-                       
+                        
                     </td>
   
-               
+                    <td>
                     <select name="trueque" id="trueque" [(ngModel)]="seleccion">
                         <option   *ngFor="let comic of vendedorComics; let i=index;"  value="{{i}}"   >{{comic.nombre}}</option> 
                      </select>
-                     <li>selector: {{seleccion}}</li>
+                      </td>
+
+                    <td scope="row" >
+                        <input type="text" [(ngModel)]="tarjeta" >
+                    </td>
 
                      <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
                             <span class="fa fa-trash"></span>

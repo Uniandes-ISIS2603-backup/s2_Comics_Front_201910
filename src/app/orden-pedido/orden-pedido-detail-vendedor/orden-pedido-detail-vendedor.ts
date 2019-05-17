@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { OrdenPedidoService } from "../orden-pedido.service";
 import {  OrdenPedido} from "../OrdenPedido";
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
     selector: 'app-orden-pedido-detail-vendedor',
@@ -17,10 +18,14 @@ import {  OrdenPedido} from "../OrdenPedido";
      * 
      * @param route 
      * @param service 
+     *    @param toastrService The toastr to show messages to the user
+    
      */
     constructor(
         private route:ActivatedRoute,
-        private service: OrdenPedidoService
+        private service: OrdenPedidoService,
+        private toastrService: ToastrService
+   
     )
     {
 
@@ -55,10 +60,15 @@ import {  OrdenPedido} from "../OrdenPedido";
     */
    updateOrdenPedido(): void {
 
+    alert("yeiii estoy llegando")
+    
     this.service.updateOrdenPedido(this.ordenPedidoId)
-        .subscribe(() => {
-            
-            });
+        .subscribe(ordenPedido =>{} , err => {
+            this.toastrService.error(err, 'Error');
+            alert(err);
+           
+        });
+        
 }
 
 deleteOrdenPedido(): void {

@@ -2,6 +2,11 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { OrdenPedidoService } from "../orden-pedido.service";
 import {  OrdenPedido} from "../OrdenPedido";
+import {ToastrService} from 'ngx-toastr';
+import {CompradorService} from '../../Comprador/comprador.service'
+import { Comprador } from "../../Comprador/comprador";
+
+/// <reference path="smoke.js"/>
 
 @Component({
     selector: 'app-orden-pedido-detail-comprador',
@@ -17,10 +22,13 @@ import {  OrdenPedido} from "../OrdenPedido";
      * 
      * @param route 
      * @param service 
+     *  @param toastrService The toastr to show messages to the user
+    
      */
     constructor(
         private route:ActivatedRoute,
-        private service: OrdenPedidoService
+        private service: OrdenPedidoService,
+        private toastrService: ToastrService
     )
     {
 
@@ -31,11 +39,15 @@ import {  OrdenPedido} from "../OrdenPedido";
      */
     ordenPedidoId:OrdenPedido;
 
+    compradorService:CompradorService;
+
+    comprador :Comprador;
     /**
      * El  id de la ordenPedido que viene de la ruta de acceso.
      */
 
-
+    idComprador:String;
+     err:String;
    id:number;
 
     /**
@@ -55,10 +67,15 @@ import {  OrdenPedido} from "../OrdenPedido";
     */
    updateOrdenPedido(): void {
 
+    alert("yeiii estoy llegando")
+    
     this.service.updateOrdenPedido(this.ordenPedidoId)
-        .subscribe(() => {
-            
-            });
+        .subscribe(ordenPedido =>{} , err => {
+            this.toastrService.error(err, 'Error');
+            alert(err);
+           
+        });
+        
 }
 
 deleteOrdenPedido(): void {
@@ -66,16 +83,23 @@ deleteOrdenPedido(): void {
         alert('se elimino la OrdenPedido'); });
 }
 
+
+
     /**
      * Se utiliza este metodo para inicialiazr el componente
      * Se necestia crear la ordenPedido con eso no se tiene como indefinido.
      */
     ngOnInit()
     {
+        
         this.id = +this.route.snapshot.paramMap.get('id');
         if(this.id)
         {
             this.getOrdenPedidoId();
+        
+       
         }
+
     }
+
 }

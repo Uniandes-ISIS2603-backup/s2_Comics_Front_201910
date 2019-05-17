@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
      */
     title: String;
 
+    rol: String = localStorage.getItem("role");
+
     /**
      * Assigns a title to the web page
      */

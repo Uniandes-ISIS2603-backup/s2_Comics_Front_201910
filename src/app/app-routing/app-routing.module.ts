@@ -25,6 +25,7 @@ import { FormularioComponent } from '../Coleccionista/FormularioComponente/formu
 import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
 
 import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-pedido-list.component';
+import {OrdenPedidoListComVenComponent}  from '../orden-pedido/orden-pedido-list-com-ven/orden-pedido-list.component'
 import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
 import {OrdenPedidoDetailComprador} from '../orden-pedido/orden-pedido-detail-comprador/orden-pedido-detail-comprador'
 import {OrdenPedidoDetailVendedor} from '../orden-pedido/orden-pedido-detail-vendedor/orden-pedido-detail-vendedor'
@@ -115,25 +116,34 @@ const routes: Routes = [
         children: [
             {
                 path: 'list',
-                component: OrdenPedidoListComponent,
                 children: [
-                    {   path :'compra',
-                        component:OrdenPedidoListComponent
+                    {   path :'Comprador',
+                        component:OrdenPedidoListComVenComponent
                     },
-                    {   path :'venta',
+                    {   path :'Vendedor',
+                        component:OrdenPedidoListComVenComponent
+                    },
+                    {
+                        path :'ADMIN',
                         component:OrdenPedidoListComponent
+                    
                     }
+
                 ]
             },
             {
                 path: ':id',
-                component: OrdenPedidoDetailComponent,
                 children: [
-                    {   path :'comprador',
+                    {   path :'Comprador',
                         component:OrdenPedidoDetailComprador
                     },
-                    {   path :'vendedor',
+                    {   path :'Vendedor',
                         component:OrdenPedidoDetailVendedor
+                    },
+                    {
+                        path :'ADMIN',
+                        component:OrdenPedidoDetailComponent
+                    
                     }
                 ]},
         ]

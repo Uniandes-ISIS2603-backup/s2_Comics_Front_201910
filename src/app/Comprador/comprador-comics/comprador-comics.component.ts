@@ -47,8 +47,10 @@ export class CompradorComicsListComponent implements  OnInit
      */
     @Input() compradorComics: Comic[];
 
+    
     ordenPedido:OrdenPedido;
     seleccion:any;
+    tarjeta:String;
     
     @Input() vendedorComics: Comic[];
     @Input() comprador:Comprador;
@@ -99,7 +101,7 @@ export class CompradorComicsListComponent implements  OnInit
 
            this.ordenPedido.fechaEstimadaEntrega="2018/05/01";
            this.ordenPedido.numeroComprasComprador= 0;
-           this.ordenPedido.tarjetaCredito="456789";
+           this.ordenPedido.tarjetaCredito=this.tarjeta;
            alert(this.seleccion)
            this.ordenPedido.trueque = this.vendedorComics[this.seleccion];
           

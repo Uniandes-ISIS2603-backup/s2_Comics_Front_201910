@@ -6,16 +6,15 @@ import { Vendedor } from '../../vendedor/vendedor';
 import { Comprador } from '../../Comprador/comprador';
 import { CompradorService } from '../../Comprador/comprador.service';
 import { VendedorService } from '../../vendedor/vendedor.service';
-import { Alert } from 'selenium-webdriver';
 
 
 
 @Component({
-  selector: 'app-orden-pedido-list',
-  templateUrl: './orden-pedido-list.component.html',
-  styleUrls: ['./orden-pedido-list.component.css']
+  selector: 'app-orden-pedido-list-com-ven',
+  templateUrl: './orden-pedido-list-com-ven.component.html',
+  styleUrls: ['./orden-pedido-list-com-ven.component.css']
 })
-export class OrdenPedidoListComponent implements OnInit {
+export class OrdenPedidoListComVenComponent implements OnInit {
 
    
   /**
