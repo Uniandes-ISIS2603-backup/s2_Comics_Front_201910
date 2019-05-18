@@ -104,28 +104,29 @@ img:hover {
 .box button[type = "submit"]
 {
     background: none;
-    display: block;
+    display: inline-block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     padding: 14px 40px;
-    outline: none;
+    /*outline: none;*/
     color: black;
-    border-radius: 10px;
-    transition: 0.25s;
+    /*border-radius: 10px;*/
+    /*transition: 0.25s;*/
+    border-color: black;
 }
 
 .box button[type = "cancel"]
 {
     background: black;
-    display: block;
+    display: inline-block;
     margin: 20px auto;
     text-align: center;
     padding: 14px 40px;
-    outline: none;
+/*    outline: none;*/
     color: white;
-    border-radius: 10px;
-    transition: 0.25s;
+/*    border-radius: 10px;*/
+/*    transition: 0.25s;*/
 }
 
 .box button[type = "submit"]:hover
