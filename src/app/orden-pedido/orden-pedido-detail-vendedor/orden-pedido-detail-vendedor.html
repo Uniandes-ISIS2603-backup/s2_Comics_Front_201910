@@ -2,7 +2,7 @@
         <div class="row">
   <div class="col-10" > 
                
-    <table class="table table-hover" style="border-collapse: collapse;"  WIDTH="80%">
+    <table class="table table-hover"   >
         <thead class="thead-dark">
             <tr>
                 <th>OrdenPedido id</th>
@@ -12,11 +12,10 @@
                 <th> comic</th>
                 <th> trueque</th>
                 <th> tarjetaCredito</th>
-                <th> numeroCompras</th>
                 <th> Comentario</th>
                 <th> cambiar estado</th>
                 <th> cambiar comentario</th>
-                <th> fecha entrega</th>
+                <th  > fecha entrega</th>
                 </tr>
             
         </thead>
@@ -37,21 +36,30 @@
                     <a routerLink="/comic/{{ordenPedidoId.trueque.id}}" class="card-link">{{ordenPedidoId.trueque.nombre}}</a>
                    </td>
                 <td>{{ordenPedidoId.tarjetaCredito}}</td>
-                <td>{{ordenPedidoId.numeroCompras}}</td>
                 <td>{{ordenPedidoId.comentario}}</td>
 
 
-                 <td><select [(ngModel)]="ordenPedidoId.estado">
-                        <option value="ACEPTADO">ACEPTADO</option> 
+                 <td><select [(ngModel)]="ordenPedidoId.estado" >
+                        <option value="ACEPTADO" >ACEPTADO</option> 
                         <option value="RECHAZADO">RECHAZADO</option>
                         <option value="ENVIADO">ENVIADO</option>
                      </select></td>
                      <td >
-                            <input type="text" [(ngModel)]="ordenPedidoId.comentario">
+                            <input type="text" name="comen" [(ngModel)]="ordenPedidoId.comentario"  >
                         </td>
+                        
                         <td >
-                        <input type="date" name="fecha_entrega" step="1" min="2013-01-01" max="2013-12-31" value="2013-01-01">
+                                <form>
+                        <input type="date" name="fecha_entrega"  [(ngModel)]="ordenPedidoId.fechaEstimadaEntrega" step="1" min="2019-01-01" max="2020-12-31" value="2019-01-01" />
+                        
+                    </form>
                     </td>
+                    <td ><form>
+                            <input type="radio" name="hab" onclick="txt2.disabled=false" />Habilita
+                            <input type="radio" name="hab" onclick="txt2.disabled=true" checked="checked"/>Deshabilita
+                            <input type="text" name="txt2" disabled="disabled" />
+                            </form>
+                        </td>
                     </tr>
         </tbody>
         
@@ -62,7 +70,7 @@
         <br>
 </div>
 <div class="row form-inline justify-content-center align-self-center">
-        <button type="submit" (click)="updateOrdenPedido()" >Actualizar</button>
+        <button type="submit"    (click)="updateOrdenPedido()"  >Actualizar</button>
     </div>
     <div>
             <br>

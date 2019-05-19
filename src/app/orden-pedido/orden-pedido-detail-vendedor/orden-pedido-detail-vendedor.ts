@@ -31,6 +31,8 @@ import {ToastrService} from 'ngx-toastr';
 
     }
 
+    fecha:Boolean =true ;
+
     /**
      * La ordenPedido.
      */
@@ -65,9 +67,12 @@ import {ToastrService} from 'ngx-toastr';
         if(this.ordenPedidoId.estado=="ACEPTADO"){
             alert("por favor agrege una fecha estimada de entrega")
             
-        }
+            this.fecha= false ;
+            alert(this.fecha)
+    }
         if(this.ordenPedidoId.estado=="RECHAZADO"){
             alert("por favor agrege un comentario de rechazo")
+            this.fecha=true ;
         }
 
     }  , err => {
