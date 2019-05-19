@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from "@angular/core";
-import {FormGroup, FormBuilder, FormControl, Validators, FormArray} from "@angular/forms";
+import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 import { CompradorService } from "../../Comprador/comprador.service";
 import { Comprador } from "../../Comprador/comprador";
 import { Router } from "@angular/router";
