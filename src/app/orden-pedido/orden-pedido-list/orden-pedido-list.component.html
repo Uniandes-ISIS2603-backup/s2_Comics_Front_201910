@@ -1,49 +1,22 @@
 <div class="container-fluid">
-        <table  class="table table-hover" style="border-collapse: collapse;"  width="1000">
-            <thead class="thead-dark">
-                <tr>
-                    <th>OrdenPedido id</th>
-                    <th> estado</th>
-                    <th> comprador</th>
-                    <th> vendedor</th>
-                    <th> comic</th>
-                    <th> trueque</th>
-                    <th> tarjetaCredito</th>
-                    
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let ordenPedido of ordenesPedido">
-                  <td style="cursor: pointer;">
-                    <a class="figure-caption" routerLink='/orden/{{ordenPedido.id}}/{{rol}}' >{{ordenPedido.id}}</a></td>
-                    <td>{{ordenPedido.estado}}</td>
-                    <td>{{ordenPedido.comprador.alias}}</td>
-                    <td>{{ordenPedido.vendedor.alias}}</td>
-                    <td>{{ordenPedido.comic.nombre}}</td>
-                    <td>{{ordenPedido.trueque.nombre}}</td>
-                    <td>{{ordenPedido.tarjetaCredito}}</td>
-                    <td>{{ordenPedido.fechaEstimadaEntrega}}</td>
-                 </tr>
-            </tbody>
-            
-        </table>
-       
-    
-    </div>
-    <router-outlet></router-outlet> 
-  
-   
+ 
+        <div class="row">
 
-    
-    
-     <div class="col-sm">
-            <div class="container-fluid">
-                <table class="table table-hover">
+      <div class="col-4" > 
+            <h1 class="my-4">Filtrar Ordenes</h1>
+           
+            <div class="list-group">
+              <h3 class="filter-title mt-2">Filtrar por estado</h3>
+              <ng-container *ngFor="let cat of estados; let i=index">
+                <button type="button" *ngIf="categoriasElegidas[i]"  (click)="getOrdenesPedidoEstado(cat)" class="list-group-item catBut active">{{cat}}</button>
+              </ng-container>
+            </div>
+            
+            <table class="table table-hover">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">obtener Ordenes Comprador</th>
-                            <th scope="col">id comprador</th>
+                            <th scope="col">alias comprador</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -60,12 +33,11 @@
                         </tr>
                 </table> 
 
-                        <div class="container-fluid">
-                            <table class="table table-hover">
+                             <table class="table table-hover">
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">obtener Ordenes vendedor</th>
-                                        <th scope="col">id vendedor</th>
+                                        <th scope="col">alias vendedor</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -81,7 +53,41 @@
                                         </td>
                                     </tr>
                             </table> 
-                            <td> 
-                                <button type="submit" class="btn btn-danger" (click)="al()" >prueba</button>
-                        </td>
-                   
+                            
+
+      </div>
+    <div class="col-8" > <table  class="table table-hover" style="border-collapse: collapse;"  width="1000">
+        <thead class="thead-dark">
+            <tr>
+                <th>OrdenPedido id</th>
+                <th> estado</th>
+                <th> comprador</th>
+                <th> vendedor</th>
+                <th> comic</th>
+                <th> trueque</th>
+                <th> tarjetaCredito</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let ordenPedido of ordenesPedido">
+              <td style="cursor: pointer;">
+                <a class="figure-caption" routerLink='/orden/{{ordenPedido.id}}/{{rol}}' >{{ordenPedido.id}}</a></td>
+                <td>{{ordenPedido.estado}}</td>
+                <td>{{ordenPedido.comprador.alias}}</td>
+                <td>{{ordenPedido.vendedor.alias}}</td>
+                <td>{{ordenPedido.comic.nombre}}</td>
+                <td>{{ordenPedido.trueque.nombre}}</td>
+                <td>{{ordenPedido.tarjetaCredito}}</td>
+                <td>{{ordenPedido.fechaEstimadaEntrega}}</td>
+             </tr>
+        </tbody>
+        
+    </table>
+  </div> 
+    </div>
+    </div>
+    <router-outlet></router-outlet> 
+    
+    
