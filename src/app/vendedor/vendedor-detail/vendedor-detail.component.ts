@@ -22,7 +22,7 @@ export class VendedorDetailComponent implements OnInit {
         private vendedorService: VendedorService,
           private viewRef: ViewContainerRef
   ) { }
-
+  rol: String = localStorage.getItem("role");
 cambiar:boolean=true;
 comics:Comic[];
 vendedorId: number;
