@@ -2,7 +2,6 @@ import {Component, Input, OnInit, ViewContainerRef} from "@angular/core";
 import {CompradorService} from "../comprador.service";
 import {ActivatedRoute} from "@angular/router";
 import {Comic} from "../../Comic/Comic";
-import {log} from "util";
 import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
 import { Comprador } from "../comprador";
 import { Observable } from "rxjs";

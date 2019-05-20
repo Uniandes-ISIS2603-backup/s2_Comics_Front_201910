@@ -58,7 +58,8 @@ export class CompradorService
      * Crea un comprador en la base de datos
      * @param comprador El comrpador a crear
      */
-    createComprador(comprador): Observable<Comprador> {
+    createComprador(comprador): Observable<Comprador>
+    {
         return this.http.post<Comprador>(API_URL + compradores, comprador);
     }
 

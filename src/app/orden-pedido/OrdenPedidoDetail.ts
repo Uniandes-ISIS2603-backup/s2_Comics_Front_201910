@@ -1,4 +1,4 @@
-import {OrdenPedido} from "./ordenPedido";
+import {OrdenPedido} from "./OrdenPedido";
 
 export class OrdenPedidoDetail extends OrdenPedido {
     descripcion:String;
