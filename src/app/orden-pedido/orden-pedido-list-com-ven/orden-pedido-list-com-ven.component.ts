@@ -6,6 +6,8 @@ import { Vendedor } from '../../vendedor/vendedor';
 import { Comprador } from '../../Comprador/comprador';
 import { CompradorService } from '../../Comprador/comprador.service';
 import { VendedorService } from '../../vendedor/vendedor.service';
+import { JsonpInterceptor } from '@angular/common/http';
+
 
 
 
@@ -31,6 +33,10 @@ export class OrdenPedidoListComVenComponent implements OnInit {
      */
   
     ordenesPedido: OrdenPedido[];
+    estados: String[]= ['EN_ESPERA' ,'ACEPTADO','RECHAZADO','ENVIADO' ,'FINALIZADO'];
+    categoriasElegidas: boolean[] = [true,true,true,true,true];
+ 
+
 
     ordenPedido: OrdenPedido;
     rol: String =localStorage.getItem("role");
@@ -41,19 +47,48 @@ export class OrdenPedidoListComVenComponent implements OnInit {
     vendedor: Vendedor;
     aliasVendedor: String;
     ADMI:Boolean;
+    filtro:Boolean=false;
     
 
     /**
      * Asks the service to update the list of ordenesPedido
      */
     getOrdenesPedido(): void {
-        this.ordenPedidoService.getOrdenesPedido().subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido);
+      this.ordenPedidoService.getOrdenesPedido().subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido);
+     
+    }
+
+    getOrdenesPedidoEstado(estado): void {
+      alert(localStorage.getItem("user"))
+      var i :number= this.ordenesPedido.length;
+      alert("totalOrdenes" + i)
+      this.ordenPedidoService.getOrdenesPedidoEstado(estado).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
+    }
+
+
+    deletOrdenesNo(ordenes2):void{
+
+      for (let orden of ordenes2) {
+        if(this.rol=="Comprador"){
+       if(orden.comprador.id!=parseInt(localStorage.getItem("user") ) ){
+        var index = ordenes2.indexOf(orden);
+        ordenes2.splice(index, 1);
+       }}
+       else if (this.rol=="Vendedor"){
+        if(orden.vendedor.id!=parseInt(localStorage.getItem("user") )){
+          var index = ordenes2.indexOf(orden);
+          ordenes2.splice(index, 1);
+         } 
+       }
+       else{}
+      }
+      this.ordenesPedido= ordenes2;
     }
 
 
 
     /**
-    * Creates a new book
+    * Creates a new orden
     */
    createOrdenPedido(): OrdenPedido {
     this.ordenPedidoService.createOrdenPedido(this.ordenPedido)
@@ -63,13 +98,6 @@ export class OrdenPedidoListComVenComponent implements OnInit {
     return this.ordenPedido;
 }
 
-verificar():void{
- 
-  alert("llego")
-  this.ADMI=(localStorage.getItem("role")=="ADMIN");
-  alert(this.ADMI);
-
-}
 
 getOrdenesPedidoComprador():void{
   if(localStorage.getItem("role")=='ADMIN'){
@@ -88,7 +116,6 @@ getOrdenesPedidoVendedor():void{
      * This method will be called when the component is created
      */
     ngOnInit() {
-      this.verificar();
       alert(localStorage.getItem("role"))
      this.idComprador=parseInt(localStorage.getItem("user"));
      this.idVendedor=parseInt(localStorage.getItem("user"));

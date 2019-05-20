@@ -43,6 +43,12 @@
                     *ngxPermissionsOnly="['Vendedor', 'Comprador', 'ADMIN']">
                     <button class="btn btn-link"><b>Ordenes</b></button>
                 </li>
+                <li class="nav-item" routerLink="/vendedores/{{id}}" style="text-align:center; margin-left: 10px;"
+                *ngxPermissionsOnly="['Vendedor']">
+                <button class="btn btn-light">Mi cuenta</button>
+            </li>
+               
+               
                 <div style="text-align: right;">
                     <div class="btn-group" routerLink="/login"
                          *ngxPermissionsOnly="['GUEST']">

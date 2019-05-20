@@ -60,14 +60,22 @@ import {ToastrService} from 'ngx-toastr';
     */
    updateOrdenPedido(): void {
 
-    alert("yeiii estoy llegando")
-    
     this.service.updateOrdenPedido(this.ordenPedidoId)
-        .subscribe(ordenPedido =>{} , err => {
+        .subscribe(ordenPedido =>{ alert("se ha actualizado la orden")
+        if(this.ordenPedidoId.estado=="ACEPTADO"){
+            alert("por favor agrege una fecha estimada de entrega")
+            
+        }
+        if(this.ordenPedidoId.estado=="RECHAZADO"){
+            alert("por favor agrege un comentario de rechazo")
+        }
+
+    }  , err => {
             this.toastrService.error(err, 'Error');
             alert(err);
-           
-        });
+         
+        }    );
+
         
 }
 
