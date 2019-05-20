@@ -22,7 +22,7 @@
                 <th> comprador</th>
                 <th> vendedor</th>
                 <th> comic</th>
-                <th> trueque/venta</th>
+                <th> trueque</th>
                 <th> tarjetaCredito</th>
                 
                 
@@ -36,9 +36,7 @@
                 <td>{{ordenPedido.comprador.alias}}</td>
                 <td>{{ordenPedido.vendedor.alias}}</td>
                 <td>{{ordenPedido.comic.nombre}}</td>
-                <td *ngIf="!ordenPedido.comic.enVenta">trueque</td>
-                <td *ngIf="ordenPedido.comic.enVenta">venta</td>
-                
+                <td>{{ordenPedido.trueque.nombre}}</td>
                 <td>{{ordenPedido.tarjetaCredito}}</td>
                 <td>{{ordenPedido.fechaEstimadaEntrega}}</td>
              </tr>

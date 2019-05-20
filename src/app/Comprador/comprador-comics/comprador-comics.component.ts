@@ -102,17 +102,11 @@ export class CompradorComicsListComponent implements  OnInit
            this.ordenPedido.fechaEstimadaEntrega="2018/05/01";
            this.ordenPedido.numeroComprasComprador= 0;
            this.ordenPedido.tarjetaCredito=this.tarjeta;
-           this.ordenPedido.comic=this.compradorComics[i];
-          
-          
-           if(!this.ordenPedido.comic.enVenta)
-           {
-            this.ordenPedido.trueque = this.vendedorComics[this.seleccion];
-          }
-
-          
+           alert(this.seleccion)
+           this.ordenPedido.trueque = this.vendedorComics[this.seleccion];
           
           this.ordenPedido.comprador=this.comprador;
+          this.ordenPedido.comic=this.compradorComics[i];
           
           this.ordenPedido.vendedor= this.compradorComics[i].vendedor;
          

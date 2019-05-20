@@ -10,9 +10,7 @@
                 <th> comprador</th>
                 <th> vendedor</th>
                 <th> comic</th>
-                <th *ngIf="!ordenPedidoId.comic.enVenta"> trueque</th>
-                <th *ngIf="ordenPedidoId.comic.enVenta"> precio</th>
-                
+                <th> trueque</th>
                 <th> tarjetaCredito</th>
                 <th> Comentario</th>
                 <th> cambiar estado</th>
@@ -34,12 +32,9 @@
                 <td>
                    <a routerLink="/comic/{{ordenPedidoId.comic.id}}" class="card-link"> {{ordenPedidoId.comic.nombre}}</a>
                     </td>
-                <td *ngIf="!ordenPedidoId.comic.enVenta">
+                <td>
                     <a routerLink="/comic/{{ordenPedidoId.trueque.id}}" class="card-link">{{ordenPedidoId.trueque.nombre}}</a>
                    </td>
-                   <td *ngIf="ordenPedidoId.comic.enVenta">
-                       {{ordenPedidoId.comic.precio}}
-                     </td>
                 <td>{{ordenPedidoId.tarjetaCredito}}</td>
                 <td>{{ordenPedidoId.comentario}}</td>
 
@@ -50,7 +45,7 @@
                         <option value="ENVIADO">ENVIADO</option>
                      </select></td>
                      <td >
-                            <input type="text" name="comen"  [(ngModel)]="ordenPedidoId.comentario"  >
+                            <input type="text" name="comen" [(ngModel)]="ordenPedidoId.comentario"  >
                         </td>
                         
                         <td >
@@ -59,7 +54,12 @@
                         
                     </form>
                     </td>
-                    
+                    <td ><form>
+                            <input type="radio" name="hab" onclick="txt2.disabled=false" />Habilita
+                            <input type="radio" name="hab" onclick="txt2.disabled=true" checked="checked"/>Deshabilita
+                            <input type="text" name="txt2" disabled="disabled" />
+                            </form>
+                        </td>
                     </tr>
         </tbody>
         
@@ -78,4 +78,4 @@
     <div class="row form-inline justify-content-center align-self-center">
             <button type="submit" class="btn btn-danger" (click)="deleteOrdenPedido()" >Eliminar</button>
         </div>
-       
+    

@@ -60,17 +60,9 @@ export class OrdenPedidoListComVenComponent implements OnInit {
 
     getOrdenesPedidoEstado(estado): void {
       alert(localStorage.getItem("user"))
-      if(this.rol=="Comprador"){
-      this.ordenPedidoService.getOrdenesPedidoCompradorEstado(localStorage.getItem("user"),estado).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
-    }
-    if ( this.rol=="Vendedor"){
-      this.ordenPedidoService.getOrdenesPedidoVendedorEstado(localStorage.getItem("user"),estado).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
-    }
-if(this.rol=="ADMIN"){
-  this.ordenPedidoService.getOrdenesPedidoEstado(estado).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
-}
-    
-
+      var i :number= this.ordenesPedido.length;
+      alert("totalOrdenes" + i)
+      this.ordenPedidoService.getOrdenesPedidoEstado(estado).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
     }
 
 
