@@ -31,7 +31,7 @@ export class ComicListComponent implements OnInit {
     addComic(idComic:number) : void
     {
         // console.log(idComic);
-        if(!localStorage.getItem('user'))
+        if(localStorage.getItem('user') == null)
         {
             this.router.navigateByUrl('/form');
         }
@@ -50,14 +50,24 @@ export class ComicListComponent implements OnInit {
                         actionButtons: [
                             {
                                 text: 'Ok',
-                                buttonClass: 'btn btn-info',
+                                buttonClass: 'btn btn-outline-info',
                                 onAction: () => true
                             }
                         ]
                     });
             }, err =>
             {
-
+                this.modalDialogService.openDialog(this.viewRef,
+                    {
+                        title: 'Error',
+                        childComponent: SimpleModalComponent,
+                        data: {text: err},
+                        actionButtons: [{
+                            text: 'ok',
+                            buttonClass: 'btn btn-outline-info',
+                            onAction: () => true
+                        }]
+                    });
             });
         }
     }
