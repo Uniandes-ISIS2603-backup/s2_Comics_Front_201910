@@ -26,7 +26,7 @@ export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
     ) { }
     
      @Input() vendedor: VendedorDetail;
-
+    
      vendedorId:number;
    
     calificacion: Calificacion;

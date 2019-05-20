@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import { Comic } from "../Comic/Comic";
  
-export class ComicDeseo{
+export class ComicDeseo extends Comic{
      
   /**
    * fecha de agregado del comic a la lista de deseos
