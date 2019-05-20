@@ -8,14 +8,18 @@ import {ComicService} from "../../Comic/comic.service";
 @Component({
     selector: 'app-vendedor-comics',
     templateUrl: './vendedor-comic.component.html',
+    styleUrls: ['./vendedor-comic.component.css']
 })
 
 export class VendedorComicsComponent implements OnInit,OnChanges {
     constructor(private vendedorService: VendedorService,  private route: ActivatedRoute, private viewRef: ViewContainerRef, private comicService :ComicService){}
   @Input()  vendedorCalificaciones : Calificacion [];
     comics: Comic[];
+    comicsVendedor:Comic[];
+    
     vendedorId:number;
     selected:number;
+    selectedId:any;
     public isCollapsed = true;
     
     //metodo que llama al servicio de los comics para cargar una lista de todos los comics disponibles
@@ -24,8 +28,8 @@ export class VendedorComicsComponent implements OnInit,OnChanges {
     } 
 //metodo que llama al servicio de vendedor para añadir un comic a su lista de comics
     addComic(comicId:Comic): void {
-    console.log(comicId);
-      this.vendedorService.addComic(this.vendedorId,comicId);
+    this.comicsVendedor
+      this.vendedorService.addComic(this.vendedorId,comicId).subscribe();
       
     }
     //inicializa el id con el id del vendedor actual
@@ -35,7 +39,7 @@ export class VendedorComicsComponent implements OnInit,OnChanges {
         
        
     }
-   
+ 
     ngOnChanges(){
         this.ngOnInit();
         

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxPermissionsGuard } from 'ngx-permissions';
 
+import {HomePage} from '../Home/home';
+
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { CompradorListComponent } from '../Comprador/comprador-list/comprador-list.component';
@@ -11,13 +13,22 @@ import { CompradorDetailComponent } from '../Comprador/comprador-detail/comprado
 import { VendedorListComponent } from '../vendedor/vendedor-list/vendedor-list.component';
 import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-detail.component';
 import { VendedorEditComponent } from '../vendedor/vendedor-edit/vendedor-edit.component';
-
+import { VendedorOrdenPedidoListComponent } from '../vendedor/vendedor-orden-pedido-list/vendedor-orden-pedido-list.component';
+import { ComicListComponent } from '../comic/comic-list/comic-list.component';
+import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
+import { ComicUpdateComponent } from '../comic/comic-update/comic-update.component';
+import { ComicCreateComponent } from '../comic/comic-create/comic-create.component';
 
 import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
 import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
+
 import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-pedido-list.component';
+import {OrdenPedidoListComVenComponent}  from '../orden-pedido/orden-pedido-list-com-ven/orden-pedido-list.component'
 import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
+import {OrdenPedidoDetailComprador} from '../orden-pedido/orden-pedido-detail-comprador/orden-pedido-detail-comprador'
+import {OrdenPedidoDetailVendedor} from '../orden-pedido/orden-pedido-detail-vendedor/orden-pedido-detail-vendedor'
+
 import {LogInComponent} from "../Coleccionista/LogInComponente/logIn.component";
 import {CompradorComicsListComponent} from "../Comprador/comprador-comics/comprador-comics.component";
 import {ComicDeseoDetailComponent} from "../ComicDeseo/ComicDeseo-detail/comicdeseo-detail.component";
@@ -108,20 +119,36 @@ const routes: Routes = [
         children: [
             {
                 path: 'list',
-                component: OrdenPedidoListComponent,
                 children: [
-                    {   path :'compra',
-                        component:OrdenPedidoListComponent
+                    {   path :'Comprador',
+                        component:OrdenPedidoListComVenComponent
                     },
-                    {   path :'venta',
+                    {   path :'Vendedor',
+                        component:OrdenPedidoListComVenComponent
+                    },
+                    {
+                        path :'ADMIN',
                         component:OrdenPedidoListComponent
+                    
                     }
+
                 ]
             },
             {
                 path: ':id',
-                component: OrdenPedidoDetailComponent,
-            }
+                children: [
+                    {   path :'Comprador',
+                        component:OrdenPedidoDetailComprador
+                    },
+                    {   path :'Vendedor',
+                        component:OrdenPedidoDetailVendedor
+                    },
+                    {
+                        path :'ADMIN',
+                        component:OrdenPedidoDetailComponent
+                    
+                    }
+                ]},
         ]
     }, {
         path: 'vendedores',
@@ -139,6 +166,14 @@ const routes: Routes = [
 
 
             }
+            ,
+            {
+                path: ':id/pedidos',
+                component: VendedorOrdenPedidoListComponent
+
+
+
+            }
 
         ]
     },
@@ -148,19 +183,28 @@ const routes: Routes = [
             path: 'list',
             component: ComicListComponent
         },
-            {
-                path: ':id',
-                component: ComicDetailComponent
-            },
-            {
-                path: 'update/:id',
-                component: ComicUpdateComponent
-            }
+        {
+            path: 'create',
+            component: ComicCreateComponent
+        },
+        {
+            path: ':id',
+            component: ComicDetailComponent
+        },
+        {
+            path: 'update/:id',
+            component: ComicUpdateComponent
+        }
         ]
     },
     {
-        path: 'home',
+        path:'AuthLC',
         component: AuthLoginComponent
+        
+    },
+    {
+       path: 'home',
+        component: HomePage
     },
     {
         path: '**',

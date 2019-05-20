@@ -13,8 +13,9 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {VendedorEditCalificacionComponent} from './vendedor-edit-calificacion/vendedor-edit-calificacion.component';
 import {VendedorEditComponent} from './vendedor-edit/vendedor-edit.component';
 import {VendedorComicsComponent} from './vendedor-comic/vendedor-comic.component';
-import {ComicModule} from "../Comic/Comic.module";
-import {ComicService} from "../Comic/comic.service";
+import {VendedorComicListComponent} from './vendedor-comic-list/vendedor-comic-list.component';
+import {VendedorOrdenPedidoListComponent} from './vendedor-orden-pedido-list/vendedor-orden-pedido-list.component';
+import {ComicService} from './../comic/comic.service';
 @NgModule({
     imports: [       
         CommonModule,
@@ -28,7 +29,7 @@ import {ComicService} from "../Comic/comic.service";
     ],
     declarations: [VendedorListComponent,VendedorDetailComponent,
         VendedorCalificacionesComponent,
-         VendedorAddCalificacionComponent,VendedorEditCalificacionComponent, VendedorEditComponent,VendedorComicsComponent],
+         VendedorAddCalificacionComponent,VendedorEditCalificacionComponent, VendedorEditComponent,VendedorComicsComponent,VendedorComicListComponent,VendedorOrdenPedidoListComponent],
     providers: [VendedorService,ComicService],
     exports:[VendedorListComponent,VendedorEditCalificacionComponent]
 })

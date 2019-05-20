@@ -1,4 +1,5 @@
-import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Options, LabelType } from 'ng5-slider';
 
 import { Comic } from '../Comic';
 import { ComicService } from '../comic.service';
@@ -13,20 +14,50 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
 })
 export class ComicListComponent implements OnInit {
 
-    comics: Comic[];
+  comics: Comic[] = new Array();
 
-    constructor(private comicService: ComicService,
-                private compradorService: CompradorService,
-                private router: Router,
-                private viewRef: ViewContainerRef,
-                private modalDialogService: ModalDialogService) { }
-
-    getComics(): void {
-        this.comicService.getComics()
-            .subscribe(c => {
-                this.comics = c;
-            });
+  categoriasNombre: string[] = ['AVENTURA_ACCION','ARTE_ILUSTRACION','COMEDIA','ENCICLOPEDIA_DOCUMENTAL','DRAMA','EROTIQUE',
+                                'FANTASTICO','NOVELA_GRAFICA','HEROICO_FANTASIA_MAGIA','HISTORICO','HUMOR','DRAMA','AMOR_AMISTAD',
+                                'POLAR_THRILLER','CIENCIA_FICCION','DEPORTE','VIEJO_OESTE'];
+  categoriasElegidas: boolean[] = [true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
+  minPrice: number = 0;
+  maxPrice: number = 500;
+  options: Options = {
+    floor: 0,
+    ceil: 500,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return 'Min: $' + value;
+        case LabelType.High:
+          return 'Max: $' + value;
+        default:
+          return '$' + value;
+      }
     }
+  };
+
+  constructor(private comicService: ComicService, private compradorService: CompradorService, 
+              private router: Router, private viewRef: ViewContainerRef, 
+              private modalDialogService: ModalDialogService) { }
+
+  getComics(): void {
+    console.log("In get comics");
+    this.comicService.getComics()
+      .subscribe(comicArr => {
+        let temp: Comic[] = comicArr;
+        temp.forEach(c => {
+          if(c.precio <= this.maxPrice && c.precio >= this.minPrice){
+            for(let i = 0 ; i < this.categoriasNombre.length ; ++i){
+              if(c.tema == this.categoriasNombre[i] && this.categoriasElegidas[i]){
+                this.comics.push(c);
+                break;
+              }
+            }
+          }
+        });
+      });
+  }
 
     addComic(idComic:number) : void
     {
@@ -72,9 +103,16 @@ export class ComicListComponent implements OnInit {
         }
     }
 
-    ngOnInit()
-    {
-        document.body.style.opacity='visible';
-        this.getComics();
-    }
+  deseleccionar(){
+    for(let cat of this.categoriasElegidas)
+      cat = false;
+  }
+
+  search(){
+
+  }
+
+  ngOnInit() {
+    this.getComics();
+  }
 }

@@ -22,6 +22,7 @@ import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {ParticlesModule} from "angular-particle";
 import {ComicModule} from "./Comic/Comic.module";
+import {HomeModule} from './Home/home.module';
 
 @NgModule({
     declarations: [
@@ -30,16 +31,14 @@ import {ComicModule} from "./Comic/Comic.module";
         LogInComponent
     ],
     imports: [
-        ParticlesModule,
-        FlexLayoutModule,
         ReactiveFormsModule,
-        BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         VendedorModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
+        HomeModule,
         ComicDeseoModule,
         FormsModule,
         CommonModule,
@@ -53,7 +52,7 @@ import {ComicModule} from "./Comic/Comic.module";
         NgbModule,
         CompradorModule,
         OrdenPedidoModule,
-        ComicModule
+        ComicModule,ParticlesModule,FlexLayoutModule
     ],
     bootstrap: [AppComponent],
     providers: [

@@ -26,4 +26,8 @@ export class ComicService {
   updateComic(comicId,comic){      
     return this.http.put<ComicDetail>(API_URL + comics +'/'+comicId ,comic);
   }
+
+  createComic(comic){
+    return this.http.post<ComicDetail>(API_URL + comics ,comic);
+  }
 }
