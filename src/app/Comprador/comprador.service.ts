@@ -62,6 +62,8 @@ export class CompradorService
         return this.http.post<Comprador>(API_URL + compradores, comprador);
     }
 
+    
+
     /**
      * Actualiza un comprador en la base de datos
      * @param comprador Los datos del comprador que será actualizado.
