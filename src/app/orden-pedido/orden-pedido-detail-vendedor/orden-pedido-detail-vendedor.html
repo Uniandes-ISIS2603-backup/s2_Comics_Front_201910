@@ -1,20 +1,24 @@
 <div class="container-fluid">
-    <table class="table table-hover" style="border-collapse: collapse;"  WIDTH="100%">
+        <div class="row">
+  <div class="col-10" > 
+               
+    <table class="table table-hover" style="border-collapse: collapse;"  WIDTH="80%">
         <thead class="thead-dark">
-        <tr>
-            <th>OrdenPedido id</th>
-            <th> estado</th>
-            <th> comprador</th>
-            <th> vendedor</th>
-            <th> comic</th>
-            <th> trueque</th>
-            <th> tarjetaCredito</th>
-            <th> numeroCompras</th>
-            <th> Comentario</th>
-            <th> cambiar estado</th>
-            <th> cambiar comentario</th>
-        </tr>
-
+            <tr>
+                <th>OrdenPedido id</th>
+                <th> estado</th>
+                <th> comprador</th>
+                <th> vendedor</th>
+                <th> comic</th>
+                <th> trueque</th>
+                <th> tarjetaCredito</th>
+                <th> numeroCompras</th>
+                <th> Comentario</th>
+                <th> cambiar estado</th>
+                <th> cambiar comentario</th>
+                <th> fecha entrega</th>
+                </tr>
+            
         </thead>
         <tbody>
         <tr >
@@ -36,22 +40,25 @@
             <td>{{ordenPedidoId.numeroCompras}}</td>
             <td>{{ordenPedidoId.comentario}}</td>
 
-            <td><select [(ngModel)]="ordenPedidoId.estado">
-                <option value="ACEPTADO">ACEPTADO</option>
-                <option value="RECHAZADO">RECHAZADO</option>
-                <option value="ENVIADO">ENVIADO</option>
-            </select></td>
-            <td scope="row">
-                <input type="text" [(ngModel)]="ordenPedidoId.comentario">
-            </td>
 
-
-        </tr>
+                 <td><select [(ngModel)]="ordenPedidoId.estado">
+                        <option value="ACEPTADO">ACEPTADO</option> 
+                        <option value="RECHAZADO">RECHAZADO</option>
+                        <option value="ENVIADO">ENVIADO</option>
+                     </select></td>
+                     <td >
+                            <input type="text" [(ngModel)]="ordenPedidoId.comentario">
+                        </td>
+                        <td >
+                        <input type="date" name="fecha_entrega" step="1" min="2013-01-01" max="2013-12-31" value="2013-01-01">
+                    </td>
+                    </tr>
         </tbody>
 
     </table>
-
-    <div>
+    </div>
+    </div>
+<div>
         <br>
     </div>
     <div class="row form-inline justify-content-center align-self-center">

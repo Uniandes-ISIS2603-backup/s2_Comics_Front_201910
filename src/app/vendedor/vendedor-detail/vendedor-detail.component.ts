@@ -19,13 +19,13 @@ export class VendedorDetailComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private vendedorService: VendedorService,
-        private viewRef: ViewContainerRef
-    ) { }
-
-    cambiar:boolean=true;
-    comics:Comic[];
-    vendedorId: number;
-    vendedorDetail: VendedorDetail;
+          private viewRef: ViewContainerRef
+  ) { }
+  rol: String = localStorage.getItem("role");
+cambiar:boolean=true;
+comics:Comic[];
+vendedorId: number;
+ vendedorDetail: VendedorDetail;
 
     //metodo que llama al servicio para obtener el detalle del vendedor
     getVendedorDetail(): void {

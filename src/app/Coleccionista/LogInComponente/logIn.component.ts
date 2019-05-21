@@ -132,6 +132,7 @@ export class LogInComponent implements OnInit {
                         this.vendedor = cadena;
                         if(this.vendedor.password == password)
                         {
+                           
                             this.auth.logIn(role, cadena.id);
                             this.logInForm.reset();
                         }

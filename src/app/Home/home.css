@@ -15,7 +15,7 @@
 
 h1{
     margin-top: 20px;
-    color: red;
+    color: #27282b;
     text-align: center;
 }
 
@@ -32,12 +32,8 @@ h1{
     height: 22%;
     padding: 25px 25px;
 
-}
-
-.popu_banner{
-
-    background-color: red;
-}
+    background-color: #27282b;
+  }
 
 .popu_banner h2{
 
@@ -46,12 +42,52 @@ h1{
 
 }
 
-.images{
-    float: center;
-}
+  .images{
+      float: center;
+     
+  }
 
 #p1{
     margin-left: 13%;
 }
+
+  .search {
+    width: 50%;
+    position: relative;
+    display: flex;
+    float: center;
+    text-align: center;
+    padding-top: 50px;
+    transform: translateX(50%);
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #27282b;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+    margin-bottom: 25px;
+  }
+  
+  .searchTerm:focus{
+    color: black;
+  }
+  
+  .searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #27282b;
+    background: #27282b;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
 
   

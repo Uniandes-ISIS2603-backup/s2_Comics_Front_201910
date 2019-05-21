@@ -24,11 +24,11 @@ export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
         private route: ActivatedRoute,
 
     ) { }
-
-    @Input() vendedor: VendedorDetail;
-
-    vendedorId:number;
-
+    
+     @Input() vendedor: VendedorDetail;
+    
+     vendedorId:number;
+   
     calificacion: Calificacion;
 
     public isCollapsed = true;

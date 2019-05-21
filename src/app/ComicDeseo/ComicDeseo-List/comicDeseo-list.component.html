@@ -31,14 +31,17 @@ and open the template in the editor.
     <tr *ngFor = "let cD of comicsDeseo">
 
         <td>
-            <div class="row">
-                <!-- <div class="col" ><div class="imgCD" [routerLink] ="['/comicsdeseo', { outlets: { 'detail': [cD.id] } }]"><img src= {{cD.ruta}} height=180px; width=120px /></div></div>-->
-                <div class="col" ><div class="imgCD"><img src= {{cD.ruta}} height=180px; width=120px /></div></div>
-                <div class="col-10" ><h2><a class="figure-caption" [routerLink] ="['/comicsdeseo', { outlets: { 'detail': [cD.id] } }]" >{{cD.nombre}}</a></h2><br><p>{{cD.descripcion}}</p>
-                    <br>
-                    <div class="row">
-                        <div class="col"><b>COP {{cD.precio}}</b></div>
-                        <div class="col-1"><button type="button" class="btn btn-success" >Comprar</button></div>
+        <div class="row">
+         <!-- <div class="col" ><div class="imgCD" [routerLink] ="['/comicsdeseo', { outlets: { 'detail': [cD.id] } }]"><img src= {{cD.ruta}} height=180px; width=120px /></div></div>-->
+         <div class="col" ><div class="imgCD"><img src= {{cD.ruta}} height=180px; width=120px /></div></div>
+         <div class="col-10" ><h2><a class="figure-caption" [routerLink] ="['/comicsdeseo', { outlets: { 'detail': [cD.id] } }]" >{{cD.nombre}}</a></h2><br><p>{{cD.descripcion}}</p>
+          <br>
+          <div class="row">
+            <div class="col"><b>COP {{cD.precio}}</b></div>
+            <div class="col-1"><button type="button" class="btn btn-outline-dark" >Comprar</button></div>
+            
+            <div class="col-2"><button type="button" class="btn btn-dark">Quitar</button></div>
+            <div class="col-11"></div>
 
                         <div class="col-2"><button type="button" class="btn btn-danger">Quitar</button></div>
                         <div class="col-11"></div>

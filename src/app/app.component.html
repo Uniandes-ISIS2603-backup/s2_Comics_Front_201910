@@ -1,52 +1,64 @@
+<link href="//cloud.typenetwork.com/projects/2153/fontface.css/" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
+        <div class="topB">
+                <a routerLink="/home">
+           
+                    
+                    <div class="marvel">COMICS</div>
+                   
+             
+             </a>
 
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" routerLink="/home">
-            <div class="form-inline">
-                <h2 class="mainTitle">Comics Melos</h2>
-            </div>
-        </a>
+            
+        </div>
+        <hr > 
+        
+         <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav mr-auto mt-0">
-                <li class="nav-item" routerLink="/vendedores/list"
+        <div  style="display:flex; justify-content: space-around; flex-direction: row;" class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div  class="navbar-nav">
+                <li class="nav-item" routerLink="/vendedores/list"  
                     *ngxPermissionsOnly="['ADMIN']">
-                    <button class="btn btn-light">
-                        Vendedores
+                    <button  class="btn btn-link">
+                      <b>Vendedores</b>
                     </button>
                 </li>
-                <li class="nav-item" routerLink="/comprador/list" style="text-align:center; margin-left: 10px;"
+                <li class="nav-item" routerLink="/comprador/list" 
                     *ngxPermissionsOnly="['ADMIN']">
-                    <button class="btn btn-light">Compradores</button>
+                    <button class="btn btn-link" ><b>Compradores</b></button>
                 </li>
-                <li class="nav-item" routerLink="/comic/list" style="text-align:right; margin-left: 10px;">
-                    <button class="btn btn-danger" >Comics</button>
+                <li class="nav-item" routerLink="/comic/list" >
+                    <button  class="btn btn-link" ><b>Comics</b></button>
                 </li>
-                <li  class="nav-item" routerLink="/comicsdeseo/list" style="text-align:center; margin-left: 10px;"
+                <li  class="nav-item" routerLink="/comicsdeseo/list"
                      *ngxPermissionsOnly="['Comprador', 'ADMIN']">
-                    <button class="btn btn-light">WishList</button>
+                    <button  class="btn btn-link"><b>WishList</b></button>
                 </li>
-                <li class="nav-item" routerLink="orden/list/{{rol}}" style="text-align:center; margin-left: 10px;"
+                <li class="nav-item" routerLink="orden/list/{{rol}}"
                     *ngxPermissionsOnly="['Vendedor', 'Comprador', 'ADMIN']">
-                    <button class="btn btn-light">Ordenes</button>
+                    <button class="btn btn-link"><b>Ordenes</b></button>
                 </li>
-                <div style="text-align: right; margin-right: 10px; margin-left: 10px;">
-                    <div class="btn-group"
+                <li class="nav-item" routerLink="/vendedores/{{id}}" style="text-align:center; margin-left: 10px;"
+                *ngxPermissionsOnly="['Vendedor']">
+                <button class="btn btn-linkt">Mi cuenta</button>
+            </li>
+               
+               
+                <div style="text-align: right;">
+                    <div class="btn-group" routerLink="/login"
                          *ngxPermissionsOnly="['GUEST']">
                         <!-- Colocar esto en el <a href="/login"></a>-->
-                        <a href="/login">
-                            <button type="button" class="btn btn-light">Log In</button>
-                        </a>
-
+                        <button  type="button" class=" btn btn-link">Log In</button>
                     </div>
 
-                    <div class="btn-group" routerLink="/form" style="text-align:center; margin-left: 20px;"
+                    <div class="btn-group" routerLink="/form" 
                          *ngxPermissionsOnly="['GUEST']">
-                        <button class="btn btn-outline-light">Sign Up</button>
+                        <button   class="btn btn-link">Sign Up</button>
                     </div>
                 </div>
 
@@ -59,7 +71,7 @@
                     <div class="flex-row" *ngxPermissionsOnly="['Vendedor', 'Comprador', 'ADMIN']">
                         <div class="form-inline">
                             <li><a id="logout-navbar-item" (click)="logout()" href="#">
-                                <button type="button" class="btn btn-danger">
+                                <button type="button" class="btn btn-link" style="margin-left:10px">
                                     Cerrar Sesión
                                     <i class="fa fa-sign-out"></i></button></a></li>
                         </div>

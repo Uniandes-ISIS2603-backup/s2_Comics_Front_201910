@@ -20,7 +20,7 @@ import { FormularioComponent } from '../Coleccionista/FormularioComponente/formu
 import { CompradorEditComponent } from '../Comprador/comprador-edit/comprador-edit.component';
 
 import {OrdenPedidoListComponent} from '../orden-pedido/orden-pedido-list/orden-pedido-list.component';
-import {OrdenPedidoListComVenComponent}  from '../orden-pedido/orden-pedido-list-com-ven/orden-pedido-list.component'
+import {OrdenPedidoListComVenComponent}  from '../orden-pedido/orden-pedido-list-com-ven/orden-pedido-list-com-ven.component'
 import {OrdenPedidoDetailComponent} from '../orden-pedido/orden-pedido-detail/orden-pedido-detail.component';
 import {OrdenPedidoDetailComprador} from '../orden-pedido/orden-pedido-detail-comprador/orden-pedido-detail-comprador'
 import {OrdenPedidoDetailVendedor} from '../orden-pedido/orden-pedido-detail-vendedor/orden-pedido-detail-vendedor'

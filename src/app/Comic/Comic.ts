@@ -28,4 +28,5 @@ export class Comic{
   getVendedor(): Vendedor{
     return this.vendedor;
   }
+  
 }
