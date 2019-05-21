@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth/auth.service';
 import {Router} from "@angular/router";
+import {CompradorService} from "./Comprador/comprador.service";
 
 /**
  * The app component. This component is the base of s2_comics-Front
@@ -18,15 +19,22 @@ export class AppComponent implements OnInit {
      */
     title: String;
 
+    /**
+     * El rol del usuario activo
+     */
     rol: String = "";
-   
+
+    /**
+     * El id del usuario activo
+     */
     id: number = 0;
 
     /**
      * @ignore
      */
     constructor(private authService: AuthService,
-                private router: Router) { }
+                private router: Router,
+                private compradorService: CompradorService) { }
 
     /**
      * Assigns a title to the web page
@@ -46,6 +54,16 @@ export class AppComponent implements OnInit {
     compradorProfile()
     {
         this.router.navigateByUrl('/comprador/' + localStorage.getItem('user'));
+    }
+
+    compradorNombre():string
+    {
+        let nombre = "";
+        this.compradorService.getCompradorDetail(localStorage.getItem('user')).subscribe(object =>
+        {
+            nombre = object.nombre;
+        });
+        return nombre;
     }
 
     /**

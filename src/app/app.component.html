@@ -42,15 +42,15 @@
                     <button class="btn btn-link">Mi cuenta</button>
                     li.nav-item
                 </li>
-                <li class="nav-item" (click)="compradorProfile()" style="text-align:center; margin-left: 10px;"
-                    *ngxPermissionsOnly="['Comprador']">
-                    <button class="btn btn-link">Mi cuenta</button>
-                </li>
                 <li class="nav-item" (click)="carritoCompras()" style="text-align:center; margin-left: 10px;"
                     *ngxPermissionsOnly="['Comprador']">
                     <button class="btn btn-link">Carrito de compras</button>
                 </li>
-
+                <li class="nav-item" (click)="compradorProfile()" style="text-align:center;
+                margin-left: 10px; border: 2px solid white; border-radius: 10px;"
+                    *ngxPermissionsOnly="['Comprador']">
+                    <button class="btn btn-link">Mi cuenta <i class="fa fa-user"></i></button>
+                </li>
                 <div style="text-align: right;">
                     <div class="btn-group" routerLink="/login"
                          *ngxPermissionsOnly="['GUEST']">
