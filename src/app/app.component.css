@@ -6,29 +6,29 @@
 
 .marvel{
 
-    font-family: "Benton Sans Ex Comp Bla", sans-serif; 
+    font-family: "Benton Sans Ex Comp Bla", sans-serif;
     text-align: center;
     color: white;
     font-size: 2em;
-    
-   
+
+
 }
 
 hr{
 
-  margin-top: 0.5px;
-  margin-bottom: 0.5px;
-  border-top: 0px solid white;
-  height: 0px;
+    margin-top: 0.5px;
+    margin-bottom: 0.5px;
+    border-top: 0px solid white;
+    height: 0px;
 }
 
 
 .mainTitle{
 
     color: white;
-   height: 52px;
-   text-align: center;
-   float: center;
+    height: 52px;
+    text-align: center;
+    float: center;
 }
 .btn-link{
 
@@ -41,46 +41,38 @@ hr{
     /* The image used */
     /*background-image: url("../assets/bannerHome.jpg");*/
     background-color:#27282b;
-  
+
     min-height: 40px;
-  
+
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     /* Needed to position the navbar */
-   
-  }
 
-  
+}
+
+
 
 /* Position the navbar container inside the image */
 .container {
 
-  
+}
 
-
-
- 
-
-  
-  
-  
-  
-  .navbar-nav{
+.navbar-nav{
 
     float: right;
     text-align: right;
     left:0;
     right: 0;
-  }
-  
-  .navbar-nav li {
+}
+
+.navbar-nav li {
 
     text-align: center;
-  }
-  .nav-item{
+}
+.nav-item{
 
     text-decoration: none;
-  }
+}
