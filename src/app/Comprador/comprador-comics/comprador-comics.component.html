@@ -5,7 +5,7 @@
         Carrito de compras
     </h1>
     <div class="col-lg-4 col-md-2 col-sm-1 col-xs-1"></div>
-    <button class=" btn btn-danger" routerLink = "/comprador/{{compradorId}}">Atras</button>
+    <button class=" btn btn-dark" routerLink = "/comprador/{{compradorId}}">Atras</button>
 </div>
 
 <div class="container-fluid">
@@ -55,10 +55,9 @@
                         <input type="text" [(ngModel)]="tarjeta" >
                     </td>
 
-                    <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
+                    <td><button class="btn btn-dark" (click)= "deleteComic(comic.id)">
                         <span class="fa fa-trash"></span>
                     </button></td>
-
                 </tr>
 
                 </tbody>
@@ -69,16 +68,8 @@
         </div>
     </div>
 
-
-
-
-
-
 </div>
 <br>
-<br>
 <div style="width: 330px; margin: 0 auto;">
-
-    <button type="submit" class="btn btn-danger" (click)=" createOrdenPedido()"  >comprar</button>
-
+    <button type="submit" class="btn btn-outline-dark" (click)=" createOrdenPedido()"  >comprar</button>
 </div>

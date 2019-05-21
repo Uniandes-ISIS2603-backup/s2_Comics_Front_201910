@@ -1,15 +1,14 @@
 <particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
 <div class="center">
     <form class="box" [formGroup]="updateForm" (ngSubmit)="onEditFormSubmit()" novalidate>
-        <h1 Style="text-align: center;">Update Comprador con id: {{compradorDetail.id}}</h1>
+        <h1 Style="text-align: center;">Hola {{compradorDetail.alias}}, aqui puedes editar tus datos</h1>
         <hr>
         <div class="form-group">
-            <!--                    <div class="col-3"></div>-->
             <label for="">Nombre</label>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="{{compradorDetail.nombre}}"
+                <input type="text" class="form-control form-name" placeholder="{{compradorDetail.nombre}}"
                        formControlName="nombre">
-                <button type="button" class="btn black" (click)="updateForm.get('nombre').enable()">
+                <button type="button" class="btn black nombre" (click)="enableName()">
                     <span class="fa fa-pencil"></span>
                 </button>
             </div>
@@ -31,9 +30,9 @@
             <!--                    <div class="col-3"></div>-->
             <label for="">Alias</label>
             <div class="input-group">
-                <input type="text" placeholder="{{compradorDetail.alias}}" class="form-control"
+                <input type="text" placeholder="{{compradorDetail.alias}}" class="form-control form-alias"
                        formControlName="alias" size="100px">
-                <button type="button" class="btn black" (click)="updateForm.get('alias').enable()">
+                <button type="button" class="btn black alias" (click)="enableAlias()">
                     <span class="fa fa-pencil"></span>
                 </button>
             </div>
@@ -52,9 +51,9 @@
             <label for="">Intereses</label>
             <hr>
             <div class="input-group">
-                <textarea name="" id="" cols="10" rows="5" class="form-control"
+                <textarea name="" id="" cols="10" rows="5" class="form-control form-intereses"
                           placeholder="{{compradorDetail.intereses}}" formControlName="intereses"></textarea>
-                <button type="button" class="btn black" (click)="updateForm.get('intereses').enable()">
+                <button type="button" class="btn black intereses" (click)="enableIntereses()">
                     <span class="fa fa-pencil"></span>
                 </button>
             </div>
@@ -63,16 +62,16 @@
             <!--                    <div class="col-3"></div>-->
             <label for="exampleInputEmail1">Email Address</label>
             <div class="input-group">
-                <input type="email" class="form-control" id="exampleInputemail1"
+                <input type="email" class="form-control form-email" id="exampleInputemail1"
                        aria-describedby="emailHelp" placeholder="{{compradorDetail.correoElectronico}}"
                        formControlName="correoElectronico">
-                <button type="button" class="btn black"
-                        (click)="updateForm.get('correoElectronico').enable()">
+                <button type="button" class="btn black email"
+                        (click)="enableEmail()">
                     <span class="fa fa-pencil"></span>
                 </button>
             </div>
-            <div
-                    *ngIf="(updateForm.get('correoElectronico').errors && isSubmitted) || (updateForm.get('correoElectronico').errors && updateForm.get('correoElectronico').touched)">
+            <div *ngIf="(updateForm.get('correoElectronico').errors && isSubmitted) ||
+                    (updateForm.get('correoElectronico').errors && updateForm.get('correoElectronico').touched)">
                 <div *ngIf="updateForm.get('correoElectronico').hasError('pattern')">
                     <span style="color:red;">Ingrese un email válido</span>
                 </div>
@@ -84,14 +83,14 @@
             <!--                    <div class="col-3"></div>-->
             <label for="">Contraseña</label>
             <div class="input-group">
-                <input type="password" class="form-control" placeholder="Enter Password"
+                <input type="password" class="form-control form-pass" placeholder="Enter Password"
                        formControlName="password">
-                <button type="button" class="btn black" (click)="updateForm.get('password').enable()">
+                <button type="button" class="btn black pass" (click)="enablePass()">
                     <span class="fa fa-pencil"></span>
                 </button>
             </div>
-            <div
-                    *ngIf="(updateForm.get('password').errors && isSubmitted) || (updateForm.get('password').errors && updateForm.get('password').touched)">
+            <div *ngIf="(updateForm.get('password').errors && isSubmitted) ||
+            (updateForm.get('password').errors && updateForm.get('password').touched)">
                 <div *ngIf="updateForm.get('password').hasError('pattern')">
                     <span style="color:red;">Ingrese una contraseña válida</span>
                     <br>
@@ -99,6 +98,11 @@
                                     número y una mayúscula</span>
                 </div>
             </div>
+
+            <label for="show-password">
+                <input type="checkbox" id="show-password" disabled>
+                Show password
+            </label>
         </div>
 
         <div class="form-check form-check-inline" style="text-align: center;">

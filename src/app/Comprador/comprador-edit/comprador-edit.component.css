@@ -16,20 +16,32 @@
     text-align: center;
 }
 
+.box textarea:disabled, .box input[type=text]:disabled, .box input[type=password]:disabled,
+.box input[type=email]:disabled
+{
+    background: darkgray;
+    border: 2px solid darkgray;
+}
+
 .box textarea, .box input[type=text], .box input[type=password],
 .box input[type=email]
 {
+    border: 2px solid black;
     background: none;
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid black;
     padding: 14px 10px;
     width: 70%;
     outline: none;
     color: black;
     border-radius: 10px 0 0 10px;
-    transition: 0.25s;
+    transition: all 0.25s ease-out;
+}
+
+.box textarea
+{
+    border-radius: 10px 0 10px 10px;
 }
 
 .box button[type="button"]
@@ -40,10 +52,15 @@
     transition: 0.25s;
 }
 
+.box button[type="button"]:focus
+{
+    box-shadow: none;
+}
+
 .box textarea:focus, .box input[type=text]:focus,
 .box input[type=password]:focus, .box input[type=email]:focus
 {
-    width: 90%;
+    box-shadow: none;
 }
 
 img {
