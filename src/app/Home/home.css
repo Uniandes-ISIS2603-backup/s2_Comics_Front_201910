@@ -2,14 +2,14 @@
 
 #search_home{
 
-   
+
     text-align: center;
     padding: 80px;
-    }
+}
 
 .search_bar{
 
-width: 600px;
+    width: 600px;
 
 }
 
@@ -24,34 +24,34 @@ h1{
     width:100%;
     height:350px;
     text-align: center;
-  }
+}
 
-  .img_popu img{
-  
+.img_popu img{
+
     width:18%;
     height: 22%;
-   padding: 25px 25px;
-  
-  }
-  
-  .popu_banner{
+    padding: 25px 25px;
+
+}
+
+.popu_banner{
 
     background-color: red;
-  }
+}
 
-  .popu_banner h2{
+.popu_banner h2{
 
     color: white;
     text-align: center;
 
-  }
+}
 
-  .images{
-      float: center;
-  }
+.images{
+    float: center;
+}
 
-  #p1{
-      margin-left: 13%;
-  }
+#p1{
+    margin-left: 13%;
+}
 
   

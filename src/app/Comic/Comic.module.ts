@@ -14,16 +14,16 @@ import { ComicCreateComponent } from './comic-create/comic-create.component';
 
 
 @NgModule({
-  imports: [
-    ReactiveFormsModule,
-    BrowserModule, 
-    AppRoutingModule,
-    HttpClientModule,
-    CommonModule,
-    FormsModule,
-    Ng5SliderModule
-  ],
-  declarations: [ComicListComponent, ComicDetailComponent, ComicUpdateComponent, ComicCreateComponent],
-  providers: [ComicService],
+    imports: [
+        ReactiveFormsModule,
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule,
+        Ng5SliderModule
+    ],
+    declarations: [ComicListComponent, ComicDetailComponent, ComicUpdateComponent, ComicCreateComponent],
+    providers: [ComicService],
 })
 export class ComicModule { }

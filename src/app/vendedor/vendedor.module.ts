@@ -15,10 +15,10 @@ import {VendedorEditComponent} from './vendedor-edit/vendedor-edit.component';
 import {VendedorComicsComponent} from './vendedor-comic/vendedor-comic.component';
 import {VendedorComicListComponent} from './vendedor-comic-list/vendedor-comic-list.component';
 import {VendedorOrdenPedidoListComponent} from './vendedor-orden-pedido-list/vendedor-orden-pedido-list.component';
-import {ComicService} from './../comic/comic.service';
 import {ComicModule} from "../Comic/Comic.module";
+import {ComicService} from "../Comic/comic.service";
 @NgModule({
-    imports: [       
+    imports: [
         CommonModule,
         FormsModule,
         AppRoutingModule,
@@ -28,9 +28,15 @@ import {ComicModule} from "../Comic/Comic.module";
         NgbModule,
         ComicModule
     ],
-    declarations: [VendedorListComponent,VendedorDetailComponent,
+    declarations: [VendedorListComponent,
+        VendedorDetailComponent,
         VendedorCalificacionesComponent,
-         VendedorAddCalificacionComponent,VendedorEditCalificacionComponent, VendedorEditComponent,VendedorComicsComponent,VendedorComicListComponent,VendedorOrdenPedidoListComponent],
+        VendedorAddCalificacionComponent,
+        VendedorEditCalificacionComponent,
+        VendedorEditComponent,
+        VendedorComicsComponent,
+        VendedorComicListComponent,
+        VendedorOrdenPedidoListComponent],
     providers: [VendedorService,ComicService],
     exports:[VendedorListComponent,VendedorEditCalificacionComponent]
 })

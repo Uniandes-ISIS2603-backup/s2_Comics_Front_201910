@@ -1,35 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenPedidoService } from '../orden-pedido.service';
-import { OrdenPedido } from '../ordenPedido';
-import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { Vendedor } from '../../vendedor/vendedor';
 import { Comprador } from '../../Comprador/comprador';
 import { CompradorService } from '../../Comprador/comprador.service';
 import { VendedorService } from '../../vendedor/vendedor.service';
+import {OrdenPedido} from "../OrdenPedido";
 
 
 
 @Component({
-  selector: 'app-orden-pedido-list-com-ven',
-  templateUrl: './orden-pedido-list-com-ven.component.html',
-  styleUrls: ['./orden-pedido-list-com-ven.component.css']
+    selector: 'app-orden-pedido-list-com-ven',
+    templateUrl: './orden-pedido-list-com-ven.component.html',
+    styleUrls: ['./orden-pedido-list-com-ven.component.css']
 })
 export class OrdenPedidoListComVenComponent implements OnInit {
 
-   
-  /**
+
+    /**
      * Constructor for the component
      * @param OrdenPedidoService The author's services provider
      */
     constructor(private ordenPedidoService: OrdenPedidoService ,
-      private compradorService: CompradorService,
-      private vendedorService: VendedorService   ){
-        }
-    
+                private compradorService: CompradorService,
+                private vendedorService: VendedorService   ){
+    }
+
     /**
      * The list of ordenesPedido which belong to the ComicStore
      */
-  
     ordenesPedido: OrdenPedido[];
 
     ordenPedido: OrdenPedido;
@@ -41,7 +39,7 @@ export class OrdenPedidoListComVenComponent implements OnInit {
     vendedor: Vendedor;
     aliasVendedor: String;
     ADMI:Boolean;
-    
+
 
     /**
      * Asks the service to update the list of ordenesPedido
@@ -53,56 +51,56 @@ export class OrdenPedidoListComVenComponent implements OnInit {
 
 
     /**
-    * Creates a new book
-    */
-   createOrdenPedido(): OrdenPedido {
-    this.ordenPedidoService.createOrdenPedido(this.ordenPedido)
-        .subscribe(OrdenPedido => {
-            this.ordenPedido.id = OrdenPedido.id;
+     * Creates a new book
+     */
+    createOrdenPedido(): OrdenPedido {
+        this.ordenPedidoService.createOrdenPedido(this.ordenPedido)
+            .subscribe(OrdenPedido => {
+                this.ordenPedido.id = OrdenPedido.id;
             });
-    return this.ordenPedido;
-}
+        return this.ordenPedido;
+    }
 
-verificar():void{
- 
-  alert("llego")
-  this.ADMI=(localStorage.getItem("role")=="ADMIN");
-  alert(this.ADMI);
+    verificar():void{
 
-}
+        alert("llego")
+        this.ADMI=(localStorage.getItem("role")=="ADMIN");
+        alert(this.ADMI);
 
-getOrdenesPedidoComprador():void{
-  if(localStorage.getItem("role")=='ADMIN'){
-this.compradorService.getCompradorByAlias(this.aliasComprador).subscribe(comprador => this.comprador= comprador );
-this.idComprador=this.comprador.id;}
-this.ordenPedidoService.getOrdenesPedidoComprador(this.idComprador).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
-}
-getOrdenesPedidoVendedor():void{
-  if(localStorage.getItem("role")=='ADMIN'){
-    this.vendedorService.getVendedorByAlias(this.aliasVendedor).subscribe(vendedor => this.vendedor= vendedor );
-    this.idVendedor=this.vendedor.id;}
-  this.ordenPedidoService.getOrdenesPedidoVendedor(this.idVendedor).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
-  }
+    }
+
+    getOrdenesPedidoComprador():void{
+        if(localStorage.getItem("role")=='ADMIN'){
+            this.compradorService.getCompradorByAlias(this.aliasComprador).subscribe(comprador => this.comprador= comprador );
+            this.idComprador=this.comprador.id;}
+        this.ordenPedidoService.getOrdenesPedidoComprador(this.idComprador).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
+    }
+    getOrdenesPedidoVendedor():void{
+        if(localStorage.getItem("role")=='ADMIN'){
+            this.vendedorService.getVendedorByAlias(this.aliasVendedor).subscribe(vendedor => this.vendedor= vendedor );
+            this.idVendedor=this.vendedor.id;}
+        this.ordenPedidoService.getOrdenesPedidoVendedor(this.idVendedor).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
+    }
     /**
      * This will initialize the component by retrieving the list of ordenesPedido from the service
      * This method will be called when the component is created
      */
     ngOnInit() {
-      this.verificar();
-      alert(localStorage.getItem("role"))
-     this.idComprador=parseInt(localStorage.getItem("user"));
-     this.idVendedor=parseInt(localStorage.getItem("user"));
-      
-      if(localStorage.getItem("role")=='Comprador'){
-      this.getOrdenesPedidoComprador();
-       
-      }
-     if(localStorage.getItem("role")=='Vendedor') {
-        this.getOrdenesPedidoVendedor(); 
-      }
-      if(localStorage.getItem("role")=='ADMIN') {
-        this.getOrdenesPedido(); 
-      }
+        this.verificar();
+        alert(localStorage.getItem("role"))
+        this.idComprador=parseInt(localStorage.getItem("user"));
+        this.idVendedor=parseInt(localStorage.getItem("user"));
+
+        if(localStorage.getItem("role")=='Comprador'){
+            this.getOrdenesPedidoComprador();
+
+        }
+        if(localStorage.getItem("role")=='Vendedor') {
+            this.getOrdenesPedidoVendedor();
+        }
+        if(localStorage.getItem("role")=='ADMIN') {
+            this.getOrdenesPedido();
+        }
     }
 
 }

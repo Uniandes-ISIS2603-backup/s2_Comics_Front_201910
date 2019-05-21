@@ -14,7 +14,6 @@ import { VendedorListComponent } from '../vendedor/vendedor-list/vendedor-list.c
 import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-detail.component';
 import { VendedorEditComponent } from '../vendedor/vendedor-edit/vendedor-edit.component';
 import { VendedorOrdenPedidoListComponent } from '../vendedor/vendedor-orden-pedido-list/vendedor-orden-pedido-list.component';
-import { ComicCreateComponent } from '../comic/comic-create/comic-create.component';
 
 import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
 import { FormularioComponent } from '../Coleccionista/FormularioComponente/formulario.component';
@@ -32,6 +31,7 @@ import {ComicDeseoDetailComponent} from "../ComicDeseo/ComicDeseo-detail/comicde
 import {ComicListComponent} from "../Comic/Comic-list/Comic-List.component";
 import {ComicDetailComponent} from "../Comic/comic-detail/comic-detail.component";
 import {ComicUpdateComponent} from "../Comic/comic-update/comic-update.component";
+import {ComicCreateComponent} from "../Comic/comic-create/comic-create.component";
 
 
 const routes: Routes = [
@@ -126,7 +126,7 @@ const routes: Routes = [
                     {
                         path :'ADMIN',
                         component:OrdenPedidoListComponent
-                    
+
                     }
 
                 ]
@@ -143,7 +143,7 @@ const routes: Routes = [
                     {
                         path :'ADMIN',
                         component:OrdenPedidoDetailComponent
-                    
+
                     }
                 ]},
         ]
@@ -180,27 +180,27 @@ const routes: Routes = [
             path: 'list',
             component: ComicListComponent
         },
-        {
-            path: 'create',
-            component: ComicCreateComponent
-        },
-        {
-            path: ':id',
-            component: ComicDetailComponent
-        },
-        {
-            path: 'update/:id',
-            component: ComicUpdateComponent
-        }
+            {
+                path: 'create',
+                component: ComicCreateComponent
+            },
+            {
+                path: ':id',
+                component: ComicDetailComponent
+            },
+            {
+                path: 'update/:id',
+                component: ComicUpdateComponent
+            }
         ]
     },
     {
         path:'AuthLC',
         component: AuthLoginComponent
-        
+
     },
     {
-       path: 'home',
+        path: 'home',
         component: HomePage
     },
     {

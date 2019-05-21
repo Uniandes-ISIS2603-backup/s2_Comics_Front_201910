@@ -60,7 +60,7 @@ export class VendedorService {
 
     deleteCalificacion(vendedorId,id){
         console.log(API_URL + vendedores+'/'+vendedorId  +calificaciones+'/'+id);
-    return  this.http.delete<boolean>(API_URL + vendedores+'/'+vendedorId  +calificaciones+'/'+id);
+        return  this.http.delete<boolean>(API_URL + vendedores+'/'+vendedorId  +calificaciones+'/'+id);
     }
     //llama al back y hace la peticion put de un vendedor
 
@@ -81,10 +81,10 @@ export class VendedorService {
     vendedor:Vendedor;
     id:number;
     getComicsVendedorPorAlias(vendedorAlias){
-     
-       this.http.get<Vendedor>(API_URL+vendedores+'/'+vendedorAlias).subscribe(vendedor1 =>{this.vendedor=vendedor1;});
-      this.id=this.vendedor.id;
-       return this.http.get<Comic[]>(API_URL+vendedores+'/'+this.id+'/comics');
+
+        this.http.get<Vendedor>(API_URL+vendedores+'/'+vendedorAlias).subscribe(vendedor1 =>{this.vendedor=vendedor1;});
+        this.id=this.vendedor.id;
+        return this.http.get<Comic[]>(API_URL+vendedores+'/'+this.id+'/comics');
     }
-    
+
 }

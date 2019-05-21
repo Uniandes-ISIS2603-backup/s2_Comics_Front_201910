@@ -20,7 +20,7 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
                 private route: ActivatedRoute,
                 private viewRef: ViewContainerRef, private toastrService: ToastrService){}
     @Input()  vendedorCalificaciones : Calificacion [];
-   
+
     vendedorId: number;
     //atributo para mostrrar/ocultar el componente
     public isCollapsed = true;

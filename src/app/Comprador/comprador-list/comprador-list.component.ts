@@ -17,7 +17,7 @@ export class CompradorListComponent implements OnInit
      */
     constructor(private compradorService: CompradorService)
     {
-        
+
     }
 
     /**

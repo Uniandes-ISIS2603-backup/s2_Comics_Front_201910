@@ -1,6 +1,6 @@
 import { Vendedor } from "../vendedor/vendedor";
 
-export class Comic{ 
+export class Comic{
   id: number;
 
   nombre: string;
@@ -25,7 +25,7 @@ export class Comic{
 
   vendedor: Vendedor;
 
-   getVendedor(): Vendedor{
+  getVendedor(): Vendedor{
     return this.vendedor;
   }
 }
