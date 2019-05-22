@@ -13,7 +13,6 @@
     width: 60%;
     z-index: 30;
     position: absolute;
-    text-align: center;
 }
 
 .box textarea, .box input[type=text], .box input[type=password],
@@ -23,7 +22,7 @@
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid black;
+    border: 2px solid #34495e;
     padding: 14px 10px;
     width: 70%;
     outline: none;
@@ -51,10 +50,9 @@ img {
     transition: 0.2s ease-in-out;
     cursor: pointer;
     background: none;
-    /*box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);*/
-    border-radius: 10px;
-    border: 2px solid black;
-    display: inline-block;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+    border-radius: 10%;
+    border: 2px solid #34495e;
 }
 
 img:hover {
@@ -74,51 +72,5 @@ img:hover {
 #inlineRadio10:checked + label > img , #inlineRadio11:checked + label > img, #inlineRadio12:checked + label > img, #inlineRadio13:checked + label > img, #inlineRadio14:checked + label > img,
 #inlineRadio15:checked + label > img , #inlineRadio16:checked + label > img, #inlineRadio17:checked + label > img, #inlineRadio18:checked + label > img, #inlineRadio19:checked + label > img,
 #inlineRadio20:checked + label > img , #inlineRadio21:checked + label > img, #inlineRadio22:checked + label > img, #inlineRadio23:checked + label > img, #inlineRadio24:checked + label > img{
-    background-color: black;
-}
-
-.box .black
-{
-    background: black;
-    color: white;
-}
-
-.box .black:hover
-{
-    background: none;
-    border: 1px solid black;
-    color: black;
-}
-
-.box .green
-{
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid black;
-    padding: 14px 40px;
-    outline: none;
-    color: black;
-    border-radius: 10px;
-    transition: all .25s ease-out;
-}
-
-.box .green:hover
-{
-    background: black;
-    color: white;
-}
-
-.box .red
-{
-    background: black;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 10px;
-    transition: 0.25s;
+    background-color: rgba(0, 0, 0, 0.77);
 }

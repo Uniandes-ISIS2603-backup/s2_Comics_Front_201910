@@ -9,7 +9,7 @@
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="{{compradorDetail.nombre}}"
                        formControlName="nombre">
-                <button type="button" class="btn black" (click)="updateForm.get('nombre').enable()">
+                <button type="button" class="btn btn-info" (click)="updateForm.get('nombre').enable()">
                     <span class="fa fa-pencil"></span>
                 </button>
             </div>
@@ -33,7 +33,7 @@
             <div class="input-group">
                 <input type="text" placeholder="{{compradorDetail.alias}}" class="form-control"
                        formControlName="alias" size="100px">
-                <button type="button" class="btn black" (click)="updateForm.get('alias').enable()">
+                <button type="button" class="btn btn-info" (click)="updateForm.get('alias').enable()">
                     <span class="fa fa-pencil"></span>
                 </button>
             </div>
@@ -54,7 +54,7 @@
             <div class="input-group">
                 <textarea name="" id="" cols="10" rows="5" class="form-control"
                           placeholder="{{compradorDetail.intereses}}" formControlName="intereses"></textarea>
-                <button type="button" class="btn black" (click)="updateForm.get('intereses').enable()">
+                <button type="button" class="btn btn-info" (click)="updateForm.get('intereses').enable()">
                     <span class="fa fa-pencil"></span>
                 </button>
             </div>
@@ -66,7 +66,7 @@
                 <input type="email" class="form-control" id="exampleInputemail1"
                        aria-describedby="emailHelp" placeholder="{{compradorDetail.correoElectronico}}"
                        formControlName="correoElectronico">
-                <button type="button" class="btn black"
+                <button type="button" class="btn btn-info"
                         (click)="updateForm.get('correoElectronico').enable()">
                     <span class="fa fa-pencil"></span>
                 </button>
@@ -86,7 +86,7 @@
             <div class="input-group">
                 <input type="password" class="form-control" placeholder="Enter Password"
                        formControlName="password">
-                <button type="button" class="btn black" (click)="updateForm.get('password').enable()">
+                <button type="button" class="btn btn-info" (click)="updateForm.get('password').enable()">
                     <span class="fa fa-pencil"></span>
                 </button>
             </div>
@@ -108,50 +108,50 @@
                 <hr>
                 <div fxLayout="row" fxLayoutGap="20px">
                     <ng-container *ngFor="let i of [0,1,2,3,4];" style="margin: 0; font-size: 0;">
-                        <input type="radio" class="form-check-input" [id]="'inlineRadio' + i" name="inlineRadioOptions">
-                        <label [for]="'inlineRadio' + i">
+                        <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                        <label for="inlineRadio{{i}}">
                             <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                 (click)="funcion(imagenes[i])" style="width: 70%;">
+                                 (click)="funcion(imagenes[i])" style="width: 90%;">
                         </label>
                     </ng-container>
                 </div>
 
                 <div fxLayout="row" fxLayoutGap="20px">
                     <ng-container *ngFor="let i of [5, 6, 7, 8, 9];">
-                        <input type="radio" class="form-check-input" [id]="'inlineRadio' + i" name="inlineRadioOptions">
-                        <label [for]="'inlineRadio' + i">
+                        <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                        <label for="inlineRadio{{i}}">
                             <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                 (click)="funcion(imagenes[i])" style="width: 70%;">
+                                 (click)="funcion(imagenes[i])" style="width: 90%;">
                         </label>
                     </ng-container>
                 </div>
 
                 <div fxLayout="row" fxLayoutGap="20px">
                     <ng-container *ngFor="let i of [10, 11, 12, 13, 14];">
-                        <input type="radio" class="form-check-input" [id]="'inlineRadio' + i" name="inlineRadioOptions">
-                        <label [for]="'inlineRadio' + i">
+                        <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                        <label for="inlineRadio{{i}}">
                             <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                 (click)="funcion(imagenes[i])" style="width: 70%;">
+                                 (click)="funcion(imagenes[i])" style="width: 90%;">
                         </label>
                     </ng-container>
                 </div>
 
                 <div fxLayout="row" fxLayoutGap="20px">
                     <ng-container *ngFor="let i of [15, 16, 17, 18, 19];">
-                        <input type="radio" class="form-check-input" [id]="'inlineRadio' + i" name="inlineRadioOptions">
-                        <label [for]="'inlineRadio' + i">
+                        <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                        <label for="inlineRadio{{i}}">
                             <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                 (click)="funcion(imagenes[i])" style="width: 70%;">
+                                 (click)="funcion(imagenes[i])" style="width: 90%;">
                         </label>
                     </ng-container>
                 </div>
 
                 <div fxLayout="row" fxLayoutGap="20px">
                     <ng-container *ngFor="let i of [20, 21, 22, 23, 24];">
-                        <input type="radio" class="form-check-input" [id]="'inlineRadio' + i" name="inlineRadioOptions">
-                        <label [for]="'inlineRadio' + i">
+                        <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
+                        <label for="inlineRadio{{i}}">
                             <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                 (click)="funcion(imagenes[i])" style="width: 70%;">
+                                 (click)="funcion(imagenes[i])" style="width: 90%;">
                         </label>
                     </ng-container>
                 </div>
@@ -161,15 +161,24 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-3">
-                    <button type="submit" class="btn green"
+                    <button type="submit" class="btn btn-success"
                             (click)="onEditFormSubmit()">Enviar</button>
                 </div>
                 <div class="col-6"></div>
                 <div class="col-3">
-                    <button type="cancel" class="btn red"
+                    <button type="cancel" class="btn btn-danger"
                             routerLink="/comprador/{{compradorDetail.id}}">Cancelar</button>
                 </div>
             </div>
         </div>
+
+        <!--        <div class="row" style="text-align: center;">-->
+        <!--            <div class="form-group col" style="text-align:center;" id="botonEnviar">-->
+        <!--                <button type="button" class="btn btn-success" (click)="onEditFormSubmit()">Enviar</button>-->
+        <!--            </div>-->
+        <!--            <div class="form-group col" style="text-align:center;" id="botonCancelar">-->
+        <!--                <button type="button" class="btn btn-danger" routerLink="/comprador/{{compradorDetail.id}}">Cancelar</button>-->
+        <!--            </div>-->
+        <!--        </div>-->
     </form>
 </div>
