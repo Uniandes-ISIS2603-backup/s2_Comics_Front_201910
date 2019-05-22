@@ -46,7 +46,7 @@
                     </td>
   
                     <td>
-                    <select name="trueque" id="trueque" [(ngModel)]="seleccion" disabled="{{comic.enVenta}}" >
+                    <select name="trueque" id="trueque" [(ngModel)]="seleccion">
                         <option   *ngFor="let comic of vendedorComics; let i=index;"  value="{{i}}"   >{{comic.nombre}}</option> 
                      </select>
                       </td>

@@ -62,7 +62,6 @@ import {  OrdenPedido} from "../OrdenPedido";
 }
 
 deleteOrdenPedido(): void {
-    
      this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
         alert('se elimino la OrdenPedido'); });
 }

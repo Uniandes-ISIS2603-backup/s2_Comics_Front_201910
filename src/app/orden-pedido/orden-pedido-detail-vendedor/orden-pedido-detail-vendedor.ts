@@ -1,11 +1,8 @@
-import { Component, OnInit, ViewContainerRef } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { OrdenPedidoService } from "../orden-pedido.service";
 import {  OrdenPedido} from "../OrdenPedido";
 import {ToastrService} from 'ngx-toastr';
-import { compileNgModule } from "@angular/core/src/render3/jit/module";
-import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
-
 
 @Component({
     selector: 'app-orden-pedido-detail-vendedor',
@@ -18,8 +15,7 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
   export class OrdenPedidoDetailVendedor implements OnInit {
   
     /**
-     * @param modalDialogService
-      *@paramviewRef
+     * 
      * @param route 
      * @param service 
      *    @param toastrService The toastr to show messages to the user
@@ -28,17 +24,12 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
     constructor(
         private route:ActivatedRoute,
         private service: OrdenPedidoService,
-        private toastrService: ToastrService,
-        private viewRef: ViewContainerRef,
-        private modalDialogService: ModalDialogService
-        )
-
-    
+        private toastrService: ToastrService
+   
+    )
     {
 
     }
-
-    fecha:Boolean =true ;
 
     /**
      * La ordenPedido.
@@ -74,25 +65,19 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
         if(this.ordenPedidoId.estado=="ACEPTADO"){
             alert("por favor agrege una fecha estimada de entrega")
             
-            this.fecha= false ;
-            alert(this.fecha)
-    }
+        }
         if(this.ordenPedidoId.estado=="RECHAZADO"){
-
             alert("por favor agrege un comentario de rechazo")
-            this.fecha=true ;
         }
 
     }  , err => {
             this.toastrService.error(err, 'Error');
-           
             alert(err);
          
         }    );
 
-    
-    }
-
+        
+}
 
 deleteOrdenPedido(): void {
      this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 

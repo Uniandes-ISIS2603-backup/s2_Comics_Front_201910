@@ -14,7 +14,6 @@ import {CommonModule} from '@angular/common';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-import { ComicModule } from './comic/comic.module';
 import { CompradorModule } from './Comprador/comprador.module';
 import { VendedorModule } from './vendedor/vendedor.module';
 import { FormularioComponent } from './Coleccionista/FormularioComponente/formulario.component';
@@ -23,6 +22,7 @@ import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {ParticlesModule} from "angular-particle"; 
 import {HomeModule} from './Home/home.module';
+import {ComicModule} from "./Comic/Comic.module";
 
 @NgModule({
     declarations: [
