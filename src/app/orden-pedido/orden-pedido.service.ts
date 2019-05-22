@@ -17,10 +17,8 @@ export class OrdenPedidoService{
     constructor(private http: HttpClient){}
         
         getOrdenesPedido():Observable<OrdenPedido[]>
-            {
-            
-            return this.http.get<OrdenPedido[]>(API_URL + ordenesPedido);
-        
+          {
+            return this.http.get<OrdenPedido[]>(API_URL + ordenesPedido);       
     }
     getOrdenesPedidoEstado(estado):Observable<OrdenPedido[]>
     {
@@ -40,12 +38,6 @@ export class OrdenPedidoService{
      * @param ordenPedido la ordenPedido a crear
      */
     createOrdenPedido(ordenPedido): Observable<OrdenPedido> {
-      
-      alert("id"+ordenPedido.id+ "comentario"+ ordenPedido.comentario+ "estado:" + ordenPedido.estado+ 
-      "fecha: "+ ordenPedido.fechaEstimadaEntrega+" numeroComprasComprador: " + ordenPedido.numeroCompras+ 
-      "tarjetaCredito: "+ ordenPedido.tarjetaCredito +" comprador: " + ordenPedido.comprador.id + "vendedor: "+ ordenPedido.vendedor.id+
-      "comic: " + ordenPedido.comic.id +"trueque: " + ordenPedido.trueque.id)
-
         return this.http.post<OrdenPedido>(API_URL + ordenesPedido, ordenPedido);
     }
 
@@ -70,10 +62,19 @@ getOrdenesPedidoVendedor(vendedorId):  Observable<OrdenPedido[]> {
     return this.http.get<OrdenPedido[]>(API_URL + vendedor + '/' + vendedorId +pedido);
 }
 
+getOrdenesPedidoVendedorEstado(vendedorId, estado):  Observable<OrdenPedido[]> {
+    return this.http.get<OrdenPedido[]>(API_URL + vendedor + '/' + vendedorId +pedido + '/'+ estado);
+}
+
 getOrdenesPedidoComprador(compradorId):  Observable<OrdenPedido[]> {
     return this.http.get<OrdenPedido[]>(API_URL + comprador + '/' + compradorId +pedido);
 }
 
+getOrdenesPedidoCompradorEstado(compradorId, estado):  Observable<OrdenPedido[]> {
+    return this.http.get<OrdenPedido[]>(API_URL + comprador + '/' + compradorId +pedido + '/'+ estado);
+}
+
+   
 
 
 }

@@ -1,10 +1,12 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, ViewContainerRef } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { OrdenPedidoService } from "../orden-pedido.service";
 import {  OrdenPedido} from "../OrdenPedido";
 import {ToastrService} from 'ngx-toastr';
 import {CompradorService} from '../../Comprador/comprador.service'
 import { Comprador } from "../../Comprador/comprador";
+
+import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
 
 /// <reference path="smoke.js"/>
 
@@ -19,7 +21,9 @@ import { Comprador } from "../../Comprador/comprador";
   export class OrdenPedidoDetailComprador implements OnInit {
   
     /**
-     * 
+     *  @param modalDialogService
+      *@param viewRef
+    
      * @param route 
      * @param service 
      *  @param toastrService The toastr to show messages to the user
@@ -28,7 +32,10 @@ import { Comprador } from "../../Comprador/comprador";
     constructor(
         private route:ActivatedRoute,
         private service: OrdenPedidoService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService, 
+         private viewRef: ViewContainerRef,
+        private modalDialogService: ModalDialogService
+      
     )
     {
 
@@ -67,8 +74,7 @@ import { Comprador } from "../../Comprador/comprador";
     */
    updateOrdenPedido(): void {
 
-    alert("yeiii estoy llegando")
-    
+     
     this.service.updateOrdenPedido(this.ordenPedidoId)
         .subscribe(ordenPedido =>{} , err => {
             this.toastrService.error(err, 'Error');
@@ -79,8 +85,30 @@ import { Comprador } from "../../Comprador/comprador";
 }
 
 deleteOrdenPedido(): void {
-     this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
-        alert('se elimino la OrdenPedido'); });
+    this.modalDialogService.openDialog(this.viewRef,
+        {
+            title: 'Eliminar un ordenPedido',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Está seguro de querer eliminar la ordenPedido?'},
+            actionButtons: [
+                {
+                    text: 'Si',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () =>
+                    {
+                        this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
+                            alert('se elimino la OrdenPedido')}, 
+                            err =>
+                        {
+                            alert("Error eliminado la ordenPedido" + err);
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
+    
 }
 
 

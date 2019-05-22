@@ -1,8 +1,11 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, ViewContainerRef } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { OrdenPedidoService } from "../orden-pedido.service";
 import {  OrdenPedido} from "../OrdenPedido";
 import {ToastrService} from 'ngx-toastr';
+import { compileNgModule } from "@angular/core/src/render3/jit/module";
+import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
+
 
 @Component({
     selector: 'app-orden-pedido-detail-vendedor',
@@ -15,7 +18,8 @@ import {ToastrService} from 'ngx-toastr';
   export class OrdenPedidoDetailVendedor implements OnInit {
   
     /**
-     * 
+     * @param modalDialogService
+      *@param viewRef
      * @param route 
      * @param service 
      *    @param toastrService The toastr to show messages to the user
@@ -24,12 +28,17 @@ import {ToastrService} from 'ngx-toastr';
     constructor(
         private route:ActivatedRoute,
         private service: OrdenPedidoService,
-        private toastrService: ToastrService
-   
-    )
+        private toastrService: ToastrService,
+        private viewRef: ViewContainerRef,
+        private modalDialogService: ModalDialogService
+        )
+
+    
     {
 
     }
+
+    fecha:Boolean =true ;
 
     /**
      * La ordenPedido.
@@ -65,23 +74,51 @@ import {ToastrService} from 'ngx-toastr';
         if(this.ordenPedidoId.estado=="ACEPTADO"){
             alert("por favor agrege una fecha estimada de entrega")
             
-        }
+            this.fecha= false ;
+           
+    }
         if(this.ordenPedidoId.estado=="RECHAZADO"){
+
             alert("por favor agrege un comentario de rechazo")
+            this.fecha=true ;
         }
 
     }  , err => {
             this.toastrService.error(err, 'Error');
+           
             alert(err);
          
         }    );
 
-        
-}
+    
+    }
+
 
 deleteOrdenPedido(): void {
-     this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
-        alert('se elimino la OrdenPedido'); });
+    this.modalDialogService.openDialog(this.viewRef,
+        {
+            title: 'Eliminar un ordenPedido',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Está seguro de querer eliminar la ordenPedido?'},
+            actionButtons: [
+                {
+                    text: 'Si',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () =>
+                    {
+                        this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
+                            alert('se elimino la OrdenPedido')}, 
+                            err =>
+                        {
+                            alert("Error eliminado la ordenPedido" + err);
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
+    
 }
 
     /**
