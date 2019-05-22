@@ -1,27 +1,52 @@
+<!--<div class="container-fluid">-->
+<!--    <div class="row profile" style="text-align: center;">-->
+<!--        <div class="">-->
+<!--            <div class="profile-sidebar">-->
+<!--                <div class="profile-user-pic">-->
+<!--                    <img src="{{compradorDetail.foto}}" alt="" class="img-responsive img-circle">-->
+<!--                </div>-->
+<!--                <hr>-->
+<!--                <div class="profile-user-title">-->
+<!--                    <div class="profile-user-name">-->
+<!--                        {{compradorDetail.nombre}}-->
+<!--                    </div>-->
+<!--                    <div class="profile-user-email">-->
+<!--                        {{compradorDetail.correoElectronico}}-->
+<!--                    </div>-->
+<!--                    <div class="profile-user-int">-->
+<!--                        {{compradorDetail.intereses}}-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="profile-user-buttons">-->
+<!--                    <button class="btn btn-outline-dark btn-sm" routerLink="/comprador/{{compradorDetail.id}}/edit">-->
+<!--                        Editar-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
 <div class="container-fluid">
-    <div class="row profile" style="text-align: center;">
-        <div class="">
-            <div class="profile-sidebar">
-                <div class="profile-user-pic">
-                    <img src="{{compradorDetail.foto}}" alt="" class="img-responsive img-circle">
+    <div class="row">
+        <div class="card middle">
+            <div class="top-section">
+                <img src="{{compradorDetail.foto}}" alt="">
+                <div class="menuicon" routerLink="/comprador/{{compradorDetail.id}}/edit">
+                    <span class="s1"></span>
+                    <span class="s2"></span>
                 </div>
-                <hr>
-                <div class="profile-user-title">
-                    <div class="profile-user-name">
-                        {{compradorDetail.nombre}}
-                    </div>
-                    <div class="profile-user-email">
-                        {{compradorDetail.correoElectronico}}
-                    </div>
-                    <div class="profile-user-int">
-                        {{compradorDetail.intereses}}
-                    </div>
+                <div class="name">
+                    {{compradorDetail.nombre}}
                 </div>
-                <div class="profile-user-buttons">
-                    <button class="btn btn-outline-dark btn-sm" routerLink="/comprador/{{compradorDetail.id}}/edit">
-                        Editar
-                    </button>
-                </div>
+            </div>
+            <div class="info-section">
+                <h2>About
+                    <div class="border"></div>
+                </h2>
+                <p><strong>Tus intereses: </strong><br>{{compradorDetail.intereses}}</p>
+                <p><strong>Tu email: </strong><br>{{compradorDetail.correoElectronico}}</p>
+                <p><strong>Tu alias: </strong><br>{{compradorDetail.alias}}</p>
             </div>
         </div>
     </div>
