@@ -46,5 +46,20 @@ table.blueTable tfoot .links a{
 }
  
   
+  .boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #5cb2da;
+    border-radius: 6px;
+    border: 1px solid #eeeef1;
+  }
+  .boton_personalizado:hover{
+    color: #000608;
+    background-color: #ffffff;
+    border: 1px solid #00000a;
 
+  }
 

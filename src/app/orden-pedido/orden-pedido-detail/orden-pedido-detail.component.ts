@@ -55,16 +55,19 @@ export class OrdenPedidoDetailComponent implements OnInit {
      */
     updateOrdenPedido(): void {
 
-        this.service.updateOrdenPedido(this.ordenPedidoId)
-            .subscribe(() => {
+    this.service.updateOrdenPedido(this.ordenPedidoId)
+        .subscribe(() => {
+            alert("se a actualizado la orden")
+            })
+        err => {alert("Error: " + err)
+    } ;
+}
 
-            });
-    }
-
-    deleteOrdenPedido(): void {
-        this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {
-            alert('se elimino la OrdenPedido'); });
-    }
+deleteOrdenPedido(): void {
+    
+     this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
+        alert('se elimino la OrdenPedido'); });
+}
 
     /**
      * Se utiliza este metodo para inicialiazr el componente

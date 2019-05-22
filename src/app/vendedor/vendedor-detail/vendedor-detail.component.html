@@ -98,7 +98,7 @@
             <app-vendedor-add-calificacion  [vendedor]="vendedorDetail" (updateCalificaciones)="updateCalificaciones()"></app-vendedor-add-calificacion>
             <div class="col-md-3">
                 <p>
-                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': calificacionAddComponent.isCollapsed,'btn-outline-primary':!calificacionAddComponent.isCollapsed}" (click)="toggleCreateCalificacion()"  *ngxPermissionsOnly="['Comprador','Administrador']">
+                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': calificacionAddComponent.isCollapsed,'btn-outline-primary':!calificacionAddComponent.isCollapsed}" (click)="toggleCreateCalificacion()"  *ngxPermissionsOnly="['Comprador','ADMIN']">
                             Calificar
                 </button>
             </p>

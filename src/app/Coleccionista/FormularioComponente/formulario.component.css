@@ -14,7 +14,6 @@ hr
     width: 60%;
     z-index: 30;
     position: absolute;
-    text-align: center;
 }
 
 .box textarea
@@ -28,11 +27,11 @@ input[type=email] {
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #000000;
+    border: 2px solid #3498db;
     padding: 14px 10px;
     width: 90%;
     outline: none;
-    color: black;
+    color: white;
     border-radius: 10px;
     transition: 0.25s;
 }
@@ -40,25 +39,23 @@ input[type=email] {
 *
 {
     font-weight: 400;
-    color: black;
+    color: white;
 }
 
 button:hover {
-    text-shadow: 2px 2px 0 rgba(0,0,0,.3)
+    text-shadow: 2px 2px 0px rgba(0,0,0,.3)
 }
 
 .box textarea:focus, .box input[type=text]:focus,
 .box input[type=password]:focus, .box input[type=email]:focus
 {
     width: 100%;
-    /*border-color: #2ecc71;*/
-    box-shadow: none;
+    border-color: #2ecc71;
 }
 
 .titulo, label
 {
     transition: text-shadow .3s ease-in-out;
-    color: black;
 }
 
 .titulo:hover, label:hover
@@ -75,10 +72,11 @@ img {
     margin: 15px;
     transition: 0.2s ease-in-out;
     cursor: pointer;
-    border-radius: 10px;
+    /*background-color: whitesmoke;*/
+    /*box-shadow: 0 0 16px rgba(0, 68, 255, 0.5);*/
+    border-radius: 10%;
     background: none;
-    border: 2px solid black;
-    display: inline-block;
+    border: 2px solid #3498db;
 }
 
 img:hover {
@@ -98,30 +96,30 @@ img:hover {
 #inlineRadio10:checked + label > img , #inlineRadio11:checked + label > img, #inlineRadio12:checked + label > img, #inlineRadio13:checked + label > img, #inlineRadio14:checked + label > img,
 #inlineRadio15:checked + label > img , #inlineRadio16:checked + label > img, #inlineRadio17:checked + label > img, #inlineRadio18:checked + label > img, #inlineRadio19:checked + label > img,
 #inlineRadio20:checked + label > img , #inlineRadio21:checked + label > img, #inlineRadio22:checked + label > img, #inlineRadio23:checked + label > img, #inlineRadio24:checked + label > img{
-    background-color: black;
+    background-color: rgb(52, 152, 219);
 }
 
 .box button[type = "submit"]
 {
     background: none;
-    display: inline-block;
+    display: block;
     margin: 20px auto;
     text-align: center;
-    /*border: 2px solid black;*/
+    border: 2px solid #2ecc71;
     padding: 14px 40px;
-    /*outline: none;*/
-    color: black;
-    /*border-radius: 10px;*/
-    /*transition: 0.25s;*/
-    border-color: black;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    transition: 0.25s;
 }
 
 .box button[type = "cancel"]
 {
-    background: black;
-    display: inline-block;
+    background: none;
+    display: block;
     margin: 20px auto;
     text-align: center;
+    border: 2px solid #c0392b;
     padding: 14px 40px;
     /*    outline: none;*/
     color: white;
@@ -131,8 +129,12 @@ img:hover {
 
 .box button[type = "submit"]:hover
 {
-    background: black;
-    color: white;
+    background: #2ecc71;
+}
+
+.box button[type = "cancel"]:hover
+{
+    background: #c0392b;
 }
 
 /*#inlineRadio5,  #inlineRadio6, #inlineRadio7, #inlineRadio8, #inlineRadio9{*/

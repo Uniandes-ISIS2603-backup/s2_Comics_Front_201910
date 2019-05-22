@@ -2,6 +2,7 @@ import {Component, Input, OnInit, ViewContainerRef} from "@angular/core";
 import {CompradorService} from "../comprador.service";
 import {ActivatedRoute} from "@angular/router";
 import {Comic} from "../../Comic/Comic";
+import {log} from "util";
 import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
 import { Comprador } from "../comprador";
 import { OrdenPedido } from "../../orden-pedido/OrdenPedido";
@@ -83,36 +84,34 @@ export class CompradorComicsListComponent implements  OnInit
 
     createOrdenPedido():void
     {
-        alert("llegue")
-
         for (let i in this.compradorComics) {
-
 
             this.ordenPedido = new OrdenPedido();
             this.ordenPedido.id=11;
             this.ordenPedido.comentario="comentario";
-
             this.ordenPedido.estado='EN_ESPERA';
-
-            this.ordenPedido.fechaEstimadaEntrega="2018/05/01";
-            this.ordenPedido.numeroComprasComprador= 0;
-            this.ordenPedido.tarjetaCredito=this.tarjeta;
-            alert(this.seleccion)
+           this.ordenPedido.fechaEstimadaEntrega="2018/05/01";
+           this.ordenPedido.numeroComprasComprador= 0;
+           this.ordenPedido.tarjetaCredito=this.tarjeta;
+           this.ordenPedido.comic=this.compradorComics[i];
+          
+          
+           if(!this.ordenPedido.comic.enVenta)
+           {
             this.ordenPedido.trueque = this.vendedorComics[this.seleccion];
+          }
 
-            this.ordenPedido.comprador=this.comprador;
-            this.ordenPedido.comic=this.compradorComics[i];
-
-            this.ordenPedido.vendedor= this.compradorComics[i].vendedor;
-
-
-
-            alert("llegue2")
-
-            this.ordenPedidoService.createOrdenPedido(this.ordenPedido).subscribe(ordenPedido=>
+          
+          
+          this.ordenPedido.comprador=this.comprador;
+          
+          this.ordenPedido.vendedor= this.compradorComics[i].vendedor;
+          
+           this.ordenPedidoService.createOrdenPedido(this.ordenPedido).subscribe(ordenPedido=>
             {
                 this.ordenPedido = ordenPedido;
             });
+        alert("se creo la OrdenPedido")
         }
 
     }

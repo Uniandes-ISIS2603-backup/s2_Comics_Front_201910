@@ -1,7 +1,7 @@
 import {Vendedor} from "../vendedor/vendedor";
+import {Comic} from "../comic/comic";
 import {Comprador} from "../Comprador/comprador";
-import {Comic} from "../Comic/Comic";
-
+    
 export class OrdenPedido {
 
     /**

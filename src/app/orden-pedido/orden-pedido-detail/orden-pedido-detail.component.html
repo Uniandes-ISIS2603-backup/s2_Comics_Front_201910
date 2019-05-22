@@ -1,20 +1,20 @@
 
 <div class="container-fluid">
-    <table class="table table-hover" style="border-collapse: collapse;"  WIDTH="100%">
-        <thead class="thead-dark">
-        <tr>
-            <th>OrdenPedido id</th>
-            <th> estado</th>
-            <th> comprador</th>
-            <th> vendedor</th>
-            <th> comic</th>
-            <th> trueque</th>
-            <th> tarjetaCredito</th>
-            <th> numeroCompras</th>
-            <th> Comentario</th>
-            <th> cambiar estado</th>
-            <th> cambiar comentario</th>
-        </tr>
+            <table class="table table-hover" style="border-collapse: collapse;"  WIDTH="100%">
+                    <tr>
+                <thead class="thead-dark">
+                        <th>OrdenPedido id</th>
+                        <th> estado</th>
+                        <th> comprador</th>
+                        <th> vendedor</th>
+                        <th> comic</th>
+                        <th *ngIf="!ordenPedidoId.comic.enVenta"> trueque</th>
+                <th *ngIf="ordenPedidoId.comic.enVenta"> precio</th>
+                 <th> tarjetaCredito</th>
+                        <th> Comentario</th>
+                        <th> cambiar estado</th>
+                        <th> cambiar comentario</th>
+                        </tr>
 
         </thead>
         <tbody>
