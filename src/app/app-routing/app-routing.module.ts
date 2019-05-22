@@ -15,7 +15,6 @@ import { VendedorDetailComponent } from '../vendedor/vendedor-detail/vendedor-de
 import { VendedorEditComponent } from '../vendedor/vendedor-edit/vendedor-edit.component';
 import { VendedorOrdenPedidoListComponent } from '../vendedor/vendedor-orden-pedido-list/vendedor-orden-pedido-list.component';
 
-import { ComicCreateComponent } from '../comic/comic-create/comic-create.component';
 
 import { ComicDeseoListComponent } from '../ComicDeseo/ComicDeseo-List/comicDeseo-list.component';
 import { ComicDeseoDetailComponent } from '../ComicDeseo/comicDeseo-detail/comicdeseo-detail.component';
@@ -30,9 +29,10 @@ import {OrdenPedidoDetailVendedor} from '../orden-pedido/orden-pedido-detail-ven
 
 import {LogInComponent} from "../Coleccionista/LogInComponente/logIn.component";
 import {CompradorComicsListComponent} from "../Comprador/comprador-comics/comprador-comics.component";
-import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
-import { ComicUpdateComponent } from '../comic/comic-update/comic-update.component';
-import { ComicListComponent } from '../comic/comic-list/comic-list.component';
+import { ComicDetailComponent } from '../Comic/comic-detail/comic-detail.component';
+import { ComicUpdateComponent } from '../Comic/comic-update/comic-update.component';
+import { ComicListComponent } from '../Comic/comic-list/comic-list.component';
+import { ComicCreateComponent } from '../Comic/comic-create/comic-create.component';
 
 
 const routes: Routes = [
