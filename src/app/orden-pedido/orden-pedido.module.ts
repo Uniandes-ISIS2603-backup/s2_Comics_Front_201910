@@ -24,17 +24,17 @@ import { CreateComponent } from './create/create.component';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        
+
     ],
     declarations: [
-     OrdenPedidoListComponent,
-     OrdenPedidoListComVenComponent,
-     OrdenPedidoDetailComponent,
-     OrdenPedidoDetailVendedor,
-     OrdenPedidoDetailComprador,
-     CreateComponent],
+        OrdenPedidoListComponent,
+        OrdenPedidoListComVenComponent,
+        OrdenPedidoDetailComponent,
+        OrdenPedidoDetailVendedor,
+        OrdenPedidoDetailComprador,
+        CreateComponent],
     exports:[OrdenPedidoListComponent,OrdenPedidoListComVenComponent,OrdenPedidoDetailComponent],
     providers: [OrdenPedidoService],
-   })
+})
 
 export class OrdenPedidoModule { }

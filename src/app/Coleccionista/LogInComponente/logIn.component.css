@@ -150,12 +150,12 @@
 }
 
 .alert i
- {
-     color: #c0392b;
-     font-size: 40px;
-     display: block;
-     margin: 20px 0;
- }
+{
+    color: #c0392b;
+    font-size: 40px;
+    display: block;
+    margin: 20px 0;
+}
 
 .alert
 {

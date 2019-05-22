@@ -5,15 +5,11 @@ import {Comic} from "../../Comic/Comic";
 import {log} from "util";
 import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
 import { Comprador } from "../comprador";
-import { Observable } from "rxjs";
-import { CompradorDetail } from "../comprador-detail";
 import { OrdenPedido } from "../../orden-pedido/OrdenPedido";
 import { Vendedor } from "../../vendedor/vendedor";
 import {VendedorService} from "../../vendedor/vendedor.service";
 import {OrdenPedidoService} from "../../orden-pedido/orden-pedido.service";
-import { variable } from "@angular/compiler/src/output/output_ast";
-import { ComicService } from "../../comic/comic.service";
-import { isInteger } from "@ng-bootstrap/ng-bootstrap/util/util";
+import {ComicService} from "../../Comic/comic.service";
 
 @Component({
     selector: 'app-comprador-comics',
@@ -31,10 +27,10 @@ export class CompradorComicsListComponent implements  OnInit
      * @param modalDialogService
      */
     constructor(private compradorService: CompradorService,
-        private vendedorService: VendedorService,
-        private ordenPedidoService:OrdenPedidoService,
-        private comicService: ComicService,
-      
+                private vendedorService: VendedorService,
+                private ordenPedidoService:OrdenPedidoService,
+                private comicService: ComicService,
+
                 private route: ActivatedRoute,
                 private viewRef: ViewContainerRef,
                 private modalDialogService: ModalDialogService)
@@ -47,11 +43,11 @@ export class CompradorComicsListComponent implements  OnInit
      */
     @Input() compradorComics: Comic[];
 
-    
+
     ordenPedido:OrdenPedido;
     seleccion:any;
     tarjeta:String;
-    
+
     @Input() vendedorComics: Comic[];
     @Input() comprador:Comprador;
     @Input() vendedor:Vendedor;
@@ -71,32 +67,29 @@ export class CompradorComicsListComponent implements  OnInit
     getComprador():void
     {
         this.compradorService.getCompradorDetail(this.compradorId).subscribe(comprador=>
-            {
-                this.comprador = comprador;
-            });
+        {
+            this.comprador = comprador;
+        });
     }
 
     getComicsComprador(): void
     {
-    
-            this.vendedorService.getComicsVendedor(this.compradorId).subscribe(lista=>
-            {
-                this.vendedorComics = lista;
-            });
+
+        this.vendedorService.getComicsVendedor(this.compradorId).subscribe(lista=>
+        {
+            this.vendedorComics = lista;
+        });
     }
 
-    
+
     createOrdenPedido():void
     {
         for (let i in this.compradorComics) {
-            
-            
-           this.ordenPedido = new OrdenPedido();
-           this.ordenPedido.id=11;
-           this.ordenPedido.comentario="comentario";
-           
-          this.ordenPedido.estado='EN_ESPERA';
 
+            this.ordenPedido = new OrdenPedido();
+            this.ordenPedido.id=11;
+            this.ordenPedido.comentario="comentario";
+            this.ordenPedido.estado='EN_ESPERA';
            this.ordenPedido.fechaEstimadaEntrega="2018/05/01";
            this.ordenPedido.numeroComprasComprador= 0;
            this.ordenPedido.tarjetaCredito=this.tarjeta;
@@ -167,7 +160,7 @@ export class CompradorComicsListComponent implements  OnInit
     {
         this.compradorId = +this.route.snapshot.paramMap.get('id');
         // console.log("Este es el id del comprador: " + this.compradorId);
-       this.getComprador();
+        this.getComprador();
         this.getComics();
         this.getComicsComprador();
     }

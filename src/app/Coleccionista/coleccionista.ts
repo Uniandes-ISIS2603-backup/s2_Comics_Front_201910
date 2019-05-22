@@ -34,7 +34,7 @@ export abstract class Coleccionista
     nombre:string;
 
     /**
-     * 
+     *
      */
     password:string;
 }

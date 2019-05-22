@@ -18,18 +18,18 @@ and open the template in the editor.
 
 
 <table class="table">
-   <!-- <thead>-->
-     <!-- <tr>-->
-      <!--  <th scope="col">#</th>-->
-      <!--  <th scope="col"></th>-->
-      <!--  <th scope="col"></th>-->
-      <!--  <th scope="col"></th>-->
-      <!--  <th scope="col"></th>-->
-     <!-- </tr>-->
-   <!-- </thead>-->
+    <!-- <thead>-->
+    <!-- <tr>-->
+    <!--  <th scope="col">#</th>-->
+    <!--  <th scope="col"></th>-->
+    <!--  <th scope="col"></th>-->
+    <!--  <th scope="col"></th>-->
+    <!--  <th scope="col"></th>-->
+    <!-- </tr>-->
+    <!-- </thead>-->
     <tbody>
-      <tr *ngFor = "let cD of comicsDeseo">
-        
+    <tr *ngFor = "let cD of comicsDeseo">
+
         <td>
         <div class="row">
          <!-- <div class="col" ><div class="imgCD" [routerLink] ="['/comicsdeseo', { outlets: { 'detail': [cD.id] } }]"><img src= {{cD.ruta}} height=180px; width=120px /></div></div>-->
@@ -43,19 +43,22 @@ and open the template in the editor.
             <div class="col-2"><button type="button" class="btn btn-dark">Quitar</button></div>
             <div class="col-11"></div>
 
-          </div>
-        
-        </div>
-            
-         </div>
+                        <div class="col-2"><button type="button" class="btn btn-danger">Quitar</button></div>
+                        <div class="col-11"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
         </td>
-        
-        
-        
-      </tr>
-      
+
+
+
+    </tr>
+
     </tbody>
-  </table>
+</table>
   
 
 
