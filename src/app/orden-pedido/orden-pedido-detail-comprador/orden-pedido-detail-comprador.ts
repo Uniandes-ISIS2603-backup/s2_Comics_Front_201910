@@ -22,20 +22,20 @@ export class OrdenPedidoDetailComprador implements OnInit {
 
     /**
      *  @param modalDialogService
-      *@param viewRef
-    
-     * @param route 
-     * @param service 
+     *@param viewRef
+
+     * @param route
+     * @param service
      *  @param toastrService The toastr to show messages to the user
 
      */
     constructor(
         private route:ActivatedRoute,
         private service: OrdenPedidoService,
-        private toastrService: ToastrService, 
-         private viewRef: ViewContainerRef,
+        private toastrService: ToastrService,
+        private viewRef: ViewContainerRef,
         private modalDialogService: ModalDialogService
-      
+
     )
     {
 
@@ -74,52 +74,42 @@ export class OrdenPedidoDetailComprador implements OnInit {
      */
     updateOrdenPedido(): void {
 
-     
-    this.service.updateOrdenPedido(this.ordenPedidoId)
-        .subscribe(ordenPedido =>{} , err => {
-            this.toastrService.error(err, 'Error');
-            alert(err);
-           
-        });
-        
-}
 
-deleteOrdenPedido(): void {
-    this.modalDialogService.openDialog(this.viewRef,
-        {
-            title: 'Eliminar un ordenPedido',
-            childComponent: SimpleModalComponent,
-            data: {text: 'Está seguro de querer eliminar la ordenPedido?'},
-            actionButtons: [
-                {
-                    text: 'Si',
-                    buttonClass: 'btn btn-danger',
-                    onAction: () =>
-                    {
-                        this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
-                            alert('se elimino la OrdenPedido')}, 
-                            err =>
-                        {
-                            alert("Error eliminado la ordenPedido" + err);
-                        });
-                        return true;
-                    }
-                },
-                {text: 'No', onAction: () => true}
-            ]
-        });
-    
-}
+        this.service.updateOrdenPedido(this.ordenPedidoId)
+            .subscribe(ordenPedido =>{} , err => {
+                this.toastrService.error(err, 'Error');
+                alert(err);
 
             });
 
     }
 
     deleteOrdenPedido(): void {
-        this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {
-            alert('se elimino la OrdenPedido'); });
-    }
+        this.modalDialogService.openDialog(this.viewRef,
+            {
+                title: 'Eliminar un ordenPedido',
+                childComponent: SimpleModalComponent,
+                data: {text: 'Está seguro de querer eliminar la ordenPedido?'},
+                actionButtons: [
+                    {
+                        text: 'Si',
+                        buttonClass: 'btn btn-danger',
+                        onAction: () =>
+                        {
+                            this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {
+                                    alert('se elimino la OrdenPedido')},
+                                err =>
+                                {
+                                    alert("Error eliminado la ordenPedido" + err);
+                                });
+                            return true;
+                        }
+                    },
+                    {text: 'No', onAction: () => true}
+                ]
+            });
 
+    }
 
 
     /**

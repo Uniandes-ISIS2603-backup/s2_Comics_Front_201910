@@ -19,9 +19,9 @@ export class OrdenPedidoDetailVendedor implements OnInit {
 
     /**
      * @param modalDialogService
-      *@param viewRef
-     * @param route 
-     * @param service 
+     *@param viewRef
+     * @param route
+     * @param service
      *    @param toastrService The toastr to show messages to the user
 
      */
@@ -31,9 +31,9 @@ export class OrdenPedidoDetailVendedor implements OnInit {
         private toastrService: ToastrService,
         private viewRef: ViewContainerRef,
         private modalDialogService: ModalDialogService
-        )
+    )
 
-    
+
     {
 
     }
@@ -69,21 +69,21 @@ export class OrdenPedidoDetailVendedor implements OnInit {
      */
     updateOrdenPedido(): void {
 
-    this.service.updateOrdenPedido(this.ordenPedidoId)
-        .subscribe(ordenPedido =>{ alert("se ha actualizado la orden")
-        if(this.ordenPedidoId.estado=="ACEPTADO"){
-            alert("por favor agrege una fecha estimada de entrega")
-            
-            this.fecha= false ;
-           
-    }
-        if(this.ordenPedidoId.estado=="RECHAZADO"){
+        this.service.updateOrdenPedido(this.ordenPedidoId)
+            .subscribe(ordenPedido => {
+                alert("se ha actualizado la orden")
+                if (this.ordenPedidoId.estado == "ACEPTADO") {
+                    alert("por favor agrege una fecha estimada de entrega")
 
-            alert("por favor agrege un comentario de rechazo")
-            this.fecha=true ;
-        }
+                    this.fecha = false;
 
                 }
+                if (this.ordenPedidoId.estado == "RECHAZADO") {
+
+                    alert("por favor agrege un comentario de rechazo")
+                    this.fecha = true;
+                }
+
                 if (this.ordenPedidoId.estado == "RECHAZADO") {
                     alert("por favor agrege un comentario de rechazo")
                 }
@@ -94,43 +94,33 @@ export class OrdenPedidoDetailVendedor implements OnInit {
 
             });
 
-
-        this.service.updateOrdenPedido(this.ordenPedidoId).subscribe(ordenPedido => {
-        }, err => {
-            this.toastrService.error(err, 'Error');
-           
-            alert(err);
-
-    
     }
-
-
-deleteOrdenPedido(): void {
-    this.modalDialogService.openDialog(this.viewRef,
-        {
-            title: 'Eliminar un ordenPedido',
-            childComponent: SimpleModalComponent,
-            data: {text: 'Está seguro de querer eliminar la ordenPedido?'},
-            actionButtons: [
-                {
-                    text: 'Si',
-                    buttonClass: 'btn btn-danger',
-                    onAction: () =>
+    deleteOrdenPedido(): void {
+        this.modalDialogService.openDialog(this.viewRef,
+            {
+                title: 'Eliminar un ordenPedido',
+                childComponent: SimpleModalComponent,
+                data: {text: 'Está seguro de querer eliminar la ordenPedido?'},
+                actionButtons: [
                     {
-                        this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
-                            alert('se elimino la OrdenPedido')}, 
-                            err =>
+                        text: 'Si',
+                        buttonClass: 'btn btn-danger',
+                        onAction: () =>
                         {
-                            alert("Error eliminado la ordenPedido" + err);
-                        });
-                        return true;
-                    }
-                },
-                {text: 'No', onAction: () => true}
-            ]
-        });
-    
-}
+                            this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {
+                                    alert('se elimino la OrdenPedido')},
+                                err =>
+                                {
+                                    alert("Error eliminado la ordenPedido" + err);
+                                });
+                            return true;
+                        }
+                    },
+                    {text: 'No', onAction: () => true}
+                ]
+            });
+
+    }
 
     /**
      * Se utiliza este metodo para inicialiazr el componente

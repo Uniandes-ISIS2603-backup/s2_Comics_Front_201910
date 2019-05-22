@@ -9,8 +9,8 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
 
 @Component({
     selector: 'app-comic-list',
-    templateUrl: './comic-list.component.html',
-    styleUrls: ['./comic-list.component.css']
+    templateUrl: './Comic-list.component.html',
+    styleUrls: ['./Comic-list.component.css']
 })
 export class ComicListComponent implements OnInit {
 

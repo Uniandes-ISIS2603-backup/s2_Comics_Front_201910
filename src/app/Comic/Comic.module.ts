@@ -7,11 +7,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng5SliderModule } from 'ng5-slider';
 
 import { ComicService } from './comic.service';
-import { ComicListComponent } from './comic-list/comic-list.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { ComicUpdateComponent } from './comic-update/comic-update.component';
-import {ComicListComponent} from "./Comic-list/Comic-List.component";
 import { ComicCreateComponent } from './comic-create/comic-create.component';
+import {ComicListComponent} from "./Comic-list/Comic-List.component";
 
 
 

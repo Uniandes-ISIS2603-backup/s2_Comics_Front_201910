@@ -11,7 +11,7 @@ import {ComicDeseoService} from '../comicDeseo.service';
 
 @Component({
     selector:'list-comicDeseo',
-    templateUrl:'./comicDeseo-List.component.html',
+    templateUrl:'./comicDeseo-list.component.html',
     styleUrls:['./comicDeseo-List.component.css']
 
 })
