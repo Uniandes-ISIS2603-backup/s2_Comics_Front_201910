@@ -6,7 +6,8 @@ import { VendedorDetail } from '../vendedor-detail';
 import {VendedorCalificacionesComponent} from '../Vendedor-Calificaciones/vendedor-calificaciones.component';
 import {VendedorAddCalificacionComponent} from '../vendedor-add-calificacion/vendedor-add-calificacion.component';
 import {VendedorComicsComponent} from '../vendedor-comic/vendedor-comic.component';
-
+import {VendedorComicListComponent} from '../vendedor-comic-list/vendedor-comic-list.component';
+import {Comic} from '../../comic/comic';
 import { Vendedor } from '../vendedor';
 
 @Component({
@@ -21,9 +22,9 @@ export class VendedorDetailComponent implements OnInit {
         private vendedorService: VendedorService,
           private viewRef: ViewContainerRef
   ) { }
-
+  rol: String = localStorage.getItem("role");
 cambiar:boolean=true;
-
+comics:Comic[];
 vendedorId: number;
  vendedorDetail: VendedorDetail;
 
@@ -38,6 +39,7 @@ vendedorId: number;
     @ViewChild(VendedorCalificacionesComponent) calificacionListComponent: VendedorCalificacionesComponent;
     @ViewChild(VendedorAddCalificacionComponent) calificacionAddComponent: VendedorAddCalificacionComponent;
     @ViewChild(VendedorComicsComponent) comicsComponent: VendedorComicsComponent;
+    @ViewChild(VendedorComicListComponent)comicListComponent: VendedorComicListComponent;
     //metodo para ocultar el componente de crear una calificacion
        toggleCreateCalificacion(): void {
       

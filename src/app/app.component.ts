@@ -16,12 +16,16 @@ export class AppComponent implements OnInit {
      */
     title: String;
 
+    rol: String = localStorage.getItem("role");
+   
+    id: String= localStorage.getItem("user");
     /**
      * Assigns a title to the web page
      */
     ngOnInit(): void {
         this.title = "Tienda de Comics";
         this.authService.start();
+       
     }
 
     /**

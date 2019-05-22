@@ -12,12 +12,13 @@
                         <a class="nav-link" href="#">Comics Melos<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/vendedores">Atrás</a>
+                        
+                        <a class="nav-link" (click)="comicsComponent.isCollapsed=!comicsComponent.isCollapsed" style="cursor:pointer">Añadir comic</a>
                     </li>
                     <li class="nav-item">
-                        
-                            <a class="nav-link" (click)="comicsComponent.isCollapsed=!comicsComponent.isCollapsed" style="cursor:pointer">Añadir comic</a>
-                        </li>
+                        <a class="nav-link" routerLink="/vendedores/list">Atrás</a>
+                    </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -25,9 +26,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             
-                            <a class="dropdown-item" href="#">Ordenes</a>
+                            <a class="dropdown-item"  routerLink="/vendedores/{{vendedorDetail.id}}/pedidos">Ordenes</a>
                             <a href="#" class="dropdown-item" (click)=" calificacionListComponent.isCollapsed = !calificacionListComponent.isCollapsed">Calificaciones  <span class="badge badge-primary badge-pill ">{{calificacionListComponent.vendedorCalificaciones?.length}}</span></a>
-                            <a class="dropdown-item" routerLink="/comic/list">Comics</a>
+                            <a class="dropdown-item" (click)="comicListComponent.isCollapsed=!comicListComponent.isCollapsed">Comics</a>
 
                            
                             <div class="dropdown-divider"></div>
@@ -69,6 +70,7 @@
 <br>
 <div class="row"><div class="col-md-2">
    <app-vendedor-comics></app-vendedor-comics>
+  
     </div>
         <div class="col-md-6">
             <h4>Información básica</h4>
@@ -96,7 +98,7 @@
 <app-vendedor-add-calificacion  [vendedor]="vendedorDetail" (updateCalificaciones)="updateCalificaciones()"></app-vendedor-add-calificacion>
        <div class="col-md-3">
                 <p>
-                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': calificacionAddComponent.isCollapsed,'btn-outline-primary':!calificacionAddComponent.isCollapsed}" (click)="toggleCreateCalificacion()">
+                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': calificacionAddComponent.isCollapsed,'btn-outline-primary':!calificacionAddComponent.isCollapsed}" (click)="toggleCreateCalificacion()"  *ngxPermissionsOnly="['Comprador','Administrador']">
                             Calificar
                 </button>
             </p>
@@ -111,7 +113,7 @@
 
 </div>
 
-       
+<app-vendedor-comic-list></app-vendedor-comic-list>    
 </div>
 
-<router-outlet></router-outlet>
+<router-outlet ></router-outlet>

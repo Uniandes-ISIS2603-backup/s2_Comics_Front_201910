@@ -2,7 +2,7 @@
 
 <div class="center">
     <form class="box" [formGroup]="registrationForm" (ngSubmit)="onRegistrationFormSubmit()" novalidate>
-        <h1 class="titulo" style="text-align: center; color: white;">Formulario de creación de coleccionista</h1>
+        <h1 class="titulo" style="text-align: center; color: black;">Formulario de creación de coleccionista</h1>
         <hr>
         <div class="form-group">
             <!--                    <div class="col-3"></div>-->
@@ -107,8 +107,6 @@
         </div>
         <br>
         <div class="form-check form-check-inline" style="text-align: center;">
-            <!--                    <div class="col-lg-3 col-md-2 col-sm-1 col-xs-1"></div>-->
-            <!--                    <div class="col-lg-6 col-md-8 col-sm-10 col-xs-10">-->
             <div class="">
                 <label for="">Escoger foto</label>
                 <hr>
@@ -169,15 +167,16 @@
             <!--                    <div class="col-4"></div>-->
             <div class="row">
                 <div class="col-3">
-                    <button type="submit" class="btn green"
+                    <button type="submit" class="btn btn-outline-dark"
                             (click)="onRegistrationFormSubmit()">Enviar</button>
                 </div>
                 <div class="col-6"></div>
                 <div class="col-3">
-                    <button type="cancel" class="btn red" routerLink="/home">Cancelar</button>
+                    <button type="cancel" class="btn btn-dark" routerLink="/home">Cancelar</button>
                 </div>
             </div>
             <!--                    <div class="col-4"></div>-->
         </div>
     </form>
 </div>
+-->

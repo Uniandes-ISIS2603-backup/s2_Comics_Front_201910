@@ -8,6 +8,9 @@ import { Vendedor } from "../../vendedor/vendedor";
 import { VendedorService } from "../../vendedor/vendedor.service";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
+import {TweenMax} from "gsap/TweenMax";
+import {Elastic} from "gsap/all";
+import $ from "jquery";
 const API_URL = '../../../assets/foto_2.json';
 
 @Component({
@@ -231,6 +234,23 @@ export class FormularioComponent implements OnInit
         }
     }
 
+    images():void
+    {
+        $('.btn').on('mouseenter', function()
+        {
+            TweenMax.to(
+                $('.btn'),
+                0.5,
+                {
+                    css:{
+                        transform: 'scale(2)'
+                    },
+                    ease: Elastic.easeInOut
+                })
+            // console.log("Enter");
+        });
+    }
+
     /**
      * Funcion que se activa al momento de cargar la pagina.
      */
@@ -240,7 +260,7 @@ export class FormularioComponent implements OnInit
         this.comprador = new Comprador();
         this.vendedor = new Vendedor();
         this.cargarImagenes();
-
+        // this.images();
         this.myStyle = {
             'position': 'fixed',
             'width': '100%',
@@ -250,7 +270,7 @@ export class FormularioComponent implements OnInit
             'left': 0,
             'right': 0,
             'bottom': 0,
-            'background': 'black'
+            'background': 'white'
         };
 
         this.myParams = {
@@ -264,14 +284,14 @@ export class FormularioComponent implements OnInit
                         }
                 },
                 color: {
-                    value: '#e25822'
+                    value: '#000000'
                 },
                 shape: {
                     type: 'triangle',
                     stroke:
                         {
                             width: 0,
-                            color: '#e25822'
+                            color: '#000000'
                         }
                 },
                 polygon:{
@@ -280,7 +300,7 @@ export class FormularioComponent implements OnInit
                 line_linked:{
                     enable: false,
                     distance: 300,
-                    color: '#e25822',
+                    color: '#000000',
                     opacity: 0.4,
                     width: 2
                 },

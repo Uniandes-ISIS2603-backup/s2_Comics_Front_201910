@@ -29,14 +29,21 @@
            
       </tr>
       <tr>
-          <td><span id="vendedor-calificacado"><b >Comentarios: </b></span><span id="calificacion-comentario" >{{calificacion.comentarios}}</span></td>
+          <td><span id="vendedor-calificado"><b >Comentarios: </b></span><span id="calificacion-comentario" >{{calificacion.comentarios}}</span></td>
          
       </tr>
    
   </tbody>
-  <div class="text-right" style="font-size: 12px">
-      <dd class="figure-caption "(click)=" calificacionEditComponent.isCollapsed = !calificacionEditComponent.isCollapsed;calificacionEditComponent.calificacion.id=calificacion.id">Editar </dd>
-  </div>
+  
+  <div class="row" class="text-right" style="font-size: 12px">
+    
+      <dd  class="figure-caption "(click)=" calificacionEditComponent.isCollapsed = !calificacionEditComponent.isCollapsed;calificacionEditComponent.calificacion.id=calificacion.id" *ngxPermissionsOnly="['Comprador','Administrador']">Editar </dd>
+      <dd class="col-md-1" class="figure-caption "(click)="deleteCalificacion(calificacion.id); "*ngxPermissionsOnly="['Comprador','Administrador']">Eliminar </dd>
+  
+    </div>
+  
+
+
 
 </table>
 

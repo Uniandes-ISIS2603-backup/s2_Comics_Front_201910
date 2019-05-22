@@ -12,9 +12,12 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {VendedorEditCalificacionComponent} from './vendedor-edit-calificacion/vendedor-edit-calificacion.component';
 import {VendedorEditComponent} from './vendedor-edit/vendedor-edit.component';
-import {ComicModule} from '../comic/comic.module';
 import {VendedorComicsComponent} from './vendedor-comic/vendedor-comic.component';
+import {VendedorComicListComponent} from './vendedor-comic-list/vendedor-comic-list.component';
+import {VendedorOrdenPedidoListComponent} from './vendedor-orden-pedido-list/vendedor-orden-pedido-list.component';
 import {ComicService} from './../comic/comic.service';
+import {ComicModule} from './../comic/comic.module';
+import {NgxPermissionsModule} from 'ngx-permissions';
 @NgModule({
     imports: [       
         CommonModule,
@@ -24,11 +27,13 @@ import {ComicService} from './../comic/comic.service';
         HttpClientModule,
         ReactiveFormsModule,
         NgbModule,
-        ComicModule
+        ComicModule,
+       
+        NgxPermissionsModule.forRoot()
     ],
     declarations: [VendedorListComponent,VendedorDetailComponent,
         VendedorCalificacionesComponent,
-         VendedorAddCalificacionComponent,VendedorEditCalificacionComponent, VendedorEditComponent,VendedorComicsComponent],
+         VendedorAddCalificacionComponent,VendedorEditCalificacionComponent, VendedorEditComponent,VendedorComicsComponent,VendedorComicListComponent,VendedorOrdenPedidoListComponent],
     providers: [VendedorService,ComicService],
     exports:[VendedorListComponent,VendedorEditCalificacionComponent]
 })
