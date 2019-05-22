@@ -23,22 +23,22 @@ describe('Service: CompradorService', ()=>
     });
 
     it('#getCompradores debería retornar un valor de Observable',
-        (done: DoneFn)=>
-        {
-            service.getCompradores().subscribe(value =>
+    (done: DoneFn)=>
+    {
+        service.getCompradores().subscribe(value =>
             {
                 expect(value.length).toBeGreaterThan(0);
                 done();
             });
-        });
+    });
 
     it('#getCompradorDetail debería retornar un comprador existente',
-        (done: DoneFn)=>
-        {
-            service.getCompradorDetail(compradores[0].darId()).subscribe(value =>
+    (done: DoneFn)=>
+    {
+        service.getCompradorDetail(compradores[0].darId()).subscribe(value =>
             {
                 expect(value.darAlias()).toEqual(compradores[0].darAlias());
                 done();
             });
-        });
+    });
 });

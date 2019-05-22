@@ -18,16 +18,16 @@ describe('VendedorListComponent', () => {
     let component: VendedorListComponent;
     let fixture: ComponentFixture<VendedorListComponent>;
     const vendedores: Vendedor[] = require('../../../assets/vendedores.json');
-
+    
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [ AppRoutingModule, HttpClientModule, AppModule ],
             declarations: [ ],
             providers: [{provide: APP_BASE_HREF, useValue: ''}, VendedorService ]
         })
-            .compileComponents();
+        .compileComponents();
     }));
-
+    
     beforeEach(() => {
         fixture = TestBed.createComponent(VendedorListComponent);
         component = fixture.componentInstance;
@@ -36,8 +36,8 @@ describe('VendedorListComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
-
-
+    
+    
     it('should have a list of vendedores', () => {
         component.vendedores = vendedores;
         expect(component.vendedores.length).toEqual(vendedores.length);

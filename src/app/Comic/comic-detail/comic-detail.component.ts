@@ -17,20 +17,20 @@ export class ComicDetailComponent implements OnInit {
   id: number;
 
   constructor(
-      private comicService: ComicService,
-      private route: ActivatedRoute
+    private comicService: ComicService,
+    private route: ActivatedRoute
   ) { }
 
   getComicDetail(): void {
     //this.comicService.getComicDetail(this.id).subscribe(det => { this.comic = det; });
     this.comicService.getComics().subscribe(
-        com => {
-          com.forEach((c) => {
-            if(c.id === this.id){
-              this.comic = c;
-            }
-          })
-        });
+      com => {
+        com.forEach((c) => {
+          if(c.id === this.id){
+            this.comic = c;
+          }
+        })
+      });
   }
 
   ngOnInit() {

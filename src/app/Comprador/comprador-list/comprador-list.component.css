@@ -1,66 +1,21 @@
-.row .box
+.cartaCuerpo
 {
-    position: relative;
-    border-radius: 0;
-    margin-left: 30px;
-    margin-top: 30px;
-    /*border: 1px solid #000;*/
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
 }
 
-.row .box:before
+.cartaCuerpo:hover
 {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: #000;
-    z-index: -1;
-    transition: .5s;
+    border-radius: 20px;
+    background: black;
 }
 
-.row .box:nth-child(n):hover:before
+.cartaCuerpo:hover > a.card-link
 {
-    transform: skew(2deg, 2deg);
+    color:white;
 }
 
-.row .box:after
+a.card-link
 {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background: rgba(255, 255, 255, .05);
-    pointer-events: none;
-}
-
-.box a
-{
-    position: relative;
-    /*margin: 20px 0 0;*/
-    padding: 10px 20px;
-    text-decoration: none;
-    border: 1px solid #000;
-    border-radius: 5px;
-    color: #000;
-    transition: .5s;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(35%);
-}
-
-.box:hover a
-{
-    transform: translateX(-50%);
-    opacity: 1;
-    visibility: visible;
-}
-
-.box a:hover
-{
-    background: #000;
-    color: #fff;
+    transition: 0.2s ease-in-out;
 }

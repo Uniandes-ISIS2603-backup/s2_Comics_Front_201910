@@ -19,7 +19,7 @@ const API_URL = environment.apiURL;
 export class CompradorService
 {
     /**
-     * Contructor de la clase
+     * Contructor de la clase 
      * @param http the http del cliente que se necesita para poder realizar peticiones
      */
     constructor(private http: HttpClient)

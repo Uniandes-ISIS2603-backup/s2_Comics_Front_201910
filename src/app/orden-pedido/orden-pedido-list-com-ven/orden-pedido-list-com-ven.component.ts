@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdenPedidoService } from '../orden-pedido.service';
+import { OrdenPedido } from '../ordenPedido';
+import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { Vendedor } from '../../vendedor/vendedor';
 import { Comprador } from '../../Comprador/comprador';
 import { CompradorService } from '../../Comprador/comprador.service';
 import { VendedorService } from '../../vendedor/vendedor.service';
-import {OrdenPedido} from "../OrdenPedido";
+import { JsonpInterceptor } from '@angular/common/http';
 
 
 

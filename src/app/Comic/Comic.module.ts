@@ -7,24 +7,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng5SliderModule } from 'ng5-slider';
 
 import { ComicService } from './comic.service';
+import { ComicListComponent } from './comic-list/comic-list.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { ComicUpdateComponent } from './comic-update/comic-update.component';
 import { ComicCreateComponent } from './comic-create/comic-create.component';
-import {ComicListComponent} from "./Comic-list/Comic-List.component";
-
 
 
 @NgModule({
-    imports: [
-        ReactiveFormsModule,
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        CommonModule,
-        FormsModule,
-        Ng5SliderModule
-    ],
-    declarations: [ComicListComponent, ComicDetailComponent, ComicUpdateComponent, ComicCreateComponent],
-    providers: [ComicService],
+  imports: [
+    ReactiveFormsModule,
+    BrowserModule, 
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+    Ng5SliderModule
+  ],
+  declarations: [ComicListComponent, ComicDetailComponent, ComicUpdateComponent, ComicCreateComponent],
+  providers: [ComicService],
 })
 export class ComicModule { }

@@ -4,8 +4,8 @@
     <h1 style="display: inline-block;">
         Carrito de compras
     </h1>
-    <div class="col-lg-4 col-md-2 col-sm-1 col-xs-1"></div>
-    <button class=" btn btn-dark" routerLink = "/comprador/{{compradorId}}">Atras</button>
+    <div class="col-lg-7 col-md-2 col-sm-2 col-xs-1"></div>
+    <button class=" boton_personalizado" routerLink = "/comprador/{{compradorId}}">Atras</button>
 </div>
 
 <div class="container-fluid">
@@ -42,31 +42,43 @@
                         <li>Año de salida: {{comic.anioSalida}}</li>
                         <li>Autor: {{comic.autor}}</li>
                         <li>Vendedor: {{comic.vendedor.alias}}</li>
-
+                        
                     </td>
-
+  
                     <td>
-                        <select name="trueque" id="trueque" [(ngModel)]="seleccion">
-                            <option   *ngFor="let comic of vendedorComics; let i=index;"  value="{{i}}"   >{{comic.nombre}}</option>
-                        </select>
-                    </td>
+                    <select name="trueque" id="trueque" [(ngModel)]="seleccion" disabled="{{comic.enVenta}}" >
+                        <option   *ngFor="let comic of vendedorComics; let i=index;"  value="{{i}}"   >{{comic.nombre}}</option> 
+                     </select>
+                      </td>
 
                     <td scope="row" >
                         <input type="text" [(ngModel)]="tarjeta" >
                     </td>
 
-                    <td><button class="btn btn-dark" (click)= "deleteComic(comic.id)">
-                        <span class="fa fa-trash"></span>
-                    </button></td>
+                     <td><button class="btn btn-danger" (click)= "deleteComic(comic.id)">
+                            <span class="fa fa-trash"></span>
+                        </button></td> 
+                  
                 </tr>
-
+            
                 </tbody>
+
+               
+
             </table>
         </div>
     </div>
 
+   
+    
+      
+
+
 </div>
 <br>
+<br>
 <div style="width: 330px; margin: 0 auto;">
-    <button type="submit" class="btn btn-outline-dark" (click)=" createOrdenPedido()"  >comprar</button>
+       
+        <button type="submit" class="boton_personalizado" (click)=" createOrdenPedido()"  >comprar</button>
+              
 </div>

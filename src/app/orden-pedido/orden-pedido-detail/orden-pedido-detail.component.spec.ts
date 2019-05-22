@@ -10,7 +10,7 @@ describe('OrdenPedidoDetailComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ OrdenPedidoDetailComponent ]
     })
-        .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {

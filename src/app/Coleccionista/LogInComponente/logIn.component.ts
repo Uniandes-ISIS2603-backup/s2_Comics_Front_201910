@@ -121,9 +121,6 @@ export class LogInComponent implements OnInit {
                     {
                         alert("Error");
                     }
-                }, err =>
-                {
-
                 });
             }
             else if(role == "Vendedor")

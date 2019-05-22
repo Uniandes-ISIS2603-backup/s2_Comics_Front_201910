@@ -19,33 +19,33 @@ const comicsDeseo = 'ComicsDeseo.json';
 
 @Injectable()
 export class ComicDeseoService{
-
+    
     constructor(private http: HttpClient){}
-
-    getComicsDeseo():Observable<ComicDeseo[]>
-    {
-
-        return this.http.get<ComicDeseo[]>(API_URL + comicsDeseo);
-
+        
+        getComicsDeseo():Observable<ComicDeseo[]>
+            {
+            
+            return this.http.get<ComicDeseo[]>(API_URL + comicsDeseo);
+        
     }
 
-
+   
     /**
-     * Returns the Observable object containing the editorial retrieved from the API
-     * @returns The editorial
-     */
-    getComicDeseoDetail(comicDeseoId): Observable<ComicDeseoDetail> {
-        return this.http.get<ComicDeseoDetail>(API_URL +comicsDeseo+'/'+comicDeseoId);
-    }
+    * Returns the Observable object containing the editorial retrieved from the API
+    * @returns The editorial
+    */
+   getComicDeseoDetail(comicDeseoId): Observable<ComicDeseoDetail> {
+    return this.http.get<ComicDeseoDetail>(API_URL +comicsDeseo+'/'+comicDeseoId);
+}
 
-    /**
-     * Obtiene el comprador a partir del alias
-     * @param id Id del comicDeseo
-     */
-    // getComicDeseoById(id):Observable<ComicDeseoDetail>{
+/**
+ * Obtiene el comprador a partir del alias
+ * @param id Id del comicDeseo
+ */
+   // getComicDeseoById(id):Observable<ComicDeseoDetail>{
 
     //    return this.http.get<ComicDeseoDetail>(API_URL+comicsDeseo+'/'+id);
-    // }
+   // }
 
     /**
      * Crea un comic Deseo
@@ -54,9 +54,9 @@ export class ComicDeseoService{
 
     // createComicDeseo(comicDeseo):Observable<ComicDeseo>{
 
-    //  return this.http.post<ComicDeseo>(API_URL + comicsDeseo,comicDeseo)
+      //  return this.http.post<ComicDeseo>(API_URL + comicsDeseo,comicDeseo)
 //}           
-}
+     }
 
 
 

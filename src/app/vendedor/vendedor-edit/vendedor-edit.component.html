@@ -12,7 +12,7 @@
                         <div class="col-md-3">
                             <label for="">Nombre Completo</label>
                             <input type="text" class="form-control" placeholder="Nombre Completo" value="{{vendedor.nombre}}" size="100px"
-                                   formControlName="nombre">
+                                formControlName="nombre">
                             <div *ngIf="(registrationForm.get('nombre').errors  && isSubmitted) || (registrationForm.get('nombre').errors && registrationForm.get('nombre').touched)">
                                 <div *ngIf="registrationForm.get('nombre').hasError('required')">
                                     <span style="color: red;">Por favor llene el campo</span>
@@ -53,7 +53,7 @@
                 <div class="form-group" style="text-align: center;">
                     <label for="exampleInputEmail1">Email Address</label>
                     <input type="email" class="form-control" id="exampleInputemail1" value="{{vendedor.correoElectronico}}" aria-describedby="emailHelp"
-                           placeholder="Enter email" formControlName="correoElectronico">
+                        placeholder="Enter email" formControlName="correoElectronico">
                     <div *ngIf="(registrationForm.get('correoElectronico').errors && isSubmitted) || (registrationForm.get('correoElectronico').errors && registrationForm.get('correoElectronico').touched)">
                         <div *ngIf="registrationForm.get('correoElectronico').hasError('pattern')">
                             <span style="color:red;">Ingrese un email válido</span>
@@ -104,4 +104,4 @@
     
     <router-outlet></router-outlet>
 
-</div>
+             </div>

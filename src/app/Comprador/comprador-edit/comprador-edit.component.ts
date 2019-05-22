@@ -6,7 +6,6 @@ import { ToastrService } from "ngx-toastr";
 import { CompradorDetail } from "../comprador-detail";
 import { ActivatedRoute, Router } from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import $ from "jquery";
 
 const API_URL = '../../../assets/foto_2.json';
 
@@ -90,87 +89,6 @@ export class CompradorEditComponent implements OnInit
         });
     }
 
-    enableName()
-    {
-        this.updateForm.get('nombre').enable();
-        $('.nombre').css({
-            'transition':'all 1s ease-out',
-            'display':'none'
-        });
-
-        $('.form-name').css({
-            'transition':'all 1s ease-out',
-            'border-radius':'10px 10px 10px 10px',
-            'width':'70%',
-            'display':'inline-block'
-        });
-    }
-
-    enableAlias()
-    {
-        this.updateForm.get('alias').enable();
-        $('.alias').css({
-            'transition':'all 1s ease-out',
-            'display':'none'
-        });
-
-        $('.form-alias').css({
-            'transition':'all 1s ease-out',
-            'border-radius':'10px 10px 10px 10px',
-            'width':'70%',
-            'display':'inline-block'
-        });
-    }
-
-    enableIntereses()
-    {
-        this.updateForm.get('intereses').enable();
-        $('.intereses').css({
-            'transition':'all 1s ease-out',
-            'display':'none'
-        });
-
-        $('.form-intereses').css({
-            'transition':'all 1s ease-out',
-            'border-radius':'10px 10px 10px 10px',
-            'width':'70%',
-            'display':'inline-block'
-        });
-    }
-
-    enableEmail()
-    {
-        this.updateForm.get('correoElectronico').enable();
-        $('.email').css({
-            'transition':'all 1s ease-out',
-            'display':'none'
-        });
-
-        $('.form-email').css({
-            'transition':'all 1s ease-out',
-            'border-radius':'10px 10px 10px 10px',
-            'width':'70%',
-            'display':'inline-block'
-        });
-    }
-
-    enablePass()
-    {
-        $('#show-password').removeAttr('disabled');
-        this.updateForm.get('password').enable();
-        $('.pass').css({
-            'transition':'all 1s ease-out',
-            'display':'none'
-        });
-
-        $('.form-pass').css({
-            'transition':'all 1s ease-out',
-            'border-radius':'10px 10px 10px 10px',
-            'width':'70%',
-            'display':'inline-block'
-        });
-    }
-
     /**
      * Funcion que se activa cuando se envía el formulario.
      */
@@ -215,20 +133,6 @@ export class CompradorEditComponent implements OnInit
     }
 
     /**
-     * Funcion que me permite mostrar el password del usuario en el Login
-     */
-    showPassword():void
-    {
-        let password = $('.form-pass'),
-            toggle = $('#show-password');
-
-        toggle.click(function()
-        {
-            toggle.is(':checked') ? password.attr('type', 'text'):password.attr('type', 'password');
-        })
-    }
-
-    /**
      *
      */
     imagenes: string[];
@@ -269,7 +173,6 @@ export class CompradorEditComponent implements OnInit
      */
     ngOnInit()
     {
-        this.showPassword();
         this.id = +this.route.snapshot.paramMap.get('id');
         if(this.id)
         {

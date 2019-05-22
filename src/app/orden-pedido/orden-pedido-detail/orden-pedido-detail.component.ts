@@ -7,16 +7,16 @@ import {  OrdenPedido} from "../OrdenPedido";
     selector: 'app-orden-pedido-detail',
     templateUrl: './orden-pedido-detail.component.html',
     styleUrls: ['./orden-pedido-detail.component.css']
-})
-/**
+  })
+  /**
  * Clase que representa la ordenPedidoDetail.
  */
-export class OrdenPedidoDetailComponent implements OnInit {
-
+  export class OrdenPedidoDetailComponent implements OnInit {
+  
     /**
-     *
-     * @param route
-     * @param service
+     * 
+     * @param route 
+     * @param service 
      */
     constructor(
         private route:ActivatedRoute,
@@ -36,7 +36,7 @@ export class OrdenPedidoDetailComponent implements OnInit {
      */
 
 
-    id:number;
+   id:number;
 
     /**
      * Método que obtiene la ordenPedido cuyos detalles queremos mostrar.
@@ -44,16 +44,16 @@ export class OrdenPedidoDetailComponent implements OnInit {
     getOrdenPedidoId():void
     {
         this.service.getOrdenPedidoId(this.id)
-            .subscribe(ordenPedidoId =>
+        .subscribe(ordenPedidoId => 
             {
                 this.ordenPedidoId = ordenPedidoId;
             });
     }
 
     /**
-     * This function updates the ordenPedido
-     */
-    updateOrdenPedido(): void {
+    * This function updates the ordenPedido
+    */
+   updateOrdenPedido(): void {
 
     this.service.updateOrdenPedido(this.ordenPedidoId)
         .subscribe(() => {

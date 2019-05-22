@@ -17,21 +17,21 @@ export class ComicCreateComponent implements OnInit {
   updateForm: FormGroup;
 
   isSubmitted: boolean = false;
-
+  
   comic: ComicDetail;
 
   idComic: number;
-
+    
   @Input() nComic: Comic;
 
   @Output() update = new EventEmitter();
-
+  
   constructor(
-      private comicService: ComicService,
-      private route: ActivatedRoute,
-      private formBuilder: FormBuilder,
-      private router: Router,
-  )
+    private comicService: ComicService,
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    )
   {
     this.nComic = new Comic();
     this.updateForm = this.formBuilder.group({
@@ -68,7 +68,7 @@ export class ComicCreateComponent implements OnInit {
       // vendedor: new FormControl({value: this.comic.vendedor})
     });
   }
-
+  
   submitForm(){
     this.isSubmitted = true;
     this.nComic = Object.assign({}, this.updateForm.value);
@@ -87,16 +87,16 @@ export class ComicCreateComponent implements OnInit {
 
     this.nComic.perteneceColeccion = this.comic.perteneceColeccion;
 
-    this.nComic.perteneceSerie = this.comic.perteneceSerie;
+      this.nComic.perteneceSerie = this.comic.perteneceSerie;
 
     if(this.updateForm.get('precio').value == ""){
       this.nComic.precio = this.comic.precio;
     }
 
     this.nComic.tema = this.comic.tema;
-
+    
     this.nComic.enVenta = this.comic.enVenta;
-
+    
     if(this.updateForm.get('informacion').value == ""){
       this.nComic.informacion = this.comic.informacion;
     }
@@ -104,15 +104,15 @@ export class ComicCreateComponent implements OnInit {
       this.nComic.imagen = this.comic.imagen;
     }
 
-    this.comicService.createComic(this.nComic).subscribe(object =>
+  this.comicService.createComic(this.nComic).subscribe(object =>
     {
       this.updateForm.reset();
       this.router.navigate(['/comic/' + this.comic.id]);
     });
     this.update.emit();
   }
-
+  
   ngOnInit() {
-
-  }
+    
+  } 
 }

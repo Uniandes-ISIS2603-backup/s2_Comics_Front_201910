@@ -1,52 +1,62 @@
-<!--<div class="container-fluid">-->
-<!--    <div class="row profile" style="text-align: center;">-->
-<!--        <div class="">-->
-<!--            <div class="profile-sidebar">-->
-<!--                <div class="profile-user-pic">-->
-<!--                    <img src="{{compradorDetail.foto}}" alt="" class="img-responsive img-circle">-->
-<!--                </div>-->
-<!--                <hr>-->
-<!--                <div class="profile-user-title">-->
-<!--                    <div class="profile-user-name">-->
-<!--                        {{compradorDetail.nombre}}-->
-<!--                    </div>-->
-<!--                    <div class="profile-user-email">-->
-<!--                        {{compradorDetail.correoElectronico}}-->
-<!--                    </div>-->
-<!--                    <div class="profile-user-int">-->
-<!--                        {{compradorDetail.intereses}}-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="profile-user-buttons">-->
-<!--                    <button class="btn btn-outline-dark btn-sm" routerLink="/comprador/{{compradorDetail.id}}/edit">-->
-<!--                        Editar-->
-<!--                    </button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Comics Melos<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/comprador/list">Atrás</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Tu cuenta
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/comprador/{{compradorDetail.id}}/comics">Carrito de compras</a>
+                    <a class="dropdown-item" href="#">Ordenes</a>
+                    <a href="#" class="dropdown-item"></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Comics Deseo</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="card middle">
-            <div class="top-section">
-                <img src="{{compradorDetail.foto}}" alt="">
-                <div class="menuicon" routerLink="/comprador/{{compradorDetail.id}}/edit">
-                    <span class="s1"></span>
-                    <span class="s2"></span>
+    <div class="row profile" style="text-align: center;">
+        <div class="">
+            <div class="profile-sidebar">
+                <div class="profile-user-pic">
+                    <img src="{{compradorDetail.foto}}" alt="" class="img-responsive img-circle">
                 </div>
-                <div class="name">
-                    {{compradorDetail.nombre}}
+                <hr>
+                <div class="profile-user-title">
+                    <div class="profile-user-name">
+                        {{compradorDetail.nombre}}
+                    </div>
+                    <div class="profile-user-email">
+                        {{compradorDetail.correoElectronico}}
+                    </div>
+                    <div class="profile-user-int">
+                        {{compradorDetail.intereses}}
+                    </div>
                 </div>
-            </div>
-            <div class="info-section">
-                <h2>About
-                    <div class="border"></div>
-                </h2>
-                <p><strong>Tus intereses: </strong><br>{{compradorDetail.intereses}}</p>
-                <p><strong>Tu email: </strong><br>{{compradorDetail.correoElectronico}}</p>
-                <p><strong>Tu alias: </strong><br>{{compradorDetail.alias}}</p>
+                <div class="profile-user-buttons">
+                    <button class="btn btn-success btn-sm" routerLink="/comprador/{{compradorDetail.id}}/edit">
+                        Editar
+                    </button>
+                </div>
             </div>
         </div>
     </div>

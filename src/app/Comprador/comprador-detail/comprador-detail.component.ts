@@ -16,9 +16,9 @@ export class CompradorDetailComponent implements OnInit
 {
 
     /**
-     *
-     * @param route
-     * @param service
+     * 
+     * @param route 
+     * @param service 
      */
     constructor(
         private route:ActivatedRoute,
@@ -44,7 +44,7 @@ export class CompradorDetailComponent implements OnInit
     getCompradorDetail():void
     {
         this.service.getCompradorDetail(this.id)
-            .subscribe(compradorDetail =>
+        .subscribe(compradorDetail => 
             {
                 this.compradorDetail = compradorDetail;
             });
