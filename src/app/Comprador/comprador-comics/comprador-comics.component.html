@@ -4,7 +4,7 @@
     <h1 style="display: inline-block;">
         Carrito de compras
     </h1>
-    <div class="col-lg-4 col-md-2 col-sm-1 col-xs-1"></div>
+    <div class="col-lg-7 col-md-2 col-sm-1 col-xs-1"></div>
     <button class=" btn btn-dark" routerLink = "/comprador/{{compradorId}}">Atras</button>
 </div>
 
@@ -46,7 +46,7 @@
                     </td>
 
                     <td>
-                        <select name="trueque" id="trueque" [(ngModel)]="seleccion">
+                        <select name="trueque" id="trueque" [(ngModel)]="seleccion" disabled={{comic.enVenta}}>
                             <option   *ngFor="let comic of vendedorComics; let i=index;"  value="{{i}}"   >{{comic.nombre}}</option>
                         </select>
                     </td>
