@@ -121,10 +121,10 @@ img:hover {
     text-align: center;
     border: 2px solid #c0392b;
     padding: 14px 40px;
-    outline: none;
+    /*    outline: none;*/
     color: white;
-    border-radius: 10px;
-    transition: 0.25s;
+    /*    border-radius: 10px;*/
+    /*    transition: 0.25s;*/
 }
 
 .box button[type = "submit"]:hover

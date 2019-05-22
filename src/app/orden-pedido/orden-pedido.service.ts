@@ -13,7 +13,7 @@ const pedido= '/pedido'
 
 @Injectable()
 export class OrdenPedidoService{
-    
+
     constructor(private http: HttpClient){}
         
         getOrdenesPedido():Observable<OrdenPedido[]>
@@ -22,15 +22,12 @@ export class OrdenPedidoService{
     }
     getOrdenesPedidoEstado(estado):Observable<OrdenPedido[]>
     {
-    
-    return this.http.get<OrdenPedido[]>(API_URL + ordenesPedido+"/" + estado);
+        return this.http.get<OrdenPedido[]>(API_URL + ordenesPedido);
+    }
 
-}
-
-    
-
-    getOrdenPedidoId(ordenPedidoId): Observable<OrdenPedido> {
-       return this.http.get<OrdenPedido>(API_URL + ordenesPedido+ '/'+  ordenPedidoId); 
+    getOrdenPedidoId(ordenPedidoId): Observable<OrdenPedido>
+    {
+        return this.http.get<OrdenPedido>(API_URL + ordenesPedido+ '/'+  ordenPedidoId);
     }
 
     /**
@@ -41,26 +38,26 @@ export class OrdenPedidoService{
         return this.http.post<OrdenPedido>(API_URL + ordenesPedido, ordenPedido);
     }
 
-     /**
-        * Updates a new ordenPedido
-        * @param ordenPedido The updated rdenPedido
-        * @returns The updated ordenPedido
-        */
-       updateOrdenPedido(ordenPedido): Observable<OrdenPedido> {
+    /**
+     * Updates a new ordenPedido
+     * @param ordenPedido The updated rdenPedido
+     * @returns The updated ordenPedido
+     */
+    updateOrdenPedido(ordenPedido): Observable<OrdenPedido> {
         return this.http.put<OrdenPedido>(API_URL + ordenesPedido + '/' + ordenPedido.id, ordenPedido);
     }
     /**
-    * Deletes a ordenPedido
-    * @param ordenPedido_Id The ordenPedido's id
-    * @returns True if the book was deleted, false otherwise
-    */
-   deleteOrdenPedido(ordenPedido_Id): Observable<OrdenPedido> {
-    return this.http.delete<OrdenPedido>(API_URL + ordenesPedido + '/' + ordenPedido_Id);
-}
+     * Deletes a ordenPedido
+     * @param ordenPedido_Id The ordenPedido's id
+     * @returns True if the book was deleted, false otherwise
+     */
+    deleteOrdenPedido(ordenPedido_Id): Observable<OrdenPedido> {
+        return this.http.delete<OrdenPedido>(API_URL + ordenesPedido + '/' + ordenPedido_Id);
+    }
 
-getOrdenesPedidoVendedor(vendedorId):  Observable<OrdenPedido[]> {
-    return this.http.get<OrdenPedido[]>(API_URL + vendedor + '/' + vendedorId +pedido);
-}
+    getOrdenesPedidoVendedor(vendedorId):  Observable<OrdenPedido[]> {
+        return this.http.get<OrdenPedido[]>(API_URL + vendedor + '/' + vendedorId +pedido);
+    }
 
 getOrdenesPedidoVendedorEstado(vendedorId, estado):  Observable<OrdenPedido[]> {
     return this.http.get<OrdenPedido[]>(API_URL + vendedor + '/' + vendedorId +pedido + '/'+ estado);

@@ -3,34 +3,34 @@
 
     <div class="row">
 
-    <div class="col-lg-3">
-      <h1 class="my-4">Filtrar Catalogo</h1>
-      <div class="search">
-          <input type="text" class="searchTerm" placeholder="Filtrar por titulo, autor, palabra clave...">
-          <button type="submit" (click)="search()" class="searchButton">
-            <i class="fa fa-search"></i>
-        </button>
-      </div>
-      <div class="list-group">
-        <h3 class="filter-title">Filtrar por precio</h3>
-        <div class ="list-group-item">
-          <ng5-slider [(value)]="minPrice" [(highValue)]="maxPrice" [options]="options"></ng5-slider>
+        <div class="col-lg-3">
+            <h1 class="my-4">Filtrar Catalogo</h1>
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="Filtrar por titulo, autor, palabra clave...">
+                <button type="submit" (click)="search()" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            <div class="list-group">
+                <h3 class="filter-title">Filtrar por precio</h3>
+                <div class ="list-group-item">
+                    <ng5-slider [(value)]="minPrice" [(highValue)]="maxPrice" [options]="options"></ng5-slider>
+                </div>
+                <button type="button" (click)="getComics()" class="btn btn-primary">Filtrar por precio</button>
+            </div>
+            <div class="list-group">
+                <h3 class="filter-title mt-2">Filtrar por categoria</h3>
+                <ng-container *ngFor="let cat of categoriasNombre; let i=index">
+                    <button type="button" *ngIf="categoriasElegidas[i]"  (click)="categoriasElegidas[i] = !categoriasElegidas[i]" class="list-group-item catBut active">{{cat}}</button>
+                    <button type="button" *ngIf="!categoriasElegidas[i]"  (click)="categoriasElegidas[i] = !categoriasElegidas[i]" class="list-group-item catBut">{{cat}}</button>
+                </ng-container>
+            </div>
+            <div class = "row">
+                <button type="button" routerLink="/comic/create" class="btn btn-primary">Filtrar por categoria</button>
+                <button type="button" (click)="deseleccionar()" class="btn btn-light">Deseleccionar</button>
+            </div>
         </div>
-        <button type="button" (click)="getComics()" class="btn btn-primary">Filtrar por precio</button>
-      </div>
-      <div class="list-group">
-        <h3 class="filter-title mt-2">Filtrar por categoria</h3>
-        <ng-container *ngFor="let cat of categoriasNombre; let i=index">
-          <button type="button" *ngIf="categoriasElegidas[i]"  (click)="categoriasElegidas[i] = !categoriasElegidas[i]" class="list-group-item catBut active">{{cat}}</button>
-          <button type="button" *ngIf="!categoriasElegidas[i]"  (click)="categoriasElegidas[i] = !categoriasElegidas[i]" class="list-group-item catBut">{{cat}}</button>
-        </ng-container>
-      </div>
-      <div class = "row">
-        <button type="button" routerLink="/comic/create" class="btn btn-primary">Filtrar por categoria</button>
-        <button type="button" (click)="deseleccionar()" class="btn btn-light">Deseleccionar</button>
-      </div>
-    </div>
-    <!-- /.col-lg-3 -->
+        <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
             <div class="row" style="padding-top: 35px">
@@ -47,7 +47,7 @@
                             <p class="card-text">Autor: {{com.autor}}<br>Año: {{com.anioSalida}}<br>Tema: {{com.tema}}</p>
                         </div>
                         <div class="card-footer">
-                            <button (click)="addComic(com.id)" type="button" class="btn btn-primary">
+                            <button (click)="addComic(com.id)" type="button" class="btn btn-outline-info">
                                 <i class="fa fa-cart-plus"></i>
                                 Añadir</button>
                         </div>

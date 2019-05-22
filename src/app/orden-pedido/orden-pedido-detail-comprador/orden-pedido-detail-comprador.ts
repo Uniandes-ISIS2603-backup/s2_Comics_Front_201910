@@ -14,28 +14,28 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
     selector: 'app-orden-pedido-detail-comprador',
     templateUrl: './orden-pedido-detail-comprador.html',
     styleUrls: ['./orden-pedido-detail-comprador.css']
-  })
-  /**
+})
+/**
  * Clase que representa la ordenPedidoDetail.
  */
-  export class OrdenPedidoDetailComprador implements OnInit {
-  
+export class OrdenPedidoDetailComprador implements OnInit {
+
     /**
      *  @param modalDialogService
-      *@param viewRef
-    
-     * @param route 
-     * @param service 
+     *@param viewRef
+
+     * @param route
+     * @param service
      *  @param toastrService The toastr to show messages to the user
-    
+
      */
     constructor(
         private route:ActivatedRoute,
         private service: OrdenPedidoService,
-        private toastrService: ToastrService, 
-         private viewRef: ViewContainerRef,
+        private toastrService: ToastrService,
+        private viewRef: ViewContainerRef,
         private modalDialogService: ModalDialogService
-      
+
     )
     {
 
@@ -54,8 +54,8 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
      */
 
     idComprador:String;
-     err:String;
-   id:number;
+    err:String;
+    id:number;
 
     /**
      * Método que obtiene la ordenPedido cuyos detalles queremos mostrar.
@@ -63,54 +63,53 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
     getOrdenPedidoId():void
     {
         this.service.getOrdenPedidoId(this.id)
-        .subscribe(ordenPedidoId => 
+            .subscribe(ordenPedidoId =>
             {
                 this.ordenPedidoId = ordenPedidoId;
             });
     }
 
     /**
-    * This function updates the ordenPedido
-    */
-   updateOrdenPedido(): void {
+     * This function updates the ordenPedido
+     */
+    updateOrdenPedido(): void {
 
-     
-    this.service.updateOrdenPedido(this.ordenPedidoId)
-        .subscribe(ordenPedido =>{} , err => {
-            this.toastrService.error(err, 'Error');
-            alert(err);
-           
-        });
-        
-}
 
-deleteOrdenPedido(): void {
-    this.modalDialogService.openDialog(this.viewRef,
-        {
-            title: 'Eliminar un ordenPedido',
-            childComponent: SimpleModalComponent,
-            data: {text: 'Está seguro de querer eliminar la ordenPedido?'},
-            actionButtons: [
-                {
-                    text: 'Si',
-                    buttonClass: 'btn btn-danger',
-                    onAction: () =>
+        this.service.updateOrdenPedido(this.ordenPedidoId)
+            .subscribe(ordenPedido =>{} , err => {
+                this.toastrService.error(err, 'Error');
+                alert(err);
+
+            });
+
+    }
+
+    deleteOrdenPedido(): void {
+        this.modalDialogService.openDialog(this.viewRef,
+            {
+                title: 'Eliminar un ordenPedido',
+                childComponent: SimpleModalComponent,
+                data: {text: 'Está seguro de querer eliminar la ordenPedido?'},
+                actionButtons: [
                     {
-                        this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
-                            alert('se elimino la OrdenPedido')}, 
-                            err =>
+                        text: 'Si',
+                        buttonClass: 'btn btn-danger',
+                        onAction: () =>
                         {
-                            alert("Error eliminado la ordenPedido" + err);
-                        });
-                        return true;
-                    }
-                },
-                {text: 'No', onAction: () => true}
-            ]
-        });
-    
-}
+                            this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {
+                                    alert('se elimino la OrdenPedido')},
+                                err =>
+                                {
+                                    alert("Error eliminado la ordenPedido" + err);
+                                });
+                            return true;
+                        }
+                    },
+                    {text: 'No', onAction: () => true}
+                ]
+            });
 
+    }
 
 
     /**
@@ -119,13 +118,13 @@ deleteOrdenPedido(): void {
      */
     ngOnInit()
     {
-        
+
         this.id = +this.route.snapshot.paramMap.get('id');
         if(this.id)
         {
             this.getOrdenPedidoId();
-        
-       
+
+
         }
 
     }

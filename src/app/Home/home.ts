@@ -4,13 +4,9 @@ import { Component, OnInit } from '@angular/core';
     selector: 'homePage',
     templateUrl: './home.html',
     styleUrls: ['./home.css']
-  })
-  export class HomePage implements OnInit{
-
-
+})
+export class HomePage implements OnInit{
 
     ngOnInit(){
-
-
     }
-  }
+}
