@@ -7,9 +7,9 @@
                 <th> comprador</th>
                 <th> vendedor</th>
                 <th> comic</th>
-                <th *ngIf="!ordenPedidoId.comic.enVenta"> trueque</th>
-                <th *ngIf="ordenPedidoId.comic.enVenta"> precio</th>
+                <th> trueque</th>
                 <th> tarjetaCredito</th>
+                <th> numeroCompras</th>
                 <th> Comentario</th>
                 <th> cambiar estado</th>
                 <th> cambiar comentario</th>
@@ -29,13 +29,11 @@
                 <td>
                    <a routerLink="/comic/{{ordenPedidoId.comic.id}}" class="card-link"> {{ordenPedidoId.comic.nombre}}</a>
                     </td>
-                    <td *ngIf="!ordenPedidoId.comic.enVenta">
-                            <a routerLink="/comic/{{ordenPedidoId.trueque.id}}" class="card-link">{{ordenPedidoId.trueque.nombre}}</a>
-                           </td>
-                           <td *ngIf="ordenPedidoId.comic.enVenta">
-                               {{ordenPedidoId.comic.precio}}
-                             </td>
+                <td>
+                    <a routerLink="/comic/{{ordenPedidoId.trueque.id}}" class="card-link">{{ordenPedidoId.trueque.nombre}}</a>
+                   </td>
                 <td>{{ordenPedidoId.tarjetaCredito}}</td>
+                <td>{{ordenPedidoId.numeroCompras}}</td>
                 <td>{{ordenPedidoId.comentario}}</td>
 
                  <td><select  onChange='updateOrdenPedido()' [(ngModel)]="ordenPedidoId.estado">

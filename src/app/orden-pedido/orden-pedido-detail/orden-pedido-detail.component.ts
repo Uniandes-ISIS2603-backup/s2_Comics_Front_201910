@@ -57,14 +57,11 @@ import {  OrdenPedido} from "../OrdenPedido";
 
     this.service.updateOrdenPedido(this.ordenPedidoId)
         .subscribe(() => {
-            alert("se a actualizado la orden")
-            })
-        err => {alert("Error: " + err)
-    } ;
+            
+            });
 }
 
 deleteOrdenPedido(): void {
-    
      this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
         alert('se elimino la OrdenPedido'); });
 }

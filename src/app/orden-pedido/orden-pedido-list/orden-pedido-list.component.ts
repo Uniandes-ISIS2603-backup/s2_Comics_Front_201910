@@ -88,7 +88,8 @@ getOrdenesPedidoVendedor():void{
      * This method will be called when the component is created
      */
     ngOnInit() {
-      this.idComprador=parseInt(localStorage.getItem("user"));
+      alert(localStorage.getItem("role"))
+     this.idComprador=parseInt(localStorage.getItem("user"));
      this.idVendedor=parseInt(localStorage.getItem("user"));
       
       if(localStorage.getItem("role")=='Comprador'){
