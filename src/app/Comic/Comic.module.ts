@@ -11,6 +11,7 @@ import { ComicListComponent } from './comic-list/comic-list.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { ComicUpdateComponent } from './comic-update/comic-update.component';
 import { ComicCreateComponent } from './comic-create/comic-create.component';
+import { ComicFilterComponent } from './comic-filter/comic-filter.component';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { ComicCreateComponent } from './comic-create/comic-create.component';
     FormsModule,
     Ng5SliderModule
   ],
-  declarations: [ComicListComponent, ComicDetailComponent, ComicUpdateComponent, ComicCreateComponent],
+  declarations: [ComicListComponent, ComicDetailComponent, ComicUpdateComponent, ComicCreateComponent, ComicFilterComponent],
   providers: [ComicService],
 })
 export class ComicModule { }
