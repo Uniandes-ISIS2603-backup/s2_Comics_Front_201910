@@ -30,6 +30,9 @@ import {OrdenPedidoDetailVendedor} from '../orden-pedido/orden-pedido-detail-ven
 
 import {LogInComponent} from "../Coleccionista/LogInComponente/logIn.component";
 import {CompradorComicsListComponent} from "../Comprador/comprador-comics/comprador-comics.component";
+import { ComicDetailComponent } from '../comic/comic-detail/comic-detail.component';
+import { ComicUpdateComponent } from '../comic/comic-update/comic-update.component';
+import { ComicListComponent } from '../comic/comic-list/comic-list.component';
 
 
 const routes: Routes = [

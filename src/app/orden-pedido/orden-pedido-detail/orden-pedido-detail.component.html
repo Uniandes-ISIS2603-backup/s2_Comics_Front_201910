@@ -11,7 +11,6 @@
                         <th *ngIf="!ordenPedidoId.comic.enVenta"> trueque</th>
                 <th *ngIf="ordenPedidoId.comic.enVenta"> precio</th>
                  <th> tarjetaCredito</th>
-                        <th> numeroCompras</th>
                         <th> Comentario</th>
                         <th> cambiar estado</th>
                         <th> cambiar comentario</th>
@@ -38,7 +37,6 @@
                                        {{ordenPedidoId.comic.precio}}
                                      </td>
                         <td>{{ordenPedidoId.tarjetaCredito}}</td>
-                        <td>{{ordenPedidoId.numeroCompras}}</td>
                         <td>{{ordenPedidoId.comentario}}</td>
 
                          <td><select [(ngModel)]="ordenPedidoId.estado">

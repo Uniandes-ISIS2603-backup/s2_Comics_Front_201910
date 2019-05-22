@@ -88,8 +88,6 @@ export class CompradorComicsListComponent implements  OnInit
     
     createOrdenPedido():void
     {
-        alert("llegue")
-
         for (let i in this.compradorComics) {
             
             
@@ -115,15 +113,12 @@ export class CompradorComicsListComponent implements  OnInit
           this.ordenPedido.comprador=this.comprador;
           
           this.ordenPedido.vendedor= this.compradorComics[i].vendedor;
-         
-         
           
-          alert("llegue2")
-         
            this.ordenPedidoService.createOrdenPedido(this.ordenPedido).subscribe(ordenPedido=>
             {
                 this.ordenPedido = ordenPedido;
             });
+        alert("se creo la OrdenPedido")
         }
 
     }

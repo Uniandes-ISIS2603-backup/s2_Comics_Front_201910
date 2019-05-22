@@ -19,7 +19,7 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
   
     /**
      * @param modalDialogService
-      *@paramviewRef
+      *@param viewRef
      * @param route 
      * @param service 
      *    @param toastrService The toastr to show messages to the user
@@ -75,7 +75,7 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
             alert("por favor agrege una fecha estimada de entrega")
             
             this.fecha= false ;
-            alert(this.fecha)
+           
     }
         if(this.ordenPedidoId.estado=="RECHAZADO"){
 
@@ -95,8 +95,30 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
 
 
 deleteOrdenPedido(): void {
-     this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
-        alert('se elimino la OrdenPedido'); });
+    this.modalDialogService.openDialog(this.viewRef,
+        {
+            title: 'Eliminar un ordenPedido',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Está seguro de querer eliminar la ordenPedido?'},
+            actionButtons: [
+                {
+                    text: 'Si',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () =>
+                    {
+                        this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
+                            alert('se elimino la OrdenPedido')}, 
+                            err =>
+                        {
+                            alert("Error eliminado la ordenPedido" + err);
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
+    
 }
 
     /**

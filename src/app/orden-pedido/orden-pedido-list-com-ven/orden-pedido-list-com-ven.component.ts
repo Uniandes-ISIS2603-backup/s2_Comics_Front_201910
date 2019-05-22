@@ -59,7 +59,6 @@ export class OrdenPedidoListComVenComponent implements OnInit {
     }
 
     getOrdenesPedidoEstado(estado): void {
-      alert(localStorage.getItem("user"))
       if(this.rol=="Comprador"){
       this.ordenPedidoService.getOrdenesPedidoCompradorEstado(localStorage.getItem("user"),estado).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
     }
@@ -124,7 +123,6 @@ getOrdenesPedidoVendedor():void{
      * This method will be called when the component is created
      */
     ngOnInit() {
-      alert(localStorage.getItem("role"))
      this.idComprador=parseInt(localStorage.getItem("user"));
      this.idVendedor=parseInt(localStorage.getItem("user"));
       

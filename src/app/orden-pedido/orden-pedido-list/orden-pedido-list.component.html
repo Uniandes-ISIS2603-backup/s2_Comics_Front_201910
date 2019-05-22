@@ -2,18 +2,18 @@
  
         <div class="row">
 
-      <div class="col-4" > 
+      <div class="col-3" > 
             <h1 class="my-4">Filtrar Ordenes</h1>
            
             <div class="list-group">
               <h3 class="filter-title mt-2">Filtrar por estado</h3>
               <ng-container *ngFor="let cat of estados; let i=index">
-                <button type="button" *ngIf="categoriasElegidas[i]"  (click)="getOrdenesPedidoEstado(cat)" class="list-group-item catBut active">{{cat}}</button>
+                <button type="button" *ngIf="categoriasElegidas[i]"  (click)="getOrdenesPedidoEstado(cat)" class="boton_personalizado">{{cat}}</button>
               </ng-container>
             </div>
             
-            <table class="table table-hover">
-                    <thead class="thead-light">
+            <table >
+                    <thead >
                         <tr>
                             <th scope="col">obtener Ordenes Comprador</th>
                             <th scope="col">alias comprador</th>
@@ -22,7 +22,7 @@
                     </thead>
                     <tr >
                         <td> 
-                                <button type="submit" class="btn btn-danger" (click)="getOrdenesPedidoComprador()" >obtener</button>
+                                <button type="submit" class="boton_personalizado" (click)="getOrdenesPedidoComprador()" >obtener</button>
                         </td>
                         <td scope="row">
                             <input type="text" [(ngModel)]="aliasComprador">
@@ -33,7 +33,8 @@
                         </tr>
                 </table> 
 
-                             <table class="table table-hover">
+                             <table class=" col-3" > 
+                              
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">obtener Ordenes vendedor</th>
@@ -43,7 +44,7 @@
                                 </thead>
                                 <tr >
                                     <td> 
-                                            <button type="submit" class="btn btn-danger" (click)="getOrdenesPedidoVendedor()" >obtener</button>
+                                            <button type="submit" class="boton_personalizado" (click)="getOrdenesPedidoVendedor()" >obtener</button>
                                     </td>
                                     <td scope="row">
                                         <input type="text" [(ngModel)]="aliasVendedor">
@@ -55,17 +56,17 @@
                             </table> 
                            
                             
-                            <div class="list-group">
-                                    <h3 class="filter-title mt-2">Filtrar por tipo de orden</h3>
+                            <div class="list-group" >
+                                    <h3  class="filter-title mt-2 " >Filtrar por tipo de orden</h3>
                                     <ng-container >
-                                      <button type="button"  class="list-group-item catBut active" (click)="getOrdenesPedidoEstado('VENTA')">Compra</button>
-                                      <button type="button" class="list-group-item catBut active" (click)="getOrdenesPedidoEstado('TRUEQUE')">Trueque</button>
+                                      <button type="button"  class="boton_personalizado" (click)="getOrdenesPedidoEstado('VENTA')">Compra</button>
+                                      <button type="button" class="boton_personalizado" (click)="getOrdenesPedidoEstado('TRUEQUE')">Trueque</button>
                                       
                                     </ng-container>
                                   </div>
       </div>
       
-    <div class="col-8" > <table  class="table table-hover" style="border-collapse: collapse;"  width="1000">
+    <div class="col-9" > <table  class="table table-hover" style="border-collapse: collapse;"  width="1000">
         <thead class="thead-dark">
             <tr>
                 <th>OrdenPedido id</th>

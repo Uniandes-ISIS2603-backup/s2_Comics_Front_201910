@@ -7,7 +7,7 @@
             <div class="list-group">
               <h3 class="filter-title mt-2">Filtrar por estado</h3>
               <ng-container *ngFor="let cat of estados; let i=index">
-                <button type="button" *ngIf="categoriasElegidas[i]"  (click)="getOrdenesPedidoEstado(cat)" class="list-group-item catBut active">{{cat}}</button>
+                <button type="button"   *ngIf="categoriasElegidas[i]"  (click)="getOrdenesPedidoEstado(cat)" class="boton_personalizado ">{{cat}}</button>
               </ng-container>
             </div>
 
@@ -50,6 +50,4 @@
     </div>
     <router-outlet></router-outlet> 
   
-    <div >
-       <button type="submit" class="btn btn-danger" (click)="deletOrdenesNo(ordenesPedido)" >Eliminar</button>
-                </div>
+   
