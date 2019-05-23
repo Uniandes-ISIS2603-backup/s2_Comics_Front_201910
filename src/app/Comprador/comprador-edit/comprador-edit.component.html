@@ -112,50 +112,50 @@
                 <hr>
                 <div fxLayout="row" fxLayoutGap="20px">
                     <ng-container *ngFor="let i of [0,1,2,3,4];" style="margin: 0; font-size: 0;">
-                        <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
-                        <label for="inlineRadio{{i}}">
+                        <input type="radio" class="form-check-input" [id]="'inlineRadio'+i" name="inlineRadioOptions">
+                        <label [for]="'inlineRadio'+i">
                             <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                 (click)="funcion(imagenes[i])" style="width: 90%;">
+                                 (click)="funcion(imagenes[i])" style="width: 70%;">
                         </label>
                     </ng-container>
                 </div>
 
                 <div fxLayout="row" fxLayoutGap="20px">
                     <ng-container *ngFor="let i of [5, 6, 7, 8, 9];">
-                        <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
-                        <label for="inlineRadio{{i}}">
+                        <input type="radio" class="form-check-input" [id]="'inlineRadio'+i" name="inlineRadioOptions">
+                        <label [for]="'inlineRadio'+i">
                             <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                 (click)="funcion(imagenes[i])" style="width: 90%;">
+                                 (click)="funcion(imagenes[i])" style="width: 70%;">
                         </label>
                     </ng-container>
                 </div>
 
                 <div fxLayout="row" fxLayoutGap="20px">
                     <ng-container *ngFor="let i of [10, 11, 12, 13, 14];">
-                        <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
-                        <label for="inlineRadio{{i}}">
+                        <input type="radio" class="form-check-input" [id]="'inlineRadio'+i" name="inlineRadioOptions">
+                        <label [for]="'inlineRadio'+i">
                             <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                 (click)="funcion(imagenes[i])" style="width: 90%;">
+                                 (click)="funcion(imagenes[i])" style="width: 70%;">
                         </label>
                     </ng-container>
                 </div>
 
                 <div fxLayout="row" fxLayoutGap="20px">
                     <ng-container *ngFor="let i of [15, 16, 17, 18, 19];">
-                        <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
-                        <label for="inlineRadio{{i}}">
+                        <input type="radio" class="form-check-input" [id]="'inlineRadio'+i" name="inlineRadioOptions">
+                        <label [for]="'inlineRadio'+i">
                             <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                 (click)="funcion(imagenes[i])" style="width: 90%;">
+                                 (click)="funcion(imagenes[i])" style="width: 70%;">
                         </label>
                     </ng-container>
                 </div>
 
                 <div fxLayout="row" fxLayoutGap="20px">
                     <ng-container *ngFor="let i of [20, 21, 22, 23, 24];">
-                        <input type="radio" class="form-check-input" id="inlineRadio{{i}}" name="inlineRadioOptions">
-                        <label for="inlineRadio{{i}}">
+                        <input type="radio" class="form-check-input" [id]="'inlineRadio'+i" name="inlineRadioOptions">
+                        <label [for]="'inlineRadio'+i">
                             <img class="card img-fluid" src="{{imagenes[i]}}" alt="Responsive image"
-                                 (click)="funcion(imagenes[i])" style="width: 90%;">
+                                 (click)="funcion(imagenes[i])" style="width: 70%;">
                         </label>
                     </ng-container>
                 </div>
@@ -165,12 +165,12 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-3">
-                    <button type="submit" class="btn btn-success"
+                    <button type="submit" class="btn btn-outline-dark"
                             (click)="onEditFormSubmit()">Enviar</button>
                 </div>
                 <div class="col-6"></div>
                 <div class="col-3">
-                    <button type="cancel" class="btn btn-danger"
+                    <button type="cancel" class="btn btn-dark"
                             routerLink="/comprador/{{compradorDetail.id}}">Cancelar</button>
                 </div>
             </div>
