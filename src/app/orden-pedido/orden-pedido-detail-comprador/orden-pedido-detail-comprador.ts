@@ -76,11 +76,11 @@ export class OrdenPedidoDetailComprador implements OnInit {
 
 
         this.service.updateOrdenPedido(this.ordenPedidoId)
-            .subscribe(ordenPedido =>{} , err => {
-                this.toastrService.error(err, 'Error');
-                alert(err);
-
-            });
+        .subscribe(() => {
+            alert("se a actualizado la orden")
+            })
+        err => {alert("Error: " + err)
+    } ;
 
     }
 
