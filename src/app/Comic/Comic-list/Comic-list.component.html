@@ -6,8 +6,8 @@
     <div class="col-lg-3">
       <h1 class="my-4">Filtrar Catalogo</h1>
       <div class="search">
-          <input type="text" class="searchTerm" placeholder="Filtrar por titulo, autor, palabra clave...">
-          <button type="submit" (click)="search()" class="searchButton">
+          <input type="text" class="searchTerm" placeholder="Filtrar por titulo, autor, palabra clave..." [(ngModel)] = "searchQ">
+          <button type="submit" (click)="goQuery()" class="searchButton">
             <i class="fa fa-search"></i>
         </button>
       </div>
@@ -15,20 +15,17 @@
         <h3 style="color: #27282b" class="filter-title">Filtrar por precio</h3>
         <div class ="list-group-item">
             <div class="custom-slider"> <ng5-slider  [(value)]="minPrice" [(highValue)]="maxPrice" [options]="options"></ng5-slider></div>
-         
         </div>
-        <button style="background-color: #27282b; color: white; border:#27282b;" type="button" (click)="getComics()" class="btn btn-primary">Filtrar por precio</button>
       </div>
       <div class="list-group">
         <h3 class="filter-title mt-2">Filtrar por categoria</h3>
         <ng-container *ngFor="let cat of categoriasNombre; let i=index">
-          <button style="background-color: #27282b; color: white; border:#27282b;"  type="button" *ngIf="categoriasElegidas[i]"  (click)="categoriasElegidas[i] = !categoriasElegidas[i]" class="list-group-item catBut active">{{cat}}</button>
+          <button style="background-color: #27282b; color: white; border:#27282b;"  type="button" *ngIf="categoriasElegidas[i]"  (click)="changeCat(i)" class="list-group-item catBut active">{{cat}}</button>
           <button type="button" *ngIf="!categoriasElegidas[i]"  (click)="categoriasElegidas[i] = !categoriasElegidas[i]" class="list-group-item catBut">{{cat}}</button>
         </ng-container>
       </div>
       <div class = "row">
-        <button type="button" routerLink="/comic/create" class="btn btn-primary">Filtrar por categoria</button>
-        <button type="button" (click)="deseleccionar()" class="btn btn-light">Deseleccionar</button>
+        <button type="button" (click)="goQuery()" class="btn btn-primary">Filtrar</button>
       </div>
     </div>
     <!-- /.col-lg-3 -->

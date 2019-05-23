@@ -10,7 +10,7 @@ import {ComicDeseo} from './ComicDeseo';
 import {Observable} from 'rxjs';
 import { ComicDeseoDetail } from './ComicDeseoDetail';
 
-import { environment } from '../../environments/environment';
+import {environment} from "../../environments/environment";
 
 //const API_URL = "../../assets/";
 const API_URL = environment.apiURL;

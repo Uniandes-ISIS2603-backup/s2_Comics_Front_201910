@@ -178,7 +178,7 @@ const routes: Routes = [
     {
         path: 'comic',
         children: [{
-            path: 'list',
+            path: 'list/:query',
             component: ComicListComponent
         },
         {
