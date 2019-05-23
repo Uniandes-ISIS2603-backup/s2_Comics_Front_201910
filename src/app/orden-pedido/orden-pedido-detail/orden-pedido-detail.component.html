@@ -58,7 +58,8 @@
                 <br>
         </div>
         <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" (click)="updateOrdenPedido()" >Actualizar</button>
+                <button type="submit" (click)="updateOrdenPedido()" routerLink="/vendedores/{{ordenPedidoId.vendedor.id}}" *ngIf="enviado1">Actualizar</button>
+                <button type="submit" (click)="updateOrdenPedido()"  *ngIf="!enviado1">Actualizar</button>
             </div>
             <div>
                     <br>
