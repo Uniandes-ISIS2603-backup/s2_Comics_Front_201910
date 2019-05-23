@@ -30,7 +30,7 @@ export class VendedorComicsComponent implements OnInit,OnChanges {
     addComic(comicId:Comic): void {
     this.comicsVendedor
       this.vendedorService.addComic(this.vendedorId,comicId).subscribe();
-      
+      window.location.reload();
     }
     //inicializa el id con el id del vendedor actual
     ngOnInit(){

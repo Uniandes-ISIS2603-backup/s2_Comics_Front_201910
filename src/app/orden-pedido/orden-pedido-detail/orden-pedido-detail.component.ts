@@ -35,7 +35,7 @@ import {  OrdenPedido} from "../OrdenPedido";
      * El  id de la ordenPedido que viene de la ruta de acceso.
      */
 
-
+    enviado1:boolean;
    id:number;
 
     /**
@@ -46,7 +46,7 @@ import {  OrdenPedido} from "../OrdenPedido";
         this.service.getOrdenPedidoId(this.id)
         .subscribe(ordenPedidoId => 
             {
-                this.ordenPedidoId = ordenPedidoId;
+                this.ordenPedidoId = ordenPedidoId;this.enviado(ordenPedidoId.estado);
             });
     }
 
@@ -60,7 +60,13 @@ import {  OrdenPedido} from "../OrdenPedido";
             
             });
 }
-
+enviado(estado):void{
+if(estado=="ENVIADO"){
+this.enviado1=true;
+}else{
+this.enviado1=false;
+}
+}
 deleteOrdenPedido(): void {
      this.service.deleteOrdenPedido(this.ordenPedidoId.id).subscribe(() => {                 
         alert('se elimino la OrdenPedido'); });
@@ -77,5 +83,6 @@ deleteOrdenPedido(): void {
         {
             this.getOrdenPedidoId();
         }
+        
     }
 }

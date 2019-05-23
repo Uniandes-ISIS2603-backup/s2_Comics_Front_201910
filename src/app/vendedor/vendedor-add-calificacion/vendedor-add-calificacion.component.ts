@@ -49,6 +49,7 @@ export class VendedorAddCalificacionComponent implements OnInit, OnChanges {
                 calificacionForm.resetForm();
                 this.updateCalificaciones.emit();
                 this.toastrService.success("La calificacion fue creada exitosamente", 'Calificación anadida');
+                window.location.reload();
             }, err => {
                 this.toastrService.error(err, 'Error');
             });

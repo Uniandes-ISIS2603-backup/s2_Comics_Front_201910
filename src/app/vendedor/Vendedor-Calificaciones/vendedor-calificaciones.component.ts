@@ -49,7 +49,7 @@ export class VendedorCalificacionesComponent implements OnInit,OnChanges {
         this.calificacionEditComponent.isCollapsed = !this.calificacionEditComponent.isCollapsed;
     }
     //se obtiene el id del vendedor actual
-    ngOnInit(){
+   public ngOnInit(){
         this.vendedorId = +this.route.snapshot.paramMap.get('id');
         this.getCalificaciones();
 
