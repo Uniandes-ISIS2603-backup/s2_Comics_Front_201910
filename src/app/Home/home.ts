@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ComicDeseo} from '../ComicDeseo/ComicDeseo';
 import {ComicDeseoService} from '../ComicDeseo/comicDeseo.service';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'homePage',
@@ -9,13 +10,13 @@ import {ComicDeseoService} from '../ComicDeseo/comicDeseo.service';
 })
 export class HomePage implements OnInit{
 
-    constructor(private comicsDeseoService:ComicDeseoService){
+    constructor(private comicsDeseoService:ComicDeseoService, private router: Router){
 
 
     }
 
     comicsDeseo: ComicDeseo[]=new Array();
-    
+    sear: string = "";
     
     getComicsDeseo():void{
         
@@ -40,6 +41,12 @@ export class HomePage implements OnInit{
          this.comicsDeseo = comicsDeseo);
     }
     
+    search(){
+      if(this.sear.length > 0){
+        this.sear = this.sear.replace(" ", "_").toLowerCase();
+        this.router.navigateByUrl('/comic/list/S'+this.sear);
+      }
+    }
 
     ngOnInit(){
 

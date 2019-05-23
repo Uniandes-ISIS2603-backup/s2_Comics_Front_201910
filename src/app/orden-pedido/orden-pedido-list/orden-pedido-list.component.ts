@@ -84,7 +84,7 @@ export class OrdenPedidoListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
-      alert(localStorage.getItem("role"))
+      //alert(localStorage.getItem("role"))
      this.idComprador=parseInt(localStorage.getItem("user"));
      this.idVendedor=parseInt(localStorage.getItem("user"));
       

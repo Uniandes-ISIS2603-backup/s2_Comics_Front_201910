@@ -32,7 +32,7 @@
 
       <div class="search_banner">
             <div style="text-align: center"class="search">
-                    <input style="display: inline-block;"type="text" class="searchTerm" placeholder="Filtrar por titulo, autor, palabra clave...">
+                    <input style="display: inline-block;"type="text" class="searchTerm" placeholder="Filtrar por titulo, autor, palabra clave..." [(ngModel)] = "sear">
                     <button type="submit" (click)="search()" class="searchButton">
                       <i class="fa fa-search"></i>
                   </button>

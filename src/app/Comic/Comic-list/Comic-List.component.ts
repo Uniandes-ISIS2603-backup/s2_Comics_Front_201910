@@ -15,6 +15,10 @@ import {ModalDialogService, SimpleModalComponent} from "ngx-modal-dialog";
 })
 export class ComicListComponent implements OnInit {
 
+  cRoute: string = "C";
+  pRoute: string = "P";
+  sRoute: string = "S";
+
   comics: Comic[] = new Array();
   query: string;
   busq: string[] = new Array();
@@ -52,13 +56,12 @@ export class ComicListComponent implements OnInit {
       .subscribe(comicArr => {
         let temp: Comic[] = comicArr;
         temp.forEach(c => {
-          // console.log("" + c.precio + c.tema);
           if(c.precio <= this.maxPrice && c.precio >= this.minPrice){
             for(let i = 0 ; i < this.categoriasNombre.length ; ++i){
               if(c.tema == this.categoriasNombre[i] && this.categoriasElegidas[i]){
                 for(let j:number = 0 ; j < this.busq.length ; ++j){
-                  if(c.nombre.search(this.busq[j]) != -1 || c.autor.search(this.busq[j]) != -1 || c.informacion.search(this.busq[j]) != -1 ||
-                     c.vendedor.nombre.search(this.busq[j]) != -1 || c.vendedor.alias.search(this.busq[j]) != -1){
+                  if(c.nombre.toLowerCase().search(this.busq[j]) != -1 || c.autor.toLowerCase().search(this.busq[j]) != -1 || c.informacion.toLowerCase().search(this.busq[j]) != -1 ||
+                     c.vendedor.nombre.toLowerCase().search(this.busq[j]) != -1 || c.vendedor.alias.toLowerCase().search(this.busq[j]) != -1){
                        this.comics.push(c);
                        break;
                      }
@@ -121,7 +124,9 @@ export class ComicListComponent implements OnInit {
     }
 
   search(s:string){
+    this.searchQ = s.replace("_"," ");
     this.busq = s.split("_");
+    // console.log(this.busq);
   }
 
   filterCat(c:string){
@@ -139,14 +144,14 @@ export class ComicListComponent implements OnInit {
   goQuery(){
     let ans:string = "";
     if(this.searchQ.length > 0){
-      this.searchQ = this.searchQ.replace(" ", "_");
-      ans += "+"+this.searchQ;
+      this.searchQ = this.searchQ.replace(" ", "_").toLowerCase();
+      ans += this.sRoute + this.searchQ;
     }
     if(this.minPrice != 0 || this.maxPrice != 500)
-      ans += "#"+this.minPrice+"-"+this.maxPrice;
+      ans += this.pRoute+this.minPrice+"_"+this.maxPrice;
     for(let i:number = 0 ; i < this.categoriasElegidas.length ; ++i){
       if(!this.categoriasElegidas[i]){
-        ans += "?";
+        ans += this.cRoute;
         for(let j = 0 ; j < this.categoriasElegidas.length ; ++j){
           // console.log("cat in " + j + this.categoriasElegidas[j]);
           if(this.categoriasElegidas[j])
@@ -163,31 +168,36 @@ export class ComicListComponent implements OnInit {
       this.router.navigateByUrl('/comic/list', {skipLocationChange: true}).then(()=>
       this.router.navigate(["/comic/list/"+ans])); 
     }
+    else{
+      this.router.navigateByUrl('/comic/list', {skipLocationChange: true}).then(()=>
+      this.router.navigate(["/comic/list/1"])); 
+    }
   }
 
 
   ngOnInit() {
     this.query = this.route.snapshot.paramMap.get('query');
-    let i: number = this.query.search('+');
+    let i: number = this.query.search(""+this.sRoute);
     let r: number;
     if(i != -1){
       r = ++i;
-      while(r < this.query.length && (this.query.charAt(r) != '?' || this.query.charAt(r) != '#'))
+      while(r < this.query.length && this.query.charAt(r) != this.cRoute && this.query.charAt(r) != this.pRoute)
         r++;
       this.search(this.query.substring(i,r));
     }
-    i = this.query.search('?');
+    i = this.query.search(""+this.cRoute);
     if(i != -1){
       this.filterCat(this.query.substr(i+1,this.categoriasElegidas.length));
     }
-    i = this.query.search('#');
+    i = this.query.search(""+this.pRoute);
     if(i != -1){
       r = ++i;
-      while(r < this.query.length && (this.query.charAt(r) != '?' || this.query.charAt(r) != '#'))
+      while(r < this.query.length && this.query.charAt(r) != this.cRoute && this.query.charAt(r) != this.sRoute)
         r++;
-      let s:string[] = this.query.substring(i,r).split("-");
+      let s:string[] = this.query.substring(i,r).split("_");
       this.minPrice = +s[0];
       this.maxPrice = +s[1];
+      // console.log(i + " - - " + r);
       // console.log("update price " + this.maxPrice);
     }
     // console.log(i);
