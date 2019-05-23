@@ -4,7 +4,7 @@ describe('CompradorModule', () =>
 {
     let compradorModule : CompradorModule;
 
-    beforeEach(() => 
+    beforeEach(() =>
     {
         compradorModule = new CompradorModule();
     });

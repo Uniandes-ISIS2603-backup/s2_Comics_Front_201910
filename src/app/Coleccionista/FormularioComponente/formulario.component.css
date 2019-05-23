@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.titulo
+{
+    color: black;
+}
+
 hr
 {
     background-color: rgba(255, 255, 255, 0.12);
@@ -28,7 +33,7 @@ input[type=email] {
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #000000;
+    border: 2px solid black;
     padding: 14px 10px;
     width: 90%;
     outline: none;
@@ -51,7 +56,6 @@ button:hover {
 .box input[type=password]:focus, .box input[type=email]:focus
 {
     width: 100%;
-    /*border-color: #2ecc71;*/
     box-shadow: none;
 }
 
@@ -72,13 +76,13 @@ form
 }
 
 img {
+    display: inline-block;
     margin: 15px;
     transition: 0.2s ease-in-out;
     cursor: pointer;
     border-radius: 10px;
     background: none;
     border: 2px solid black;
-    display: inline-block;
 }
 
 img:hover {
@@ -98,7 +102,7 @@ img:hover {
 #inlineRadio10:checked + label > img , #inlineRadio11:checked + label > img, #inlineRadio12:checked + label > img, #inlineRadio13:checked + label > img, #inlineRadio14:checked + label > img,
 #inlineRadio15:checked + label > img , #inlineRadio16:checked + label > img, #inlineRadio17:checked + label > img, #inlineRadio18:checked + label > img, #inlineRadio19:checked + label > img,
 #inlineRadio20:checked + label > img , #inlineRadio21:checked + label > img, #inlineRadio22:checked + label > img, #inlineRadio23:checked + label > img, #inlineRadio24:checked + label > img{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.69);
 }
 
 .box button[type = "submit"]
@@ -107,26 +111,24 @@ img:hover {
     display: inline-block;
     margin: 20px auto;
     text-align: center;
-    /*border: 2px solid black;*/
+    border: 2px solid black;
     padding: 14px 40px;
-    /*outline: none;*/
+    outline: none;
     color: black;
-    /*border-radius: 10px;*/
-    /*transition: 0.25s;*/
-    border-color: black;
+    transition: 0.25s;
 }
 
 .box button[type = "cancel"]
 {
     background: black;
-    display: inline-block;
+    display: block;
     margin: 20px auto;
     text-align: center;
+    border: 2px solid black;
     padding: 14px 40px;
-/*    outline: none;*/
+    /*    outline: none;*/
     color: white;
-/*    border-radius: 10px;*/
-/*    transition: 0.25s;*/
+    /*    transition: 0.25s;*/
 }
 
 .box button[type = "submit"]:hover
@@ -134,6 +136,11 @@ img:hover {
     background: black;
     color: white;
 }
+
+/*.box button[type = "cancel"]:hover*/
+/*{*/
+/*    background: #c0392b;*/
+/*}*/
 
 /*#inlineRadio5,  #inlineRadio6, #inlineRadio7, #inlineRadio8, #inlineRadio9{*/
 /*    display: none;*/

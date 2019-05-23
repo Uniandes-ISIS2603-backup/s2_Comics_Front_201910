@@ -62,12 +62,28 @@
     -webkit-appearance: button;
 }
 
+.box select:focus
+{
+    box-shadow: none;
+}
+
+.box select option
+{
+    background: rgba(25, 25, 25, 0.89);
+    border-radius: 10px;
+    border: 2px white;
+}
+
+.box select option:hover
+{
+    background: white;
+}
+
 .box input[type = "text"]:focus, .box input[type = "password"]:focus
 {
     width: 280px;
-    /*border-color: #2ecc71;*/
+    border-color: white;
     box-shadow: none;
-    border-color: #3498db;
 }
 
 .alert button[type = "submit"]
@@ -76,7 +92,7 @@
     display: block;
     margin: 20px auto;
     text-align: center;
-    /*border: 2px solid white;*/
+    border: 2px solid white;
     padding: 14px 40px;
     outline: none;
     /*color: white;*/
@@ -96,7 +112,7 @@
     display: inline-block;
     margin: 20px auto;
     text-align: center;
-    /*border: 2px solid white;*/
+    border: 2px solid white;
     padding: 14px 40px;
     border-color: white;
     /*outline: none;*/
@@ -109,7 +125,6 @@
 {
     background: white;
     color: black;
-    /*border: 2px solid black;*/
 }
 
 #background
@@ -156,12 +171,12 @@
 }
 
 .alert i
- {
-     color: #c0392b;
-     font-size: 40px;
-     display: block;
-     margin: 20px 0;
- }
+{
+    color: white;
+    font-size: 40px;
+    display: block;
+    margin: 20px 0;
+}
 
 .alert
 {
@@ -268,4 +283,10 @@
     {
         display: none;
     }
+}
+
+.box a
+{
+    text-decoration: none;
+    color: white;
 }

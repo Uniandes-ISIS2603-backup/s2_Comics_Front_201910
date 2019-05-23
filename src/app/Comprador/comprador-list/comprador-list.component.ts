@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { CompradorService } from '../comprador.service';
 import { Comprador } from '../comprador';
+import $ from "jquery";
 
 @Component({
     selector: 'app-comprador',
@@ -17,7 +18,7 @@ export class CompradorListComponent implements OnInit
      */
     constructor(private compradorService: CompradorService)
     {
-        
+
     }
 
     /**
@@ -35,6 +36,11 @@ export class CompradorListComponent implements OnInit
                 this.compradores = compradores;
                 CompradorListComponent.count = this.compradores.length;
             });
+    }
+
+    cardEffect()
+    {
+
     }
 
     /**

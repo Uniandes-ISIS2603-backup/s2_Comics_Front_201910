@@ -1,4 +1,3 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -20,9 +19,10 @@ import { FormularioComponent } from './Coleccionista/FormularioComponente/formul
 import { LogInComponent } from '../app/Coleccionista/LogInComponente/logIn.component';
 import {OrdenPedidoModule} from './orden-pedido/orden-pedido.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {ParticlesModule} from "angular-particle"; 
-import {HomeModule} from './Home/home.module';
+import {ParticlesModule} from "angular-particle";
 import {ComicModule} from "./Comic/Comic.module";
+import {HomeModule} from './Home/home.module';
+
 
 @NgModule({
     declarations: [

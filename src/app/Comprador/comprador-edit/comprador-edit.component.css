@@ -16,34 +16,58 @@
     text-align: center;
 }
 
+.box textarea:disabled, .box input[type=text]:disabled, .box input[type=password]:disabled,
+.box input[type=email]:disabled
+{
+    background: darkgray;
+    border: 2px solid darkgray;
+}
+
 .box textarea, .box input[type=text], .box input[type=password],
 .box input[type=email]
 {
+    border: 2px solid black;
     background: none;
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid black;
     padding: 14px 10px;
     width: 70%;
     outline: none;
     color: black;
     border-radius: 10px 0 0 10px;
-    transition: 0.25s;
+    transition: all 0.25s ease-out;
 }
 
-.box button[type="button"]
+.box textarea
 {
+    border-radius: 10px 0 10px 10px;
+}
+
+.black
+{
+    border: 1px solid black;
     height: calc(1.5em + .75rem + 2px);
     margin: 20px auto;
     border-radius: 0 5px 5px 0;
     transition: 0.25s;
 }
 
+.black:hover
+{
+    background: black;
+    color: white;
+}
+
+.box button[type="button"]:focus
+{
+    box-shadow: none;
+}
+
 .box textarea:focus, .box input[type=text]:focus,
 .box input[type=password]:focus, .box input[type=email]:focus
 {
-    width: 90%;
+    box-shadow: none;
 }
 
 img {
@@ -52,7 +76,7 @@ img {
     cursor: pointer;
     background: none;
     /*box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);*/
-    border-radius: 10px;
+    border-radius: 10%;
     border: 2px solid black;
     display: inline-block;
 }

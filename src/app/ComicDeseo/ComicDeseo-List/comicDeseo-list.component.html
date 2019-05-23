@@ -5,64 +5,60 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!--<div class="dropdown">
-    
-    
-   
+
+
+
     <button  class="dropbtn" routerlink="/comicsDeseo/list">WishList</button>
     <div  class="dropdown-content">
         <div *ngFor="let cD of comicsDeseo"><a   href = "#">{{cD.nombre}}</a></div>
-        
+
 </div>-->
 
 
 
 
 <table class="table">
-   <!-- <thead>-->
-     <!-- <tr>-->
-      <!--  <th scope="col">#</th>-->
-      <!--  <th scope="col"></th>-->
-      <!--  <th scope="col"></th>-->
-      <!--  <th scope="col"></th>-->
-      <!--  <th scope="col"></th>-->
-     <!-- </tr>-->
-   <!-- </thead>-->
+    <!-- <thead>-->
+    <!-- <tr>-->
+    <!--  <th scope="col">#</th>-->
+    <!--  <th scope="col"></th>-->
+    <!--  <th scope="col"></th>-->
+    <!--  <th scope="col"></th>-->
+    <!--  <th scope="col"></th>-->
+    <!-- </tr>-->
+    <!-- </thead>-->
 
     <tbody>
-      <tr *ngFor = "let cD of comicsDeseo">
-        
+    <tr *ngFor = "let cD of comicsDeseo">
+
         <td>
-          <div class=row>
+            <div class=row>
 
-              <div class="col"><div class="imgCD"><img src="../assets/{{cD.comic.imagen}}" style="width:140px; height: 200px; padding-top: 1px; padding-bottom: 1px;"></div></div>
-              <div class="col-10"><a style="color:black" routerLink="/comic/{{cD.comic.id}}"><h2>{{cD.comic.nombre}}
-              </h2></a>
-               <br>
-              <p>{{cD.comic.informacion}}</p>
-              <br>
-              <br>
-              <div class="row">
-                <div class="col"><b>COP {{cD.comic.precio}}</b></div>
-                
-                <div class="col-1"><button class="btn btn-outline-dark">Comprar</button></div>
-                <div class="col-2"><button style="margin-left: 10px;"class="btn btn-dark">Quitar</button></div>
+                <div class="col"><div class="imgCD"><img src="../assets/{{cD.comic.imagen}}" style="width:140px; height: 200px; padding-top: 1px; padding-bottom: 1px;"></div></div>
+                <div class="col-10"><a style="color:black" routerLink="/comic/{{cD.comic.id}}"><h2>{{cD.comic.nombre}}
+                </h2></a>
+                    <br>
+                    <p>{{cD.comic.informacion}}</p>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col"><b>COP {{cD.comic.precio}}</b></div>
 
-
-              </div>
+                        <div class="col-1"><button class="btn btn-outline-dark">Comprar</button></div>
+                        <div class="col-2"><button style="margin-left: 10px;"class="btn btn-dark">Quitar</button></div>
+                    </div>
+                </div>
             </div>
-          </div>
-      
-       
-         
+
         </td>
-        
-     
-        
-      </tr>
-      
+
+
+
+    </tr>
+
     </tbody>
-  </table>
-  
+</table>
 
 
-  
+
+

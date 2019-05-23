@@ -17,13 +17,13 @@ export class ComicService {
   getComics(): Observable<Comic[]> {
     return this.http.get<Comic[]>(API_URL + comics);
   }
-  
+
   getComicDetail(comicId): Observable<ComicDetail> {
     //cambiar
     return this.http.get<ComicDetail>(API_URL + comics + '/' + comicId);
   }
 
-  updateComic(comicId,comic){      
+  updateComic(comicId,comic){
     return this.http.put<ComicDetail>(API_URL + comics +'/'+comicId ,comic);
   }
 

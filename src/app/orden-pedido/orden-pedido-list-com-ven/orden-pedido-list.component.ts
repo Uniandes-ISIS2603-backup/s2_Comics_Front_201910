@@ -9,11 +9,11 @@ import {OrdenPedido} from "../OrdenPedido";
 
 
 @Component({
-    selector: 'app-orden-pedido-list',
-    templateUrl: './orden-pedido-list.component.html',
-    styleUrls: ['./orden-pedido-list.component.css']
+    selector: 'app-orden-pedido-list-com-ven',
+    templateUrl: './orden-pedido-list-com-ven.component.html',
+    styleUrls: ['./orden-pedido-list-com-ven.component.css']
 })
-export class OrdenPedidoListComponent implements OnInit {
+export class OrdenPedidoListComVenComponent implements OnInit {
 
 
     /**
@@ -28,10 +28,6 @@ export class OrdenPedidoListComponent implements OnInit {
     /**
      * The list of ordenesPedido which belong to the ComicStore
      */
-
-    estados: String[]= ['EN_ESPERA' ,'ACEPTADO','RECHAZADO','ENVIADO' ,'FINALIZADO'];
-    categoriasElegidas: boolean[] = [true,true,true,true,true];
-
     ordenesPedido: OrdenPedido[];
 
     ordenPedido: OrdenPedido;
@@ -52,9 +48,7 @@ export class OrdenPedidoListComponent implements OnInit {
         this.ordenPedidoService.getOrdenesPedido().subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido);
     }
 
-    getOrdenesPedidoEstado(estado): void {
-        this.ordenPedidoService.getOrdenesPedidoEstado(estado).subscribe(ordenesPedido => this.ordenesPedido = ordenesPedido)
-    }
+
 
     /**
      * Creates a new book
@@ -65,6 +59,14 @@ export class OrdenPedidoListComponent implements OnInit {
                 this.ordenPedido.id = OrdenPedido.id;
             });
         return this.ordenPedido;
+    }
+
+    verificar():void{
+
+        alert("llego")
+        this.ADMI=(localStorage.getItem("role")=="ADMIN");
+        alert(this.ADMI);
+
     }
 
     getOrdenesPedidoComprador():void{
@@ -84,20 +86,21 @@ export class OrdenPedidoListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
-      alert(localStorage.getItem("role"))
-     this.idComprador=parseInt(localStorage.getItem("user"));
-     this.idVendedor=parseInt(localStorage.getItem("user"));
-      
-      if(localStorage.getItem("role")=='Comprador'){
-      this.getOrdenesPedidoComprador();
-       
-      }
-     if(localStorage.getItem("role")=='Vendedor') {
-        this.getOrdenesPedidoVendedor(); 
-      }
-      if(localStorage.getItem("role")=='ADMIN') {
-        this.getOrdenesPedido(); 
-      }
+        this.verificar();
+        alert(localStorage.getItem("role"))
+        this.idComprador=parseInt(localStorage.getItem("user"));
+        this.idVendedor=parseInt(localStorage.getItem("user"));
+
+        if(localStorage.getItem("role")=='Comprador'){
+            this.getOrdenesPedidoComprador();
+
+        }
+        if(localStorage.getItem("role")=='Vendedor') {
+            this.getOrdenesPedidoVendedor();
+        }
+        if(localStorage.getItem("role")=='ADMIN') {
+            this.getOrdenesPedido();
+        }
     }
 
 }

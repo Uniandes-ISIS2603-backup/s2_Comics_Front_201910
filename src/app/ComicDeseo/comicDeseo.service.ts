@@ -10,52 +10,69 @@ import {ComicDeseo} from './ComicDeseo';
 import {Observable} from 'rxjs';
 import { ComicDeseoDetail } from './ComicDeseoDetail';
 
-import {environment} from "../../environments/environment";
+
+import { environment } from '../../environments/environment';
 
 //const API_URL = "../../assets/";
 const API_URL = environment.apiURL;
 //const comicsDeseo = 'ComicsDeseo.json';
 const comicsDeseo = '/comicDeseo';
+const comprador= '/comprador'
 
 @Injectable()
 export class ComicDeseoService{
-    
+
     constructor(private http: HttpClient){}
-        
-        getComicsDeseo():Observable<ComicDeseo[]>
-            {
-            
-            return this.http.get<ComicDeseo[]>(API_URL + comicsDeseo);
-        
+
+    getComicsDeseo():Observable<ComicDeseo[]>
+    {
+
+        return this.http.get<ComicDeseo[]>(API_URL + comicsDeseo);
+
     }
+
+    /**
+     * Crea un comic deseo en la base de datos
+     * @param comicDeseo el comic a crear
+     */
+    createComicDeseo(comicDeseo): Observable<ComicDeseo> {
+    
+        return this.http.post<ComicDeseo>(API_URL + comicsDeseo, comicDeseo);
+      }
 
    
     /**
-    * Returns the Observable object containing the editorial retrieved from the API
-    * @returns The editorial
-    */
-   getComicDeseoDetail(comicDeseoId): Observable<ComicDeseoDetail> {
-    return this.http.get<ComicDeseoDetail>(API_URL +comicsDeseo+'/'+comicDeseoId);
-}
-
-/**
- * Obtiene el comprador a partir del alias
- * @param id Id del comicDeseo
- */
-   // getComicDeseoById(id):Observable<ComicDeseoDetail>{
-
-    //    return this.http.get<ComicDeseoDetail>(API_URL+comicsDeseo+'/'+id);
-   // }
+     * Returns the Observable object containing the editorial retrieved from the API
+     * @returns The editorial
+     */
+    getComicDeseoDetail(comicDeseoId): Observable<ComicDeseoDetail> {
+        return this.http.get<ComicDeseoDetail>(API_URL +comicsDeseo+'/'+comicDeseoId);
+    }
 
     /**
-     * Crea un comic Deseo
-     * @param comicDeseo el comic deseo que se va a crear
+     * Obtiene el comprador a partir del alias
+     * @param id Id del comicDeseo
      */
+    // getComicDeseoById(id):Observable<ComicDeseoDetail>{
 
-    // createComicDeseo(comicDeseo):Observable<ComicDeseo>{
+    //    return this.http.get<ComicDeseoDetail>(API_URL+comicsDeseo+'/'+id);
+    // }
 
-      //  return this.http.post<ComicDeseo>(API_URL + comicsDeseo,comicDeseo)
-//}           
+   
+     /**
+    * Deletes a comicDeseo
+    * @param comicDeseo_Id The comicsDeseo's id
+    * @returns True if the book was deleted, false otherwise
+    */
+   deleteComicDeseo(comicDeseo_Id): Observable<ComicDeseo> {
+    return this.http.delete<ComicDeseo>(API_URL + comicsDeseo + '/' + comicDeseo_Id);
+    }
+
+    getComicsDeseoComprador(compradorId):  Observable<ComicDeseo[]> {
+        return this.http.get<ComicDeseo[]>(API_URL + comprador + '/' + compradorId );
+    }
+
+          
      }
 
 
