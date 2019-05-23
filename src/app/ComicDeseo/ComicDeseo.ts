@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import { Comic } from "../Comic/Comic";
+import {Comprador} from "../Comprador/comprador";
  
 export class ComicDeseo {
      
@@ -13,12 +14,17 @@ export class ComicDeseo {
   fechaAgregado:String;
 
     comic:Comic;
+
+    comprador:Comprador;
    
  public darFecha():String{
 
      return this.fechaAgregado;
  }
-   
+   getComprador(): Comprador{
+
+    return this.comprador;
+   }
   
   
 }
