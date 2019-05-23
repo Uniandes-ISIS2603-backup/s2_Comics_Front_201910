@@ -12,18 +12,18 @@ import { Comprador } from "../../Comprador/comprador";
     selector: 'app-orden-pedido-detail-comprador',
     templateUrl: './orden-pedido-detail-comprador.html',
     styleUrls: ['./orden-pedido-detail-comprador.css']
-})
-/**
+  })
+  /**
  * Clase que representa la ordenPedidoDetail.
  */
-export class OrdenPedidoDetailComprador implements OnInit {
-
+  export class OrdenPedidoDetailComprador implements OnInit {
+  
     /**
      * 
      * @param route 
      * @param service 
      *  @param toastrService The toastr to show messages to the user
-
+    
      */
     constructor(
         private route:ActivatedRoute,
@@ -47,8 +47,8 @@ export class OrdenPedidoDetailComprador implements OnInit {
      */
 
     idComprador:String;
-    err:String;
-    id:number;
+     err:String;
+   id:number;
 
     /**
      * Método que obtiene la ordenPedido cuyos detalles queremos mostrar.
@@ -56,16 +56,16 @@ export class OrdenPedidoDetailComprador implements OnInit {
     getOrdenPedidoId():void
     {
         this.service.getOrdenPedidoId(this.id)
-            .subscribe(ordenPedidoId =>
+        .subscribe(ordenPedidoId => 
             {
                 this.ordenPedidoId = ordenPedidoId;
             });
     }
 
     /**
-     * This function updates the ordenPedido
-     */
-    updateOrdenPedido(): void {
+    * This function updates the ordenPedido
+    */
+   updateOrdenPedido(): void {
 
     alert("yeiii estoy llegando")
     
@@ -83,7 +83,6 @@ deleteOrdenPedido(): void {
         alert('se elimino la OrdenPedido'); });
 }
 
-    }
 
 
     /**
@@ -92,13 +91,13 @@ deleteOrdenPedido(): void {
      */
     ngOnInit()
     {
-
+        
         this.id = +this.route.snapshot.paramMap.get('id');
         if(this.id)
         {
             this.getOrdenPedidoId();
-
-
+        
+       
         }
 
     }

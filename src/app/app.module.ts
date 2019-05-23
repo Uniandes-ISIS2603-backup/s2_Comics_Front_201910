@@ -22,7 +22,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {ParticlesModule} from "angular-particle";
 import {ComicModule} from "./Comic/Comic.module";
 import {HomeModule} from './Home/home.module';
-import {ComicModule} from "./Comic/Comic.module";
+
 
 @NgModule({
     declarations: [
