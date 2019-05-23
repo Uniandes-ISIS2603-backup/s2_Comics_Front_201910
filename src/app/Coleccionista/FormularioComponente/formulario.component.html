@@ -158,7 +158,10 @@
                 </div>
             </div>
         </div>
-
+        <div class="form-group">
+            <input type="file" style="display: inline-block;" (change)="onFileSelected($event)">
+            <button class="btn btn-outline-dark" (click)="onUpload()">Upload</button>
+        </div>
         <div class="form-group">
             <div class="row">
                 <div class="col-3">

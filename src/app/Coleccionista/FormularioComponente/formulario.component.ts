@@ -22,6 +22,10 @@ export class FormularioComponent implements OnInit
     myParams: object = {};
     width: number = 100;
     height: number = 100;
+
+    selectedFile: File = null;
+
+
     /**
      * Formulario de registro
      */
@@ -229,6 +233,21 @@ export class FormularioComponent implements OnInit
                 }
             }
         }
+    }
+
+    onFileSelected(event)
+    {
+        this.selectedFile = <File> event.target.files[0];
+    }
+
+    onUpload()
+    {
+        const fd = new FormData();
+        fd.append('image', this.selectedFile, this.selectedFile.name);
+        this.httpClient.post('https://us-central1-s2-comics.cloudfunctions.net/uploadFile', fd).subscribe(res =>
+        {
+            console.log(res);
+        });
     }
 
     /**
