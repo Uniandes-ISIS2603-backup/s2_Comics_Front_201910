@@ -52,7 +52,9 @@ import {HomeModule} from './Home/home.module';
         NgbModule,
         CompradorModule,
         OrdenPedidoModule,
-        ComicModule,ParticlesModule,FlexLayoutModule
+        ComicModule,
+        ParticlesModule,
+        FlexLayoutModule
     ],
     bootstrap: [AppComponent],
     providers: [

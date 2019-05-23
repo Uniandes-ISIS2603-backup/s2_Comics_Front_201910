@@ -140,13 +140,13 @@ export class ComicListComponent implements OnInit {
     let ans:string = "";
     if(this.searchQ.length > 0){
       this.searchQ = this.searchQ.replace(" ", "_");
-      ans += "$"+this.searchQ;
+      ans += "+"+this.searchQ;
     }
     if(this.minPrice != 0 || this.maxPrice != 500)
       ans += "#"+this.minPrice+"-"+this.maxPrice;
     for(let i:number = 0 ; i < this.categoriasElegidas.length ; ++i){
       if(!this.categoriasElegidas[i]){
-        ans += "%";
+        ans += "?";
         for(let j = 0 ; j < this.categoriasElegidas.length ; ++j){
           // console.log("cat in " + j + this.categoriasElegidas[j]);
           if(this.categoriasElegidas[j])
@@ -168,22 +168,22 @@ export class ComicListComponent implements OnInit {
 
   ngOnInit() {
     this.query = this.route.snapshot.paramMap.get('query');
-    let i: number = this.query.search('$');
+    let i: number = this.query.search('+');
     let r: number;
     if(i != -1){
       r = ++i;
-      while(r < this.query.length && (this.query.charAt(r) != '%' || this.query.charAt(r) != '#'))
+      while(r < this.query.length && (this.query.charAt(r) != '?' || this.query.charAt(r) != '#'))
         r++;
       this.search(this.query.substring(i,r));
     }
-    i = this.query.search('%');
+    i = this.query.search('?');
     if(i != -1){
       this.filterCat(this.query.substr(i+1,this.categoriasElegidas.length));
     }
     i = this.query.search('#');
     if(i != -1){
       r = ++i;
-      while(r < this.query.length && (this.query.charAt(r) != '%' || this.query.charAt(r) != '#'))
+      while(r < this.query.length && (this.query.charAt(r) != '?' || this.query.charAt(r) != '#'))
         r++;
       let s:string[] = this.query.substring(i,r).split("-");
       this.minPrice = +s[0];
