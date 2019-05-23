@@ -6,8 +6,8 @@ import {ComicDeseoService} from '../ComicDeseo/comicDeseo.service';
     selector: 'homePage',
     templateUrl: './home.html',
     styleUrls: ['./home.css']
-  })
-  export class HomePage implements OnInit{
+})
+export class HomePage implements OnInit{
 
     constructor(private comicsDeseoService:ComicDeseoService){
 
@@ -46,4 +46,4 @@ import {ComicDeseoService} from '../ComicDeseo/comicDeseo.service';
       this.getComicsDeseo();
 
     }
-  }
+}

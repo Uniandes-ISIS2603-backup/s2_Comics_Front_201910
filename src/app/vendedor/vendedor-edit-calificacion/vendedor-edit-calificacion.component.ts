@@ -15,11 +15,11 @@ import {VendedorCalificacionesComponent} from '../vendedor-calificaciones/vended
 @Component({
     selector: 'app-vendedor-edit-calificacion',
     templateUrl: './vendedor-edit-calificacion.component.html',
-   
+
 })
 
 export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
-     constructor(
+    constructor(
         private vendedorService: VendedorService,
         private toastrService: ToastrService,
         private route: ActivatedRoute,
@@ -31,7 +31,7 @@ export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
      vendedorId:number;
    
     calificacion: Calificacion;
-    
+
     public isCollapsed = true;
     @ViewChild(VendedorCalificacionesComponent) calificacionesComponent: VendedorCalificacionesComponent;
     @Output() updateCalificaciones = new EventEmitter();
@@ -54,30 +54,30 @@ export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
     }
     //inicializa el vendedor dueño de las calificaicones
     ngOnInit(){
-          this.vendedorId = +this.route.snapshot.paramMap.get('id');
-          this.calificacion=new Calificacion();
-         this.vendedorService.getVendedorDetail(this.vendedorId).subscribe(vendedor=>{this.vendedor=vendedor;});
+        this.vendedorId = +this.route.snapshot.paramMap.get('id');
+        this.calificacion=new Calificacion();
+        this.vendedorService.getVendedorDetail(this.vendedorId).subscribe(vendedor=>{this.vendedor=vendedor;});
     }
     ngOnChanges() {
         this.ngOnInit();
     }
     starList: boolean[] = [true,true,true,true,true];       // create a list which contains status of 5 stars
     cancelEdition(): void {
-        
+
         this.toastrService.warning('Esta calificación no fue editada', 'Edicion de calificacion');
         this.isCollapsed=true;
     }
 //metodo que permite desplegar la puntuacion con estrellas
-setStar(data:any){
-      this.calificacion.puntuacion=data+1;                               
-      for(var i=0;i<=4;i++){  
-        if(i<=data){  
-          this.starList[i]=false;  
-        }  
-        else{  
-          this.starList[i]=true;  
-        }  
-     }  
- }  
+    setStar(data:any){
+        this.calificacion.puntuacion=data+1;
+        for(var i=0;i<=4;i++){
+            if(i<=data){
+                this.starList[i]=false;
+            }
+            else{
+                this.starList[i]=true;
+            }
+        }
+    }
 }
 

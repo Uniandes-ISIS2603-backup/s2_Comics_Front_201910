@@ -20,7 +20,7 @@ import {ComicDeseoDetailComponent} from "./ComicDeseo-detail/comicdeseo-detail.c
         HttpClientModule,
         CommonModule,
         FormsModule,
-        
+
     ],
     declarations: [
         ComicDeseoListComponent, ComicDeseoDetailComponent
