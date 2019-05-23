@@ -5,14 +5,14 @@
  */
 import { Comic } from "../Comic/Comic";
  
-export class ComicDeseo extends Comic{
+export class ComicDeseo {
      
   /**
    * fecha de agregado del comic a la lista de deseos
    */
   fechaAgregado:String;
 
- // comic:Comic;
+    comic:Comic;
    
  public darFecha():String{
 

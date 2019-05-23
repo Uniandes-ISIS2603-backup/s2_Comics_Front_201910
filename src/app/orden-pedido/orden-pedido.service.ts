@@ -21,7 +21,8 @@ export class OrdenPedidoService{
             
             return this.http.get<OrdenPedido[]>(API_URL + ordenesPedido);
         
-    }
+             }
+
     getOrdenesPedidoEstado(estado):Observable<OrdenPedido[]>
     {
     
@@ -45,6 +46,7 @@ export class OrdenPedidoService{
       "fecha: "+ ordenPedido.fechaEstimadaEntrega+" numeroComprasComprador: " + ordenPedido.numeroCompras+ 
       "tarjetaCredito: "+ ordenPedido.tarjetaCredito +" comprador: " + ordenPedido.comprador.id + "vendedor: "+ ordenPedido.vendedor.id+
       "comic: " + ordenPedido.comic.id +"trueque: " + ordenPedido.trueque.id)
+      
 
         return this.http.post<OrdenPedido>(API_URL + ordenesPedido, ordenPedido);
     }

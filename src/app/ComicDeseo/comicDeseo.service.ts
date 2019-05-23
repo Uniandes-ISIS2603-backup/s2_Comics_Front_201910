@@ -12,10 +12,10 @@ import { ComicDeseoDetail } from './ComicDeseoDetail';
 
 import { environment } from '../../environments/environment';
 
-const API_URL = "../../assets/";
-//const API_URL = environment.apiURL;
-const comicsDeseo = 'ComicsDeseo.json';
-//const comicsDeseo = '/comicDeseo';
+//const API_URL = "../../assets/";
+const API_URL = environment.apiURL;
+//const comicsDeseo = 'ComicsDeseo.json';
+const comicsDeseo = '/comicDeseo';
 
 @Injectable()
 export class ComicDeseoService{
