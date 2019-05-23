@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-    
+
 import { Component, OnInit, Input, OnChanges, EventEmitter, Output, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm, Validators } from '@angular/forms';
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Calificacion } from '../calificacion';
 import { VendedorService } from '../vendedor.service';
 import { VendedorDetail } from '../vendedor-detail';
-import {VendedorCalificacionesComponent} from '../vendedor-calificaciones/vendedor-calificaciones.component';
+// import {VendedorCalificacionesComponent} from "../Vendedor-Calificaciones/vendedor-calificaciones.component";
 @Component({
     selector: 'app-vendedor-edit-calificacion',
     templateUrl: './vendedor-edit-calificacion.component.html',
@@ -25,31 +25,32 @@ export class VendedorEditCalificacionComponent implements OnInit, OnChanges {
         private route: ActivatedRoute,
 
     ) { }
-    
-     @Input() vendedor: VendedorDetail;
-    
-     vendedorId:number;
-   
+
+    @Input() vendedor: VendedorDetail;
+
+    vendedorId:number;
+
     calificacion: Calificacion;
 
     public isCollapsed = true;
-    @ViewChild(VendedorCalificacionesComponent) calificacionesComponent: VendedorCalificacionesComponent;
+    // @ViewChild(VendedorCalificacionesComponent)
+    // calificacionesComponent: VendedorCalificacionesComponent;
     @Output() updateCalificaciones = new EventEmitter();
     //metodo que llama al servicio para actualizar la calificacion
-     putCalificacion(calificacionForm: NgForm): Calificacion {
-        
-         if (this.calificacion.puntuacion!=null){
-          
-        this.vendedorService.updateCalificacion(this.vendedorId,this.calificacion,this.calificacion.id)
-            .subscribe(() => {
-                calificacionForm.resetForm();
-                this.updateCalificaciones.emit();
-                this.toastrService.success("La calificacion fue creada exitosamente", 'Calificación anadida');
-                window.location.reload();
-            }, err => {
-                this.toastrService.error(err, 'Error');
-            });
-         }
+    putCalificacion(calificacionForm: NgForm): Calificacion {
+
+        if (this.calificacion.puntuacion!=null){
+
+            this.vendedorService.updateCalificacion(this.vendedorId,this.calificacion,this.calificacion.id)
+                .subscribe(() => {
+                    calificacionForm.resetForm();
+                    this.updateCalificaciones.emit();
+                    this.toastrService.success("La calificacion fue creada exitosamente", 'Calificación anadida');
+                    window.location.reload();
+                }, err => {
+                    this.toastrService.error(err, 'Error');
+                });
+        }
         return this.calificacion;
     }
     //inicializa el vendedor dueño de las calificaicones

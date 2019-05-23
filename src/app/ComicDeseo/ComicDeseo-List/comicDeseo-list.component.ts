@@ -22,36 +22,39 @@ export class ComicDeseoListComponent implements OnInit{
 
 
     }
-    
-    comicsDeseo: ComicDeseo[]=new Array();
-    
-    
-    getComicsDeseo():void{
-        
-        console.log("In get comics deseo");
-    //this.comicsDeseoService.getComicsDeseo()
-     // .subscribe(comicDArr => {
-      //  let temp: ComicDeseo[] = comicDArr;
-      //  temp.forEach(c => {
-          
-            
-              
-        //        this.comicDeseo.push(c);
-                
-              
-            
-          
-      //  });
-     // });
 
-     this.comicsDeseoService.getComicsDeseo()
-     .subscribe(comicsDeseo =>
-         this.comicsDeseo = comicsDeseo);
+    comicsDeseo: ComicDeseo[]=new Array();
+
+
+    getComicsDeseo():void{
+
+        console.log("In get comics deseo");
+        //this.comicsDeseoService.getComicsDeseo()
+        // .subscribe(comicDArr => {
+        //  let temp: ComicDeseo[] = comicDArr;
+        //  temp.forEach(c => {
+
+
+
+        //        this.comicDeseo.push(c);
+
+
+
+
+        //  });
+        // });
+
+        this.comicsDeseoService.getComicsDeseo()
+            .subscribe(comicsDeseo =>{
+                    this.comicsDeseo = comicsDeseo;
+                    console.log(this.comicsDeseo.length);
+                }
+            );
     }
-  
-    
+
+
     ngOnInit(){
-        
+
         this.getComicsDeseo();
     }
 

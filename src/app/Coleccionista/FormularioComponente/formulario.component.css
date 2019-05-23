@@ -115,7 +115,6 @@ img:hover {
     padding: 14px 40px;
     outline: none;
     color: black;
-    border-radius: 10px;
     transition: 0.25s;
 }
 
@@ -129,7 +128,6 @@ img:hover {
     padding: 14px 40px;
     /*    outline: none;*/
     color: white;
-    border-radius: 10px;
     /*    transition: 0.25s;*/
 }
 
